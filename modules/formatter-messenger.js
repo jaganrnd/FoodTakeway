@@ -97,9 +97,9 @@ let formatOpportunities = opportunities => {
     };
 };
 
-let formatCases = Cases  => {
+let formatCase = Case  => {
     let elements = [];
-    cases.forEach(case =>
+    case.forEach(case =>
         elements.push({
             title: case.get("Name"),
             //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
@@ -126,4 +126,4 @@ let formatCases = Cases  => {
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
-exports.formatCases = formatCases;
+exports.formatCase = formatCase;
