@@ -126,4 +126,4 @@ let formatOpportunities = opportunities => {
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
-exports.formatCases = formatCases;
+//exports.formatCases = formatCases;
