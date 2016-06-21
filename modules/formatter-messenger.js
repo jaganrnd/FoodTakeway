@@ -97,6 +97,33 @@ let formatOpportunities = opportunities => {
     };
 };
 
+let formatCases = Cases  => {
+    let elements = [];
+    cases.forEach(cases =>
+        elements.push({
+            title: cases.get("Name"),
+            //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
+            "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
+            "buttons": [
+                {
+                    "type": "web_url",
+                    "url": "https://login.salesforce.com/" + case.getId(),
+                    "title": "Open in Salesforce"
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
+exports.formatCases = formatCases;
