@@ -32,7 +32,7 @@ let processText = (text, sender)  => {
     Search Acme in accounts
     Search contact Smith
     What are my top 3 opportunities?
-    Escalated cases ?
+    Search Escalated cases
         `}, sender);
         return;
     }
@@ -72,6 +72,17 @@ let processText = (text, sender)  => {
         });
         return;
     }
+    
+    match = text.match(/Search Escalated cases /i);
+    if (match) {
+        salesforce.findCases(match[1]).then(cases => {
+            sendMessage({text: `Here are the escalated cases "${match[1]}":`}, sender);
+            sendMessage(formatter.formatCases(cases), sender)
+        });
+        return;
+    }
+    
+    
 };
 
 let handleGet = (req, res) => {
