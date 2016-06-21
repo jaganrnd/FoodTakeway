@@ -91,7 +91,7 @@ let getTopOpportunities = count => {
 
 };
 
-let findCases = name => {
+/*let findCases = name => {
     
     return new Promise((resolve, reject) => {
         let q = "SELECT Id, Name,Reason  FROM Case  WHERE status = 'Escalated' ";
@@ -105,7 +105,7 @@ let findCases = name => {
         });
     });
 
-};
+};*/
 
 
 login();
@@ -115,4 +115,4 @@ exports.findAccount = findAccount;
 exports.findContact = findContact;
 exports.findContactsByAccount = findContactsByAccount;
 exports.getTopOpportunities = getTopOpportunities;
-exports.findCases = findCases;
+//exports.findCases = findCases;
