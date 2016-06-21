@@ -101,7 +101,7 @@ let formatCases = Cases  => {
     let elements = [];
     cases.forEach(cases =>
         elements.push({
-            title: cases.get("Name"),
+            title: case.get("Name"),
             //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
             "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
             "buttons": [
