@@ -91,7 +91,7 @@ let getTopOpportunities = count => {
 
 };
 
-let findCase = name => {
+let findCases = name => {
     
     return new Promise((resolve, reject) => {
         let q = "SELECT Id, Name,Reason  FROM Case  WHERE status = 'Escalated' ";
