@@ -97,7 +97,7 @@ let formatOpportunities = opportunities => {
     };
 };
 
-let formatCases = Cases  => {
+/*let formatCases = Cases  => {
     let elements = [];
     cases.forEach(cases =>
         elements.push({
@@ -121,7 +121,7 @@ let formatCases = Cases  => {
             }
         }
     };
-};
+};*/
 
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
