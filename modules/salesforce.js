@@ -94,7 +94,7 @@ let getTopOpportunities = count => {
 let findCases = name => {
     
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name,Reason  FROM Case  WHERE status = 'Escalated';
+        let q = "SELECT Id, Name,Reason  FROM Case  WHERE status = 'Escalated' ";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
