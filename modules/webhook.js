@@ -32,7 +32,7 @@ let processText = (text, sender)  => {
     Search Acme in accounts
     Search contact Smith
     What are my top 3 opportunities?
-    Jagan Sir
+    Escalated cases ?
         `}, sender);
         return;
     }
