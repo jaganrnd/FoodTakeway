@@ -97,17 +97,17 @@ let formatOpportunities = opportunities => {
     };
 };
 
-let formatCases = Cases => {
+let formatOpp = Opportunities => {
     let elements = [];
-    Cases.forEach(case =>
+    Opportunities.forEach(opportunity =>
         elements.push({
-            title: case.get("Name"),
+            title: opportunity.get("Name"),
             //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
             "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
             "buttons": [
                 {
                     "type": "web_url",
-                    "url": "https://login.salesforce.com/" + case.getId(),
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
                     "title": "Open in Salesforce"
                 }]
         })
@@ -126,4 +126,4 @@ let formatCases = Cases => {
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
-exports.formatCases = formatCases;
+exports.formatOpp = formatOpp;
