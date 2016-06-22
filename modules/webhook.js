@@ -33,6 +33,7 @@ let processText = (text, sender)  => {
     Search contact Smith
     What are my top 3 opportunities?
     Search opportunity dell
+    Who are my converted leads ?
         `}, sender);
         return;
     }
@@ -82,7 +83,17 @@ let processText = (text, sender)  => {
         return;
     }
     
-    
+    match = text.match(/Who are my converted leads ? (.*)/i);
+    /*if (match) {
+        salesforce.findOpportunities(match[1]).then(Opportunities => {
+            sendMessage({text: `Here are the Opportunities "${match[1]}":`}, sender);
+            sendMessage(formatter.formatOpp(Opportunities), sender)
+        });
+        return;
+    }*/
+      if(match){
+          sendMessage({text: `Here are the Converted Leads "${match[1]}":`}, sender);
+      }
 };
 
 let handleGet = (req, res) => {
