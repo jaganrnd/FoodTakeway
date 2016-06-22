@@ -73,14 +73,14 @@ let processText = (text, sender)  => {
         return;
     }
     
-    match = text.match(/search opportunity (.*)/i);
+    /*match = text.match(/search opportunity (.*)/i);
     if (match) {
         salesforce.findOpportunities(match[1]).then(Opportunities => {
             sendMessage({text: `Here are the Opportunities "${match[1]}":`}, sender);
             sendMessage(formatter.formatOpp(Opportunities), sender)
         });
         return;
-    }
+    }*/
     
     
 };
