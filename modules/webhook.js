@@ -91,10 +91,12 @@ let processText = (text, sender)  => {
         });
         return;
     }*/
-      if(match){
-          salesforce.findLeads(match[1]).then(Leads => {
+    if(match){
+        salesforce.findLeads(match[1]).then(Leads => {
           sendMessage({text: `Here are the Converted Leads "${match[1]}":`}, sender);
-      }
+        });
+      return;
+    }  
 };
 
 let handleGet = (req, res) => {
