@@ -77,7 +77,7 @@ let processText = (text, sender)  => {
     if (match) {
         salesforce.findCases(match[1]).then(Cases => {
             sendMessage({text: `Here are the escalated cases "${match[1]}":`}, sender);
-            sendMessage(formatter.formatCase(Cases), sender)
+            sendMessage(formatter.formatCases(Cases), sender)
         });
         return;
     }
