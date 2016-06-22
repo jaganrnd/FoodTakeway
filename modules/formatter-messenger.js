@@ -97,7 +97,7 @@ let formatOpportunities = opportunities => {
     };
 };
 
-let formatOpp = Opportunities => {
+/*let formatOpp = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
         elements.push({
@@ -121,9 +121,9 @@ let formatOpp = Opportunities => {
             }
         }
     };
-};
+};*/
 
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
-exports.formatOpp = formatOpp;
+//exports.formatOpp = formatOpp;
