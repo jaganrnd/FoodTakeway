@@ -32,7 +32,7 @@ let processText = (text, sender)  => {
     Search Acme in accounts
     Search contact Smith
     What are my top 3 opportunities?
-    Search case casenumber
+    Search opportunity dell
         `}, sender);
         return;
     }
@@ -73,11 +73,11 @@ let processText = (text, sender)  => {
         return;
     }
     
-    match = text.match(/search case (.*)/i);
+    match = text.match(/search opportunity (.*)/i);
     if (match) {
-        salesforce.findCases(match[1]).then(Cases => {
-            sendMessage({text: `Here are the escalated cases "${match[1]}":`}, sender);
-            sendMessage(formatter.formatCases(Cases), sender)
+        salesforce.findOpportunities(match[1]).then(Opportunities => {
+            sendMessage({text: `Here are the Opportunities "${match[1]}":`}, sender);
+            sendMessage(formatter.formatOpp(Opportunities), sender)
         });
         return;
     }
