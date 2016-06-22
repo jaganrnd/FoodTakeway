@@ -92,7 +92,7 @@ let processText = (text, sender)  => {
         return;
     }*/
       if(match){
-          salesforce.findOpportunities(match[1]).then(Leads => {
+          salesforce.findLeads(match[1]).then(Leads => {
           sendMessage({text: `Here are the Converted Leads "${match[1]}":`}, sender);
       }
 };
