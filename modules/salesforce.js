@@ -91,16 +91,15 @@ let getTopOpportunities = count => {
 
 };
 
-let findCases = name => {
-    
+let findOpportunities = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id,Reason,CaseNumber FROM Case  WHERE CaseNumber LIKE '%" + name + "%' ";
+        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
-                let Cases = resp.records;
-                resolve(Cases);
+                let Opportunities = resp.records;
+                resolve(Opportunities);
             }
         });
     });
@@ -115,4 +114,4 @@ exports.findAccount = findAccount;
 exports.findContact = findContact;
 exports.findContactsByAccount = findContactsByAccount;
 exports.getTopOpportunities = getTopOpportunities;
-exports.findCases = findCases;
+exports.findOpportunities = findOpportunities;
