@@ -103,9 +103,6 @@ let findOpportunities = name => {
             }
         });
     });
-
-};
-
 };
 
 login();
