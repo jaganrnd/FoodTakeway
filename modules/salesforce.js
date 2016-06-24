@@ -106,21 +106,7 @@ let findOpportunities = name => {
 
 };
 
-/*let findLeads = name => {
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name FROM Lead  WHERE Status = 'Closed - Converted' ";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Leads = resp.records;
-                resolve(Leads);
-            }
-        });
-    });*/
-
 };
-
 
 login();
 
@@ -130,4 +116,3 @@ exports.findContact = findContact;
 exports.findContactsByAccount = findContactsByAccount;
 exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
-//exports.findLeads = findLeads;
