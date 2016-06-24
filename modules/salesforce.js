@@ -106,7 +106,7 @@ let findOpportunities = name => {
 
 };
 
-let findLeads = name => {
+/*let findLeads = name => {
     return new Promise((resolve, reject) => {
         let q = "SELECT Id, Name FROM Lead  WHERE Status = 'Closed - Converted' ";
         org.query({query: q}, (err, resp) => {
@@ -117,7 +117,7 @@ let findLeads = name => {
                 resolve(Leads);
             }
         });
-    });
+    });*/
 
 };
 
