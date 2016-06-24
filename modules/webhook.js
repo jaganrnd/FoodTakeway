@@ -83,14 +83,14 @@ let processText = (text, sender)  => {
         return;
     }
     
-    match = text.match(/Who are my converted leads ? (.*)/i);
+    /*match = text.match(/Who are my converted leads ? (.*)/i);
     if(match){
         salesforce.findLeads(match[1]).then(Leads => {
           sendMessage({text: `Here are the Converted Leads "${match[1]}":`}, sender);
           sendMessage(formatter.formatOpp(Leads), sender)
         });
       return;
-    }  
+    } */ 
 };
 
 let handleGet = (req, res) => {
