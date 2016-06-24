@@ -33,7 +33,6 @@ let processText = (text, sender)  => {
     Search contact Smith
     What are my top 3 opportunities?
     Search opportunity dell
-    Who are my converted leads ?
         `}, sender);
         return;
     }
