@@ -42,14 +42,15 @@ let processText = (text, sender)  => {
     match1 = text.match(/hi/i);
     if (match1) {
         sendMessage({text:
-            `Hey I can help you out to :
-    Search sunglasses for me !!!!!!!!
-    Alert me for new arrivals
+            `Welcome to the world of Rayban.
+            How Can I Help You :
+            Search sunglasses for me !!!!!!!!
+            Show new Model
         `}, sender);
         return;
     }
     
-    match1 = text.match(/Search sunglasses (.*)/i);
+    match1 = text.match(/Show new (.*)/i);
     if (match1) {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
