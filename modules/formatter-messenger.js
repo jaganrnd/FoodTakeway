@@ -150,9 +150,40 @@ let formatModel = Opportunities => {
 };
 
 
-
-
-
+let formatOrder = Opportunities => {
+    let elements = [];
+    Opportunities.forEach(opportunity =>
+        elements.push({
+            "title":"Classic White T-Shirt",
+            "subtitle":"100% Soft and Luxurious Cotton",
+            "quantity":2,
+            "price":50,
+            "currency":"USD",
+            "image_url":"http://www.customembossers.com/images/made-to-order-logo.png"
+            "buttons": [
+                {
+                    "type": "web_url",
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
+                    "title": "Open in Salesforce"
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "receipt",
+                "recipient_name":"Stephane Crozatier",
+                "order_number":"12345678902",
+                "currency":"USD",
+                "payment_method":"Visa 2345",        
+                "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                "timestamp":"1428444852", 
+                "elements": elements
+            }
+        }
+    };
+};
 
 
 exports.formatAccounts = formatAccounts;
@@ -160,3 +191,4 @@ exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
 exports.formatOpp = formatOpp;
 exports.formatModel = formatModel;
+exports.formatOrder = formatOrder;
