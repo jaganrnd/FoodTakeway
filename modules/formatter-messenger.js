@@ -143,7 +143,7 @@ let formatModel = Opportunities => {
         "attachment": {
             "type": "image",
             "payload": {
-                "url":"http://s7d3.scene7.com/is/image/LuxotticaRetail/805289742463_000A?$pdpSet$&"
+                "url":"https://media.gq.com/photos/5583cb8309f0bee56442585f/master/pass/style-blogs-the-gq-eye-sunglasses-628.gif"
             }
         }
     };  
