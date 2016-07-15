@@ -51,9 +51,9 @@ let processText = (text, sender)  => {
     
     match1 = text.match(/Search sunglasses (.*)/i);
     if (match1) {
-        salesforce.getdummyOpportunities(match[1]).then(opportunities => {
+        salesforce.findOpportunities(match[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match[1]}":`}, sender);
-            salesforce.sendMessage(formatter.formatModel(opportunities), sender);
+            salesforce.sendMessage(formatter.formatModel(Opportunities), sender);
         });
         return;
     }
@@ -89,7 +89,7 @@ let processText = (text, sender)  => {
 
     match = text.match(/top (.*) opportunities/i);
     if (match) {
-        salesforce.getTopOpportunities(match[1]).then(opportunities => {
+        salesforce.findOpportunities(match[1]).then(opportunities => {
             sendMessage({text: `Here are your top ${match[1]} opportunities:`}, sender);
             sendMessage(formatter.formatOpportunities(opportunities), sender)
         });
