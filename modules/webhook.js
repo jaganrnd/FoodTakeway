@@ -39,7 +39,7 @@ let processText = (text, sender)  => {
     
     //HACKATHON
     let match1;
-    match1 = text.match(/help/i);
+    match1 = text.match(/hi/i);
     if (match1) {
         sendMessage({text:
             `You can ask me things like:
