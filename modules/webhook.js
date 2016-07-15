@@ -50,9 +50,9 @@ let processText = (text, sender)  => {
     }
     
     match1 = text.match(/Search sunglasses (.*)/i);
-    if (match) {
-        salesforce.getdummyOpportunities(match[1]).then(Opportunities => {
-            sendMessage({text: `Processing your request "${match[1]}":`}, sender);
+    if (match1) {
+        salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
+            sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
             sendMessage(formatter.formatModel(Opportunities), sender);
         });
         return;
