@@ -106,22 +106,18 @@ let findOpportunities = name => {
 };
 
 
-let getdummyOpportunities = count => {
-
-    count = 3;
-
+let getdummyOpportunities = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate, Account.Name, Account.Picture_URL__c FROM Opportunity WHERE isClosed=false ORDER BY amount DESC LIMIT " + count;
+        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
-                console.error(err);
                 reject("An error as occurred");
-            } else {
-                resolve(resp.records);
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(opportunities);
             }
         });
     });
-
 };
 
 
