@@ -160,12 +160,6 @@ let formatOrder = Opportunities => {
             "price":50,
             "currency":"USD",
             "image_url":"http://www.customembossers.com/images/made-to-order-logo.png"
-            "buttons": [
-                {
-                    "type": "web_url",
-                    "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Open in Salesforce"
-                }]
         })
     );
     return {
