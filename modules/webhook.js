@@ -51,10 +51,10 @@ let processText = (text, sender)  => {
     
     match1 = text.match(/Search sunglasses (.*)/i);
     if (match1) {
-        salesforce.findOpportunities(match[1]).then(opportunities => {
+        //salesforce.findOpportunities(match[1]).then(opportunities => {
             sendMessage({text: `Processing your request`}, sender);
-            sendMessage(formatter.formatModel(opportunities), sender)
-        });
+            sendMessage(formatter.formatModel(opportunities), sender);
+        //});
         return;
     }
     
