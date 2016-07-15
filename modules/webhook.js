@@ -53,7 +53,7 @@ let processText = (text, sender)  => {
     if (match1) {
             //salesforce.findOpportunities(match[1]).then(opportunities => {
             sendMessage({text: `Processing your request`}, sender);
-            salesforce.sendMessage(formatter.formatModel(opportunities), sender);
+            salesforce.sendMessage(formatter.formatModel(), sender);
         //});
         return;
     }
