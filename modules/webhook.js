@@ -42,9 +42,9 @@ let processText = (text, sender)  => {
     match1 = text.match(/hi/i);
     if (match1) {
         sendMessage({text:
-            `You can ask me things like:
-    Search sunglasses for me !!!!!!!!
-    Alert me for new arrivals
+            `Hey I can help you out to :
+    Search sunglasses for you !!!!!!!!
+    Alert you for new arrivals
         `}, sender);
         return;
     }
