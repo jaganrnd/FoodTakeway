@@ -124,9 +124,9 @@ let formatOpp = Opportunities => {
 };
 
 
-let formatModel = Opportunities => {
+let formatModel = opportunities => {
     let elements = [];
-    Opportunities.forEach(opportunity =>
+    opportunities.forEach(opportunity =>
         elements.push({
                 title: opportunity.get("Name"),
                 subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
