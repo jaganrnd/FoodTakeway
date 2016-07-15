@@ -124,7 +124,7 @@ let formatOpp = Opportunities => {
 };
 
 
-let formatModel = {
+let formatModel = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
         elements.push({
