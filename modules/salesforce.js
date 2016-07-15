@@ -113,7 +113,7 @@ let getdummyOpportunities = name => {
             if (err) {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
+                let opportunities = resp.records;
                 resolve(opportunities);
             }
         });
