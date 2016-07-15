@@ -152,7 +152,7 @@ let formatModel = Opportunities => {
 
 let formatOrder = Opportunities => {
     let elements = [];
-    let summary = [];
+    let summary = {};
     Opportunities.forEach(opportunity =>
         elements.push({
             "title":"Classic White T-Shirt",
