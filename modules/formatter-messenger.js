@@ -133,7 +133,7 @@ let formatModel = Opportunities => {
                 //}
                 "type":"audio",
                  "payload":{
-                    "url":"hhttp://www.readthewords.com/work/output/instant_42016.458.mp3"
+                    "url":"http://www.readthewords.com/work/output/instant_42016.458.mp3"
                   }
             }
         };  
