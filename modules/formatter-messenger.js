@@ -128,7 +128,7 @@ let formatModel = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
         elements.push({
-            title: opportunity.get("Name"),
+            //title: opportunity.get("Name"),
             //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
             "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
             "quick_reply": [
