@@ -54,7 +54,7 @@ let processText = (text, sender)  => {
     if (match1) {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
-            sendMessage(formatter.formatModel(Opportunities), sender);
+            //sendMessage(formatter.formatModel(Opportunities), sender);
             sendMessage(formatter.formatOrder(Opportunities), sender);
         });
         return;
