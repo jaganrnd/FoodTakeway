@@ -36,7 +36,20 @@ let processText = (text, sender)  => {
         `}, sender);
         return;
     }
-
+    
+    //HACKATHON
+    let match;
+    match1 = text.match(/help/i);
+    if (match1) {
+        sendMessage({text:
+            `You can ask me things like:
+    Search sunglasses for me !!!!!!!!
+    Alert me for new arrivals
+        `}, sender);
+        return;
+    }
+    //HACKATHON
+    
     match = text.match(/search account (.*)/i);
     if (match) {
         salesforce.findAccount(match[1]).then(accounts => {
