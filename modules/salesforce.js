@@ -93,7 +93,7 @@ let getTopOpportunities = count => {
 
 let findOpportunities = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
+        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 1";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
