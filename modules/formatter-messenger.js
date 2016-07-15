@@ -134,18 +134,17 @@ let formatModel = Opportunities => {
             "quick_reply": [
                 {
                     "content_type": "text",
-                    "title": "Aviator,Wayfaer",
+                    "title": "Aviator",
                 }]
         })
     );
     return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
+              "quick_reply": [
+                            {
+                                "content_type": "text",
+                                "title": "Aviator",
+                            }]
+                    })
     };
 };
 
