@@ -105,6 +105,27 @@ let findOpportunities = name => {
     });
 };
 
+
+let getdummyOpportunities = count => {
+
+    count = 3;
+
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate, Account.Name, Account.Picture_URL__c FROM Opportunity WHERE isClosed=false ORDER BY amount DESC LIMIT " + count;
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.error(err);
+                reject("An error as occurred");
+            } else {
+                resolve(resp.records);
+            }
+        });
+    });
+
+};
+
+
+
 login();
 
 exports.org = org;
