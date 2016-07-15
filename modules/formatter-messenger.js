@@ -126,18 +126,18 @@ let formatOpp = Opportunities => {
 
 let formatModel =  => {
     let elements = [];
-    Opportunities.forEach(opportunity =>
+    //Opportunities.forEach(opportunity =>
         elements.push({
-              title: opportunity.get("Name"),
-              subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
-              "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
+              //title: opportunity.get("Name"),
+              //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
+              //"image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
             "quick_reply": [
                 {
                     "content_type": "text",
                     "title": "Aviator,Wayfaer",
                 }]
         })
-    );
+    //);
     return {
         "attachment": {
             "type": "template",
