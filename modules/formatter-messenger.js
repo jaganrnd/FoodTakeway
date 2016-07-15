@@ -125,7 +125,7 @@ let formatOpp = Opportunities => {
 
 
 let formatModel = Opportunities => {
-    let elements = [];
+    /*let elements = [];
     Opportunities.forEach(opportunity =>
         elements.push({
             title: opportunity.get("Name"),
@@ -138,7 +138,7 @@ let formatModel = Opportunities => {
                     "title": "Open in Salesforce"
                 }]
         })
-    );
+    );*/
     return {
         "text":"Pick a color:",
           "quick_replies":[
