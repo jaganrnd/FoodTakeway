@@ -134,3 +134,4 @@ exports.findContact = findContact;
 exports.findContactsByAccount = findContactsByAccount;
 exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
+exports.getdummyOpportunities = getdummyOpportunities;
