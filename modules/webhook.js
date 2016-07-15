@@ -48,6 +48,17 @@ let processText = (text, sender)  => {
         `}, sender);
         return;
     }
+    
+    match1 = text.match(/Search sunglasses (.*)/i);
+    if (match1) {
+        salesforce.findOpportunities(match[1]).then(opportunities => {
+            sendMessage({text: `Processing your request`}, sender);
+            sendMessage(formatter.formatModel(opportunities), sender)
+        });
+        return;
+    }
+    
+    
     //HACKATHON
     
     match = text.match(/search account (.*)/i);
