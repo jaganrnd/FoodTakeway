@@ -43,8 +43,8 @@ let processText = (text, sender)  => {
     if (match1) {
         sendMessage({text:
             `Hey I can help you out to :
-    Search sunglasses for you !!!!!!!!
-    Alert you for new arrivals
+    Search sunglasses for me !!!!!!!!
+    Alert me for new arrivals
         `}, sender);
         return;
     }
