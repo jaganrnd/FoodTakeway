@@ -140,18 +140,12 @@ let formatModel = Opportunities => {
         })
     );*/
     return {
-        "text":"Pick a color:",
-          "quick_replies":[
-                  {
-                    "content_type":"text",
-                    "title":"Red",
-                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
-                  },
-                  {
-                    "content_type":"text",
-                    "title":"Green",
-                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
-            }]
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url":"http://s7d3.scene7.com/is/image/LuxotticaRetail/805289742463_000A?$pdpSet$&"
+            }
+        }
     };  
 };
 
