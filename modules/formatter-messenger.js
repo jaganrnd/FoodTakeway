@@ -160,12 +160,12 @@ let formatOrder = Opportunities => {
             "price":50,
             "currency":"USD",
             "image_url":"http://www.customembossers.com/images/made-to-order-logo.png"
-            "summary":{
+            "summary":({
                   "subtotal":75.00,
                   "shipping_cost":4.95,
                   "total_tax":6.19,
                   "total_cost":56.14
-            }
+            })
         })
     );
     return {
