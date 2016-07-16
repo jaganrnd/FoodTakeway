@@ -157,9 +157,24 @@ let formatQuickReplies = Opportunities => {
     return {
             "text":"Pick a color:",
             "quick_replies": quick_replies
-            }
-        };
+            };
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
