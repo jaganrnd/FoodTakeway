@@ -51,7 +51,7 @@ let processText = (text, sender)  => {
     
     
     let match1;
-    match1 = text.match(/help me/i);
+    match1 = text.match(/Shop with me/i);
     if (match1) {
         sendMessage({text:
             `How Can I Help You :
