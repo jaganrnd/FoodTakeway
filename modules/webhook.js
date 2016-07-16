@@ -44,14 +44,15 @@ let processText = (text, sender)  => {
     if (match0) {
         sendMessage({text:
             `Welcome to the world of Rayban.
-               Type Shop with me if you need 
+             Hey do you want shop with me ???
+               If so ---> Type YES 
                   `}, sender);
         return;
     }
     
     
     let match1;
-    match1 = text.match(/Shop with me/i);
+    match1 = text.match(/YES/i);
     if (match1) {
         sendMessage({text:
             `How Can I Help You :
