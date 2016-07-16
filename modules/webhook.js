@@ -42,19 +42,10 @@ let processText = (text, sender)  => {
     let match0;
     match0 = text.match(/hi/i);
     if (match0) {
-        
-        /*sendMessage({text:
+        sendMessage({text:
             `Welcome to the world of Rayban.
                Type Shop with me if you need 
-                  `}, sender);*/
-                  
-        sendMessage({attachment: {
-                "type":"audio",
-                 "payload":{
-                    "url":"http://www.readthewords.com/work/output/instant_42016.458.mp3"
-                  }
-            },sender);
-            
+                  `}, sender);
         return;
     }
     
