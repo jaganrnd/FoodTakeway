@@ -146,9 +146,9 @@ let formatnewModel = Opportunities => {
     };
     
 let formatQuickReplies = Opportunities => {    
-    let Elements  = [];
+    let quick_replies  = [];
     Opportunities.forEach(opportunity =>
-        Elements.push({
+        quick_replies.push({
                 "quick_replies": [{
                     "content_type":"text",
                     "title":"Aviator",
@@ -163,7 +163,7 @@ let formatQuickReplies = Opportunities => {
     );
     return {
             "text":"Pick a color:",
-            "quick_replies": Elements
+            "quick_replies": quick_replies
             };
 };
 
