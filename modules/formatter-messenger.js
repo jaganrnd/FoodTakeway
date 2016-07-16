@@ -134,7 +134,7 @@ let formattone = Opportunities => {
         };  
     }; 
 
-let formatModel = Opportunities => {
+let formatnewModel = Opportunities => {
         return {
             "attachment": {
                 "type": "image",
@@ -150,5 +150,5 @@ exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
 exports.formatOpp = formatOpp;
 exports.formattone = formattone;
-exports.formatModel = formatModel;
+exports.formatnewModel = formatnewModel;
 
