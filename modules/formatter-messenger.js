@@ -145,20 +145,42 @@ let formatnewModel = Opportunities => {
         };  
     };
     
-let formatQuickReplies = Opportunities => {    
+/*let formatQuickReplies = Opportunities => {    
     let quick_replies  = [];
     Opportunities.forEach(opportunity =>
         quick_replies.push({
                 "content_type":"text",
                 "title":"Rectangular",
                 "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                
         })
     );
     return {
-            "text":"Pick a color:",
+            "text":"Pick a Model:",
             "quick_replies": quick_replies
             };
+};*/
+
+
+let formatQuickReplies = Opportunities => {    
+        return {
+            "text":"Pick a color:",
+            "quick_replies":[
+                {
+                    "content_type":"text",
+                    "title":"Red",
+                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                },
+                {
+                    "content_type":"text",
+                    "title":"Green",
+                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                }    
+        };    
 };
+
+
+
 
 
 
