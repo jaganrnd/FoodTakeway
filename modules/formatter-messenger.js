@@ -168,12 +168,12 @@ let formatQuickReplies = Opportunities => {
             "quick_replies":[
                 {
                     "content_type":"text",
-                    "title":"Round",
+                    "title":"Round11",
                     "payload":"close_won"
                 },
                 {
                     "content_type":"text",
-                    "title":"Square",
+                    "title":"Square2222",
                     "payload":"close_won"
                 }]   
         };    
