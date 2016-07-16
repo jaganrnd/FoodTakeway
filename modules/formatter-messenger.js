@@ -169,12 +169,12 @@ let formatQuickReplies = Opportunities => {
                 {
                     "content_type":"text",
                     "title":"Red",
-                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                    "payload":"close_won"
                 },
                 {
                     "content_type":"text",
                     "title":"Green",
-                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                    "payload":"close_won"
                 }]   
         };    
 };
