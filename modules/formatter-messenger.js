@@ -164,7 +164,7 @@ let formatnewModel = Opportunities => {
 
 let formatQuickReplies = Opportunities => {    
         return {
-            "text":"Pick a colour:",
+            "text":"Pick a model:",
             "quick_replies":[
                 {
                     "content_type":"text",
