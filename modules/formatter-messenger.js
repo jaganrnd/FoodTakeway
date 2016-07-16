@@ -123,7 +123,7 @@ let formatOpp = Opportunities => {
     };
 };
 
-let formatWelcometone = Opportunities => {
+let formattone = Opportunities => {
         return {
             "attachment": {
                 "type":"audio",
@@ -149,6 +149,6 @@ exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
 exports.formatOpp = formatOpp;
-exports.formatWelcometone = formatWelcometone;
+exports.formattone = formattone;
 exports.formatModel = formatModel;
 
