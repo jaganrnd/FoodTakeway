@@ -150,7 +150,7 @@ let formatQuickReplies = Opportunities => {
     Opportunities.forEach(opportunity =>
         quick_replies.push({
                     "content_type":"text",
-                    "title":"ROUND",
+                    "title":"Aviator",
                     "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
         })
     );
@@ -159,6 +159,8 @@ let formatQuickReplies = Opportunities => {
             "quick_replies": quick_replies
             };
 };
+
+
 
 
 exports.formatAccounts = formatAccounts;
