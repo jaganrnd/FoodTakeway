@@ -38,24 +38,36 @@ let processText = (text, sender)  => {
     }
     
     //HACKATHON
-    let match1;
-    match1 = text.match(/hi/i);
-    if (match1) {
+    
+    let match0;
+    match0 = text.match(/hi/i);
+    if (match0) {
         sendMessage({text:
             `Welcome to the world of Rayban.
-        How Can I Help You :
-    Search sunglasses for me !!!!!!!!
-    Show new Model
-        `}, sender);
+             Type help me if you need 
+                  `}, sender);
         return;
     }
     
+    
+    let match1;
+    match1 = text.match(/help me/i);
+    if (match1) {
+        sendMessage({text:
+            `How Can I Help You :
+            Search sunglasses for me !!!!!!!!
+            Show new Model
+                `}, sender);
+        return;
+    }
+      
+     
     match1 = text.match(/Show new (.*)/i);
     if (match1) {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
             sendMessage(formatter.formatModel(Opportunities), sender);
-            //sendMessage(formatter.formatOrder(Opportunities), sender);
+            //sendMessage(formatter.formatWelcometone(Opportunities), sender);
         });
         return;
     }
