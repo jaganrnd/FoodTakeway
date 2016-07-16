@@ -149,14 +149,16 @@ let formatQuickReplies = Opportunities => {
     let quick_replies = [];
     Opportunities.forEach(opportunity =>
         quick_replies.push({
+                "quick_replies": [{
                     "content_type":"text",
                     "title":"Aviator",
                     "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
-        })
-        quick_replies.push({
+                 }, 
+                 {        
                     "content_type":"text",
                     "title":"Rectangular",
                     "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+                }]    
         })
     );
     return {
