@@ -123,26 +123,32 @@ let formatOpp = Opportunities => {
     };
 };
 
-
-let formatModel = Opportunities => {
+let formatWelcometone = Opportunities => {
         return {
             "attachment": {
-               // "type": "image",
-                //"payload": {
-                  //  "url":"https://media.gq.com/photos/5583cb8309f0bee56442585f/master/pass/style-blogs-the-gq-eye-sunglasses-628.gif"
-                //}
                 "type":"audio",
                  "payload":{
                     "url":"http://www.readthewords.com/work/output/instant_42016.458.mp3"
                   }
             }
         };  
-    };
+    }; 
 
+let formatModel = Opportunities => {
+        return {
+            "attachment": {
+                "type": "image",
+                "payload": {
+                    "url":"https://media.gq.com/photos/5583cb8309f0bee56442585f/master/pass/style-blogs-the-gq-eye-sunglasses-628.gif"
+                }
+            }
+        };  
+    };
 
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
 exports.formatOpp = formatOpp;
+exports.formatWelcometone = formatWelcometone;
 exports.formatModel = formatModel;
 
