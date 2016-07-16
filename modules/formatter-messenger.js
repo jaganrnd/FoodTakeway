@@ -178,6 +178,11 @@ let formatQuickReplies = Opportunities => {
                 },
                 {
                     "content_type":"text",
+                    "title":"Rectangular",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
                     "title":"Square",
                     "payload":"close_won"
                 }]   
