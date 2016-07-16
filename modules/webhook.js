@@ -68,7 +68,7 @@ let processText = (text, sender)  => {
     match1 = text.match(/Show new (.*)/i);
     if (match1) {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
-            sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
+            sendMessage({text: `Processing your request..............Please wait..... "${match1[1]}":`}, sender);
             //sendMessage(formatter.formatnewModel(Opportunities), sender);
             sendMessage(formatter.formatQuickReplies(Opportunities), sender);
         });
