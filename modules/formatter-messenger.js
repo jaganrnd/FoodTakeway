@@ -153,6 +153,11 @@ let formatQuickReplies = Opportunities => {
                     "title":"Aviator",
                     "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
         })
+        quick_replies.push({
+                    "content_type":"text",
+                    "title":"Rectangular",
+                    "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
+        })
     );
     return {
             "text":"Pick a color:",
