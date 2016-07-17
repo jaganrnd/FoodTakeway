@@ -196,7 +196,8 @@ let formatWayfarerModels = Opportunities => {
         elements.push({
             title: Opportunity.get("Name"),
             "image_url": Opportunity.get("Picture_URL__c"),
-            "buttons": [{
+            "buttons": [
+                {
                     "type": "web_url",
                     "url": "https://login.salesforce.com/" + opportunity.getId(),
                     "title": "Buy"
