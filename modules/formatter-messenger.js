@@ -192,16 +192,17 @@ let formatQuickReplies = Opportunities => {
 
 let formatWayfarerModels = Opportunities => {
     let elements = [];
-    Opportunities.forEach(Opportunity =>
+    Opportunities.forEach(opportunity =>
         elements.push({
-            title: Opportunity.get("Name"),
-            "image_url": Opportunity.get("Picture_URL__c"),
+            title: opportunity.get("Name"),
+            //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
+            "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
             "buttons": [
                 {
                     "type": "web_url",
                     "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Buy"
-            }]
+                    "title": "Open in Salesforce"
+                }]
         })
     );
     return {
@@ -214,10 +215,6 @@ let formatWayfarerModels = Opportunities => {
         }
     };
 };
-
-
-
-
 
 
 exports.formatAccounts = formatAccounts;
