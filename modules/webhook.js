@@ -63,6 +63,15 @@ let processText = (text, sender)  => {
                 `}, sender);
         return;
     }
+    
+    let match2;
+    match2 = text.match(/Square/i);
+    if (match2) {
+        sendMessage({text:
+            `Processing Square Models for you
+                `}, sender);
+        return;
+    }
       
      
     match1 = text.match(/Show new (.*)/i);
