@@ -190,7 +190,7 @@ let formatQuickReplies = Opportunities => {
 };
 
 
-let formatSquareModels = Opportunities => {
+let formatWayfarerModels = Opportunities => {
     let elements = [];
     Opportunities.forEach(Opportunity =>
         elements.push({
@@ -232,4 +232,4 @@ exports.formatOpp = formatOpp;
 exports.formattone = formattone;
 exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
-exports.formatSquareModels = formatSquareModels;
+exports.formatWayfarerModels = formatWayfarerModels;
