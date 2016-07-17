@@ -201,7 +201,7 @@ let formatWayfarerModels = Opportunities => {
                     "type": "web_url",
                     "url": "https://login.salesforce.com/" + opportunity.getId(),
                     "title": "Buy"
-            ]
+            }]
         })
     );
     return {
