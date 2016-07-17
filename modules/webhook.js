@@ -75,7 +75,7 @@ let processText = (text, sender)  => {
     
     
     let match2;
-    match2 = text.match(/Square/i);
+    match2 = text.match(/(.*)/i);
     if (match2) {
         salesforce.findWayfarerOpportunities(match2[1]).then(Opportunities => {    
             sendMessage({text:`Processing Square Models for you`}, sender);
