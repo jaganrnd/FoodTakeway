@@ -79,7 +79,8 @@ let processText = (text, sender)  => {
     if (match2) {
         salesforce.findWayfarerOpportunities(match2).then(Opportunities => {    
             sendMessage({text:`Searching Wayfarer Models....`}, sender);
-            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+            //sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+            sendMessage(formatter.formattone(Opportunities), sender)
         });
         return;
     }
