@@ -198,14 +198,9 @@ let formatWayfarerModels = Opportunities => {
             //subtitle: account.get("BillingStreet") + ", " + account.get("BillingCity") + " " + account.get("BillingState") + " · " + account.get("Phone"),
             "image_url": Opportunity.get("Picture_URL__c"),
             "buttons": [{
-                "type":"postback",
-                "title":"Try On",
-                "payload": "close_won"
-            },{
-                "type": "postback",
-                "title": "Buy"
-                "payload": "close_won"
-            },
+                    "type": "web_url",
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
+                    "title": "Buy"
             ]
         })
     );
