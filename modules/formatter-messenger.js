@@ -196,12 +196,12 @@ let formatWayfarerModels = Opportunities => {
         elements.push({
             title: opportunity.get("Name"),
             //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
-            "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
+            "image_url": opportunity.get("Picture_URL__c"),
             "buttons": [
                 {
                     "type": "web_url",
                     "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Open in Salesforce"
+                    "title": "Buy"
                 }]
         })
     );
