@@ -120,9 +120,9 @@ let getdummyOpportunities = name => {
     });
 };
 
-let findWayfarerOpportunities = Wayfarer => {
+let findWayfarerOpportunities = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name,Picture_URL__c,Type FROM Opportunity WHERE Type LIKE '%" + Wayfarer + "%' LIMIT 5";
+        let q = "SELECT Id, Name,Picture_URL__c,Type FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
