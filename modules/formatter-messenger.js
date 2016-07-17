@@ -123,7 +123,7 @@ let formatOpp = Opportunities => {
     };
 };
 
-/*let formattone = Opportunities => {
+let formattone = Opportunities => {
         return {
             "attachment": {
                 "type":"audio",
@@ -132,7 +132,7 @@ let formatOpp = Opportunities => {
                   }
             }
         };  
-    };*/ 
+    }; 
 
 let formatnewModel = Opportunities => {
         return {
