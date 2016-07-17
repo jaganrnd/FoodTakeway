@@ -169,7 +169,7 @@ let formatQuickReplies = Opportunities => {
                 {
                     "content_type":"text",
                     "title":"Square",
-                    "payload":"close_won"
+                    "payload":"show_square"
                 },
                 {
                     "content_type":"text",
