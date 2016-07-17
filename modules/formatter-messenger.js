@@ -195,7 +195,7 @@ let formatWayfarerModels = Opportunities => {
     Opportunities.forEach(opportunity =>
         elements.push({
             title: opportunity.get("Name"),
-            //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
+            subtitle: opportunity.get("Description"),
             "image_url": opportunity.get("Picture_URL__c"),
             "buttons": [
                 {
