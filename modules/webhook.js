@@ -76,11 +76,11 @@ let processText = (text, sender)  => {
     
     let match2;
     match2 = text.match(/Wayfarer/i);
-    if(match2){
-        salesforce.findWayfarerOpportunities(match2[1].then(Opportunities => {    
+    if (match2) {
+        //salesforce.findWayfarerOpportunities(match2[1].then(Opportunities => {    
             sendMessage({text:`Processing Wayfarer Models for you`}, sender);
-            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
-        });
+          //  sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+        //});
         return;
     }
     
