@@ -123,7 +123,7 @@ let formatOpp = Opportunities => {
     };
 };
 
-let formattone = Opportunities => {
+/*let formattone = Opportunities => {
         return {
             "attachment": {
                 "type":"audio",
@@ -132,7 +132,7 @@ let formattone = Opportunities => {
                   }
             }
         };  
-    }; 
+    };*/ 
 
 let formatnewModel = Opportunities => {
         return {
@@ -190,6 +190,36 @@ let formatQuickReplies = Opportunities => {
 };
 
 
+let formatSquareModels = Opportunities => {
+    let elements = [];
+    Opportunities.forEach(Opportunity =>
+        elements.push({
+            title: Opportunity.get("Name"),
+            //subtitle: account.get("BillingStreet") + ", " + account.get("BillingCity") + " " + account.get("BillingState") + " · " + account.get("Phone"),
+            "image_url": Opportunity.get("Picture_URL__c"),
+            "buttons": [{
+                "type":"postback",
+                "title":"Try On",
+                "payload": "view_contacts," + account.getId() + "," + account.get("Name")
+            },{
+                "type": "Buy",
+                "url": "https://login.salesforce.com/" + account.getId(),
+                "title": "Open in Salesforce"
+            },
+            ]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 
 
 
@@ -202,3 +232,4 @@ exports.formatOpp = formatOpp;
 exports.formattone = formattone;
 exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
+exports.formatSquareModels = formatSquareModels;
