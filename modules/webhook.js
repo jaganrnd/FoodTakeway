@@ -84,6 +84,17 @@ let processText = (text, sender)  => {
         return;
     }
     
+    
+    let match3;
+    match3 = text.match(/Aviator/i);
+    if (match2) {
+        salesforce.findWayfarerOpportunities(match3).then(Opportunities => {    
+            sendMessage({text:`Searching Aviator Models....`}, sender);
+            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+        });
+        return;
+    }
+    
     //HACKATHON
     
     match = text.match(/search account (.*)/i);
