@@ -52,7 +52,6 @@ let processText = (text, sender)  => {
         return;
     }
     
-    
     let match1;
     match1 = text.match(/YES/i);
     if (match1) {
@@ -64,22 +63,23 @@ let processText = (text, sender)  => {
         return;
     }
     
-    let match2;
-    match2 = text.match(/Square/i);
-    if (match2) {
-        sendMessage({text:
-            `Processing Square Models for you
-                `}, sender);
-        return;
-    }
-      
-     
     match1 = text.match(/Show new (.*)/i);
     if (match1) {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
             //sendMessage(formatter.formatnewModel(Opportunities), sender);
             sendMessage(formatter.formatQuickReplies(Opportunities), sender);
+        });
+        return;
+    }
+    
+    
+    let match2;
+    match2 = text.match(/Square/i);
+    if (match2) {
+        salesforce.findWayfarerOpportunities(match2[1]).then(Opportunities => {    
+            sendMessage({text:`Processing Square Models for you`}, sender);
+            sendMessage(formatter.formatSquareModels(opportunities), sender)
         });
         return;
     }
