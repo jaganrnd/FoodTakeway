@@ -200,11 +200,11 @@ let formatWayfarerModels = Opportunities => {
             "buttons": [{
                 "type":"postback",
                 "title":"Try On",
-                "payload": "view_notes"
+                "payload": "close_won"
             },{
                 "type": "postback",
                 "title": "Buy"
-                "payload": "view_notes"
+                "payload": "close_won"
             },
             ]
         })
