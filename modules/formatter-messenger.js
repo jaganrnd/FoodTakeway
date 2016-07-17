@@ -200,11 +200,11 @@ let formatWayfarerModels = Opportunities => {
             "buttons": [{
                 "type":"postback",
                 "title":"Try On",
-                "payload": "view_contacts," + account.getId() + "," + account.get("Name")
+                "payload": "close_won"
             },{
-                "type": "Buy",
-                "url": "https://login.salesforce.com/" + account.getId(),
-                "title": "Open in Salesforce"
+                "type": "postback",
+                "title": "Buy"
+                "payload": "close_won"
             },
             ]
         })
