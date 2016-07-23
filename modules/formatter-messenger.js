@@ -222,7 +222,7 @@ let formatLocation = Opportunities => {
                 "type": "location",
                 "payload": {
                         "coordinates.lat": 13.06710458
-	                //"coordinates.long": 80.27242184
+	                "coordinates.long": 80.27242184
                 }
             }
         };  
