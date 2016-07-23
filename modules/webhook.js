@@ -160,7 +160,10 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         } else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        } else if (event.postback) {
+        }else if (event.message && event.message.attachments) {
+                sendMessage({text: `Tx for sharing location`}, sender);
+        } 
+        else if (event.postback) {
             let payload = event.postback.payload.split(",");
             if (payload[0] === "view_contacts") {
                 sendMessage({text: "OK, looking for your contacts at " + payload[2] + "..."}, sender);
@@ -169,8 +172,6 @@ let handlePost = (req, res) => {
                 sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
             } else if (payload[0] === "close_lost") {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-            }else if (event.message && event.message.attachments) {
-                sendMessage({text: `Tx for sharing location`}, sender);
             }
         }
     }
