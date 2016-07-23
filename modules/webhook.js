@@ -31,11 +31,11 @@ let getAddress = (lat, lng) => {
             console.log('Error sending message: ', error);
         }else if (!error) {
             console.log('PASS DA sending message: ', error);
+            sendMessage({text: `Resppppp "${response}" `}, sender);
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
         }
     });
-    sendMessage({text: `Resppppp "${response}" `}, sender);
 };
 
 let processText = (text, sender)  => {
