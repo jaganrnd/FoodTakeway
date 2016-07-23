@@ -58,7 +58,8 @@ let processText = (text, sender)  => {
         sendMessage({text:
             `How Can I Help You :
             Search sunglasses for me !!!!!!!!
-            Show new Model
+            Show new Model $$$$
+            Share your location to know near by Stores <--^^^^-->
                 `}, sender);
         return;
     }
