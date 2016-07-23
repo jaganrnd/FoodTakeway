@@ -1,4 +1,4 @@
-//"use strict";
+"use strict";
 
 let formatAccounts = accounts => {
     let elements = [];
