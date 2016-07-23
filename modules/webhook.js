@@ -22,6 +22,23 @@ let sendMessage = (message, recipient) => {
     });
 };
 
+let getLocation = (message, recipient) => {
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token: process.env.FB_PAGE_TOKEN},
+        method: 'GET',
+        json: {
+            recipient: {id: recipient},
+            message: location
+        }
+    }, (error, response) => {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+};
 
 let processLocation = (location, sender) => {
     sendMessage({text:`Thanks For Sharing Your Location`}, sender);
@@ -184,4 +201,5 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
+exports.getLocation = getLocation;
 exports.processLocation = processLocation;
