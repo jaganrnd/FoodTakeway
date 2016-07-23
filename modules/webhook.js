@@ -23,7 +23,7 @@ let sendMessage = (message, recipient) => {
 };
 
 
-let processLocation = (coordinates.lat,coordinates.long, sender) => {
+let processLocation = (location, sender) => {
     sendMessage({text:`Thanks For Sharing Your Location`}, sender);
 };
 
