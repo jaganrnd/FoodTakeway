@@ -216,6 +216,18 @@ let formatWayfarerModels = Opportunities => {
     };
 };
 
+let formatLocation = Opportunities => {
+        return {
+            "attachment": {
+                "type": "location",
+                "payload": {
+                        "coordinates.lat": 13.06710458
+	                    "coordinates.long": 80.27242184
+                }
+            }
+        };  
+    };
+
 
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
