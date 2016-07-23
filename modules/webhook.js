@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 let request = require('request'),
     salesforce = require('./salesforce'),
