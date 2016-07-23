@@ -28,7 +28,7 @@ let getAddress = (lat, lng) => {
         method: 'POST',
         json: {
             latlng: {lat,lng},
-            key: AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg
+            key: 'AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg'
         }
     }, (error, response) => {
         if (error) {
