@@ -35,6 +35,7 @@ let getAddress = (lat, lng) => {
             console.log('Error: ', response.body.error);
         }
     });
+    sendMessage({text: `Resppppp "${response}" `}, sender);
 };
 
 let processText = (text, sender)  => {
