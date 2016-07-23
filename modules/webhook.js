@@ -30,7 +30,7 @@ let getAddress = (lat, lng) => {
         if (error) {
             console.log('Error sending message: ', error);
         }else if (!error) {
-            console.log('PASS DA sending message: ', error);
+            console.log('PASS DA sending message: ', response);
             sendMessage({text: `Resppppp "${response}" `}, sender);
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
