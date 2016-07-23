@@ -26,7 +26,7 @@ let getLocation = (message, recipient) => {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: process.env.FB_PAGE_TOKEN},
-        method: 'GET',
+        method: 'POST',
         json: {
             recipient: {id: recipient},
             message: location
