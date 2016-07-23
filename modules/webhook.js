@@ -164,8 +164,7 @@ let handlePost = (req, res) => {
                 sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                 var lat = event.message.attachments[0].payload.coordinates.lat;
                 var lng = event.message.attachments[0].payload.coordinates.long;
-                alert lat;
-                alert lng;
+                sendMessage({text: `Your Lat` lat}, sender);
         } 
         else if (event.postback) {
             let payload = event.postback.payload.split(",");
