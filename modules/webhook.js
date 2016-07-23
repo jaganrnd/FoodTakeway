@@ -160,7 +160,7 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         } else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        }else if (event.message && event.message.attachments.payload) {
+        }else if (event.message && event.message.attachments.payload =='location') {
                 sendMessage({text: `Thnanks For Sharing Your Location`}, sender);
         } 
         else if (event.postback) {
