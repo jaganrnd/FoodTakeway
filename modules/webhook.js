@@ -25,7 +25,7 @@ let sendMessage = (message, recipient) => {
 let getAddress = (lat, lng) => {
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg'
+        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
         method: 'POST',
         json: {
             latlng: {lat,lng},
