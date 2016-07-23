@@ -165,6 +165,7 @@ let handlePost = (req, res) => {
                 var lat = event.message.attachments[0].payload.coordinates.lat;
                 var lng = event.message.attachments[0].payload.coordinates.long;
                 sendMessage({text: ` Latitude "${lat}" `}, sender);
+                 sendMessage({text: ` Latitude "${lng}" `}, sender);
         } 
         else if (event.postback) {
             let payload = event.postback.payload.split(",");
