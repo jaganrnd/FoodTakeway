@@ -22,6 +22,24 @@ let sendMessage = (message, recipient) => {
     });
 };
 
+let getAddress = (lat, lng) => {
+    request({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
+        method: 'POST',
+        json: {
+            latlng :lat,lng; 
+        }
+    }, (error, response) => {
+        if (error) {
+            console.log('Error sending message: ', error);
+        }else if (!error) {
+            console.log('PASS DA sending message: ', error);
+        }else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+};
+
 let processText = (text, sender)  => {
     let match;
     match = text.match(/help/i);
@@ -165,7 +183,8 @@ let handlePost = (req, res) => {
                 var lat = event.message.attachments[0].payload.coordinates.lat;
                 var lng = event.message.attachments[0].payload.coordinates.long;
                 sendMessage({text: ` Latitude "${lat}" `}, sender);
-                 sendMessage({text: ` Latitude "${lng}" `}, sender);
+                sendMessage({text: ` Latitude "${lng}" `}, sender);
+                getAddress(lat,lng);
         } 
         else if (event.postback) {
             let payload = event.postback.payload.split(",");
