@@ -153,12 +153,11 @@ let handleGet = (req, res) => {
 
 let handlePost = (req, res) => {
     let events = req.body.entry[0].messaging;
+    
+    let lat = req.body.attachments[0].payload.coordinates.lat;
+    
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
-        
-        let lat = event.message.attachments[0].payload.coordinates.lat;
-        let lng = event.message.attachments[0].payload.coordinates.long;
-        
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
