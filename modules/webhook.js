@@ -153,9 +153,6 @@ let handleGet = (req, res) => {
 
 let handlePost = (req, res) => {
     let events = req.body.entry[0].messaging;
-    
-    let lat = req.body.attachments[0].payload.coordinates.lat;
-    
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
         let sender = event.sender.id;
@@ -172,6 +169,8 @@ let handlePost = (req, res) => {
                 sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
             } else if (payload[0] === "close_lost") {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
+            }else if (event.message && event.message.attachments) {
+                sendMessage({text: `Tx for sharing location`}, sender);
             }
         }
     }
