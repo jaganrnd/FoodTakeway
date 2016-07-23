@@ -10,7 +10,8 @@ let nforce = require('nforce'),
 let org = nforce.createConnection({
     clientId: SF_CLIENT_ID,
     clientSecret: SF_CLIENT_SECRET,
-    redirectUri: 'http://localhost:3000/oauth/_callback',
+    //redirectUri: 'http://localhost:3000/oauth/_callback',Temp Comment Latest Check
+    redirectUri: 'https://salesforcefbbot.herokuapp.com/webhook',
     mode: 'single',
     autoRefresh: true
 });
