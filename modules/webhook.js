@@ -160,7 +160,7 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         } else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        }else if (event.message.attachments) {
+        }else if (event.message.attachment) {
                 sendMessage({text: `Thnanks For Sharing Your Location`}, sender);
                 //let lat = event.message.attachments[0].payload.coordinates.lat;
                 //let lng = event.message.attachments[0].payload.coordinates.long;
