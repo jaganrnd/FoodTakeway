@@ -161,7 +161,7 @@ let handlePost = (req, res) => {
         } else if (event.message && event.message.text) {
             processText(event.message.text, sender);
         }else if (event.message && event.message.attachments) {
-                sendMessage({text: `Tx for sharing location`}, sender);
+                sendMessage({text: `Thnanks For Sharing Your Location`}, sender);
         } 
         else if (event.postback) {
             let payload = event.postback.payload.split(",");
