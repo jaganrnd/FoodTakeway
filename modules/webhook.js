@@ -35,7 +35,7 @@ let getAddress = (lat, lng) => {
             console.log('Error sending message: ', error);
         }else if (response) {
             console.log('PASSDA sending message: ', response);
-            sendMessage({text: `Resppppp "${response}" `}, sender);
+            sendMessage({text: `Made Callout `}, sender);
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
         }
