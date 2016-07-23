@@ -24,13 +24,17 @@ let sendMessage = (message, recipient) => {
 
 let getAddress = (lat, lng) => {
     request({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?',
         method: 'POST',
+        json: {
+            latlng: {lat,lng},
+            key: AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg
+        }
     }, (error, response) => {
         if (error) {
             console.log('Error sending message: ', error);
-        }else if (!error) {
-            console.log('PASS DA sending message: ', response);
+        }else if (response) {
+            console.log('PASSDA sending message: ', response);
             sendMessage({text: `Resppppp "${response}" `}, sender);
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
