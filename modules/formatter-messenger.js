@@ -237,3 +237,4 @@ exports.formattone = formattone;
 exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
+exports.formatLocation = formatLocation;
