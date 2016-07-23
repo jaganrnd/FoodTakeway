@@ -4,7 +4,7 @@ let request = require('request'),
     salesforce = require('./salesforce'),
     formatter = require('./formatter-messenger');
 
-let sendMessage = (message, recipient) => {
+let sendMessage1 = (message, recipient) => {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: process.env.FB_PAGE_TOKEN},
