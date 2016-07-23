@@ -22,6 +22,13 @@ let sendMessage = (message, recipient) => {
     });
 };
 
+
+let processLocation = (coordinates.lat,coordinates.long, sender) => {
+    sendMessage({text:`Thanks For Sharing Your Location`}, sender);
+};
+
+
+
 let processText = (text, sender)  => {
     let match;
     match = text.match(/help/i);
@@ -69,8 +76,7 @@ let processText = (text, sender)  => {
         salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
             sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
             //sendMessage(formatter.formatnewModel(Opportunities), sender);
-            sendMessage(formatter.formatLocation(Opportunities), sender);
-            //sendMessage(formatter.formatQuickReplies(Opportunities), sender);
+            sendMessage(formatter.formatQuickReplies(Opportunities), sender);
         });
         return;
     }
