@@ -72,7 +72,7 @@ let processText = (text, sender)  => {
         sendMessage({attachment:{
                         "type": "image",
                         "payload": {
-                            "url":"http://www.sunglassworld.net/wp-content/uploads/2013/04/logo_rayban.jpg"
+                            "url":"https://s-media-cache-ak0.pinimg.com/favicons/59f5f401b55bdf9f254a3292a30c9a33dad67f634484ed8d130e9ca6.png?5c847ae7b4a4ab898fa8071b9e567584"
                         }
                     }
             }, sender);
