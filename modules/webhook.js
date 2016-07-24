@@ -27,10 +27,10 @@ let getAddress = (lat, lng) => {
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
         method: 'POST',
-        json: {
-            latlng: {lat,lng},
-            key: 'AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg'
-        }
+        //json: {
+            //latlng: {lat,lng},
+            //key: 'AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg'
+        //}
     }, (error, response) => {
         if (error) {
             console.log('Error sending message: ', error);
