@@ -89,6 +89,14 @@ let processText = (text, sender)  => {
             Show new Model $$$$
             Share your location to know near by Stores <--^^^^-->
                 `}, sender);
+        sendMessage({attachment:{
+                    "type": "image",
+                    "payload": {
+                        "url":"https://blog.mysms.com/wp-content/uploads/2014/05/blog-location.png"
+                    }
+                }
+            }, sender);        
+                
         return;
     }
     
