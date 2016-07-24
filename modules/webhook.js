@@ -65,11 +65,18 @@ let processText = (text, sender)  => {
     if (match0) {
         sendMessage({text:
             `Welcome to the world of Rayban.
-             Hey do you want shop 
-             with me ???
-             If so ---> 
-             Type YES 
-                  `}, sender);
+             Hey do you want my help to Shop ???
+             If so ---> Type YES 
+            `}, sender);
+            
+         sendMessage({attachment: {
+                "type": "image",
+                "payload": {
+                    "url":"http://www.sunglassworld.net/wp-content/uploads/2013/04/logo_rayban.jpg"
+                }
+             }    
+            '}, sender);
+                
         return;
     }
     
