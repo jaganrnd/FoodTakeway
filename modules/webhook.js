@@ -184,15 +184,13 @@ let handlePost = (req, res) => {
             processText(event.message.text, sender);
         }
         else if (event.message && event.message.attachments) {
-                    console.log('Inside Location Loop ', event.message.attachments[0].type);
-                    if(event.message.attachments[0].payload.coordinates !== 'null'){
-                        var lat = event.message.attachments[0].payload.coordinates.lat;
-                        var lng = event.message.attachments[0].payload.coordinates.long;
-                            sendMessage({text: `Thanks For Sharing Your Location`}, sender);
-                            sendMessage({text: ` Latitude "${lat}" `}, sender);
-                            sendMessage({text: ` Latitude "${lng}" `}, sender);
-                        //getAddress(lat,lng);
-                    }
+                console.log('Inside Location Loop ', event.message.attachments[0].type);
+                var lat = event.message.attachments[0].payload.coordinates.lat;
+                var lng = event.message.attachments[0].payload.coordinates.long;
+                sendMessage({text: `Thanks For Sharing Your Location`}, sender);
+                sendMessage({text: ` Latitude "${lat}" `}, sender);
+                sendMessage({text: ` Latitude "${lng}" `}, sender);
+                //getAddress(lat,lng);
         } 
         else if (event.postback) {
             let payload = event.postback.payload.split(",");
