@@ -72,7 +72,7 @@ let processText = (text, sender)  => {
         sendMessage({attachment:{
                         "type": "image",
                         "payload": {
-                            "url":"https://media.gq.com/photos/5583cb8309f0bee56442585f/master/pass/style-blogs-the-gq-eye-sunglasses-628.gif"
+                            "url":"http://www.sunglassworld.net/wp-content/uploads/2013/04/logo_rayban.jpg"
                         }
                     }
             }, sender);
