@@ -22,7 +22,7 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-let getAddress = (lat, lng) => {
+/*let getAddress = (lat, lng) => {
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
@@ -41,7 +41,7 @@ let getAddress = (lat, lng) => {
             console.log('Error: ', response.body.error);
         }
     });
-};
+};*/
 
 let processText = (text, sender)  => {
     let match;
@@ -206,5 +206,5 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
-exports.getAddress = getAddress;
+//exports.getAddress = getAddress;
 
