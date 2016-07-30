@@ -35,7 +35,7 @@ let getUserInfo = (userId) => {
             console.log('Error: ', response.body.error);
         } else {
             console.log(response.body);
-            resolve(response.first_name);
+            console.log(response.first_name);
         }    
     });
 };    
