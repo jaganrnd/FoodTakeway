@@ -22,7 +22,7 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-let getAddress = (lat, lng) => {
+/*let getAddress = (lat, lng) => {
     console.log('Yappa Inside Callout pa', lat + lng);
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
@@ -38,7 +38,7 @@ let getAddress = (lat, lng) => {
             console.log('Error: ', response.body.error);
         }
     });
-};
+};*/
 
 let processText = (text, sender)  => {
     let match;
@@ -202,7 +202,7 @@ let handlePost = (req, res) => {
                     sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                     sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Latitude "${lng}" `}, sender);
-                    getAddress(lat,lng);
+                    //getAddress(lat,lng);
                 }
         } 
         else if (event.postback) {
@@ -222,5 +222,3 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
-//exports.getAddress = getAddress;
-
