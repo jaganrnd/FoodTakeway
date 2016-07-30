@@ -81,9 +81,9 @@ let processText = (text, sender)  => {
         
         getUserInfo(sender);
         
-        /*getUserInfo(sender).then(response => {
+        getUserInfo(sender).then(response => {
             sendMessage({text: `Hello, ${response.first_name}!`}, sender);
-        });*/
+        });
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
