@@ -79,8 +79,6 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        getUserInfo(sender);
-        
         getUserInfo(sender).then(response => {
             sendMessage({text: `Hello, ${response.first_name}!`}, sender);
         });
