@@ -28,6 +28,7 @@ let getAddress = (lat, lng) => {
     
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
+        
         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='lat,lng'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
         method: 'POST',
     }, (error, response) => {
@@ -224,5 +225,5 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
-exports.getAddress = getAddress;
+//exports.getAddress = getAddress;
 
