@@ -246,3 +246,4 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
+exports.getUserInfo = getUserInfo;
