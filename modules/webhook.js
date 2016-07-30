@@ -64,7 +64,7 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         sendMessage({text:
-            `Welcome to the world of Rayban.
+            `Welcome to the world of Rayban :eyeglasses:
              Hey do you want my help to Shop ;)
              If so ---> Type YES 
             `}, sender);
@@ -198,11 +198,11 @@ let handlePost = (req, res) => {
             processText(event.message.text, sender);
         }else if (event.message && event.message.attachments) {
                 console.log('Inside Location Loop ', event.message.attachments);
-                var lat = event.message.attachments[0].payload.coordinates.lat;
-                var lng = event.message.attachments[0].payload.coordinates.long;
-                sendMessage({text: `Thanks For Sharing Your Location`}, sender);
-                sendMessage({text: ` Latitude "${lat}" `}, sender);
-                sendMessage({text: ` Latitude "${lng}" `}, sender);
+                //var lat = event.message.attachments[0].payload.coordinates.lat;
+                //var lng = event.message.attachments[0].payload.coordinates.long;
+                //sendMessage({text: `Thanks For Sharing Your Location`}, sender);
+                //sendMessage({text: ` Latitude "${lat}" `}, sender);
+                //sendMessage({text: ` Latitude "${lng}" `}, sender);
                 //getAddress(lat,lng);
         } 
         else if (event.postback) {
