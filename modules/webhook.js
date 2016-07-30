@@ -78,8 +78,7 @@ let processText = (text, sender)  => {
     let match0;
     match0 = text.match(/hi/i);
     if (match0) {
-        
-        salesforce.getUserInfo(sender).then(response => {
+        getUserInfo(sender).then(response => {
             messenger.send({text: `Hello, ${response.first_name}!`}, sender);
         });
         
