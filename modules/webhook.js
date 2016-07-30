@@ -80,9 +80,9 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        /*getUserInfo(sender);
-        sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);*/
-
+        getUserInfo(sender){
+            sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
+        };
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
