@@ -26,6 +26,8 @@ let getAddress = (lat, lng) => {
     
     console.log('https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
     
+    console.log('Yappa Inside Callout pa' lat + lng);
+    
     /*request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
