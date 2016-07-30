@@ -22,10 +22,14 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-/*let getAddress = (lat, lng) => {
-    request({
+let getAddress = (lat, lng) => {
+    
+    console.log('https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
+    
+    /*request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCnyV0LupZ8tITMuDZHzCP6lLeN-brq3jg',
+        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
+        qs:{},
         method: 'POST',
         //json: {
             //latlng: {lat,lng},
@@ -40,8 +44,8 @@ let sendMessage = (message, recipient) => {
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
         }
-    });
-};*/
+    });*/
+};
 
 let processText = (text, sender)  => {
     let match;
@@ -205,6 +209,7 @@ let handlePost = (req, res) => {
                     sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                     sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Latitude "${lng}" `}, sender);
+                    getAddress(lat,lng);
                 }
                 //var lat = event.message.attachments[0].payload.coordinates.lat;
                 //var lng = event.message.attachments[0].payload.coordinates.long;
