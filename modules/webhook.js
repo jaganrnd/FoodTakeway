@@ -22,6 +22,23 @@ let sendMessage = (message, recipient) => {
     });
 };
 
+let getUserInfo = (userId) => {
+     request({
+        url: `https://graph.facebook.com/v2.6/${userId}`,
+        qs: {fields:"first_name,last_name,profile_pic", access_token: FB_PAGE_TOKEN},
+        method: 'GET',
+    }, (error, response) => {
+        if (error) {
+            console.log('Error sending message: ', error);
+            reject(error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        } else {
+            resolve(JSON.parse(response.body));
+        }    
+    });
+};    
+
 /*let getAddress = (lat, lng) => {
     console.log('Yappa Inside Callout pa', lat + lng);
     request({
@@ -57,9 +74,15 @@ let processText = (text, sender)  => {
     
     //HACKATHON
     
+    
     let match0;
     match0 = text.match(/hi/i);
     if (match0) {
+        
+        salesforce.getUserInfo(sender).then(response => {
+            messenger.send({text: `Hello, ${response.first_name}!`}, sender);
+        });
+        
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
              Hey do you want my help to Shop ;)
