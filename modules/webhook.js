@@ -65,7 +65,7 @@ let processText = (text, sender)  => {
     if (match0) {
         sendMessage({text:
             `Welcome to the world of Rayban.
-             Hey do you want my help to Shop ???
+             Hey do you want my help to Shop ;)
              If so ---> Type YES 
             `}, sender);
             
