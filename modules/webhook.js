@@ -196,7 +196,7 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        }else if (event.message.attachments) {
+        }else if (event.message.attachments ! = NULL) {
                 console.log('Inside Location Loop ', event.message.attachments[0].type);
                 var lat = event.message.attachments[0].payload.coordinates.lat;
                 var lng = event.message.attachments[0].payload.coordinates.long;
