@@ -22,7 +22,7 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-let getAddress = (lat, lng) => {
+/*let getAddress = (lat, lng) => {
     
     console.log('Yappa Inside Callout pa', lat + lng);
     
@@ -41,7 +41,7 @@ let getAddress = (lat, lng) => {
             console.log('Error: ', response.body.error);
         }
     });
-};
+};*/
 
 let processText = (text, sender)  => {
     let match;
