@@ -85,9 +85,9 @@ let processText = (text, sender)  => {
     if (match1) {
         sendMessage({text:
             `How Can I Help You :
-            Search sunglasses for me !!!!!!!!
-            Show new Model $$$$
-            Share your location to know near by Stores <--^^^^-->
+            Search sunglasses for me 
+            Show new Model 
+            Share your location to know near by Stores
                 `}, sender);
         sendMessage({attachment:{
                     "type": "image",
