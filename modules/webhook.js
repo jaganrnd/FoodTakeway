@@ -28,13 +28,13 @@ let getAddress = (lat, lng) => {
     
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng=lat,lng&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
+        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='lat,lng'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
         method: 'POST',
     }, (error, response) => {
         if (error) {
             console.log('Error sending message: ', error);
         }else if (response) {
-            console.log('PASSDA sending message: ', request);
+            console.log('PASSDA sending message: ', response);
             //sendMessage({text: `Made Callout `}, sender);
         }else if (response.body.error) {
             console.log('Error: ', response.body.error);
