@@ -22,13 +22,10 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-/*let getAddress = (lat, lng) => {
-    
+let getAddress = (lat, lng) => {
     console.log('Yappa Inside Callout pa', lat + lng);
-    
     request({
         //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-        
         url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='lat,lng'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
         method: 'POST',
     }, (error, response) => {
@@ -41,7 +38,7 @@ let sendMessage = (message, recipient) => {
             console.log('Error: ', response.body.error);
         }
     });
-};*/
+};
 
 let processText = (text, sender)  => {
     let match;
