@@ -35,6 +35,7 @@ let getUserInfo = (userId) => {
             console.log('Error: ', response.body.error);
         } else {
             resolve(JSON.parse(response.body));
+            console.log(response.body);
         }    
     });
 };    
