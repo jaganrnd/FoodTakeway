@@ -199,8 +199,7 @@ let handlePost = (req, res) => {
         }else if (event.message && event.message.attachments) {
                 console.log('Inside Location Loop ', event.message.attachments[0].type);
                 if(event.message.attachments[0].type == 'location'){
-                    
-                    
+                    console.log('GETHU DA................')
                 }
                 //var lat = event.message.attachments[0].payload.coordinates.lat;
                 //var lng = event.message.attachments[0].payload.coordinates.long;
