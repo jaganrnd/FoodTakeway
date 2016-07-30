@@ -35,6 +35,7 @@ let getUserInfo = (userId) => {
             console.log('Error: ', response.body.error);
         } else {
             console.log(response.body);
+            sendMessage({text: `Hello, ${response.first_name}!`}, sender);
         }    
     });
 };    
@@ -79,9 +80,7 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        getUserInfo(sender).then(response => {
-            sendMessage({text: `Hello, ${response.first_name}!`}, sender);
-        });
+        getUserInfo(sender);
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
