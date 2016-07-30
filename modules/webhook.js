@@ -78,9 +78,12 @@ let processText = (text, sender)  => {
     let match0;
     match0 = text.match(/hi/i);
     if (match0) {
-        getUserInfo(sender).then(response => {
+        
+        getUserInfo(sender);
+        
+        /*getUserInfo(sender).then(response => {
             sendMessage({text: `Hello, ${response.first_name}!`}, sender);
-        });
+        });*/
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
