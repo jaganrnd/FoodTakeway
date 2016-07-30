@@ -35,8 +35,7 @@ let getUserInfo = (userId) => {
             console.log('Error: ', response.body.error);
         } else {
             console.log(response.body);
-            let userdetails = resp.records;
-            resolve(userdetails);
+            resolve(response.first_name);
         }    
     });
 };    
@@ -81,9 +80,11 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        getUserInfo(sender).then(userdetails => {
+        getUserInfo(sender);
+        
+       /* getUserInfo(sender).then(userdetails => {
             messenger.send({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
-        });
+        });*/
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
