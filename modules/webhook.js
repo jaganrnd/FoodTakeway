@@ -81,7 +81,7 @@ let processText = (text, sender)  => {
     if (match0) {
         
         getUserInfo(sender);
-        messenger.send({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
+        sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
 
         
         sendMessage({text:
