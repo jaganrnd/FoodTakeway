@@ -18,6 +18,7 @@ let sendMessage = (message, recipient) => {
             console.log('Error sending message: ', error);
         } else if (response.body.error) {
             console.log('Error: ', response.body.error);
+            return response;
         }
     });
 };
@@ -82,9 +83,9 @@ let processText = (text, sender)  => {
         
         getUserInfo(sender);
         
-       /* getUserInfo(sender).then(userdetails => {
+       getUserInfo(sender).then(response => {
             messenger.send({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
-        });*/
+        });
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
