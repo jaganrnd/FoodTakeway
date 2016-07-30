@@ -237,5 +237,5 @@ let handlePost = (req, res) => {
 
 exports.handleGet = handleGet;
 exports.handlePost = handlePost;
-//exports.getAddress = getAddress;
+exports.getAddress = getAddress;
 
