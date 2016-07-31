@@ -88,8 +88,10 @@ let processText = (text, sender)  => {
             `Hello .
              Welcome to the world of Rayban 👓
              Am Rayban bot.
-             I can help you to choose model which you like.
-             Need my assistant ---> Type yes 👍
+             I can help you to choose 
+             model which you like.
+             Need my assistant ---> 
+             Type yes 👍
             `}, sender);
             
         /*sendMessage({attachment:{
@@ -111,6 +113,7 @@ let processText = (text, sender)  => {
             Search sunglasses for me 
             Show new Model 
             Share your location to know near by Stores
+            Gift to your loved ones 💕
                 `}, sender);
         /*sendMessage({attachment:{
                     "type": "image",
