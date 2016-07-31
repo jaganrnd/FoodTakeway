@@ -136,14 +136,15 @@ let findWayfarerOpportunities = name => {
 };
 
 
-let createCase = Name => {
+let createCase = OppId => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
         c.set('subject', `(Facebook Customer)`);
         c.set('description', Name );
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
-
+        c.set('Opportunity__c', OppId)
+        
         org.insert({sobject: c}, err => {
             if (err) {
                 console.error(err);
