@@ -254,6 +254,17 @@ let handlePost = (req, res) => {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
             } else if(payload[0] === "Order_Now") {
                 sendMessage({text: `Processing your order`}, sender);
+                
+                sendMessage({attachment:{
+                    "type": "image",
+                    "payload": {
+                        "url":"http://sports.ndtv.com/images/loading.gif"
+                    }
+                }
+                }, sender);
+                
+                
+                
             }        
         }
     }
