@@ -47,11 +47,13 @@ let getUserInfo = (userId) => {
 };    
 
 let getAddress = (lat, lng) => {
+      
       console.log('Yappa Inside Callout pa', lat);
       console.log('Yappa Inside Callout pa', lng);
+      
       return new Promise((resolve, reject) => { 
+            console.log('Inside Callout');
             request({
-                console.log('Inside Callout**');
                 url:'https://maps.googleapis.com/maps/api/geocode/json',
                 qs: {latlng:lat,lng, key: AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4},
                 method: 'POST',
