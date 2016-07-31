@@ -136,7 +136,7 @@ let findWayfarerOpportunities = name => {
 };
 
 
-let createCase = name => {
+/*let createCase = name => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Contact');
         c.set('subject', `(Facebook Customer)`);
@@ -152,7 +152,7 @@ let createCase = name => {
                 resolve(c);
             }
         });
-    });
+    });*/
 };
 
 
@@ -166,4 +166,4 @@ exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
-exports.createCase = createCase;
+//exports.createCase = createCase;
