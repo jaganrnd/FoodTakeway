@@ -56,11 +56,11 @@ let getAddress = (lat, lng) => {
                 url:'https://maps.googleapis.com/maps/api/geocode/json',
                 qs: {latlng:lat,lng, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
                 method: 'GET',
-            }, (error, response) => {
+            }, (error, response, request) => {
+                console.log('Request body*** ', request.body);
                 if (error) {
                     console.log('Error sending message: ', error);
                 }else if (response) {
-                    console.log('Request body*** ', request.body);
                     console.log('Responseuu*** ', response.body);
                 }else if (response.body.error) {
                     console.log('Error: ', response.body.error);
