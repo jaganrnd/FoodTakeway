@@ -255,7 +255,7 @@ let handlePost = (req, res) => {
             } else if(payload[0] === "Order_Now") {
                 sendMessage({text: `Processing your order 🕗`}, sender);
                 console.log(payload[1]);
-                //salesforce.createCase(payload[1]);
+                salesforce.createCase(payload[1]);
             }        
         }
     }
