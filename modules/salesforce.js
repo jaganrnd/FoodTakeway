@@ -139,7 +139,7 @@ let findWayfarerOpportunities = name => {
 let createCase = name  => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
-        c.set('subject', `(Facebook Customer)`);
+        c.set('subject', `Facebook Customer`);
         //c.set('description', name );
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
@@ -155,6 +155,27 @@ let createCase = name  => {
         });
     });
 };
+
+/*let createCase = name  => {
+    return new Promise((resolve, reject) => {
+        let c = nforce.createSObject('Case');
+        c.set('subject', `Facebook Customer`);
+        //c.set('description', name );
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+        c.set('Opportunity__c', name);
+        
+        org.insert({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(c);
+            }
+        });
+    });
+};*/
+
 
 
 login();
