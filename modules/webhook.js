@@ -291,7 +291,7 @@ let handlePost = (req, res) => {
                                                   "type":"template",
                                                   "payload":{
                                                     "template_type":"receipt",
-                                                    "recipient_name": "JAGAN",
+                                                    "recipient_name": response.first_name ,
                                                     "order_number":"12345678902",
                                                     "currency":"USD",
                                                     "payment_method":"Visa 2345",        
