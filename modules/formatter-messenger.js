@@ -221,6 +221,52 @@ let formatWayfarerModels = Opportunities => {
     };
 };
 
+//new
+let formatOrder = Opportunities => {
+    let elements = [];
+    Opportunities.forEach(opportunity =>
+        elements.push({
+            "title":opportunity.get("Name"),
+            "subtitle":opportunity.get("Type"),
+            "quantity":1,
+            "price":opportunity.get("Amount"),
+            "currency":"INR",
+            "image_url":opportunity.get("Picture_URL__c"),
+            "address":{
+                "street_1":"1 Hacker Way",
+                "street_2":"",
+                "city":"Menlo Park",
+                "postal_code":"94025",
+                "state":"CA",
+                "country":"US"
+            },
+            "summary":{
+                "subtotal":75.00,
+                "shipping_cost":4.95,
+                "total_tax":6.19,
+                "total_cost":56.14
+            }
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "receipt",
+                "recipient_name":"JAGU",
+                "order_number":"12345678902",
+                "currency":"INR",
+                "payment_method":"Visa 2345",        
+                "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                "timestamp":"1428444852", 
+                "elements": elements
+            }
+        }
+    };
+};
+//end
+
+
 exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
@@ -229,3 +275,4 @@ exports.formattone = formattone;
 exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
+exports.formatOrder = formatOrder;
