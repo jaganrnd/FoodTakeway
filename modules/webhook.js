@@ -60,6 +60,7 @@ let getAddress = (lat, lng) => {
                 if (error) {
                     console.log('Error sending message: ', error);
                 }else if (response) {
+                    console.log('Response body*** ', response);
                     console.log('Responseuu*** ', response.body);
                 }else if (response.body.error) {
                     console.log('Error: ', response.body.error);
