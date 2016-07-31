@@ -225,7 +225,6 @@ let formatWayfarerModels = Opportunities => {
 let formatOrder = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
-        let amount = opportunity.get("Amount");
         elements.push({
             "title":opportunity.get("Name"),
             "subtitle":opportunity.get("Type"),
@@ -256,10 +255,10 @@ let formatOrder = Opportunities => {
                     "country":"US"
                 },
                 "summary":{
-                    "subtotal":amount,
+                    "subtotal":1500,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":amount
+                    "total_cost":1511
                  }
             }
         }
