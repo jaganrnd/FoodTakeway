@@ -280,7 +280,7 @@ let handlePost = (req, res) => {
                                             Please share your location to ship the order 🚗`
                                         }, sender);
                                 });
-                            });    
+                            };    
                        /* salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
                         sendMessage({attachment:{
                                           "type":"template",
