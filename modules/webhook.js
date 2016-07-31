@@ -283,7 +283,7 @@ let handlePost = (req, res) => {
                                 //});  //COmmented Now 
                             
                                //start
-                               salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
+                               salesforce.prepareOrder(payload[2],response.first_name).then(Opportunities => {
                                sendMessage({attachment:{
                                                   "type":"template",
                                                   "payload":{
