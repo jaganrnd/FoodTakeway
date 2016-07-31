@@ -152,8 +152,8 @@ let findWayfarerOpportunities = name => {
                 resolve(c);
             }
         });
-    });*/
-};
+    });
+};*/
 
 
 login();
