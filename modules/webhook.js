@@ -89,14 +89,12 @@ let processText = (text, sender)  => {
         
         getUserInfo(sender).then(response => {
           sendMessage({text:
-                `Hey ${response.first_name} !!!! 🙏 🙏
-                     Welcome to the world of 
-                     Rayban 👓 👓 👓 👓
-                     Am Rayban bot <(")
-                     I can help you to choose 
-                     model.
-                     Need my assistant 👷 ??
-                     Type yes 👍
+            `Hey ${response.first_name} !!!! 🙏 🙏
+                Welcome to the world of Rayban 👓 👓 👓 👓
+                Am Rayban bot <(")
+                I can help you to choose model.
+                    Need my assistant 👷 ??
+                        Type yes 👍
                     `}, sender);
         });
         
@@ -279,6 +277,7 @@ let handlePost = (req, res) => {
                 getUserInfo(sender).then(response => {
                         salesforce.createCase(payload[1],response.first_name).then(() => {
                         sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a store person to contact you asap.`}, sender);
+                        sendMessage({text: `Please Share your location to ship the order`}, sender);
                         });
                 });
                 
