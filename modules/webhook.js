@@ -46,7 +46,7 @@ let getUserInfo = (userId) => {
     
 };    
 
-let getAddress = (lat, lng) => {
+/*let getAddress = (lat, lng) => {
     
             console.log('Yappa Inside Callout pa', lat);
             console.log('Yappa Inside Callout pa', lng);
@@ -68,7 +68,7 @@ let getAddress = (lat, lng) => {
                 }
             });
         
-};
+};*/
 
 let processText = (text, sender)  => {
     let match;
@@ -254,7 +254,7 @@ let handlePost = (req, res) => {
                     sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                     sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Longitude "${lng}" `}, sender);
-                    getAddress(lat,lng);
+                    //getAddress(lat,lng);
                 }
         } 
         else if (event.postback) {
