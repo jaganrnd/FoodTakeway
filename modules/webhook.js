@@ -88,7 +88,7 @@ let processText = (text, sender)  => {
         `Hello .
              
              Welcome to the world of 
-             Rayban 👓
+             Rayban 👓 👓 👓 👓
              
              Am Rayban bot <(")
              
@@ -122,7 +122,7 @@ let processText = (text, sender)  => {
             Share your location to 
             know near by Stores ↹
             
-            Gift  your loved ones 🎁 💕 
+            Gift your loved ones 🎁 💕 
                 `}, sender);
         /*sendMessage({attachment:{
                     "type": "image",
