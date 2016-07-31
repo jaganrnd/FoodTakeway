@@ -87,13 +87,23 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        /*getUserInfo(sender).then(response => {
-            //salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
-                sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
-            //});
-        });*/
+        getUserInfo(sender).then(response => {
+          sendMessage({text:
+                `Hey ${response.first_name} !!!! 🙏 🙏
+                
+                     Welcome to the world of 
+                     Rayban 👓 👓 👓 👓
+                     
+                     Am Rayban bot <(")
+                     
+                     I can help you to choose 
+                     model.
+                     Need my assistant 👷 ??
+                     Type yes 👍
+                    `}, sender);
+        });
         
-        sendMessage({text:
+        /*sendMessage({text:
         `Hey ${response.first_name} !!!! 🙏 🙏
         
              Welcome to the world of 
@@ -105,7 +115,10 @@ let processText = (text, sender)  => {
              model.
              Need my assistant 👷 ??
              Type yes 👍
-            `}, sender);
+            `}, sender);*/
+            
+            
+            
             
         /*sendMessage({attachment:{
                         "type": "image",
