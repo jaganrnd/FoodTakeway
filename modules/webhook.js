@@ -271,16 +271,18 @@ let handlePost = (req, res) => {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                             console.log(payload[1]);
                             console.log(payload[2]);
-                            console.log(payload[3]);
-                            getUserInfo(sender).then(response => {
+                            
+                            //NOW COMMENTED
+                           /* getUserInfo(sender).then(response => {
                                 salesforce.createCase(payload[1],response.first_name).then(() => {
                                     sendMessage({
                                             text: 
                                             `${response.first_name} processed your order successfully.👍
                                                 Please share your location to ship the order 🚗`
                                             }, sender);
-                                    });
-                                });  
+                                });
+                            });  */
+                            //NOW COMMENTED
                             
                              //start
                              getUserInfo(sender).then(response => {   
