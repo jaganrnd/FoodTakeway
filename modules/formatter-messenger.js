@@ -233,7 +233,7 @@ let formatOrder = Opportunities => {
             "currency":"INR",
             "image_url":opportunity.get("Picture_URL__c")
         })
-    );
+    //);//now
     return {
         "attachment": {
             "type": "template",
@@ -255,14 +255,15 @@ let formatOrder = Opportunities => {
                     "country":"US"
                 },
                 "summary":{
-                    "subtotal":75.00,
+                    "subtotal":opportunity.get("Amount"),
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":56.14
+                    "total_cost":opportunity.get("Amount")
                  }
             }
         }
     };
+  );    
 };
 
 //end
