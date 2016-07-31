@@ -54,7 +54,7 @@ let getAddress = (lat, lng) => {
             
             request({
                 url:'https://maps.googleapis.com/maps/api/geocode/json',
-                qs: {latlng:{lat},{lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
+                qs: {latlng:{{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
                 //sendMessage({text: ` Latitude "${lat}" `}, sender);
                 method: 'GET',
             }, (error, response, request) => {
