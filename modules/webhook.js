@@ -92,18 +92,15 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        getUserInfo(sender);
-        
-        /*getUserInfo(sender).then(response => {
-          sendMessage({text:
-            `Hey ${response.first_name} !!!! 🙏 🙏
+        getUserInfo(sender).then(response => {
+          sendMessage({text:`Hey ${response.first_name} !!!! 🙏 🙏
              Welcome to the world of Rayban 👓 👓 👓 👓
              Am Rayban bot <(")
              I can help you to choose model.
              Need my assistant 👷 ?? Type yes 👍`}, sender);
-        });*/
+        });
         
-        sendMessage({text:
+       /* sendMessage({text:
         `Hey ${response.first_name} !!!! 🙏 🙏
              Welcome to the world of 
              Rayban 👓 👓 👓 👓
@@ -112,7 +109,7 @@ let processText = (text, sender)  => {
              model.
              Need my assistant 👷 ??
              Type yes 👍
-            `}, sender);
+            `}, sender);*/
             
         /*sendMessage({attachment:{
                         "type": "image",
