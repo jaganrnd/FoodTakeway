@@ -287,6 +287,7 @@ let handlePost = (req, res) => {
                              //start
                              getUserInfo(sender).then(response => {   
                                salesforce.prepareOrder(payload[2]).then(Opportunities => {
+                               console.log('Opp name **' , Opportunities.name);
                                sendMessage({attachment:{
                                                   "type":"template",
                                                   "payload":{
