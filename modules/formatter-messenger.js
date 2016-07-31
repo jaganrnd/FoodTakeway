@@ -242,7 +242,7 @@ let formatOrder = Opportunities => {
                 "recipient_name":"JAGU",
                 "order_number":"12345678902",
                 "currency":"INR",
-                "payment_method":"Visa 2345",        
+                "payment_method":"Cash On Delivery (COD)",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                 "timestamp":"1428444852", 
                 "elements": elements,
@@ -255,10 +255,10 @@ let formatOrder = Opportunities => {
                     "country":"US"
                 },
                 "summary":{
-                    "subtotal":75.00,
-                    "shipping_cost":4.95,
-                    "total_tax":6.19,
-                    "total_cost":56.14
+                    "subtotal":opportunity.get("Amount"),
+                    "shipping_cost":0,
+                    "total_tax":0,
+                    "total_cost":opportunity.get("Amount") 
                  }
             }
         }
