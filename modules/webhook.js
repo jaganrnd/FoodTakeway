@@ -88,9 +88,9 @@ let processText = (text, sender)  => {
     if (match0) {
         
         getUserInfo(sender).then(response => {
-            salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
+            //salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
                 sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
-            });
+            //});
         });
         
         sendMessage({text:
