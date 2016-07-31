@@ -1,6 +1,3 @@
-
-var geocoder = require('geocoder'),
-
 var express = require('express'),
     bodyParser = require('body-parser'),
     webhook = require('./modules/webhook'),
