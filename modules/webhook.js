@@ -90,12 +90,9 @@ let processText = (text, sender)  => {
         getUserInfo(sender).then(response => {
           sendMessage({text:
                 `Hey ${response.first_name} !!!! 🙏 🙏
-                
                      Welcome to the world of 
                      Rayban 👓 👓 👓 👓
-                     
                      Am Rayban bot <(")
-                     
                      I can help you to choose 
                      model.
                      Need my assistant 👷 ??
