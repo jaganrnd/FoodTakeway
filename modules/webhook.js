@@ -85,7 +85,7 @@ let processText = (text, sender)  => {
         getUserInfo(sender);
         
         sendMessage({text:
-            `Hello .
+            `   Hello .
              
              Welcome to the world of 
              Rayban 👓
@@ -118,7 +118,7 @@ let processText = (text, sender)  => {
             Search sunglasses for me 
             Show new Model 
             Share your location to know near by Stores ↹
-            Gift to your loved ones 💕
+            Gift to your loved ones 🎁 💕 
                 `}, sender);
         /*sendMessage({attachment:{
                     "type": "image",
