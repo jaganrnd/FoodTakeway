@@ -85,7 +85,7 @@ let processText = (text, sender)  => {
         getUserInfo(sender);
         
         sendMessage({text:
-            `   Hello .
+        `Hello .
              
              Welcome to the world of 
              Rayban 👓
@@ -114,11 +114,15 @@ let processText = (text, sender)  => {
     match1 = text.match(/YES/i);
     if (match1) {
         sendMessage({text:
-            `How Can I Help You :
-            Search sunglasses for me 
+        `How Can I Help You :
+            Search sunglasses
+            
             Show new Model 
-            Share your location to know near by Stores ↹
-            Gift to your loved ones 🎁 💕 
+            
+            Share your location to 
+            know near by Stores ↹
+            
+            Gift  your loved ones 🎁 💕 
                 `}, sender);
         /*sendMessage({attachment:{
                     "type": "image",
