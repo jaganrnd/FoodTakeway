@@ -273,7 +273,7 @@ let handlePost = (req, res) => {
                             console.log('payload 2 ', payload[2]);
                             
                             //NOW COMMENTED
-                           /* getUserInfo(sender).then(response => {
+                            getUserInfo(sender).then(response => {
                                 salesforce.createCase(payload[1],response.first_name).then(() => {
                                     sendMessage({
                                             text: 
@@ -281,13 +281,12 @@ let handlePost = (req, res) => {
                                                 Please share your location to ship the order 🚗`
                                             }, sender);
                                 });
-                            });  */
+                            });  
                             //NOW COMMENTED
                             
                              //start
                              getUserInfo(sender).then(response => {   
                                salesforce.prepareOrder(payload[2]).then(Opportunities => {
-                               console.log('Opp name **' , Opportunities.name);
                                sendMessage({attachment:{
                                                   "type":"template",
                                                   "payload":{
