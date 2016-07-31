@@ -225,6 +225,7 @@ let formatWayfarerModels = Opportunities => {
 let formatOrder = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
+        var amount = opportunity.get("Amount");
         elements.push({
             "title":opportunity.get("Name"),
             "subtitle":opportunity.get("Type"),
@@ -233,7 +234,7 @@ let formatOrder = Opportunities => {
             "currency":"INR",
             "image_url":opportunity.get("Picture_URL__c")
         })
-    //);//now
+    );
     return {
         "attachment": {
             "type": "template",
@@ -255,15 +256,14 @@ let formatOrder = Opportunities => {
                     "country":"US"
                 },
                 "summary":{
-                    "subtotal":opportunity.get("Amount"),
+                    "subtotal":amount,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":opportunity.get("Amount")
+                    "total_cost":amount
                  }
             }
         }
     };
-  );    
 };
 
 //end
