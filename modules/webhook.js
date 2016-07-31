@@ -119,7 +119,7 @@ let processText = (text, sender)  => {
         
             Search sunglasses 🔍🔍
             
-            Show new Model 
+            Show new Model ⚡
             
             Share your location to 
             know near by Stores ↹
