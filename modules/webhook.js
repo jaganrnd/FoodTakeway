@@ -265,7 +265,7 @@ let handlePost = (req, res) => {
                 sendMessage({text: `Processing your order 🕗`}, sender);
                 console.log(payload[1]);
                 console.log(payload[2]);
-                salesforce.createCase(payload[1]);
+                salesforce.createCase(payload[1],response.first_name);
             }        
         }
     }
