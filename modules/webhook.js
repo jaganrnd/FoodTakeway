@@ -86,7 +86,8 @@ let processText = (text, sender)  => {
         
         sendMessage({text:
             `Hello .
-             Welcome to the world of Rayban 👓
+             Welcome to the world of 
+             Rayban 👓
              Am Rayban bot.
              I can help you to choose 
              model which you like.
