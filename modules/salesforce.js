@@ -135,8 +135,9 @@ let findWayfarerOpportunities = name => {
     });
 };
 
-let prepareOrder = (name,customername) => {
+let prepareOrder = (name) => {
     return new Promise((resolve, reject) => {
+        console.log('Inside Coming');
         let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
