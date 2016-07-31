@@ -96,9 +96,8 @@ let processText = (text, sender)  => {
           sendMessage({text:`Hey ${response.first_name} !!!! 🙏 🙏
         Welcome to the world of 
         Rayban 👓 👓 👓 👓
-        Am Rayban bot <(") I can help 
-        you to choose model.
-        Need my assistant 👷 ?? 
+        Am Rayban bot <(")
+        Need my assistant to choose model. 👷 ?? 
         Type yes 👍`}, sender);
         });
         
