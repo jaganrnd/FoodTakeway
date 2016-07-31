@@ -269,8 +269,8 @@ let handlePost = (req, res) => {
                     sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
                 } else if(payload[0] === "Order_Now") {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
-                            console.log(payload[1]);
-                            console.log(payload[2]);
+                            console.log('payload 1 ' , payload[1]);
+                            console.log('payload 2 ', payload[2]);
                             
                             //NOW COMMENTED
                            /* getUserInfo(sender).then(response => {
