@@ -85,7 +85,7 @@ let processText = (text, sender)  => {
         getUserInfo(sender);
         
         sendMessage({text:
-        `Hello .
+        `Hello Jagan. 🙏 🙏
              
              Welcome to the world of 
              Rayban 👓 👓 👓 👓
@@ -119,7 +119,7 @@ let processText = (text, sender)  => {
         
             Search sunglasses 🔍🔍
             
-            Show new Model ⚡
+            Show new Model ⚡ ⚡
             
             Share your location to 
             know near by Stores ↹
