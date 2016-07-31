@@ -242,28 +242,29 @@ let formatOrder = Opportunities => {
                 "recipient_name":"JAGU",
                 "order_number":"12345678902",
                 "currency":"INR",
-                "payment_method":"Cash On Delivery (COD)",        
+                "payment_method":"Visa 2345",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                 "timestamp":"1428444852", 
                 "elements": elements,
                 "address":{
-                    "street_1":"1 Nehru Street",
+                    "street_1":"1 Hacker Way",
                     "street_2":"",
-                    "city":"Chennai",
-                    "postal_code":"600075",
-                    "state":"TamilNadu",
-                    "country":"India"
+                    "city":"Menlo Park",
+                    "postal_code":"94025",
+                    "state":"CA",
+                    "country":"US"
                 },
                 "summary":{
-                    "subtotal":opportunity.get("Amount"),
+                    "subtotal":75.00,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":opportunity.get("Amount") 
+                    "total_cost":56.14
                  }
             }
         }
     };
 };
+
 //end
 
 
