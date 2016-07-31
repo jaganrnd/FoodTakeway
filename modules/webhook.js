@@ -259,88 +259,31 @@ let handlePost = (req, res) => {
                 }
         } 
         else if (event.postback) {
-            let payload = event.postback.payload.split(",");
-            if (payload[0] === "view_contacts") {
-                sendMessage({text: "OK, looking for your contacts at " + payload[2] + "..."}, sender);
-                salesforce.findContactsByAccount(payload[1]).then(contacts => sendMessage(formatter.formatContacts(contacts), sender));
-            } else if (payload[0] === "close_won") {
-                sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
-            } else if (payload[0] === "close_lost") {
-                sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-            } else if(payload[0] === "Order_Now") {
-                        sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
-                        console.log(payload[1]);
-                        console.log(payload[2]);
-                        console.log(payload[3]);
-                        getUserInfo(sender).then(response => {
-                            salesforce.createCase(payload[1],response.first_name).then(() => {
-                                sendMessage({
-                                        text: 
-                                        `${response.first_name} processed your order successfully.👍
-                                            Please share your location to ship the order 🚗`
-                                        }, sender);
-                                });
-                        });    
-                            
-                       /*salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
-                       sendMessage({attachment:{
-                                          "type":"template",
-                                          "payload":{
-                                            "template_type":"receipt",
-                                            "recipient_name": response.first_name,
-                                            "order_number":"12345678902",
-                                            "currency":"USD",
-                                            "payment_method":"Visa 2345",        
-                                            "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                                            "timestamp":"1428444852", 
-                                            "elements":[
-                                              {
-                                                "title":"Classic White T-Shirt",
-                                                "subtitle":"100% Soft and Luxurious Cotton",
-                                                "quantity":2,
-                                                "price":50,
-                                                "currency":"USD",
-                                                "image_url":"http://petersapparel.parseapp.com/img/whiteshirt.png"
-                                              },
-                                              {
-                                                "title":"Classic Gray T-Shirt",
-                                                "subtitle":"100% Soft and Luxurious Cotton",
-                                                "quantity":1,
-                                                "price":25,
-                                                "currency":"USD",
-                                                "image_url":"http://petersapparel.parseapp.com/img/grayshirt.png"
-                                              }
-                                            ],
-                                            "address":{
-                                              "street_1":"1 Hacker Way",
-                                              "street_2":"",
-                                              "city":"Menlo Park",
-                                              "postal_code":"94025",
-                                              "state":"CA",
-                                              "country":"US"
-                                            },
-                                            "summary":{
-                                              "subtotal":75.00,
-                                              "shipping_cost":4.95,
-                                              "total_tax":6.19,
-                                              "total_cost":56.14
-                                            },
-                                            "adjustments":[
-                                              {
-                                                "name":"New Customer Discount",
-                                                "amount":20
-                                              },
-                                              {
-                                                "name":"$10 Off Coupon",
-                                                "amount":10
-                                              }
-                                            ]
-                                        }    
-                                    }
-                            }, sender);
-            }); */
-        }    
-    }
+                let payload = event.postback.payload.split(",");
+                if (payload[0] === "view_contacts") {
+                    sendMessage({text: "OK, looking for your contacts at " + payload[2] + "..."}, sender);
+                    salesforce.findContactsByAccount(payload[1]).then(contacts => sendMessage(formatter.formatContacts(contacts), sender));
+                } else if (payload[0] === "close_won") {
+                    sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
+                } else if (payload[0] === "close_lost") {
+                    sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
+                } else if(payload[0] === "Order_Now") {
+                            sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
+                            console.log(payload[1]);
+                            console.log(payload[2]);
+                            console.log(payload[3]);
+                            getUserInfo(sender).then(response => {
+                                salesforce.createCase(payload[1],response.first_name).then(() => {
+                                    sendMessage({
+                                            text: 
+                                            `${response.first_name} processed your order successfully.👍
+                                                Please share your location to ship the order 🚗`
+                                            }, sender);
+                                    });
+                            });    
+                }    
+        }
+    }    
     res.sendStatus(200);
 };
 
