@@ -123,7 +123,7 @@ let getdummyOpportunities = name => {
 
 let findWayfarerOpportunities = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
@@ -134,6 +134,21 @@ let findWayfarerOpportunities = name => {
         });
     });
 };
+
+let prepareOrder = (name,customername) => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
+
 
 
 let createCase = (name,customerName)  => {
@@ -190,3 +205,4 @@ exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
 exports.createCase = createCase;
+exports.prepareOrder = prepareOrder;
