@@ -115,7 +115,8 @@ let processText = (text, sender)  => {
     if (match1) {
         sendMessage({text:
         `How Can I Help You :
-            Search sunglasses
+        
+            Search sunglasses 🔍🔍🔍🔍
             
             Show new Model 
             
