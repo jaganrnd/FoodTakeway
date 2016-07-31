@@ -287,7 +287,10 @@ let handlePost = (req, res) => {
                              //start
                              getUserInfo(sender).then(response => {   
                                salesforce.prepareOrder(payload[2]).then(Opportunities => {
-                               sendMessage({attachment:{
+                                   sendMessage(formatter.formatOrder(Opportunities), sender)
+                               
+                               //NEW
+                               /*sendMessage({attachment:{
                                                   "type":"template",
                                                   "payload":{
                                                     "template_type":"receipt",
@@ -341,7 +344,9 @@ let handlePost = (req, res) => {
                                                     ]
                                                 }    
                                             }
-                                    }, sender);
+                                    }, sender);*/
+                                    //NEW
+                                    
                                 }); 
                              });
                             //end
