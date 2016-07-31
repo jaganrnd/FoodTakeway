@@ -87,11 +87,11 @@ let processText = (text, sender)  => {
     match0 = text.match(/hi/i);
     if (match0) {
         
-        getUserInfo(sender).then(response => {
+        /*getUserInfo(sender).then(response => {
             //salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
                 sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
             //});
-        });
+        });*/
         
         sendMessage({text:
         `Hey ${response.first_name} !!!! 🙏 🙏
