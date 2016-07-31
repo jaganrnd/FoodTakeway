@@ -199,9 +199,15 @@ let formatWayfarerModels = Opportunities => {
             "image_url": opportunity.get("Picture_URL__c"),
             "buttons": [
                 {
-                    "type": "web_url",
+                    /*"type": "web_url",
                     "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Buy"
+                    "title": "Buy"*/
+                    
+                    "type":"postback",
+                    "title":"Buy",
+                    "payload": "Order_Now,"
+
+                    
                 }]
         })
     );
