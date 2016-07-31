@@ -247,12 +247,12 @@ let formatOrder = Opportunities => {
                 "timestamp":"1428444852", 
                 "elements": elements,
                 "address":{
-                    "street_1":"1 Hacker Way",
+                    "street_1":"1 Nehru Street",
                     "street_2":"",
-                    "city":"Menlo Park",
-                    "postal_code":"94025",
-                    "state":"CA",
-                    "country":"US"
+                    "city":"Chennai",
+                    "postal_code":"600075",
+                    "state":"TamilNadu",
+                    "country":"India"
                 },
                 "summary":{
                     "subtotal":opportunity.get("Amount"),
