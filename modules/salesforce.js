@@ -140,7 +140,7 @@ let createCase = name  => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
         c.set('subject', `(Facebook Customer)`);
-        c.set('description', Name );
+        c.set('description', name );
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
         //c.set('Opportunity__c', name);
