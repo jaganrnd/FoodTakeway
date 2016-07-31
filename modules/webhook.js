@@ -267,7 +267,7 @@ let handlePost = (req, res) => {
             } else if (payload[0] === "close_lost") {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
             } else if(payload[0] === "Order_Now") {
-                sendMessage({text: `Processing your order 🕗`}, sender);
+                sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                 console.log(payload[1]);
                 console.log(payload[2]);
                 getUserInfo(sender).then(response => {
@@ -278,7 +278,6 @@ let handlePost = (req, res) => {
                             Please share your location to ship the order 🚗`}, sender);
                         });
                 });
-                sendMessage({text:`Please share your location to ship the order 🚗`}, sender);
             }        
         }
     }
