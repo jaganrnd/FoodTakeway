@@ -86,19 +86,20 @@ let processText = (text, sender)  => {
         getUserInfo();
         
         sendMessage({text:
-            `Hello .Welcome to the world of Rayban 👓
+            `Hello .
+             Welcome to the world of Rayban 👓
              Am Rayban bot.
              I can help you to choose model which you like.
-             Need my assistant ---> Type yes 
+             Need my assistant ---> Type yes 👍
             `}, sender);
             
-        sendMessage({attachment:{
+        /*sendMessage({attachment:{
                         "type": "image",
                         "payload": {
                             "url":"http://www.ray-ban.com/_repository/_gui/2010/ray-ban-logo-social.jpg"
                         }
                     }
-            }, sender);
+            }, sender);*/
                 
         return;
     }
@@ -112,13 +113,13 @@ let processText = (text, sender)  => {
             Show new Model 
             Share your location to know near by Stores
                 `}, sender);
-        sendMessage({attachment:{
+        /*sendMessage({attachment:{
                     "type": "image",
                     "payload": {
                         "url":"https://blog.mysms.com/wp-content/uploads/2014/05/blog-location.png"
                     }
                 }
-            }, sender);        
+            }, sender);*/        
                 
         return;
     }
