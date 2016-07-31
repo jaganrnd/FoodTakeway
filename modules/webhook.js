@@ -86,9 +86,10 @@ let processText = (text, sender)  => {
         getUserInfo(recipient);
         
         sendMessage({text:
-            `Welcome to the world of Rayban :eyeglasses:
-             Hey do you want my help to Shop ;)
-             If so ---> Type YES 
+            `Hello .Welcome to the world of Rayban 👓
+             Am Rayban bot.
+             I can help you to choose model which you like.
+             Need my assistant ---> Type yes 
             `}, sender);
             
         sendMessage({attachment:{
