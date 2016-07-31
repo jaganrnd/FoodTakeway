@@ -85,8 +85,8 @@ let processText = (text, sender)  => {
         getUserInfo(sender);
         
         sendMessage({text:
-        `Hello Jagan. 🙏 🙏
-             
+        `Hey Jagan !!!! 🙏 🙏
+        
              Welcome to the world of 
              Rayban 👓 👓 👓 👓
              
@@ -94,9 +94,7 @@ let processText = (text, sender)  => {
              
              I can help you to choose 
              model.
-             
-             Need my assistant 👷
-             
+             Need my assistant 👷 ??
              Type yes 👍
             `}, sender);
             
