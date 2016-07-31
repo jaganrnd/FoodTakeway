@@ -273,16 +273,16 @@ let handlePost = (req, res) => {
                         console.log(payload[2]);
                         console.log(payload[3]);
                         getUserInfo(sender).then(response => {
-                            salesforce.createCase(payload[1],response.first_name).then(c => {
+                            salesforce.createCase(payload[1],response.first_name).then(() => {
                                 sendMessage({
                                         text: 
                                         `${response.first_name} processed your order successfully.👍
                                             Please share your location to ship the order 🚗`
                                         }, sender);
                                 });
-                            });    
                         });    
-                       salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
+                            
+                       /*salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
                        sendMessage({attachment:{
                                           "type":"template",
                                           "payload":{
@@ -338,8 +338,8 @@ let handlePost = (req, res) => {
                                         }    
                                     }
                             }, sender);
-            } 
-        }
+            }); */
+        }    
     }
     res.sendStatus(200);
 };
