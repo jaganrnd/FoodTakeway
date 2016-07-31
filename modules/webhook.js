@@ -275,7 +275,7 @@ let handlePost = (req, res) => {
                         sendMessage({
                         text: 
                         `${response.first_name} processed your order successfully.👍
-                 Please share your location to ship the order 🚗`}, sender);
+         Please share your location to ship the order 🚗`}, sender);
                         });
                 });
                 
