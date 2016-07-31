@@ -205,7 +205,7 @@ let formatWayfarerModels = Opportunities => {
                     
                     "type":"postback",
                     "title":"Buy",
-                    "payload": "Order_Now,"
+                    "payload": "Order_Now," + opportunity.get("Name")
 
                     
                 }]
