@@ -93,9 +93,10 @@ let processText = (text, sender)  => {
              Am Rayban bot <(")
              
              I can help you to choose 
-             model which you like.
+             model.
              
-             Need my assistant 👷 
+             Need my assistant 👷
+             
              Type yes 👍
             `}, sender);
             
@@ -116,7 +117,7 @@ let processText = (text, sender)  => {
         sendMessage({text:
         `How Can I Help You :
         
-            Search sunglasses 🔍🔍🔍🔍
+            Search sunglasses 🔍🔍
             
             Show new Model 
             
