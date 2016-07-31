@@ -35,7 +35,6 @@ let getUserInfo = (userId) => {
             console.log('Error: ', response.body.error);
         } else {
             console.log(response.body);
-            return response;
         }    
     });
 };    
@@ -83,7 +82,7 @@ let processText = (text, sender)  => {
 
         //sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
 
-        getUserInfo();
+        getUserInfo(sender);
         
         sendMessage({text:
             `Hello .
