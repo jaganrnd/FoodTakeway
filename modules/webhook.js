@@ -278,11 +278,7 @@ let handlePost = (req, res) => {
                             Please share your location to ship the order 🚗`}, sender);
                         });
                 });
-                sendMessage({
-                text: 
-                `Please share your location to ship the order 🚗`}, sender);
-                });
-                
+                sendMessage({text:`Please share your location to ship the order 🚗`}, sender);
             }        
         }
     }
