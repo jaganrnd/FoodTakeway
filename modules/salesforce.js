@@ -136,9 +136,9 @@ let findWayfarerOpportunities = name => {
 };
 
 
-/*let createCase = name => {
+let createCase = name => {
     return new Promise((resolve, reject) => {
-        let c = nforce.createSObject('Contact');
+        let c = nforce.createSObject('Case');
         c.set('subject', `(Facebook Customer)`);
         c.set('description', 'yes boss');
         c.set('origin', 'Facebook Bot');
@@ -153,7 +153,7 @@ let findWayfarerOpportunities = name => {
             }
         });
     });
-};*/
+};
 
 
 login();
@@ -166,4 +166,4 @@ exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
-//exports.createCase = createCase;
+exports.createCase = createCase;
