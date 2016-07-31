@@ -268,18 +268,18 @@ let handlePost = (req, res) => {
             } else if (payload[0] === "close_lost") {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
             } else if(payload[0] === "Order_Now") {
-                sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
-                console.log(payload[1]);
-                console.log(payload[2]);
-                console.log(payload[3]);
-                getUserInfo(sender).then(response => {
-                        salesforce.createCase(payload[1],response.first_name).then(c => {
-                        sendMessage({
-                        text: 
-                        `${response.first_name} processed your order successfully.👍
-                            Please share your location to ship the order 🚗`}, sender);
-                        });
-                        
+                        sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
+                        console.log(payload[1]);
+                        console.log(payload[2]);
+                        console.log(payload[3]);
+                        getUserInfo(sender).then(response => {
+                                salesforce.createCase(payload[1],response.first_name).then(c => {
+                                sendMessage({
+                                text: 
+                                `${response.first_name} processed your order successfully.👍
+                                    Please share your location to ship the order 🚗`}, sender);
+                                });
+                        });    
                         salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
                         sendMessage({attachment:{
                                           "type":"template",
@@ -336,9 +336,6 @@ let handlePost = (req, res) => {
                                         }    
                                     }
                             }, sender);
-                        
-                });
-                
             }        
         }
     }
