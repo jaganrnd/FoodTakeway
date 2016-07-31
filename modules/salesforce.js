@@ -116,7 +116,6 @@ let getdummyOpportunities = name => {
             } else if (resp.records && resp.records.length>0) {
                 let Opportunities = resp.records;
                 resolve(Opportunities);
-                Console.log('Full Opp', Opportunities);
             }
         });
     });
