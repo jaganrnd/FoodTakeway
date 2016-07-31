@@ -231,21 +231,7 @@ let formatOrder = Opportunities => {
             "quantity":1,
             "price":opportunity.get("Amount"),
             "currency":"INR",
-            "image_url":opportunity.get("Picture_URL__c"),
-            "address":{
-                "street_1":"1 Hacker Way",
-                "street_2":"",
-                "city":"Menlo Park",
-                "postal_code":"94025",
-                "state":"CA",
-                "country":"US"
-            },
-            "summary":{
-                "subtotal":75.00,
-                "shipping_cost":4.95,
-                "total_tax":6.19,
-                "total_cost":56.14
-            }
+            "image_url":opportunity.get("Picture_URL__c")
         })
     );
     return {
@@ -260,6 +246,20 @@ let formatOrder = Opportunities => {
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                 "timestamp":"1428444852", 
                 "elements": elements
+                "address":{
+                    "street_1":"1 Hacker Way",
+                    "street_2":"",
+                    "city":"Menlo Park",
+                    "postal_code":"94025",
+                    "state":"CA",
+                    "country":"US"
+                },
+                "summary":{
+                    "subtotal":75.00,
+                    "shipping_cost":4.95,
+                    "total_tax":6.19,
+                    "total_cost":56.14
+                 }
             }
         }
     };
