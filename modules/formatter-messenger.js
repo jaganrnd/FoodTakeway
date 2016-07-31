@@ -225,7 +225,7 @@ let formatWayfarerModels = Opportunities => {
 let formatOrder = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
-        var amount = opportunity.get("Amount");
+        let amount = opportunity.get("Amount");
         elements.push({
             "title":opportunity.get("Name"),
             "subtitle":opportunity.get("Type"),
