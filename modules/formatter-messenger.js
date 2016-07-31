@@ -256,8 +256,8 @@ let formatOrder = Opportunities => {
                 },
                 "summary":{
                     "subtotal":opportunity.get("Amount"),
-                    "shipping_cost":0,
-                    "total_tax":0,
+                    "shipping_cost":4.95,
+                    "total_tax":6.19,
                     "total_cost":opportunity.get("Amount") 
                  }
             }
