@@ -280,9 +280,10 @@ let handlePost = (req, res) => {
                                             Please share your location to ship the order 🚗`
                                         }, sender);
                                 });
-                            };    
-                       /* salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
-                        sendMessage({attachment:{
+                            }    
+                        });    
+                       salesforce.prepareOrder(payload[1],response.first_name).then(Opportunities => {
+                       sendMessage({attachment:{
                                           "type":"template",
                                           "payload":{
                                             "template_type":"receipt",
@@ -337,7 +338,7 @@ let handlePost = (req, res) => {
                                         }    
                                     }
                             }, sender);
-            } */
+            } 
         }
     }
     res.sendStatus(200);
