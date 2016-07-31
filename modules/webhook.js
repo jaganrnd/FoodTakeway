@@ -252,7 +252,9 @@ let handlePost = (req, res) => {
                 sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
             } else if (payload[0] === "close_lost") {
                 sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-            }
+            } else if(payload[0] === "Order_Now") {
+                sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
+            }        
         }
     }
     res.sendStatus(200);
