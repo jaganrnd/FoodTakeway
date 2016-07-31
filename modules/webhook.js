@@ -94,7 +94,7 @@ let processText = (text, sender)  => {
         });
         
         sendMessage({text:
-        `Hey Jagan !!!! 🙏 🙏
+        `Hey ${response.first_name} !!!! 🙏 🙏
         
              Welcome to the world of 
              Rayban 👓 👓 👓 👓
