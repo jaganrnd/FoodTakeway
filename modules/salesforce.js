@@ -136,7 +136,7 @@ let findWayfarerOpportunities = name => {
 };
 
 
-let createCase = (Name => {
+let createCase = Name => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
         c.set('subject', `(Facebook Customer)`);
