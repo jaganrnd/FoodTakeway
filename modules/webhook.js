@@ -97,7 +97,8 @@ let processText = (text, sender)  => {
         Welcome to the world of 
         Rayban 👓 👓 👓 👓
         Am Rayban bot <(")
-        Need my assistant to choose model. 👷 ?? 
+        Need my assistant to 
+        choose model. 👷 ?? 
         Type yes 👍`}, sender);
         });
         
