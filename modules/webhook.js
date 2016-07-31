@@ -47,7 +47,7 @@ let getUserInfo = (userId) => {
 };    
 
 let getAddress = (lat, lng) => {
-      
+    
             console.log('Yappa Inside Callout pa', lat);
             console.log('Yappa Inside Callout pa', lng);
             console.log('Inside Callout');
@@ -60,7 +60,7 @@ let getAddress = (lat, lng) => {
                 if (error) {
                     console.log('Error sending message: ', error);
                 }else if (response) {
-                    console.log('Response body*** ', response);
+                    console.log('Request body*** ', request.body);
                     console.log('Responseuu*** ', response.body);
                 }else if (response.body.error) {
                     console.log('Error: ', response.body.error);
