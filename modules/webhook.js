@@ -83,6 +83,7 @@ let processText = (text, sender)  => {
 
         //sendMessage({text: `Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
 
+        getUserInfo(Sender);
         
         sendMessage({text:
             `Welcome to the world of Rayban :eyeglasses:
