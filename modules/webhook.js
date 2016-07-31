@@ -112,7 +112,7 @@ let processText = (text, sender)  => {
             `How Can I Help You :
             Search sunglasses for me 
             Show new Model 
-            Share your location to know near by Stores
+            Share your location to know near by Stores ↹
             Gift to your loved ones 💕
                 `}, sender);
         /*sendMessage({attachment:{
