@@ -42,28 +42,35 @@ let getUserInfo = (userId) => {
             }    
         });
     
-    
     });  
     
 };    
 
-/*let getAddress = (lat, lng) => {
-    console.log('Yappa Inside Callout pa', lat + lng);
-    request({
-        //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
-        url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='lat','lng'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
-        method: 'POST',
-    }, (error, response) => {
-        if (error) {
-            console.log('Error sending message: ', error);
-        }else if (response) {
-            console.log('PASSDA sending message: ', response);
-            //sendMessage({text: `Made Callout `}, sender);
-        }else if (response.body.error) {
-            console.log('Error: ', response.body.error);
-        }
-    });
-};*/
+let getAddress = (lat, lng) => {
+      
+      console.log('Yappa Inside Callout pa', lat);
+      console.log('Yappa Inside Callout pa', lng);
+      
+      return new Promise((resolve, reject) => { 
+            request({
+                //url: 'https://maps.googleapis.com/maps/api/geocode/json?',
+                url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='lat','lng'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
+                method: 'POST',
+            }, (error, response) => {
+                if (error) {
+                    console.log('Error sending message: ', error);
+                }else if (response) {
+                    console.log('Responseuu*** ', response);
+                }else if (response.body.error) {
+                    console.log('Error: ', response.body.error);
+                }else {
+                    console.log(response.body);
+                    resolve(JSON.parse(response.body));
+                } 
+            });
+      });  
+        
+};
 
 let processText = (text, sender)  => {
     let match;
@@ -86,7 +93,6 @@ let processText = (text, sender)  => {
     let match0;
     match0 = text.match(/hi/i);
     if (match0) {
-        
         getUserInfo(sender).then(response => {
           sendMessage({text:
             `Hey ${response.first_name} !!!! 🙏 🙏
@@ -100,20 +106,14 @@ let processText = (text, sender)  => {
         
         /*sendMessage({text:
         `Hey ${response.first_name} !!!! 🙏 🙏
-        
              Welcome to the world of 
              Rayban 👓 👓 👓 👓
-             
              Am Rayban bot <(")
-             
              I can help you to choose 
              model.
              Need my assistant 👷 ??
              Type yes 👍
             `}, sender);*/
-            
-            
-            
             
         /*sendMessage({attachment:{
                         "type": "image",
@@ -141,14 +141,13 @@ let processText = (text, sender)  => {
             
             Gift your loved ones 🎁 💕 
                 `}, sender);
-        /*sendMessage({attachment:{
-                    "type": "image",
-                    "payload": {
-                        "url":"https://blog.mysms.com/wp-content/uploads/2014/05/blog-location.png"
-                    }
-                }
-            }, sender);*/        
-                
+                /*sendMessage({attachment:{
+                            "type": "image",
+                            "payload": {
+                                "url":"https://blog.mysms.com/wp-content/uploads/2014/05/blog-location.png"
+                            }
+                        }
+                    }, sender);*/        
         return;
     }
     
@@ -257,7 +256,7 @@ let handlePost = (req, res) => {
                     sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                     sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Latitude "${lng}" `}, sender);
-                    //getAddress(lat,lng);
+                    getAddress(lat,lng);
                 }
         } 
         else if (event.postback) {
