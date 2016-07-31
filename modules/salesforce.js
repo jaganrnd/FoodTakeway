@@ -135,6 +135,27 @@ let findWayfarerOpportunities = name => {
     });
 };
 
+
+let createCase = name => {
+    return new Promise((resolve, reject) => {
+        let c = nforce.createSObject('Contact');
+        c.set('subject', `(Facebook Customer)`);
+        c.set('description', 'yes boss');
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+
+        org.insert({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(c);
+            }
+        });
+    });
+};
+
+
 login();
 
 exports.org = org;
@@ -145,3 +166,4 @@ exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
+exports.createCase = createCase;
