@@ -251,7 +251,7 @@ let handlePost = (req, res) => {
                     var lng = event.message.attachments[0].payload.coordinates.long;
                     sendMessage({text: `Thanks For Sharing Your Location`}, sender);
                     sendMessage({text: ` Latitude "${lat}" `}, sender);
-                    sendMessage({text: ` Latitude "${lng}" `}, sender);
+                    sendMessage({text: ` Longitude "${lng}" `}, sender);
                     getAddress(lat,lng);
                 }
         } 
