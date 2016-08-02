@@ -277,7 +277,8 @@ let handlePost = (req, res) => {
                                 salesforce.createCase(payload[1],response.first_name).then(() => {
                                    sendMessage({
                                             text: 
-                                            `${response.first_name} processed your order successfully.👍
+                                            `${response.first_name} processed your order successfully.👍 '
+                                                Please find the attached order 🚗`
                                             }, sender);
                                 });
                             });  
