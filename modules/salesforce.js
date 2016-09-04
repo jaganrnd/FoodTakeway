@@ -135,6 +135,23 @@ let findWayfarerOpportunities = name => {
     });
 };
 
+let findTitleCard = name => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
+
+
+
+
 let prepareOrder = (name) => {
     return new Promise((resolve, reject) => {
         console.log('Inside Coming');
@@ -205,5 +222,6 @@ exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
+exports.findTitleCard = findTitleCard;
 exports.createCase = createCase;
 exports.prepareOrder = prepareOrder;
