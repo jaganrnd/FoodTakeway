@@ -85,13 +85,13 @@ let processText = (text, sender)  => {
    let match8;
     match8 = text.match(/hi/i);
     if (match8) {
-     getUserInfo(sender).then(response => {    
+     getUserInfo(sender).then(response => {  
             sendMessage({text:
                 `Hey ${response.first_name} 🙏 🙏
             Lyst Now Welcomes you !!
             To get started, please choose one of the options listed:`
             }, sender);
-            
+     });
             sendMessage({attachment:{
                       "type":"template",
                       "payload":{
@@ -118,13 +118,9 @@ let processText = (text, sender)  => {
                         ]
                       }
                     }
-                  }
+                  //}
             }, sender);    
-            
-            
-            
-            
-     });
+     
         return;
     }
         
