@@ -92,25 +92,24 @@ let processText = (text, sender)  => {
                 Curious to know about me ? 
                       please type - who are you`
             }, sender);
-    // });
         
-        /*sendMessage({attachment:{
+            sendMessage({attachment:{
                             "type": "image",
                             "payload": {
                                 "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
                             }
                         }
-                }, sender);*/
+            }, sender);
     });    
         return;
     }
     
     let match9;
-    match9 = text.match(/who are (.*)/i);    
+    match9 = text.match(/who are (*)/i);    
     if (match9) {
         console.log('Inside match9');
-        salesforce.findWayfarerOpportunities(match9).then(Opportunities => {    
-            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+        salesforce.findTitleCard(match9).then(Opportunities => {    
+            sendMessage(formatter.formatTitleCard(Opportunities), sender)
         });
         return;
     }    
