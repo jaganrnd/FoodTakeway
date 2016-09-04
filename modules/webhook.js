@@ -315,7 +315,9 @@ let handlePost = (req, res) => {
                                 }); 
                              });
                             //end
-                }    
+                }else if (payload[0] === "Make_Order") {
+                    sendMessage({text: `Please enter your location`}, sender);
+                }     
         }
     }    
     res.sendStatus(200);
