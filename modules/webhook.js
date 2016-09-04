@@ -91,7 +91,7 @@ let processText = (text, sender)  => {
         sendMessage({text:
             `Hey ${response.first_name} !!!! 🙏 🙏
         Lyst Now Welcomes you`
-        `}, sender);
+        }, sender);
         return;
     }
         
