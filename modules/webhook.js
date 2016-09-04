@@ -105,7 +105,7 @@ let processText = (text, sender)  => {
     }
     
     let match9;
-    match9 = text.match(/who are (*)/i);    
+    match9 = text.match(/who are (.*)/i);    
     if (match9) {
         console.log('Inside match9');
         salesforce.findTitleCard(match9).then(Opportunities => {    
