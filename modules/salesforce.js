@@ -139,7 +139,7 @@ let findTitleCard = name => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
         console.log(name);
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE type LIKE '%" + name + "%' LIMIT 5";
         console.log('after query');
         org.query({query: q}, (err, resp) => {
             if (err) {
