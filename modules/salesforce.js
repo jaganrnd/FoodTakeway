@@ -138,7 +138,7 @@ let findWayfarerOpportunities = name => {
 let findTitleCard = name => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
-        let q = "SELECT Id,type,Name FROM Opportunity WHERE type LIKE '%" + name + "%' LIMIT 1";
+        let q = "SELECT Id,type,Name,Picture_URL__c,Description,Amount FROM Opportunity WHERE name LIKE '%" + name + "%' LIMIT 1";
         console.log('after query');
         org.query({query: q}, (err, resp) => {
             if (err) {
