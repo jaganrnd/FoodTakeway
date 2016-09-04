@@ -47,11 +47,9 @@ let getUserInfo = (userId) => {
 };    
 
 /*let getAddress = (lat, lng) => {
-    
             console.log('Yappa Inside Callout pa', lat);
             console.log('Yappa Inside Callout pa', lng);
             console.log('Inside Callout');
-            
             request({
                 //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
                 url:'https://maps.googleapis.com/maps/api/geocode/json',
@@ -67,7 +65,6 @@ let getUserInfo = (userId) => {
                     console.log('Error: ', response.body.error);
                 }
             });
-        
 };*/
 
 let processText = (text, sender)  => {
@@ -91,7 +88,7 @@ let processText = (text, sender)  => {
      getUserInfo(sender).then(response => {    
             sendMessage({text:
                 `Hey ${response.first_name} !!!! 🙏 🙏
-            Lyst Now Welcomes you`
+            Lyst Now Welcomes you.To get started, please choose one of the options listed:`
             }, sender);
      });
         return;
