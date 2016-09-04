@@ -221,6 +221,38 @@ let formatWayfarerModels = Opportunities => {
     };
 };
 
+
+let formatTitleCard = Opportunities => {
+    let elements = [];
+    Opportunities.forEach(opportunity =>
+        elements.push({
+            title: opportunity.get("Name"),
+            subtitle: opportunity.get("Description"),
+            "image_url": opportunity.get("Picture_URL__c"),
+            "buttons": [
+                {
+                    /*"type": "web_url",
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
+                    "title": "Buy"*/
+                    
+                    "type":"postback",
+                    "title":"Buy",
+                    "payload": "Order_Now," + opportunity.getId() + "," + opportunity.get("Name")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 //new
 let formatOrder = Opportunities => {
     let elements = [];
@@ -276,4 +308,5 @@ exports.formattone = formattone;
 exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
+exports.formatTitleCard = formatTitleCard;
 exports.formatOrder = formatOrder;
