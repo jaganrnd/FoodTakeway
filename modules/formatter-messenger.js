@@ -262,7 +262,7 @@ let formatShops = Products => {
         elements.push({
             title: product2.get("Name"),
             subtitle: product2.get("Description"),
-            "image_url": product2.get("Picture_URL__c"),
+            "image_url": product2.get("PICURL__c"),
             "buttons": [
                 {
                     /*"type": "web_url",
