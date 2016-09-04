@@ -89,21 +89,31 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
                      "Lyst Now" welcomes you 🙏 🙏
-                      Curious to know about me ? please type - who are you`
+                    Curious to know about me ? 
+                      please type - who are you`
             }, sender);
     // });
         sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"http://1.bp.blogspot.com/-r_9TRw-WQis/Vi-TCLijnmI/AAAAAAAAMNI/5KF-j_m6OHI/s1600/8JzUmRS6.png"
+                                "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
                             }
                         }
                 }, sender);
     });    
         return;
     }
-        
     
+    let match9;
+    match9 = text.match(/who are (.*)/i);    
+    if (match9) {
+        salesforce.findWayfarerOpportunities(match9).then(Opportunities => {    
+            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
+        });
+        return;
+    }    
+        
+        
     //HACKATHON
     
     
