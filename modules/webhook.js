@@ -104,10 +104,9 @@ let processText = (text, sender)  => {
         
     //LYST NOW
     
-    let match4;
-    match4 = text.match(/hii/i);
+    let match8;
+    match8 = text.match(/hi/i);
     if (match4) {
-        
         getUserInfo(sender).then(response => {
           sendMessage({text:`Hey ${response.first_name} !!!! 🙏 🙏
         Welcome to LystNow`}, sender);
