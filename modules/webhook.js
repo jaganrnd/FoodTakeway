@@ -89,7 +89,7 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
                      "Lyst Now" welcomes you 🙏 🙏
-                     To get started, please choose one of the options listed:`
+                      To get started, please type yes:`
             }, sender);
     // });
             //1st Card
@@ -100,15 +100,9 @@ let processText = (text, sender)  => {
                         "elements":[
                           {
                             "title":"Make an Order",
-                            //"item_url":"https://petersfancybrownhats.com",
                             "image_url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
                             "subtitle":"Real Time Tracking . Search by Location . Discounted Price",
                             "buttons":[
-                              /*{
-                                "type":"web_url",
-                                "url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
-                                "title":"View Website"
-                              },*/
                               {
                                 "type":"postback",
                                 "title":"Hungry? Lets Go!!",
@@ -131,15 +125,8 @@ let processText = (text, sender)  => {
                         "elements":[
                           {
                             "title":"My Account",
-                            //"item_url":"https://petersfancybrownhats.com",
                             "image_url":"https://lh3.googleusercontent.com/5FnEGegUOSpznvnoI7Ap4aVe1I4LRxEs1n2llaUPVWYnx7JqkpeM2d1-OSSDouvw49OJ=w170",
-                            //"subtitle":"Place where you can see your details",
                             "buttons":[
-                              /*{
-                                "type":"web_url",
-                                "url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
-                                "title":"View Website"
-                              },*/
                               {
                                 "type":"postback",
                                 "title":"My Account",
