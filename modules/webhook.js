@@ -88,8 +88,8 @@ let processText = (text, sender)  => {
      getUserInfo(sender).then(response => {  
             sendMessage({text:
                 `Hey ${response.first_name} 🙏 🙏
-            Lyst Now Welcomes you !!
-            To get started, please choose one of the options listed:`
+                     Lyst Now Welcomes you !!
+                     To get started, please choose one of the options listed:`
             }, sender);
      });
             sendMessage({attachment:{
@@ -98,19 +98,19 @@ let processText = (text, sender)  => {
                         "template_type":"generic",
                         "elements":[
                           {
-                            "title":"Welcome to Peter\'s Hats",
-                            "item_url":"https://petersfancybrownhats.com",
+                            "title":"Welcome to LystNow",
+                            //"item_url":"https://petersfancybrownhats.com",
                             "image_url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
-                            "subtitle":"We\'ve got the right hat for everyone.",
+                            "subtitle":"Real Time Tracking . Search by Location . Discounted Price",
                             "buttons":[
-                              {
+                              /*{
                                 "type":"web_url",
                                 "url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
                                 "title":"View Website"
-                              },
+                              },*/
                               {
                                 "type":"postback",
-                                "title":"Start Chatting",
+                                "title":"Hungry? Lets Go!!",
                                 "payload":"Order_Now"
                               }              
                             ]
