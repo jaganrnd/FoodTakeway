@@ -102,16 +102,6 @@ let processText = (text, sender)  => {
         Type yes 👍`}, sender);
         });
         
-    //LYST NOW
-    
-    let match8;
-    match8 = text.match(/hi/i);
-    if (match4) {
-        getUserInfo(sender).then(response => {
-          sendMessage({text:`Hey ${response.first_name} !!!! 🙏 🙏
-        Welcome to LystNow`}, sender);
-        });
-        
        /* sendMessage({text:
         `Hey ${response.first_name} !!!! 🙏 🙏
              Welcome to the world of 
