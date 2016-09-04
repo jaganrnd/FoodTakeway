@@ -132,7 +132,7 @@ let processText = (text, sender)  => {
                           {
                             "title":"My Account",
                             //"item_url":"https://petersfancybrownhats.com",
-                            "image_url":"{response.profile_pic}",
+                            "image_url":"https://lh3.googleusercontent.com/5FnEGegUOSpznvnoI7Ap4aVe1I4LRxEs1n2llaUPVWYnx7JqkpeM2d1-OSSDouvw49OJ=w170",
                             //"subtitle":"Place where you can see your details",
                             "buttons":[
                               /*{
