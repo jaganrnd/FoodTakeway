@@ -123,6 +123,19 @@ let processText = (text, sender)  => {
       
         
         return;
+        
+    let match8;
+    match8 = text.match(/hi/i);
+    if (match8) {
+        sendMessage({text:
+            `Hey ${response.first_name} !!!! 🙏 🙏
+        Lyst Now Welcomes you`
+        `}, sender);
+        return;
+    }
+        
+        
+        
     }
     
     let match1;
