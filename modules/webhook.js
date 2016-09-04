@@ -89,8 +89,8 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
             "Lyst Now" welcomes you 🙏 🙏
-                Curious to know about me ? 
-                      please type - who are you`
+             Curious to know about me ? 
+             Then please type - who are you`
             }, sender);
         
             sendMessage({attachment:{
