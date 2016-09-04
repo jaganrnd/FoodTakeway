@@ -154,6 +154,24 @@ let findTitleCard = name => {
 };
 
 
+let findShops = name => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo query');
+        console.log(name);
+        let q = "SELECT Id, Name,PICURL__c,LOCATION__c FROM product2 WHERE LOCATION__c LIKE '%" + name + "%' LIMIT 5";
+        console.log('after query');
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
+
 
 
 let prepareOrder = (name) => {
@@ -227,5 +245,6 @@ exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
 exports.findTitleCard = findTitleCard;
+exports.findShops = findShops;
 exports.createCase = createCase;
 exports.prepareOrder = prepareOrder;
