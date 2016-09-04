@@ -88,18 +88,19 @@ let processText = (text, sender)  => {
      getUserInfo(sender).then(response => {  
             sendMessage({text:
                 `Hey ${response.first_name} ....
-                     "Lyst Now" welcomes you 🙏 🙏
-                    Curious to know about me ? 
+            "Lyst Now" welcomes you 🙏 🙏
+                Curious to know about me ? 
                       please type - who are you`
             }, sender);
     // });
-        sendMessage({attachment:{
+        
+        /*sendMessage({attachment:{
                             "type": "image",
                             "payload": {
                                 "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
                             }
                         }
-                }, sender);
+                }, sender);*/
     });    
         return;
     }
@@ -107,6 +108,7 @@ let processText = (text, sender)  => {
     let match9;
     match9 = text.match(/who are (.*)/i);    
     if (match9) {
+        console.log('Inside match9');
         salesforce.findWayfarerOpportunities(match9).then(Opportunities => {    
             sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
         });
@@ -170,13 +172,6 @@ let processText = (text, sender)  => {
             
             Gift your loved ones 🎁 💕 
                 `}, sender);
-                /*sendMessage({attachment:{
-                            "type": "image",
-                            "payload": {
-                                "url":"https://blog.mysms.com/wp-content/uploads/2014/05/blog-location.png"
-                            }
-                        }
-                    }, sender);*/        
         return;
     }
     
