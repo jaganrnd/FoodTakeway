@@ -253,6 +253,41 @@ let formatTitleCard = Opportunities => {
     };
 };
 
+
+
+
+let formatShops = Products => {
+    let elements = [];
+    Products.forEach(product2 =>
+        elements.push({
+            title: product2.get("Name"),
+            subtitle: product2.get("Description"),
+            "image_url": product2.get("Picture_URL__c"),
+            "buttons": [
+                {
+                    /*"type": "web_url",
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
+                    "title": "Buy"*/
+                    
+                    "type":"postback",
+                    "title":"Order",
+                    "payload": "Make_Order," + product2.getId() + "," + product2.get("Name")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+
 //new
 let formatOrder = Opportunities => {
     let elements = [];
@@ -309,4 +344,5 @@ exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
 exports.formatTitleCard = formatTitleCard;
+exports.formatShops = formatShops;
 exports.formatOrder = formatOrder;
