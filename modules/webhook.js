@@ -87,9 +87,43 @@ let processText = (text, sender)  => {
     if (match8) {
      getUserInfo(sender).then(response => {    
             sendMessage({text:
-                `Hey ${response.first_name} !!!! 🙏 🙏
-            Lyst Now Welcomes you.To get started, please choose one of the options listed:`
+                `Hey ${response.first_name} 🙏 🙏
+            Lyst Now Welcomes you !!
+            To get started, please choose one of the options listed:`
             }, sender);
+            
+            sendMessage({attachment:{
+                      "type":"template",
+                      "payload":{
+                        "template_type":"generic",
+                        "elements":[
+                          {
+                            "title":"Welcome to Peter\'s Hats",
+                            "item_url":"https://petersfancybrownhats.com",
+                            "image_url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
+                            "subtitle":"We\'ve got the right hat for everyone.",
+                            "buttons":[
+                              {
+                                "type":"web_url",
+                                "url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
+                                "title":"View Website"
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Start Chatting",
+                                "payload":"Order_Now"
+                              }              
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+            }, sender);    
+            
+            
+            
+            
      });
         return;
     }
