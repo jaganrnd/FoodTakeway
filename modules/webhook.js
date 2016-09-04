@@ -87,18 +87,19 @@ let processText = (text, sender)  => {
     if (match8) {
      getUserInfo(sender).then(response => {  
             sendMessage({text:
-                `Hey ${response.first_name} 🙏 🙏
-                     Lyst Now Welcomes you !!
+                `Hey ${response.first_name} ....
+                     "Lyst Now" welcomes you 🙏 🙏
                      To get started, please choose one of the options listed:`
             }, sender);
      });
+            //1st Card
             sendMessage({attachment:{
                       "type":"template",
                       "payload":{
                         "template_type":"generic",
                         "elements":[
                           {
-                            "title":"Welcome to LystNow",
+                            "title":"Make an Order",
                             //"item_url":"https://petersfancybrownhats.com",
                             "image_url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
                             "subtitle":"Real Time Tracking . Search by Location . Discounted Price",
@@ -118,8 +119,44 @@ let processText = (text, sender)  => {
                         ]
                       }
                     }
-                  //}
             }, sender);    
+            //1st card
+            
+            
+            //2nd card
+            sendMessage({attachment:{
+                      "type":"template",
+                      "payload":{
+                        "template_type":"generic",
+                        "elements":[
+                          {
+                            "title":"My Account",
+                            //"item_url":"https://petersfancybrownhats.com",
+                            "image_url":${response.profile_pic},
+                            //"subtitle":"Place where you can see your details",
+                            "buttons":[
+                              /*{
+                                "type":"web_url",
+                                "url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
+                                "title":"View Website"
+                              },*/
+                              {
+                                "type":"postback",
+                                "title":"My Account",
+                                "payload":"Order_Now"
+                              }              
+                            ]
+                          }
+                        ]
+                      }
+                    }
+            }, sender);   
+            //2nd card
+            
+            
+            
+            
+            
      
         return;
     }
