@@ -91,7 +91,7 @@ let processText = (text, sender)  => {
                      "Lyst Now" welcomes you 🙏 🙏
                      To get started, please choose one of the options listed:`
             }, sender);
-     });
+    // });
             //1st Card
             sendMessage({attachment:{
                       "type":"template",
@@ -152,12 +152,7 @@ let processText = (text, sender)  => {
                     }
             }, sender);   
             //2nd card
-            
-            
-            
-            
-            
-     
+         });    
         return;
     }
         
