@@ -92,54 +92,14 @@ let processText = (text, sender)  => {
                       To get started, please type yes:`
             }, sender);
     // });
-            //1st Card
-            sendMessage({attachment:{
-                      "type":"template",
-                      "payload":{
-                        "template_type":"generic",
-                        "elements":[
-                          {
-                            "title":"Make an Order",
-                            "image_url":"http://techstory.in/wp-content/uploads/2015/05/food-delivery.jpg",
-                            "subtitle":"Real Time Tracking . Search by Location . Discounted Price",
-                            "buttons":[
-                              {
-                                "type":"postback",
-                                "title":"Hungry? Lets Go!!",
-                                "payload":"Order_Now"
-                              }              
-                            ]
-                          }
-                        ]
-                      }
-                    }
-            }, sender);    
-            //1st card
-            
-            
-            //2nd card
-            sendMessage({attachment:{
-                      "type":"template",
-                      "payload":{
-                        "template_type":"generic",
-                        "elements":[
-                          {
-                            "title":"My Account",
-                            "image_url":"https://lh3.googleusercontent.com/5FnEGegUOSpznvnoI7Ap4aVe1I4LRxEs1n2llaUPVWYnx7JqkpeM2d1-OSSDouvw49OJ=w170",
-                            "buttons":[
-                              {
-                                "type":"postback",
-                                "title":"My Account",
-                                "payload":"Order_Now"
-                              }              
-                            ]
-                          }
-                        ]
-                      }
-                    }
-            }, sender);   
-            //2nd card
-         });    
+        sendMessage({attachment:{
+                            "type": "image",
+                            "payload": {
+                                "url":"https://eatfirstordering.com/theme/default/images/how-it-works.png"
+                            }
+                        }
+                }, sender);
+    });    
         return;
     }
         
