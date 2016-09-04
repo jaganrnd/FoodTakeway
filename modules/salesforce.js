@@ -165,8 +165,8 @@ let findShops = name => {
                 console.log('ERROR');
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
+                let Products = resp.records;
+                resolve(Products);
             }
         });
     });
