@@ -137,7 +137,8 @@ let findWayfarerOpportunities = name => {
 
 let findTitleCard = name => {
     return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + you + "%' LIMIT 5";
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type =you";
+        console.log('query results'+ q);
         org.query({query: q}, (err, resp) => {
             if (err) {
                 reject("An error as occurred");
