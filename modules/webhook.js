@@ -89,13 +89,13 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
                      "Lyst Now" welcomes you 🙏 🙏
-                      To get started, please type yes:`
+                      Curious to know about me ? please type - who are you`
             }, sender);
     // });
         sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"https://eatfirstordering.com/theme/default/images/how-it-works.png"
+                                "url":"http://1.bp.blogspot.com/-r_9TRw-WQis/Vi-TCLijnmI/AAAAAAAAMNI/5KF-j_m6OHI/s1600/8JzUmRS6.png"
                             }
                         }
                 }, sender);
@@ -146,7 +146,7 @@ let processText = (text, sender)  => {
     }
     
     let match1;
-    match1 = text.match(/YES/i);
+    match1 = text.match(/YESUUUU/i);
     if (match1) {
         sendMessage({text:
         `How Can I Help You :
