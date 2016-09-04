@@ -236,8 +236,8 @@ let formatTitleCard = Opportunities => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"Buy",
-                    "payload": "Order_Now," + opportunity.getId() + "," + opportunity.get("Name")
+                    "title":"Order",
+                    "payload": "Make_Order," + opportunity.getId() + "," + opportunity.get("Name")
                     
                 }]
         })
