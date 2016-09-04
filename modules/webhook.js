@@ -113,6 +113,16 @@ let processText = (text, sender)  => {
         });
         return;
     }    
+    
+    let match10;
+    match10 = text.match(/location - (.*)/i);    
+    if (match10) {
+        console.log('Inside match10');
+        salesforce.findTitleCard(match10[1]).then(Products => {    
+            sendMessage(formatter.formatTitleCard(Products), sender)
+        });
+        return;
+    }    
         
         
     //HACKATHON
