@@ -207,7 +207,7 @@ let findProductId = MenuId => {
 };
 
 
-let createInvoice = (Menuid,customerName,)  => {
+let createInvoice = (Menuid,customerName)  => {
     return new Promise((resolve, reject) => {
         
         let c = nforce.createSObject('Case');
