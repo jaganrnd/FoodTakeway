@@ -369,7 +369,7 @@ let handlePost = (req, res) => {
                                               },
                                               {
                                                 "type":"postback",
-                                                "title":"No- It`s enough.Process my order",
+                                                "title":"No- It`s enough.",
                                                 "payload":"Show_Menu,"
                                               }
                                             ]
