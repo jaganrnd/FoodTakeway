@@ -336,27 +336,19 @@ let handlePost = (req, res) => {
                                    sendMessage(formatter.formatMenu(Products), sender)
                     }); 
                 } else if (payload[0] === "Create_Invoice") {
-                    
                     getUserInfo(sender).then(response => {
-                        
                         console.log('MENU ID**' + payload[1]);
                         console.log('MENU Name**' + payload[2]);
                         console.log('Shop Id**' + payload[3]);
-                        
                         /*salesforce.findProductId(payload[1]).then(ShopId => {
-                                        
                                        console.log('Choosen ShopId**' + ShopId);
                                        salesforce.createInvoice(ShopId).then(() => {
                                            sendMessage({text: `Hey ${response.first_name} Noted !! Do you wish to order other items?`}, sender);
                                        });   
                         });*/ 
-                        
-
-                       salesforce.createInvoice(payload[3],response.first_name,payload[2]).then(() => {
-                           
+                        salesforce.createInvoice(payload[3],response.first_name,payload[2]).then(() => {
                            sendMessage({text: `Hey ${response.first_name} noted !!`}, sender);
-                           
-                           sendMessage({attachment:{
+                                   sendMessage({attachment:{
                                         "type": "template",
                                         "payload": {
                                             "template_type":"button",
@@ -376,10 +368,7 @@ let handlePost = (req, res) => {
                                         }
                                     }
                             }, sender);
-                               
-                    });
-
-                    
+                        });
                 }     
         }
     }    
