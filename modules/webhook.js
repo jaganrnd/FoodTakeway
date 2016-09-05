@@ -328,9 +328,14 @@ let handlePost = (req, res) => {
                 }else if (payload[0] === "Am_Hungry") {
                     sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
                 }else if (payload[0] === "Show_Menu") {
-                    console.log(payload[0]);
-                    console.log(payload[1]);
-                    sendMessage({text: `You have chosen`}, sender);
+                    console.log(payload[0]);  
+                    console.log(payload[1]); // Return Id of the product choosen
+                    
+                    salesforce.findMenu(payload[1]).then(Products => {
+                                   //sendMessage(formatter.formatOrder(Opportunities), sender)
+                                   //sendMessage({text: `You have chosen`}, sender);
+                    }); 
+                                
                 }      
         }
     }    
