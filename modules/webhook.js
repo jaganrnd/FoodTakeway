@@ -96,7 +96,7 @@ let processText = (text, sender)  => {
             sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"https://lystnow.com/application/site/assets/images/logo.svg"
+                                "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
                             }
                         }
             }, sender);
