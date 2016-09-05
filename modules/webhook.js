@@ -340,6 +340,9 @@ let handlePost = (req, res) => {
                     getUserInfo(sender).then(response => {
                     
                         salesforce.findProductId(payload[1]).then(ShopId => {
+                            
+                                       console.log('ShopId**' + ShopId);
+                            
                                        sendMessage({text: `${response.first_name} Noted.Do you wish to order other items?`}, sender);
                                        salesforce.createInvoice(ShopId,response.first_name)
                         }); 
