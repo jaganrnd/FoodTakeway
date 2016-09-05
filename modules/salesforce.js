@@ -213,8 +213,8 @@ let createInvoice = (ShopUId,customerName,ItemName)  => {
     return new Promise((resolve, reject) => {
         console.log('before creating case check' + ShopUId);
         let c = nforce.createSObject('Case');
-        c.set('subject', `Facebook Customer1111`);
-        c.set('description', ItemName);
+        c.set('subject', `Facebook Customer`);
+        c.set('Choosen_Items__c', ItemName);
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
         c.set('ProductLookUp__c', ShopUId);
