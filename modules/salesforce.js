@@ -216,7 +216,7 @@ let createInvoice = (Menuid,customerName)  => {
         c.set('description', customerName );
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
-        c.set('Product__c', name);
+        c.set('Product__c', Menuid);
         c.set('Customer_Name__c', customerName);
         
         org.insert({sobject: c}, err => {
@@ -224,6 +224,7 @@ let createInvoice = (Menuid,customerName)  => {
                 console.error(err);
                 reject("An error occurred while creating a case");
             } else {
+                console.error('created case**' + c);
                 resolve(c);
             }
         });
