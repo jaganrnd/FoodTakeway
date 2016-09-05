@@ -270,7 +270,7 @@ let formatShops = Products => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"Hit Me",
+                    "title":"Show Menu",
                     "payload": "Show_Menu," + product2.getId() + "," + product2.get("Name")
                     
                 }]
@@ -302,7 +302,7 @@ let formatMenu = Products => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"View Menu",
+                    "title":"Pick Me",
                     "payload": "Show_Menu," + Menu__c.getId() + "," + Menu__c.get("Name")
                     
                 }]
