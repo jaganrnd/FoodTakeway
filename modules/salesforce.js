@@ -199,6 +199,7 @@ let findProductId = MenuId => {
                 console.log('ERROR');
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
+                console.log('shop resp**' + resp.records.length);
                 let ShopId = resp.records;
                 resolve(ShopId);
             }
