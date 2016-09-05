@@ -365,12 +365,12 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"Yes"
-                                                "payload":"Create_Invoice"
+                                                "payload":"Show_Menu,"
                                               },
                                               {
                                                 "type":"postback",
                                                 "title":"No",
-                                                "payload":"Create_Invoice"
+                                                "payload":"Show_Menu,"
                                               }
                                             ]
                                         }
