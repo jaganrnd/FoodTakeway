@@ -192,7 +192,8 @@ let findMenu = ProductId => {
 
 let findProductId = MenuId => {
     return new Promise((resolve, reject) => {
-        console.log(MenuId);
+        
+        console.log('Inside product id flow**' + MenuId);
         
         //let q = "Select id,name from product2 where Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "') LIMIT 1";
         
