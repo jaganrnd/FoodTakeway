@@ -332,8 +332,9 @@ let handlePost = (req, res) => {
                     console.log(payload[1]); // Return Id of the product choosen
                     
                     salesforce.findMenu(payload[1]).then(Products => {
-                                   //sendMessage(formatter.formatOrder(Opportunities), sender)
-                                   sendMessage({text: `Listing down menus for you`}, sender);
+                                   sendMessage({text: `Listing down menus for you********`}, sender);
+                                   sendMessage(formatter.formatMenu(Products), sender)
+                                   
                     }); 
                                 
                 }      
