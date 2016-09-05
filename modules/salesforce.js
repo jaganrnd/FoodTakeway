@@ -193,7 +193,7 @@ let findMenu = ProductId => {
 let findProductId = MenuId => {
     return new Promise((resolve, reject) => {
         console.log(MenuId);
-        let q = "Select id,name from product2 where  Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "');
+        let q = "Select id,name from product2 where  Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "')";
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -209,9 +209,6 @@ let findProductId = MenuId => {
 
 let createInvoice = (Menuid,customerName,)  => {
     return new Promise((resolve, reject) => {
-        
-        let q = "Select id,name from product2 where  Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "');
-        console.log(q.id);
         
         let c = nforce.createSObject('Case');
         c.set('subject', `Facebook Customer`);
