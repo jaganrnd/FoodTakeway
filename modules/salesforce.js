@@ -190,6 +190,47 @@ let findMenu = ProductId => {
     });
 };
 
+let findProductId = MenuId => {
+    return new Promise((resolve, reject) => {
+        console.log(MenuId);
+        let q = "Select id,name from product2 where  Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "');
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let ShopId = resp.records;
+                resolve(ShopId);
+            }
+        });
+    });
+};
+
+
+let createInvoice = (Menuid,customerName,)  => {
+    return new Promise((resolve, reject) => {
+        
+        let q = "Select id,name from product2 where  Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "');
+        console.log(q.id);
+        
+        let c = nforce.createSObject('Case');
+        c.set('subject', `Facebook Customer`);
+        c.set('description', customerName );
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+        c.set('Product__c', name);
+        c.set('Customer_Name__c', customerName);
+        
+        org.insert({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(c);
+            }
+        });
+    });
+};
 
 
 
@@ -267,4 +308,6 @@ exports.findTitleCard = findTitleCard;
 exports.findShops = findShops;
 exports.findMenu = findMenu;
 exports.createCase = createCase;
+exports.findProductId = findProductId;
+exports.createInvoice = createInvoice;
 exports.prepareOrder = prepareOrder;
