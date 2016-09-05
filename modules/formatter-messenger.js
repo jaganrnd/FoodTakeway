@@ -236,7 +236,7 @@ let formatTitleCard = Opportunities => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"AmHungry",
+                    "title":"Hit Me",
                     "payload": "Am_Hungry," + opportunity.getId() + "," + opportunity.get("Name")
                     
                 }]
@@ -270,7 +270,7 @@ let formatShops = Products => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"ShowMenu",
+                    "title":"Hit Me",
                     "payload": "Show_Menu," + product2.getId() + "," + product2.get("Name")
                     
                 }]
