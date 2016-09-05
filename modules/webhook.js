@@ -335,18 +335,19 @@ let handlePost = (req, res) => {
                                    sendMessage({text: `Listing down menus for you 🍝`}, sender);
                                    sendMessage(formatter.formatMenu(Products), sender)
                     }); 
+                } else if (payload[0] === "Create_Invoice") {
                     
                     getUserInfo(sender).then(response => {
-                            salesforce.createInvoice(payload[1],response.first_name).then(() => {
-                               sendMessage({
-                                        text: 
-                                        `${response.first_name} Took your order`
-                                        }, sender);
-                            });
-                    }); 
                     
-                                
-                }      
+                        salesforce.findProductId(payload[1]).then(ShopId => {
+                                       sendMessage({text: `${response.first_name} Noted.Do you wish to order other items?`}, sender);
+                                       salesforce.createInvoice(ShopId,response.first_name)
+                        }); 
+                    
+                        
+                    });
+                    
+                }     
         }
     }    
     res.sendStatus(200);
