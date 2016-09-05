@@ -89,8 +89,8 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
             "Lyst Now" welcomes you 🙏 🙏
-             Curious to know about me ? 
-             Then please type - who are you`
+             Curious to know about me ? 🍴
+             Please hit - who are you`
             }, sender);
         
             sendMessage({attachment:{
@@ -326,7 +326,7 @@ let handlePost = (req, res) => {
                              });
                             //end
                 }else if (payload[0] === "Make_Order") {
-                    sendMessage({text: `Please enter your location`}, sender);
+                    sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
                 }     
         }
     }    
