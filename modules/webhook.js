@@ -343,13 +343,19 @@ let handlePost = (req, res) => {
                         console.log('MENU Name**' + payload[2]);
                         console.log('Shop Id**' + payload[3]);
                         
-                        salesforce.findProductId(payload[1]).then(ShopId => {
+                        /*salesforce.findProductId(payload[1]).then(ShopId => {
                                         
                                        console.log('Choosen ShopId**' + ShopId);
                                        salesforce.createInvoice(ShopId).then(() => {
                                            sendMessage({text: `Hey ${response.first_name} Noted !! Do you wish to order other items?`}, sender);
                                        });   
-                        }); 
+                        });*/ 
+                        
+
+                       salesforce.createInvoice(payload[3],response.first_name,payload[2]).then(() => {
+                           sendMessage({text: `Hey ${response.first_name} Noted !! Do you wish to order other items?`}, sender);
+                       });   
+                               
                     });
                     
                 }     
