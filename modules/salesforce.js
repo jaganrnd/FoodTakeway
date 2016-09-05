@@ -195,7 +195,7 @@ let findProductId = MenuId => {
         
         console.log('Inside product id flow**' + MenuId);
         //let q = "Select id,name from product2 where Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "') LIMIT 1";
-        let q = "SELECT Id,Name,PICURL__c,Price__c,Product__c from Menu__c WHERE id = '" + Menuid + "' LIMIT 1";
+        let q = "SELECT Id,Name,PICURL__c,Price__c,Product__c from Menu__c WHERE id = '" + Menuid + "' ";
         console.log(q);
         console.log(q.Product__c);
         
