@@ -293,7 +293,7 @@ let formatMenu = Products => {
     Products.forEach(Menu__c  =>
         elements.push({
             title: Menu__c .get("Name"),
-            subtitle: product2.get("Price__c"),
+            subtitle: Menu__c.get("Price__c"),
             "image_url": Menu__c.get("PICURL__c"),
             "buttons": [
                 {
