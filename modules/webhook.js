@@ -353,7 +353,31 @@ let handlePost = (req, res) => {
                         
 
                        salesforce.createInvoice(payload[3],response.first_name,payload[2]).then(() => {
-                           sendMessage({text: `Hey ${response.first_name} Noted !! Do you wish to order other items?`}, sender);
+                           
+                           sendMessage({text: `Hey ${response.first_name} Noted !! Would you like to order other items?`}, sender);
+                           
+                           sendMessage({attachment:{
+                                        "type": "template",
+                                        "payload": {
+                                            "template_type":"button",
+                                            "text":"Would you like to order other items?",
+                                            "buttons":[
+                                              {
+                                                "type":"postback",
+                                                "title":"Yes"
+                                                "payload":"Create_Invoice"
+                                              },
+                                              {
+                                                "type":"postback",
+                                                "title":"No",
+                                                "payload":"Create_Invoice"
+                                              }
+                                            ]
+                                        }
+                                    }
+                            }, sender);
+                           
+                           
                        });   
                                
                     });
