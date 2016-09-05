@@ -96,7 +96,7 @@ let processText = (text, sender)  => {
             sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
+                                "url":"https://lystnow.com/application/site/assets/images/logo.svg"
                             }
                         }
             }, sender);
@@ -332,10 +332,11 @@ let handlePost = (req, res) => {
                     console.log(payload[1]); // Return Id of the product choosen
                     
                     salesforce.findMenu(payload[1]).then(Products => {
-                                   sendMessage({text: `Listing down menus for you********`}, sender);
+                                   sendMessage({text: `Listing down menus for you 🍝`}, sender);
                                    sendMessage(formatter.formatMenu(Products), sender)
-                                   
                     }); 
+                    
+                    
                                 
                 }      
         }
