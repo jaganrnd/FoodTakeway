@@ -293,7 +293,7 @@ let formatMenu = Products => {
     Products.forEach(Menu__c  =>
         elements.push({
             title: Menu__c .get("Name"),
-            //subtitle: product2.get("Description"),
+            subtitle: product2.get("Price__c"),
             "image_url": Menu__c.get("PICURL__c"),
             "buttons": [
                 {
@@ -302,7 +302,7 @@ let formatMenu = Products => {
                     "title": "Buy"*/
                     
                     "type":"postback",
-                    "title":"Hit Me",
+                    "title":"View Menu",
                     "payload": "Show_Menu," + Menu__c.getId() + "," + Menu__c.get("Name")
                     
                 }]
