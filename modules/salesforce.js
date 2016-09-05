@@ -246,5 +246,6 @@ exports.getdummyOpportunities = getdummyOpportunities;
 exports.findWayfarerOpportunities = findWayfarerOpportunities;
 exports.findTitleCard = findTitleCard;
 exports.findShops = findShops;
+exports.findMenu = findMenu;
 exports.createCase = createCase;
 exports.prepareOrder = prepareOrder;
