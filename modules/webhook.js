@@ -378,30 +378,7 @@ let handlePost = (req, res) => {
                             }, sender);
                             
                            salesforce.updateInvoice(payload[3],response.first_name,payload[2]).then(() => {
-                           
-                           sendMessage({text: `Hey ${response.first_name} noted !!`}, sender);
-                           sendMessage({attachment:{
-                                        "type": "template",
-                                        "payload": {
-                                            "template_type":"button",
-                                            "text":"Would you like to order some more items?",
-                                            "buttons":[
-                                              {
-                                                "type":"postback",
-                                                "title":"Yes",
-                                                "payload":"Show_Menu,"
-                                              },
-                                              {
-                                                "type":"postback",
-                                                "title":"No- It`s enough.",
-                                                "payload":"Show_Menu,"
-                                              }
-                                            ]
-                                        }
-                                    }
-                            }, sender);
-                           
-                       });   
+                           });   
                                
                     });
                     
