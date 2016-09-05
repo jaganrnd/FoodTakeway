@@ -193,8 +193,12 @@ let findMenu = ProductId => {
 let findProductId = MenuId => {
     return new Promise((resolve, reject) => {
         console.log(MenuId);
-        let q = "Select id,name from product2 where Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "') LIMIT 1";
-        console.log(q);
+        
+        //let q = "Select id,name from product2 where Id IN (SELECT Product__c from Menu__c where id = '" + Menuid + "') LIMIT 1";
+        
+        let q = "Select id,Product__c from Menu__c where id = '" + Menuid + "' LIMIT 1";
+        console.log(q.Product__c);
+        
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
