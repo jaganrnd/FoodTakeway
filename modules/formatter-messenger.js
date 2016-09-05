@@ -303,7 +303,7 @@ let formatMenu = Products => {
                     
                     "type":"postback",
                     "title":"Pick Me",
-                    "payload": "Show_Menu," + Menu__c.getId() + "," + Menu__c.get("Name")
+                    "payload": "Create_Invoice," + Menu__c.getId() + "," + Menu__c.get("Name")
                     
                 }]
         })
