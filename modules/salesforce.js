@@ -209,16 +209,16 @@ let findProductId = MenuId => {
 };
 
 
-let createInvoice = (ShopUId)  => {
+let createInvoice = (ShopUId,customerName,ItemName)  => {
     return new Promise((resolve, reject) => {
         console.log('before creating case check' + ShopUId);
         let c = nforce.createSObject('Case');
         c.set('subject', `Facebook Customer1111`);
-        //c.set('description', customerName);
+        c.set('description', ItemName);
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
         c.set('ProductLookUp__c', ShopUId);
-        //c.set('Customer_Name__c', customerName);
+        c.set('Customer_Name__c', customerName);
         
         org.insert({sobject: c}, err => {
             if (err) {
