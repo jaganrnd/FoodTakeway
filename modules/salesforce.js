@@ -232,7 +232,29 @@ let createInvoice = (ShopUId,customerName,ItemName)  => {
     });
 };
 
-
+let updateInvoice = (ShopUId,customerName,ItemName)  => {
+    return new Promise((resolve, reject) => {
+        console.log('before creating case check' + ShopUId);
+        let c = nforce.updateSObject('Case');
+        c.set('Id', `5002800000POXK4`);
+        c.set('subject', `Facebook Customer`);
+        c.set('Items__c', ItemName);  //Multi select picklist
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+        c.set('ProductLookUp__c', ShopUId);
+        c.set('Customer_Name__c', customerName);
+        
+        org.update({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while updating a case");
+            } else {
+                console.error('created case**' + c);
+                resolve(c);
+            }
+        });
+    });
+};
 
 let prepareOrder = (name) => {
     return new Promise((resolve, reject) => {
@@ -310,4 +332,5 @@ exports.findMenu = findMenu;
 exports.createCase = createCase;
 exports.findProductId = findProductId;
 exports.createInvoice = createInvoice;
+exports.updateInvoice = updateInvoice;
 exports.prepareOrder = prepareOrder;
