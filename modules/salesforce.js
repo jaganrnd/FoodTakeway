@@ -192,13 +192,9 @@ let findMenu = ProductId => {
 
 let findProductId = MenuId => {
     return new Promise((resolve, reject) => {
-        
         console.log('Inside product id flow**' + MenuId);
         let q = "Select id,name from product2 where Id IN (SELECT Product__c from Menu__c where id = '" + MenuId + "') LIMIT 1";
-        //let q = "SELECT Id,Name,PICURL__c,Price__c,Product__c from Menu__c WHERE id = '" + MenuId + "' ";
         console.log(q);
-
-        
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -215,10 +211,10 @@ let findProductId = MenuId => {
 
 let createInvoice = (ShopUID,customerName)  => {
     return new Promise((resolve, reject) => {
-        
+        console.log('before creating case check' + ShopUID);
         let c = nforce.createSObject('Case');
         c.set('subject', `Facebook Customer`);
-        c.set('description', customerName );
+        c.set('description', customerName);
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
         c.set('Product__c', ShopUID);
