@@ -183,7 +183,7 @@ let findMenu = ProductId => {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
                 let Products = resp.records;
-                console.log('List of Menus' + resp.records);
+                console.log('List of Menus' + resolve(Products));
                 resolve(Products);
             }
         });
