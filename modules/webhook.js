@@ -347,7 +347,7 @@ let handlePost = (req, res) => {
                                        console.log('ShopId**' + ShopId);
                             
                                        sendMessage({text: `${response.first_name} Noted.Do you wish to order other items?`}, sender);
-                                       //salesforce.createInvoice(ShopId,response.first_name)
+                                       salesforce.createInvoice(ShopId,response.first_name)
                         }); 
                     
                         
