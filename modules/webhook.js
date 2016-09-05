@@ -369,7 +369,7 @@ let handlePost = (req, res) => {
                                     }
                             }, sender);
                         });
-                }     
+                });     
         }
     }    
     res.sendStatus(200);
