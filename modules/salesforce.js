@@ -232,7 +232,7 @@ let createInvoice = (ShopUId,customerName,ItemName)  => {
     });
 };
 
-let updateInvoice = (ShopUId,customerName,ItemName)  => {
+/*let updateInvoice = (ShopUId,customerName,ItemName)  => {
     return new Promise((resolve, reject) => {
         console.log('before creating case check' + ShopUId);
         let c = nforce.updateSObject('Case');
@@ -254,7 +254,7 @@ let updateInvoice = (ShopUId,customerName,ItemName)  => {
             }
         });
     });
-};
+};*/
 
 let prepareOrder = (name) => {
     return new Promise((resolve, reject) => {
@@ -332,5 +332,5 @@ exports.findMenu = findMenu;
 exports.createCase = createCase;
 exports.findProductId = findProductId;
 exports.createInvoice = createInvoice;
-exports.updateInvoice = updateInvoice;
+//exports.updateInvoice = updateInvoice;
 exports.prepareOrder = prepareOrder;
