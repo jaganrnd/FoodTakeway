@@ -333,7 +333,7 @@ let handlePost = (req, res) => {
                     
                     salesforce.findMenu(payload[1]).then(Products => {
                                    //sendMessage(formatter.formatOrder(Opportunities), sender)
-                                   //sendMessage({text: `You have chosen`}, sender);
+                                   sendMessage({text: `Listing down menus for you`}, sender);
                     }); 
                                 
                 }      
