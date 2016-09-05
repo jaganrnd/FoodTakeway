@@ -338,7 +338,9 @@ let handlePost = (req, res) => {
                 } else if (payload[0] === "Create_Invoice") {
                     
                     getUserInfo(sender).then(response => {
-                    
+                        
+                        console.log('MENU ID**' + payload[1]);
+                        
                         salesforce.findProductId(payload[1]).then(ShopId => {
                             
                                        console.log('ShopId**' + ShopId);
