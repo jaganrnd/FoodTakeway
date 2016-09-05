@@ -288,6 +288,39 @@ let formatShops = Products => {
 };
 
 
+let formatMenu = Products => {
+    let elements = [];
+    Products.forEach(Menu__c  =>
+        elements.push({
+            title: Menu__c .get("Name"),
+            //subtitle: product2.get("Description"),
+            "image_url": Menu__c.get("PICURL__c"),
+            "buttons": [
+                {
+                    /*"type": "web_url",
+                    "url": "https://login.salesforce.com/" + opportunity.getId(),
+                    "title": "Buy"*/
+                    
+                    "type":"postback",
+                    "title":"Hit Me",
+                    "payload": "Show_Menu," + Menu__c.getId() + "," + Menu__c.get("Name")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+
+
 //new
 let formatOrder = Opportunities => {
     let elements = [];
@@ -345,4 +378,5 @@ exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
 exports.formatTitleCard = formatTitleCard;
 exports.formatShops = formatShops;
+exports.formatMenu = formatMenu;
 exports.formatOrder = formatOrder;
