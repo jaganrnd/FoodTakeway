@@ -341,6 +341,7 @@ let handlePost = (req, res) => {
                         
                         console.log('MENU ID**' + payload[1]);
                         console.log('MENU Name**' + payload[2]);
+                        console.log('Shop Id**' + payload[3]);
                         
                         salesforce.findProductId(payload[1]).then(ShopId => {
                                         
