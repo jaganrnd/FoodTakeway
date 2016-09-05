@@ -174,10 +174,9 @@ let findShops = name => {
 
 let findMenu = ProductId => {
     return new Promise((resolve, reject) => {
-        console.log('bfo query');
-        console.log(name);
+        console.log('Inside Menu Flow');
+        console.log(ProductId);
         let q = "SELECT Id,Name,PICURL__c,Price__c,Product__c from Menu__c WHERE Product__c  = '" + ProductId + "' LIMIT 5";
-        console.log('after query');
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
