@@ -336,6 +336,14 @@ let handlePost = (req, res) => {
                                    sendMessage(formatter.formatMenu(Products), sender)
                     }); 
                     
+                    getUserInfo(sender).then(response => {
+                            salesforce.createInvoice(payload[1],response.first_name).then(() => {
+                               sendMessage({
+                                        text: 
+                                        `${response.first_name} Took your order`
+                                        }, sender);
+                            });
+                    }); 
                     
                                 
                 }      
