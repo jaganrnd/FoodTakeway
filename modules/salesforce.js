@@ -217,7 +217,7 @@ let createInvoice = (ShopId,customerName)  => {
         c.set('description', customerName);
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
-        c.set('Product__c', ShopId);
+        c.set('ProductLookUp__c', ShopId);
         c.set('Customer_Name__c', customerName);
         
         org.insert({sobject: c}, err => {
