@@ -327,7 +327,13 @@ let handlePost = (req, res) => {
                             //end
                 }else if (payload[0] === "Am_Hungry") {
                     console.log('payload[2]**' + payload[2]);
-                    sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
+                    
+                    if(payload[2] === 'Hungry?Let's go!!.'){
+                        sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
+                    }
+                    
+                    
+                    
                 }else if (payload[0] === "Show_Menu") {
                     console.log(payload[0]);  
                     console.log(payload[1]); // Return Id of the product choosen
