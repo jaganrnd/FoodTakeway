@@ -371,10 +371,12 @@ let handlePost = (req, res) => {
                         });
                 });
             }else if (payload[0] === "No_Enf") {
+                    sendMessage({text: `Cool ${response.first_name}!! Send your number for door delivery`}, sender);
                     sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"https://mir-s3-cdn-cf.behance.net/project_modules/disp/10772526268695.563539bc1a55a.gif"
+                                //rl":"https://mir-s3-cdn-cf.behance.net/project_modules/disp/10772526268695.563539bc1a55a.gif"
+                                "url":"http://www.savegenie.mu/img/web-images/delivery-van-ani.gif"
                             }
                         }
                     }, sender);
