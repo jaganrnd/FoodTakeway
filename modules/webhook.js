@@ -371,7 +371,7 @@ let handlePost = (req, res) => {
                         });
                 });
             }else if (payload[0] === "No_Enf") {
-                    sendMessage({text: `Cool !! Send your mobile number📱 for door delivery`}, sender);
+                    sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
                     sendMessage({attachment:{
                             "type": "image",
                             "payload": {
