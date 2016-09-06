@@ -362,7 +362,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"No- It`s enough.",
-                                                "payload":"Show_Menu,"
+                                                "payload":"No_Enf,"
                                               }
                                             ]
                                         }
@@ -370,6 +370,14 @@ let handlePost = (req, res) => {
                             }, sender);
                         });
                 });
+            }else if (payload[0] === "No_Enf") {
+                    sendMessage({attachment:{
+                            "type": "image",
+                            "payload": {
+                                "url":"https://mir-s3-cdn-cf.behance.net/project_modules/disp/10772526268695.563539bc1a55a.gif"
+                            }
+                        }
+                    }, sender);
             }    
         }
     }    
