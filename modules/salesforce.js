@@ -216,7 +216,7 @@ let createInvoice = (ShopUId,customerName,ItemName)  => {
         c.set('subject', `Facebook Customer`);
         c.set('Choosen_Items__c', ItemName);
         c.set('origin', 'Facebook Bot');
-        c.set('status', 'New');
+        c.set('status', 'Yet to Complete Selection');
         c.set('ProductLookUp__c', ShopUId);
         c.set('Customer_Name__c', customerName);
         
