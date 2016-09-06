@@ -375,7 +375,9 @@ let handlePost = (req, res) => {
                     sendMessage({attachment:{
                             "type": "image",
                             "payload": {
+                                //https://mir-s3-cdn-cf.behance.net/project_modules/disp/10772526268695.563539bc1a55a.gif
                                 "url":"http://www.savegenie.mu/img/web-images/delivery-van-ani.gif"
+                                
                             }
                         }
                     }, sender);
