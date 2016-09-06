@@ -328,7 +328,7 @@ let handlePost = (req, res) => {
                 }else if (payload[0] === "Am_Hungry") {
                     console.log('payload[2]**' + payload[2]);
                     
-                    if(payload[2] === 'Hungry?Let's go!!.'){
+                    if(payload[2] === "Hungry?Lets go!!."){
                         sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
                     }
                     
