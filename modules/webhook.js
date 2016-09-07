@@ -364,7 +364,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"Yes",
-                                                "payload":"Show_Menu,"
+                                                "payload":"Order_More," + payload[3]
                                               },
                                               {
                                                 "type":"postback",
@@ -377,7 +377,10 @@ let handlePost = (req, res) => {
                             }, sender);
                         });
                 });
-            }else if (payload[0] === "No_Enf") {
+            }else if (payload[0] === "Order_More") {
+                    sendMessage({text: `ok showing other items from the shop choosen before`}, sender);
+            }    
+            else if (payload[0] === "No_Enf") {
                     sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
                     sendMessage({attachment:{
                             "type": "image",
