@@ -378,8 +378,14 @@ let handlePost = (req, res) => {
                         });
                 });
             }else if (payload[0] === "Order_More") {
-                    sendMessage({text: `Ok showing menu items from the shop choosen before !!`}, sender);
+                    
                     console.log('More products**' + payload[1]);
+                   
+                    salesforce.findMenu(payload[1]).then(Products => {
+                                   sendMessage({text: `Ok showing menu items from the shop choosen before !!`}, sender);
+                                   sendMessage(formatter.formatMenu(Products), sender)
+                    });
+                    
             }    
             else if (payload[0] === "No_Enf") {
                     sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
