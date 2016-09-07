@@ -378,7 +378,8 @@ let handlePost = (req, res) => {
                         });
                 });
             }else if (payload[0] === "Order_More") {
-                    sendMessage({text: `ok showing other items from the shop choosen before`}, sender);
+                    sendMessage({text: `Ok showing menu items from the shop choosen before !!`}, sender);
+                    console.log('More products**' + payload[1]);
             }    
             else if (payload[0] === "No_Enf") {
                     sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
