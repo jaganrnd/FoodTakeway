@@ -88,7 +88,7 @@ let processText = (text, sender)  => {
      getUserInfo(sender).then(response => {  
             sendMessage({text:
                 `Hey ${response.first_name} ....
-            "Lyst Now" welcomes you 🙏 🙏
+            "Kolapasi" welcomes you 🙏 🙏
              Curious to know about me ? 🍴 🍛
              Please hit - who are you`
             }, sender);
@@ -96,7 +96,7 @@ let processText = (text, sender)  => {
             sendMessage({attachment:{
                             "type": "image",
                             "payload": {
-                                "url":"https://lh3.googleusercontent.com/-BW6jSCeY4kGqZXtHTlkw2lwuu5Dl9kEGCk_IhqkE40kcsuTTB7ucKw9DfHpaNYUJw=w300"
+                                "url":"https://scontent.xx.fbcdn.net/v/t1.0-9/11923197_128210634193304_8750068108166696672_n.jpg?oh=fa0feced8074ad43b60570b91bbc2331&oe=58673C4E"
                             }
                         }
             }, sender);
