@@ -87,7 +87,7 @@ let processText = (text, sender)  => {
                                               {
                                                 "type":"postback",
                                                 "title":"Start Ordering",
-                                                "payload":"Create_Invoice"
+                                                "payload":"Show_Broch"
                                               }
                                             ]                                             
                                         }
@@ -266,6 +266,33 @@ let handlePost = (req, res) => {
                     sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
                 } else if (payload[0] === "close_lost") {
                     sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
+                } else if (payload[0] === "Show_Borch"){
+
+                           sendMessage({
+                                        "text":"Pick 1 model:",
+                                        "quick_replies":[
+                                            {
+                                                "content_type":"text",
+                                                "title":"Square",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Rectangular",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Wayfarer",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Aviator",
+                                                "payload":"close_won"
+                                            }]   
+                                }, sender);
+            
                 } else if(payload[0] === "Order_Now") {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                             console.log('payload 1 ' , payload[1]);
