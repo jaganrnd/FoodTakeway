@@ -266,7 +266,7 @@ let handlePost = (req, res) => {
                     sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
                 } else if (payload[0] === "close_lost") {
                     sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-                } else if (payload[0] === "Show_Borch"){
+                } else if (payload[0] === "Show_Broch"){
 
                            sendMessage({
                                         "text":"Pick 1 model:",
