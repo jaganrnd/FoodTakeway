@@ -22,10 +22,8 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-let getUserInfo = (userId) => {
-  
-  return new Promise((resolve, reject) => {       
-    
+let getUserInfo = (userId) => {  
+  return new Promise((resolve, reject) => {           
         request({
             url: `https://graph.facebook.com/v2.6/${userId}`,
             qs: {fields:"first_name,last_name,profile_pic", access_token: process.env.FB_PAGE_TOKEN},
@@ -40,25 +38,49 @@ let getUserInfo = (userId) => {
                 console.log(response.body);
                 resolve(JSON.parse(response.body));
             }    
-        });
-    
-    });  
-    
+        });    
+    });      
 };    
 
 
 let processText = (text, sender)  => {
     let match;
-    match = text.match(/help/i);
+    match = text.match(/help/i);    
     if (match) {
-        sendMessage({text:
-            `You can ask me things like:
-    Search account Acme
-    Search Acme in accounts
-    Search contact Smith
-    What are my top 3 opportunities?
-    Search opportunity dell
-        `}, sender);
+              "setting_type" : "call_to_actions",
+              "thread_state" : "existing_thread",
+              "call_to_actions":[
+                {
+                  "type":"postback",
+                  "title":"Help",
+                  "payload":"Show_Broch"
+                },
+                {
+                  "type":"postback",
+                  "title":"Start a New Order",
+                  "payload":"Show_Broch"
+                },
+                {
+                  "type":"web_url",
+                  "title":"Checkout",
+                  "url":"http://petersapparel.parseapp.com/checkout",
+                  "webview_height_ratio": "full",
+                  "messenger_extensions": true
+                },
+                {
+                  "type":"web_url",
+                  "title":"View Website",
+                  "url":"Show_Broch"
+                }
+              ]
+            sendMessage({text:
+                    `You can ask me things like:
+            Search account Acme
+            Search Acme in accounts
+            Search contact Smith
+            What are my top 3 opportunities?
+            Search opportunity dell
+                `}, sender);
         return;
     }
     
