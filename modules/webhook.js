@@ -293,7 +293,7 @@ let handlePost = (req, res) => {
                                             },
                                             {
                                                 "content_type":"text",
-                                                "title":"Kolapasi special combo",
+                                                "title":"KolapasiSpecialCombo",
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);
