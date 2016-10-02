@@ -89,7 +89,7 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} !
             "Kolapasi" welcomes you 🙏 🙏
-             Curious to know about me ? 🍴 🍛 Pot of food 🍲
+             Curious to know about me ? 🍲
              Please hit - who are you`
             }, sender);
         
