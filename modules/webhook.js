@@ -111,7 +111,7 @@ let processText = (text, sender)  => {
                                         {
                                             "title": "Welcome to Kolapasi",  
                                              "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
-                                             "subtitle": "Takeaway",  
+                                             "subtitle": "Takeaway places In and around  Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
                                             "buttons":[
                                               {
                                                 "type":"postback",
