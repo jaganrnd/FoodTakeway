@@ -117,7 +117,7 @@ let processText = (text, sender)  => {
                                               {
                                                 "type":"postback",
                                                 "title":"Start Ordering",
-                                                "payload":"Show_Broch"
+                                                "payload":"Show_Branches"
                                               }
                                             ]                                             
                                         }
@@ -231,7 +231,37 @@ let handlePost = (req, res) => {
         } 
         else if (event.postback) {
                 let payload = event.postback.payload.split(",");
-                if (payload[0] === "Show_Broch"){
+                 if (payload[0] === "Show_Branches"){
+                           sendMessage({
+                                        "text":"Pick any 1 store location which is nearer to your delivery address:",
+                                        "quick_replies":[
+                                            {
+                                                "content_type":"text",
+                                                "title":"Adyar",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"AshokNagar",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Choolaimedu",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Mogappair",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"OMR(Til2AM)",
+                                                "payload":"close_won"
+                                            }]   
+                                }, sender);            
+                }else if (payload[0] === "Show_Broch"){
                            sendMessage({
                                         "text":"Pick 1 model:",
                                         "quick_replies":[
