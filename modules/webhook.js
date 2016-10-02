@@ -201,14 +201,6 @@ let processText = (text, sender)  => {
     
     //HACKATHON
     
-    match = text.match(/search contact (.*)/i);
-    if (match) {
-        salesforce.findContact(match[1]).then(contacts => {
-            sendMessage({text: `Here are the contacts I found matching "${match[1]}":`}, sender);
-            sendMessage(formatter.formatContacts(contacts), sender)
-        });
-        return;
-    }
 
     match = text.match(/top (.*) opportunities/i);
     if (match) {
