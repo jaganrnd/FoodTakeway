@@ -28,38 +28,6 @@ let login = () => {
 };
 
 
-let findContact = name => {
-
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name, Title, Account.Name, Phone, MobilePhone, Email, Picture_URL__c FROM Contact WHERE Name LIKE '%" + name + "%' LIMIT 5";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let contacts = resp.records;
-                resolve(contacts);
-            }
-        });
-    });
-
-};
-
-let findContactsByAccount = accountId => {
-
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name, Title, Account.Name, Phone, MobilePhone, Email, Picture_URL__c FROM Contact WHERE Account.Id = '" + accountId + "' LIMIT 5";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let contacts = resp.records;
-                resolve(contacts);
-            }
-        });
-    });
-
-};
-
 let getTopOpportunities = count => {
 
     count = count || 5;
@@ -246,8 +214,6 @@ let createCase = (name,customerName)  => {
 login();
 
 exports.org = org;
-exports.findContact = findContact;
-exports.findContactsByAccount = findContactsByAccount;
 exports.getTopOpportunities = getTopOpportunities;
 exports.findOpportunities = findOpportunities;
 exports.getdummyOpportunities = getdummyOpportunities;
