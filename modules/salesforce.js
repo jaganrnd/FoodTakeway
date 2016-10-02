@@ -27,68 +27,6 @@ let login = () => {
     });
 };
 
-
-let getTopOpportunities = count => {
-
-    count = count || 5;
-
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate, Account.Name, Account.Picture_URL__c FROM Opportunity WHERE isClosed=false ORDER BY amount DESC LIMIT " + count;
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                console.error(err);
-                reject("An error as occurred");
-            } else {
-                resolve(resp.records);
-            }
-        });
-    });
-
-};
-
-let findOpportunities = name => {
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
-            }
-        });
-    });
-};
-
-
-let getdummyOpportunities = name => {
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 1";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
-            }
-        });
-    });
-};
-
-let findWayfarerOpportunities = name => {
-    return new Promise((resolve, reject) => {
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
-            }
-        });
-    });
-};
-
 let findTitleCard = name => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
@@ -214,10 +152,6 @@ let createCase = (name,customerName)  => {
 login();
 
 exports.org = org;
-exports.getTopOpportunities = getTopOpportunities;
-exports.findOpportunities = findOpportunities;
-exports.getdummyOpportunities = getdummyOpportunities;
-exports.findWayfarerOpportunities = findWayfarerOpportunities;
 exports.findTitleCard = findTitleCard;
 exports.findShops = findShops;
 exports.findMenu = findMenu;
