@@ -11,28 +11,7 @@ let sendMessage = (message, recipient) => {
         method: 'POST',
         json: {
             recipient: {id: recipient},
-            message: message            
-            //new            
-            setting_type : "call_to_actions",
-            thread_state : "existing_thread",
-            call_to_actions:[
-                {
-                  type:"postback",
-                  title:"Home",
-                  payload:"home"
-                },
-                {
-                  type:"postback",
-                  title:"Joke",
-                  payload:"joke"
-                },
-                {
-                  type:"web_url",
-                  title:"DMS Software Website",
-                  url:"http://www.dynamic-memory.com/"
-                }
-              ]
-            //new            
+            message: message                       
         }
     }, (error, response) => {
         if (error) {
