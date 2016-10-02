@@ -232,21 +232,6 @@ let createInvoice = (ShopUId,customerName,ItemName)  => {
     });
 };
 
-let prepareOrder = (name) => {
-    return new Promise((resolve, reject) => {
-        console.log('Inside Coming');
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
-            }
-        });
-    });
-};
-
 
 
 let createCase = (name,customerName)  => {
@@ -270,26 +255,6 @@ let createCase = (name,customerName)  => {
     });
 };
 
-/*let createCase = name  => {
-    return new Promise((resolve, reject) => {
-        let c = nforce.createSObject('Case');
-        c.set('subject', `Facebook Customer`);
-        //c.set('description', name );
-        c.set('origin', 'Facebook Bot');
-        c.set('status', 'New');
-        c.set('Opportunity__c', name);
-        
-        org.insert({sobject: c}, err => {
-            if (err) {
-                console.error(err);
-                reject("An error occurred while creating a case");
-            } else {
-                resolve(c);
-            }
-        });
-    });
-};*/
-
 
 
 login();
@@ -308,4 +273,4 @@ exports.findMenu = findMenu;
 exports.createCase = createCase;
 exports.findProductId = findProductId;
 exports.createInvoice = createInvoice;
-exports.prepareOrder = prepareOrder;
+
