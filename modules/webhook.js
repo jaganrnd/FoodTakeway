@@ -46,26 +46,6 @@ let getUserInfo = (userId) => {
     
 };    
 
-/*let getAddress = (lat, lng) => {
-            console.log('Yappa Inside Callout pa', lat);
-            console.log('Yappa Inside Callout pa', lng);
-            console.log('Inside Callout');
-            request({
-                //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
-                url:'https://maps.googleapis.com/maps/api/geocode/json',
-                qs: {latlng:{{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
-                //sendMessage({text: ` Latitude "${lat}" `}, sender);
-                method: 'GET',
-            }, (error, response, request) => {
-                if (error) {
-                    console.log('Error sending message: ', error);
-                }else if (response) {
-                    console.log('Responseuu*** ', response.body);
-                }else if (response.body.error) {
-                    console.log('Error: ', response.body.error);
-                }
-            });
-};*/
 
 let processText = (text, sender)  => {
     let match;
@@ -93,15 +73,6 @@ let processText = (text, sender)  => {
              Please hit - who are you`
             }, sender);
         
-            /*sendMessage({attachment:{
-                            "type": "image",
-                            "payload": {
-                                //"url":"https://scontent.xx.fbcdn.net/v/t1.0-9/11923197_128210634193304_8750068108166696672_n.jpg?oh=fa0feced8074ad43b60570b91bbc2331&oe=58673C4E"
-                                "url":"https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9"
-                            }
-                        }
-            }, sender);*/
-         
          //new
                    sendMessage({attachment:{
                             "type": "template",
@@ -111,7 +82,7 @@ let processText = (text, sender)  => {
                                         {
                                             "title": "Welcome to Kolapasi",  
                                              "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
-                                             "subtitle": "Takeaway places In and around  Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
+                                             "subtitle": "Takeaway places(InandAround) --> Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
                                             "buttons":[
                                               {
                                                 "type":"postback",
@@ -230,24 +201,6 @@ let processText = (text, sender)  => {
     
     //HACKATHON
     
-    match = text.match(/search account (.*)/i);
-    if (match) {
-        salesforce.findAccount(match[1]).then(accounts => {
-            sendMessage({text: `Here are the accounts I found matching "${match[1]}":`}, sender);
-            sendMessage(formatter.formatAccounts(accounts), sender)
-        });
-        return;
-    }
-
-    match = text.match(/search (.*) in accounts/i);
-    if (match) {
-        salesforce.findAccount(match[1]).then(accounts => {
-            sendMessage({text: `Here are the accounts I found matching "${match[1]}":`}, sender);
-            sendMessage(formatter.formatAccounts(accounts), sender)
-        });
-        return;
-    }
-
     match = text.match(/search contact (.*)/i);
     if (match) {
         salesforce.findContact(match[1]).then(contacts => {
