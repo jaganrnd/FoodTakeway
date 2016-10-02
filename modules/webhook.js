@@ -102,15 +102,14 @@ let processText = (text, sender)  => {
    let match8;
     match8 = text.match(/hi/i);
     if (match8) {
-     getUserInfo(sender).then(response => {  
-            addPersistentMenu();
+     getUserInfo(sender).then(response => {         
             sendMessage({text:
                 `Hey ${response.first_name} ....
             "Kolapasi" welcomes you 🙏 🙏
              Curious to know about me ? 🍲
              Please hit - who are you`
             }, sender);
-        
+            addPersistentMenu();
          //new
                    sendMessage({attachment:{
                             "type": "template",
