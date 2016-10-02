@@ -167,58 +167,8 @@ let processText = (text, sender)  => {
         return;
     }
     
-    match1 = text.match(/Show new (.*)/i);
-    if (match1) {
-        salesforce.getdummyOpportunities(match1[1]).then(Opportunities => {
-            sendMessage({text: `Processing your request "${match1[1]}":`}, sender);
-            //sendMessage(formatter.formatnewModel(Opportunities), sender);
-            sendMessage(formatter.formatQuickReplies(Opportunities), sender);
-        });
-        return;
-    }
-    
-    
-    let match2;
-    match2 = text.match(/Wayfarer/i);
-    if (match2) {
-        salesforce.findWayfarerOpportunities(match2).then(Opportunities => {    
-            sendMessage({text:`Searching Wayfarer Models....`}, sender);
-            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
-        });
-        return;
-    }
-    
-    
-    let match3;
-    match3 = text.match(/Aviator/i);
-    if (match3) {
-        salesforce.findWayfarerOpportunities(match3).then(Opportunities => {    
-            sendMessage({text:`Searching Aviator Models....`}, sender);
-            sendMessage(formatter.formatWayfarerModels(Opportunities), sender)
-        });
-        return;
-    }
-    
-    //HACKATHON
-    
-
-    match = text.match(/top (.*) opportunities/i);
-    if (match) {
-        salesforce.findOpportunities(match[1]).then(opportunities => {
-            sendMessage({text: `Here are your top ${match[1]} opportunities:`}, sender);
-            sendMessage(formatter.formatOpportunities(opportunities), sender)
-        });
-        return;
-    }
-    
-    match = text.match(/search opportunity (.*)/i);
-    if (match) {
-        salesforce.findOpportunities(match[1]).then(Opportunities => {
-            sendMessage({text: `Here are the Opportunities "${match[1]}":`}, sender);
-            sendMessage(formatter.formatOpp(Opportunities), sender)
-        });
-        return;
-    }
+   
+ 
 };
 
 let handleGet = (req, res) => {
@@ -251,15 +201,7 @@ let handlePost = (req, res) => {
         } 
         else if (event.postback) {
                 let payload = event.postback.payload.split(",");
-                if (payload[0] === "view_contacts") {
-                    sendMessage({text: "OK, looking for your contacts at " + payload[2] + "..."}, sender);
-                    salesforce.findContactsByAccount(payload[1]).then(contacts => sendMessage(formatter.formatContacts(contacts), sender));
-                } else if (payload[0] === "close_won") {
-                    sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
-                } else if (payload[0] === "close_lost") {
-                    sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-                } else if (payload[0] === "Show_Broch"){
-
+                if (payload[0] === "Show_Broch"){
                            sendMessage({
                                         "text":"Pick 1 model:",
                                         "quick_replies":[
@@ -288,8 +230,7 @@ let handlePost = (req, res) => {
                                                 "title":"KolapasiSpecialCombo",
                                                 "payload":"close_won"
                                             }]   
-                                }, sender);
-            
+                                }, sender);            
                 } else if(payload[0] === "Order_Now") {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                             console.log('payload 1 ' , payload[1]);
