@@ -78,26 +78,23 @@ let processText = (text, sender)  => {
                         }
             }, sender);
            
-            let elements = [];
-         
-            elements.push({
-                title: Kolapasi,
-                subtitle: Takeaway,
-                "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
-                "buttons": [
-                    {
-                        "type":"postback",
-                        "title":"Buy",
-                        "payload": "Order_Now,"
-
-                    }]
-           })
          
            sendMessage({attachment:{
                             "type": "template",
                             "payload": {
                                 "template_type": "generic",
-                                "elements": elements
+                                 "elements": [
+                                    {
+                                        "title": "Welcome to Kolapasi",  
+                                         "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
+                                         "subtitle": "Takeaway",  
+                                        "buttons":[
+                                          {
+                                            "type":"postback",
+                                            "title":"Start Chatting",
+                                            "payload":"Create_Invoice"
+                                          }]                                             
+                                    }]
                             }
                         }
             }, sender);
