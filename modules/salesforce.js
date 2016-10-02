@@ -27,7 +27,113 @@ let login = () => {
     });
 };
 
+let findAccount = name => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name, BillingStreet, BillingCity, BillingState, Picture_URL__c, Phone FROM Account WHERE Name LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let accounts = resp.records;
+                resolve(accounts);
+            }
+        });
+    });
 
+};
+
+let findContact = name => {
+
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name, Title, Account.Name, Phone, MobilePhone, Email, Picture_URL__c FROM Contact WHERE Name LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let contacts = resp.records;
+                resolve(contacts);
+            }
+        });
+    });
+
+};
+
+let findContactsByAccount = accountId => {
+
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name, Title, Account.Name, Phone, MobilePhone, Email, Picture_URL__c FROM Contact WHERE Account.Id = '" + accountId + "' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let contacts = resp.records;
+                resolve(contacts);
+            }
+        });
+    });
+
+};
+
+let getTopOpportunities = count => {
+
+    count = count || 5;
+
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate, Account.Name, Account.Picture_URL__c FROM Opportunity WHERE isClosed=false ORDER BY amount DESC LIMIT " + count;
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.error(err);
+                reject("An error as occurred");
+            } else {
+                resolve(resp.records);
+            }
+        });
+    });
+
+};
+
+let findOpportunities = name => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
+
+
+let getdummyOpportunities = name => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name FROM Opportunity WHERE Name LIKE '%" + name + "%' LIMIT 1";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
+
+let findWayfarerOpportunities = name => {
+    return new Promise((resolve, reject) => {
+        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE Type LIKE '%" + name + "%' LIMIT 5";
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Opportunities = resp.records;
+                resolve(Opportunities);
+            }
+        });
+    });
+};
 
 let findTitleCard = name => {
     return new Promise((resolve, reject) => {
@@ -164,12 +270,38 @@ let createCase = (name,customerName)  => {
     });
 };
 
+/*let createCase = name  => {
+    return new Promise((resolve, reject) => {
+        let c = nforce.createSObject('Case');
+        c.set('subject', `Facebook Customer`);
+        //c.set('description', name );
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+        c.set('Opportunity__c', name);
+        
+        org.insert({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(c);
+            }
+        });
+    });
+};*/
 
 
 
 login();
 
 exports.org = org;
+exports.findAccount = findAccount;
+exports.findContact = findContact;
+exports.findContactsByAccount = findContactsByAccount;
+exports.getTopOpportunities = getTopOpportunities;
+exports.findOpportunities = findOpportunities;
+exports.getdummyOpportunities = getdummyOpportunities;
+exports.findWayfarerOpportunities = findWayfarerOpportunities;
 exports.findTitleCard = findTitleCard;
 exports.findShops = findShops;
 exports.findMenu = findMenu;
