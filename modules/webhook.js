@@ -42,7 +42,7 @@ let getUserInfo = (userId) => {
     });      
 };    
 
-let addPersistentMenu = (){
+let addPersistentMenu = ()=> {
  return new Promise((resolve, reject) => {  
     request({
         url: 'https://graph.facebook.com/v2.6/me/thread_settings',
