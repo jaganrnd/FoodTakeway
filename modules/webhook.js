@@ -53,18 +53,13 @@ let addPersistentMenu = ()=> {
                 call_to_actions:[
                         {
                           type:"postback",
-                          title:"Home",
-                          payload:"home"
-                        },
-                        {
-                          type:"postback",
-                          title:"Joke",
+                          title:"View Selected Items",
                           payload:"joke"
                         },
                         {
-                          type:"web_url",
-                          title:"DMS Software Website",
-                          url:"http://www.dynamic-memory.com/"
+                          type:"postback",
+                          title:"Cancel My Order",
+                          payload:"joke"
                         }
                   ]
         }
