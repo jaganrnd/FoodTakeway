@@ -173,25 +173,6 @@ let processText = (text, sender)  => {
         Type yes 👍`}, sender);
         });
         
-       /* sendMessage({text:
-        `Hey ${response.first_name} !!!! 🙏 🙏
-             Welcome to the world of 
-             Rayban 👓 👓 👓 👓
-             Am Rayban bot <(")
-             I can help you to choose 
-             model.
-             Need my assistant 👷 ??
-             Type yes 👍
-            `}, sender);*/
-            
-        /*sendMessage({attachment:{
-                        "type": "image",
-                        "payload": {
-                            "url":"http://www.ray-ban.com/_repository/_gui/2010/ray-ban-logo-social.jpg"
-                        }
-                    }
-            }, sender);*/
-      
         
         return;
         
