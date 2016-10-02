@@ -42,11 +42,10 @@ let getUserInfo = (userId) => {
     });      
 };    
 
-let addPersistentMenu = ()=> {
- return new Promise((resolve, reject) => {  
+let addPersistentMenu = ()=> {     
     request({
         url: 'https://graph.facebook.com/v2.6/me/thread_settings',
-        qs: { access_token: PAGE_ACCESS_TOKEN },
+        qs: { access_token: process.env.FB_PAGE_TOKEN },
         method: 'POST',
         json:{
                 setting_type : "call_to_actions",
