@@ -43,7 +43,9 @@ let getUserInfo = (userId) => {
 };    
 
 function addPersistentMenu(){
+ console.log('Inside menu**');
  request({
+       console.log('Inside req**');
         url: 'https://graph.facebook.com/v2.6/me/thread_settings',
         qs: { access_token: PAGE_ACCESS_TOKEN },
         method: 'POST',
@@ -69,6 +71,7 @@ function addPersistentMenu(){
                   ]
         }
     }, function(error, response, body) {
+        console.log('Inside resp**');
         console.log(response)
         if (error) {
             console.log('Error sending messages: ', error)
