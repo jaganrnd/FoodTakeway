@@ -87,9 +87,9 @@ let processText = (text, sender)  => {
     if (match8) {
      getUserInfo(sender).then(response => {  
             sendMessage({text:
-                `Hey ${response.first_name} ....
+                `Hey ${response.first_name} !
             "Kolapasi" welcomes you 🙏 🙏
-             Curious to know about me ? 🍴 🍛
+             Curious to know about me ? 🍴 🍛 🍽
              Please hit - who are you`
             }, sender);
         
