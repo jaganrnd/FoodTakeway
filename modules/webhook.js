@@ -93,14 +93,14 @@ let processText = (text, sender)  => {
              Please hit - who are you`
             }, sender);
         
-            sendMessage({attachment:{
+            /*sendMessage({attachment:{
                             "type": "image",
                             "payload": {
                                 //"url":"https://scontent.xx.fbcdn.net/v/t1.0-9/11923197_128210634193304_8750068108166696672_n.jpg?oh=fa0feced8074ad43b60570b91bbc2331&oe=58673C4E"
                                 "url":"https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9"
                             }
                         }
-            }, sender);
+            }, sender);*/
          
          //new
                    sendMessage({attachment:{
@@ -115,7 +115,7 @@ let processText = (text, sender)  => {
                                             "buttons":[
                                               {
                                                 "type":"postback",
-                                                "title":"Start Chatting",
+                                                "title":"Start Ordering",
                                                 "payload":"Create_Invoice"
                                               }
                                             ]                                             
