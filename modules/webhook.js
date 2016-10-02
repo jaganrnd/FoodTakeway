@@ -78,6 +78,7 @@ let processText = (text, sender)  => {
                         }
             }, sender);
            
+            let elements = [];
          
             elements.push({
                 title: Kolapasi,
