@@ -233,7 +233,7 @@ let handlePost = (req, res) => {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
                            sendMessage({
-                                        "text":"Pick any 1 store location which is nearer to your delivery address:",
+                                        "text":"Please pick any 1 store location which is nearer to your delivery address:",
                                         "quick_replies":[
                                             {
                                                 "content_type":"text",
@@ -257,7 +257,7 @@ let handlePost = (req, res) => {
                                             },
                                             {
                                                 "content_type":"text",
-                                                "title":"OMR(Til2AM)",
+                                                "title":"OMR(Till2AM)",
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);            
