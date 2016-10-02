@@ -61,8 +61,10 @@ let processText = (text, sender)  => {
    let match8;
     match8 = text.match(/hi/i);
     if (match8) {
+        
      getUserInfo(sender).then(response => {  
-            sendMessage({text:
+            
+           sendMessage({text:
                 `Hey ${response.first_name} !
             "Kolapasi" welcomes you 🙏 🙏
              Curious to know about me ? 🍲
@@ -77,27 +79,7 @@ let processText = (text, sender)  => {
                             }
                         }
             }, sender);
-           
-         
-           sendMessage({attachment:{
-                            "type": "template",
-                            "payload": {
-                                "template_type": "generic",
-                                 "elements": [
-                                    {
-                                        "title": "Welcome to Kolapasi",  
-                                         "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
-                                         "subtitle": "Takeaway",  
-                                        "buttons":[
-                                          {
-                                            "type":"postback",
-                                            "title":"Start Chatting",
-                                            "payload":"Create_Invoice"
-                                          }]                                             
-                                    }]
-                            }
-                        }
-            }, sender);
+                    
          
     });    
         return;
