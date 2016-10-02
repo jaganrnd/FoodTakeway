@@ -11,7 +11,28 @@ let sendMessage = (message, recipient) => {
         method: 'POST',
         json: {
             recipient: {id: recipient},
-            message: message
+            message: message            
+            //new            
+            setting_type : "call_to_actions",
+            thread_state : "existing_thread",
+            call_to_actions:[
+                {
+                  type:"postback",
+                  title:"Home",
+                  payload:"home"
+                },
+                {
+                  type:"postback",
+                  title:"Joke",
+                  payload:"joke"
+                },
+                {
+                  type:"web_url",
+                  title:"DMS Software Website",
+                  url:"http://www.dynamic-memory.com/"
+                }
+              ]
+            //new            
         }
     }, (error, response) => {
         if (error) {
@@ -46,37 +67,7 @@ let getUserInfo = (userId) => {
 let processText = (text, sender)  => {
     let match;
     match = text.match(/help/i);    
-    if (match) {
-         
-        sendMessage({
-              "setting_type" : "call_to_actions",
-              "thread_state" : "existing_thread",
-              "call_to_actions":[
-                {
-                  "type":"postback",
-                  "title":"Help",
-                  "payload":"Show_Broch"
-                },
-                {
-                  "type":"postback",
-                  "title":"Start a New Order",
-                  "payload":"Show_Broch"
-                },
-                {
-                  "type":"web_url",
-                  "title":"Checkout",
-                  "url":"http://petersapparel.parseapp.com/checkout",
-                  "webview_height_ratio": "full",
-                  "messenger_extensions": true
-                },
-                {
-                  "type":"web_url",
-                  "title":"View Website",
-                  "url":"Show_Broch"
-                }
-              ]
-            }, sender); 
-        
+    if (match) {            
             sendMessage({text:
                     `You can ask me things like:
             Search account Acme
