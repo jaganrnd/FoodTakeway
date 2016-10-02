@@ -1,34 +1,5 @@
 "use strict";
 
-let formatAccounts = accounts => {
-    let elements = [];
-    accounts.forEach(account =>
-        elements.push({
-            title: account.get("Name"),
-            subtitle: account.get("BillingStreet") + ", " + account.get("BillingCity") + " " + account.get("BillingState") + " · " + account.get("Phone"),
-            "image_url": account.get("Picture_URL__c"),
-            "buttons": [{
-                "type":"postback",
-                "title":"View Contacts",
-                "payload": "view_contacts," + account.getId() + "," + account.get("Name")
-            },{
-                "type": "web_url",
-                "url": "https://login.salesforce.com/" + account.getId(),
-                "title": "Open in Salesforce"
-            },
-]
-        })
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
 
 let formatContacts = contacts => {
     let elements = [];
@@ -322,9 +293,6 @@ let formatMenu = Products => {
 
 
 
-
-
-exports.formatAccounts = formatAccounts;
 exports.formatContacts = formatContacts;
 exports.formatOpportunities = formatOpportunities;
 exports.formatOpp = formatOpp;
