@@ -47,9 +47,9 @@ let processText = (text, sender)  => {
     let match;
     match = text.match(/help/i);    
     if (match) {
-              "setting_type" : "call_to_actions",
-              "thread_state" : "existing_thread",
-              "call_to_actions":[
+         
+        sendMessage({
+              "menu_item ":[
                 {
                   "type":"postback",
                   "title":"Help",
@@ -73,6 +73,8 @@ let processText = (text, sender)  => {
                   "url":"Show_Broch"
                 }
               ]
+            }, sender); 
+        
             sendMessage({text:
                     `You can ask me things like:
             Search account Acme
