@@ -42,31 +42,15 @@ let getUserInfo = (userId) => {
     });      
 };    
 
-
-let processText = (text, sender)  => {
-    let match;
-    match = text.match(/help/i);    
-    if (match) {            
-            sendMessage({text:
-                    `You can ask me things like:
-            Search account Acme
-            Search Acme in accounts
-            Search contact Smith
-            What are my top 3 opportunities?
-            Search opportunity dell
-                `}, sender);
-        return;
-    }
-   
-       function addPersistentMenu(){
-             request({
-                url: 'https://graph.facebook.com/v2.6/me/thread_settings',
-                qs: { access_token: PAGE_ACCESS_TOKEN },
-                method: 'POST',
-                json:{
-                    setting_type : "call_to_actions",
-                    thread_state : "existing_thread",
-                    call_to_actions:[
+function addPersistentMenu(){
+ request({
+        url: 'https://graph.facebook.com/v2.6/me/thread_settings',
+        qs: { access_token: PAGE_ACCESS_TOKEN },
+        method: 'POST',
+        json:{
+                setting_type : "call_to_actions",
+                thread_state : "existing_thread",
+                call_to_actions:[
                         {
                           type:"postback",
                           title:"Home",
@@ -82,9 +66,37 @@ let processText = (text, sender)  => {
                           title:"DMS Software Website",
                           url:"http://www.dynamic-memory.com/"
                         }
-                      ]
-                }
-        } 
+                  ]
+        }
+    }, function(error, response, body) {
+        console.log(response)
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+
+}
+                     
+                     
+                     
+let processText = (text, sender)  => {
+    let match;
+    match = text.match(/help/i);    
+    if (match) {            
+            sendMessage({text:
+                    `You can ask me things like:
+            Search account Acme
+            Search Acme in accounts
+            Search contact Smith
+            What are my top 3 opportunities?
+            Search opportunity dell
+                `}, sender);
+        return;
+    }
+   
+      
     
     
    let match8;
