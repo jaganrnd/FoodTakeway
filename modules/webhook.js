@@ -273,22 +273,27 @@ let handlePost = (req, res) => {
                                         "quick_replies":[
                                             {
                                                 "content_type":"text",
-                                                "title":"Square",
+                                                "title":"Biryani",
                                                 "payload":"close_won"
                                             },
                                             {
                                                 "content_type":"text",
-                                                "title":"Rectangular",
+                                                "title":"Dry Items",
                                                 "payload":"close_won"
                                             },
                                             {
                                                 "content_type":"text",
-                                                "title":"Wayfarer",
+                                                "title":"Gravies",
                                                 "payload":"close_won"
                                             },
                                             {
                                                 "content_type":"text",
-                                                "title":"Aviator",
+                                                "title":"Dinner Only",
+                                                "payload":"close_won"
+                                            },
+                                            {
+                                                "content_type":"text",
+                                                "title":"Kolapasi special combo",
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);
