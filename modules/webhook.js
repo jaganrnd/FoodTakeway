@@ -22,10 +22,8 @@ let sendMessage = (message, recipient) => {
     });
 };
 
-let getUserInfo = (userId) => {
-  
-  return new Promise((resolve, reject) => {       
-    
+let getUserInfo = (userId) => {  
+  return new Promise((resolve, reject) => {           
         request({
             url: `https://graph.facebook.com/v2.6/${userId}`,
             qs: {fields:"first_name,last_name,profile_pic", access_token: process.env.FB_PAGE_TOKEN},
@@ -40,10 +38,8 @@ let getUserInfo = (userId) => {
                 console.log(response.body);
                 resolve(JSON.parse(response.body));
             }    
-        });
-    
-    });  
-    
+        });    
+    });      
 };    
 
 
@@ -81,6 +77,30 @@ let processText = (text, sender)  => {
                             }
                         }
             }, sender);
+           
+         
+            elements.push({
+                title: Kolapasi,
+                subtitle: Takeaway,
+                "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
+                "buttons": [
+                    {
+                        "type":"postback",
+                        "title":"Buy",
+                        "payload": "Order_Now,"
+
+                    }]
+           })
+         
+           sendMessage({attachment:{
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": elements
+                            }
+                        }
+            }, sender);
+         
     });    
         return;
     }
@@ -123,28 +143,9 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        }else if (event.message && event.message.attachments) {
-                console.log('Inside Location Loop ', event.message.attachments[0].type);
-                if(event.message.attachments[0].type == 'location'){
-                    console.log('GETHU DA................');
-                    var lat = event.message.attachments[0].payload.coordinates.lat;
-                    var lng = event.message.attachments[0].payload.coordinates.long;
-                    sendMessage({text: `Thanks For Sharing Your Location`}, sender);
-                    sendMessage({text: ` Latitude "${lat}" `}, sender);
-                    sendMessage({text: ` Longitude "${lng}" `}, sender);
-                    //getAddress(lat,lng);
-                }
-        } 
-        else if (event.postback) {
+        }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
-                if (payload[0] === "view_contacts") {
-                    sendMessage({text: "OK, looking for your contacts at " + payload[2] + "..."}, sender);
-                    salesforce.findContactsByAccount(payload[1]).then(contacts => sendMessage(formatter.formatContacts(contacts), sender));
-                } else if (payload[0] === "close_won") {
-                    sendMessage({text: `OK, I closed the opportunity "${payload[2]}" as "Close Won". Way to go Christophe!`}, sender);
-                } else if (payload[0] === "close_lost") {
-                    sendMessage({text: `I'm sorry to hear that. I closed the opportunity "${payload[2]}" as "Close Lost".`}, sender);
-                } else if(payload[0] === "Order_Now") {
+                if(payload[0] === "Order_Now") {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                             console.log('payload 1 ' , payload[1]);
                             console.log('payload 2 ', payload[2]);
@@ -169,18 +170,12 @@ let handlePost = (req, res) => {
                              });
                             //end
                 }else if (payload[0] === "Am_Hungry") {
-                    console.log('payload[2]**' + payload[2]);
-                    
+                    console.log('payload[2]**' + payload[2]);                    
                     if(payload[2] === "Hungry?Lets go!!."){
-                        sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
-                    }
-                    
-                    
-                    
+                        sendMessage({text: `Please enter your location in this format location - pammal`}, sender);   
                 }else if (payload[0] === "Show_Menu") {
                     console.log(payload[0]);  
-                    console.log(payload[1]); // Return Id of the product choosen
-                    
+                    console.log(payload[1]); // Return Id of the product choosen                    
                     salesforce.findMenu(payload[1]).then(Products => {
                                    sendMessage({text: `Listing down menus for you 🍝`}, sender);
                                    sendMessage(formatter.formatMenu(Products), sender)
@@ -220,15 +215,12 @@ let handlePost = (req, res) => {
                             }, sender);
                         });
                 });
-            }else if (payload[0] === "Order_More") {
-                    
-                    console.log('More products**' + payload[1]);
-                   
+            }else if (payload[0] === "Order_More") {                    
+                    console.log('More products**' + payload[1]);                   
                     salesforce.findMenu(payload[1]).then(Products => {
                                    sendMessage({text: `Ok showing menu items from the shop choosen before !!`}, sender);
                                    sendMessage(formatter.formatMenu(Products), sender)
-                    });
-                    
+                    });                    
             }    
             else if (payload[0] === "No_Enf") {
                     sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
