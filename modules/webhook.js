@@ -89,7 +89,7 @@ let processText = (text, sender)  => {
             sendMessage({text:
                 `Hey ${response.first_name} ....
             "Kolapasi" welcomes you 🙏 🙏
-             Curious to know about me ? 🍴 🍛
+             Curious to know about me ? 🍲
              Please hit - who are you`
             }, sender);
         
@@ -101,6 +101,36 @@ let processText = (text, sender)  => {
                             }
                         }
             }, sender);
+         
+         //new
+                   sendMessage({attachment:{
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                 "elements": [
+                                        {
+                                            "title": "Welcome to Kolapasi",  
+                                             "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
+                                             "subtitle": "Takeaway",  
+                                            "buttons":[
+                                              {
+                                                "type":"postback",
+                                                "title":"Start Chatting",
+                                                "payload":"Create_Invoice"
+                                              }
+                                            ]                                             
+                                        }
+                                 ]
+                            }
+                        }
+            }, sender);
+
+         
+         
+         //new
+         
+         
+         
     });    
         return;
     }
