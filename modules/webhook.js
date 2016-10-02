@@ -42,10 +42,9 @@ let getUserInfo = (userId) => {
     });      
 };    
 
-function addPersistentMenu(){
- console.log('Inside menu**');
- request({
-       console.log('Inside req**');
+let addPersistentMenu = (){
+ return new Promise((resolve, reject) => {  
+    request({
         url: 'https://graph.facebook.com/v2.6/me/thread_settings',
         qs: { access_token: PAGE_ACCESS_TOKEN },
         method: 'POST',
@@ -70,17 +69,14 @@ function addPersistentMenu(){
                         }
                   ]
         }
-    }, function(error, response, body) {
-        console.log('Inside resp**');
-        console.log(response)
+    }, (error, response) => {
         if (error) {
             console.log('Error sending messages: ', error)
         } else if (response.body.error) {
             console.log('Error: ', response.body.error)
         }
-    })
-
-}
+    });
+};
                      
                      
                      
