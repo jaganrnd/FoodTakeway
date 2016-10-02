@@ -330,13 +330,6 @@ let handlePost = (req, res) => {
                             });  
                             //NOW COMMENTED
                             
-                             //start
-                             getUserInfo(sender).then(response => {   
-                               salesforce.prepareOrder(payload[2]).then(Opportunities => {
-                                   sendMessage(formatter.formatOrder(Opportunities), sender)
-                                }); 
-                             });
-                            //end
                 }else if (payload[0] === "Am_Hungry") {
                     console.log('payload[2]**' + payload[2]);
                     
