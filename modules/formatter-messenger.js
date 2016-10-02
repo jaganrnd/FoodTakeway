@@ -1,107 +1,5 @@
 "use strict";
 
-
-let formatOpportunities = opportunities => {
-    let elements = [];
-    opportunities.forEach(opportunity =>
-        elements.push({
-            title: opportunity.get("Name"),
-            subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
-            "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
-            "buttons": [
-                {
-                    "type":"postback",
-                    "title":"Close Won",
-                    "payload": "close_won," + opportunity.getId() + "," + opportunity.get("Name")
-                },
-                {
-                    "type":"postback",
-                    "title":"Close Lost",
-                    "payload": "close_lost," + opportunity.getId() + "," + opportunity.get("Name")
-                },
-                {
-                    "type": "web_url",
-                    "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Open in Salesforce"
-                }]
-        })
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
-
-let formatOpp = Opportunities => {
-    let elements = [];
-    Opportunities.forEach(opportunity =>
-        elements.push({
-            title: opportunity.get("Name"),
-            //subtitle: opportunity.get("Account").Name + " · $" + opportunity.get("Amount"),
-            "image_url": "https://s3-us-west-1.amazonaws.com/sfdc-demo/messenger/opportunity500x260.png",
-            "buttons": [
-                {
-                    "type": "web_url",
-                    "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Open in Salesforce"
-                }]
-        })
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
-
-let formattone = Opportunities => {
-        return {
-            "attachment": {
-                "type":"audio",
-                 "payload":{
-                    "url":"http://www.readthewords.com/work/output/instant_42016.458.mp3"
-                  }
-            }
-        };  
-    }; 
-
-let formatnewModel = Opportunities => {
-        return {
-            "attachment": {
-                "type": "image",
-                "payload": {
-                    "url":"https://media.gq.com/photos/5583cb8309f0bee56442585f/master/pass/style-blogs-the-gq-eye-sunglasses-628.gif"
-                }
-            }
-        };  
-    };
-    
-/*let formatQuickReplies = Opportunities => {    
-    let quick_replies  = [];
-    Opportunities.forEach(opportunity =>
-        quick_replies.push({
-                "content_type":"text",
-                "title":"Rectangular",
-                "payload":"close_won," + opportunity.getId() + "," + opportunity.get("Name")
-                
-        })
-    );
-    return {
-            "text":"Pick a Model:",
-            "quick_replies": quick_replies
-            };
-};*/
-
-
 let formatQuickReplies = Opportunities => {    
         return {
             "text":"Pick 1 model:",
@@ -261,12 +159,6 @@ let formatMenu = Products => {
 };
 
 
-
-
-exports.formatOpportunities = formatOpportunities;
-exports.formatOpp = formatOpp;
-exports.formattone = formattone;
-exports.formatnewModel = formatnewModel;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatWayfarerModels = formatWayfarerModels;
 exports.formatTitleCard = formatTitleCard;
