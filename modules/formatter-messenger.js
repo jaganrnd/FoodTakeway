@@ -322,51 +322,6 @@ let formatMenu = Products => {
 
 
 
-//new
-let formatOrder = Opportunities => {
-    let elements = [];
-    Opportunities.forEach(opportunity =>
-        elements.push({
-            "title":opportunity.get("Name"),
-            "subtitle":opportunity.get("Type"),
-            "quantity":1,
-            "price":opportunity.get("Amount"),
-            "currency":"INR",
-            "image_url":opportunity.get("Picture_URL__c")
-        })
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "receipt",
-                "recipient_name":"JAGU",
-                "order_number":"12345678902",
-                "currency":"INR",
-                "payment_method":"Visa 2345",        
-                "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":"1428444852", 
-                "elements": elements,
-                "address":{
-                    "street_1":"1 Hacker Way",
-                    "street_2":"",
-                    "city":"Menlo Park",
-                    "postal_code":"94025",
-                    "state":"CA",
-                    "country":"US"
-                },
-                "summary":{
-                    "subtotal":1500,
-                    "shipping_cost":4.95,
-                    "total_tax":6.19,
-                    "total_cost":1511
-                 }
-            }
-        }
-    };
-};
-
-//end
 
 
 exports.formatAccounts = formatAccounts;
@@ -380,4 +335,4 @@ exports.formatWayfarerModels = formatWayfarerModels;
 exports.formatTitleCard = formatTitleCard;
 exports.formatShops = formatShops;
 exports.formatMenu = formatMenu;
-exports.formatOrder = formatOrder;
+
