@@ -91,7 +91,8 @@ let processText = (text, sender)  => {
                          Please hit - Start Ordering`
                     }, sender);
                    // addPersistentMenu();
-                   console.log('First Incoming title card name**' + match1[1]); 
+                   console.log('First Incoming title card name**' + match1);  
+                   console.log('First Incoming title card name**' + match1[0]); 
                    salesforce.findTitleCard(match1[1]).then(Accounts => {    
                         //sendMessage(formatter.formatTitleCard(Accounts), sender)
                     }); 
