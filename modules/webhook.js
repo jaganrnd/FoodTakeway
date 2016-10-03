@@ -86,14 +86,13 @@ let processText = (text, sender)  => {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
                         `Hey ${response.first_name} !
-                    "Kolapasi" welcomes you 🙏 🙏
-                         Want to order food ? 🍲
-                         Please hit - Start Ordering`
+                        "Kolapasi" welcomes you 🙏 
+                         Happy to see you.
+                         Want to order food ? 🍲 🍲 Please hit - First Menu
+                         To know about other menus swipe..`
                     }, sender);
-                   // addPersistentMenu();
-                   console.log('First Incoming title card name**' + match1);  
-                   console.log('First Incoming title card name**' + match1[0]); 
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
+                        console.log('bfo formating');
                         sendMessage(formatter.formatTitleCard(Accounts), sender)
                     }); 
         });    
