@@ -89,7 +89,7 @@ let processText = (text, sender)  => {
                         "Kolapasi" welcomes you 🙏 
                          Happy to see you.
                          Want to order food ? 🍲 🍲 Please hit - First Menu
-                         To know about other menus swipe..`
+                         To know about other menus swipe..👉`
                     }, sender);
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         console.log('bfo formating');
