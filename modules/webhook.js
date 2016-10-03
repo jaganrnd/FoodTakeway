@@ -238,12 +238,12 @@ let handlePost = (req, res) => {
                                             {
                                                 "content_type":"text",
                                                 "title":"Adyar",
-                                                "payload":"close_won"
+                                                "payload":"kolapasi adyar"
                                             },
                                             {
                                                 "content_type":"text",
                                                 "title":"AshokNagar",
-                                                "payload":"close_won"
+                                                "payload":"kolapasi ashoknagar"
                                             },
                                             {
                                                 "content_type":"text",
