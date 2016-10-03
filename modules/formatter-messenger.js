@@ -10,10 +10,6 @@ let formatTitleCard = Accounts => {
             "image_url": Account.get("Picture_URL__c"),
             "buttons": [
                 {
-                    /*"type": "web_url",
-                    "url": "https://login.salesforce.com/" + opportunity.getId(),
-                    "title": "Buy"*/
-                    
                     "type":"postback",
                     "title":"Hit Me",
                     "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name")
