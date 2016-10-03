@@ -85,10 +85,10 @@ let processText = (text, sender)  => {
     if (match8) {
      getUserInfo(sender).then(response => {         
             sendMessage({text:
-                `Hey ${response.first_name} ....
+                `Hey ${response.first_name} !
             "Kolapasi" welcomes you 🙏 🙏
-             Curious to know about me ? 🍲
-             Please hit - who are you`
+             Want to order food ? 🍲
+             Please hit - Start Ordering`
             }, sender);
             addPersistentMenu();
             sendMessage({attachment:{
@@ -100,13 +100,13 @@ let processText = (text, sender)  => {
                                             "title": "Welcome to Kolapasi",  
                                              "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
                                              "subtitle": "Takeaway places(InandAround) --> Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
-                                            "buttons":[
-                                              {
-                                                "type":"postback",
-                                                "title":"Start Ordering",
-                                                "payload":"Show_Branches,"  + kolapasi
-                                              }
-                                            ]                                             
+                                             "buttons":[
+                                                  {
+                                                    "type":"postback",
+                                                    "title":"Start Ordering",
+                                                    "payload":"Show_Branches,"  + kolapasi
+                                                  }
+                                             ]                                             
                                         }
                                  ]
                             }
