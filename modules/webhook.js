@@ -41,44 +41,7 @@ let getUserInfo = (userId) => {
         });    
     });      
 };    
-
-let addPersistentMenu = ()=> {     
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/thread_settings',
-        qs: { access_token: process.env.FB_PAGE_TOKEN },
-        method: 'POST',
-        json:{
-                setting_type : "call_to_actions",
-                thread_state : "existing_thread",
-                call_to_actions:[
-                        {
-                          type:"postback",
-                          title:"View Branches",
-                          payload:"joke"
-                        },
-                        {
-                          type:"postback",
-                          title:"View Selected Items",
-                          payload:"joke"
-                        },
-                        {
-                          type:"postback",
-                          title:"Cancel My Order",
-                          payload:"joke"
-                        }
-                  ]
-        }
-    }, (error, response) => {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    });
-};
-                     
-                     
-                     
+             
 let processText = (text, sender)  => {                 
    let match1;
     match1 = text.match(/hi/i);
@@ -133,7 +96,9 @@ let handlePost = (req, res) => {
                      console.log('Selected branch will show their available menus' + payload[1]);                                                              
                  }*/
                  else if (payload[0] === "Main_Menu"){     
-                     console.log('Selected branch will show their available menus' + payload[1]);                                                              
+                     console.log('Selected branch will show their available menus' + payload[1]);          
+                      salesforce.findOpenBranches(payload[1]).then(MainMenus => {         
+                     });    
                  }  
         }
     }    
