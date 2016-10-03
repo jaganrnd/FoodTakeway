@@ -104,7 +104,7 @@ let processText = (text, sender)  => {
                                                   {
                                                     "type":"postback",
                                                     "title":"Start Ordering",
-                                                    "payload":"Show_Branches,"  + kolapasi
+                                                    "payload":"Show_Branches"
                                                   }
                                              ]                                             
                                         }
@@ -137,8 +137,6 @@ let handlePost = (req, res) => {
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
-                     
-                     console.log('payload[1]**' + payload[1]);
                      
                      /*salesforce.findOpenBranches(kolapasi).then(Accounts => {
                                    console.log('waiting for formatting');                                
