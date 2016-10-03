@@ -31,8 +31,7 @@ let formatTitleCard = Accounts => {
 
 let formatQuickReplies = Accounts => {    
   let elements = [];
-    Accounts.forEach(Account =>
-        console.log('Account.getId()**' + Account);             
+    Accounts.forEach(Account =>          
         elements.push({
              "content_type":"text",
              "title":Account.get("Name"),
