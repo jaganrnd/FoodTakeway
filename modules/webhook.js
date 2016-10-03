@@ -83,38 +83,49 @@ let processText = (text, sender)  => {
    let match8;
     match8 = text.match(/hi/i);
     if (match8) {
-     getUserInfo(sender).then(response => {         
-            sendMessage({text:
-                `Hey ${response.first_name} !
-            "Kolapasi" welcomes you 🙏 🙏
-             Want to order food ? 🍲
-             Please hit - Start Ordering`
-            }, sender);
-            addPersistentMenu();
-            sendMessage({attachment:{
-                            "type": "template",
-                            "payload": {
-                                "template_type": "generic",
-                                 "elements": [
-                                        {
-                                            "title": "Welcome to Kolapasi",  
-                                             "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
-                                             "subtitle": "Takeaway places(InandAround) --> Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
-                                             "buttons":[
-                                                  {
-                                                    "type":"postback",
-                                                    "title":"Start Ordering",
-                                                    "payload":"Show_Branches"
-                                                  }
-                                             ]                                             
-                                        }
-                                 ]
-                            }
-                        }
-            }, sender);  
-    });    
+         getUserInfo(sender).then(response => {         
+                    sendMessage({text:
+                        `Hey ${response.first_name} !
+                    "Kolapasi" welcomes you 🙏 🙏
+                     Want to order food ? 🍲
+                     Please hit - Start Ordering`
+                    }, sender);
+                    addPersistentMenu();
+                    sendMessage({attachment:{
+                                    "type": "template",
+                                    "payload": {
+                                        "template_type": "generic",
+                                         "elements": [
+                                                {
+                                                    "title": "Welcome to Kolapasi",  
+                                                     "image_url": "https://scontent.xx.fbcdn.net/v/t1.0-9/11781623_993915574001257_7180529943084905758_n.jpg?oh=e24a1a4fad74700eefa11694aec0b903&oe=587AA6D9",
+                                                     "subtitle": "Takeaway places(InandAround) --> Adyar | Ashok Nagar | Choolaimedu | Mogappair",  
+                                                     "buttons":[
+                                                          {
+                                                            "type":"postback",
+                                                            "title":"Start Ordering",
+                                                            "payload":"Show_Branches"
+                                                          }
+                                                     ]                                             
+                                                }
+                                         ]
+                                    }
+                                }
+                    }, sender);  
+        });    
         return;
-    }                  
+    }       
+    
+       
+    let match1;
+    match1 = text.match(/Start (.*)/i);    
+    if (match1) {
+        console.log('Inside match1' + match1[1]);
+        salesforce.findTitleCard(match1[1]).then(Accounts => {    
+            //sendMessage(formatter.formatTitleCard(Accounts), sender)
+        });
+        return;
+    }  
        
 };
 
