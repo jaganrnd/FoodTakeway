@@ -53,6 +53,11 @@ let addPersistentMenu = ()=> {
                 call_to_actions:[
                         {
                           type:"postback",
+                          title:"View Branches",
+                          payload:"joke"
+                        },
+                        {
+                          type:"postback",
                           title:"View Selected Items",
                           payload:"joke"
                         },
