@@ -87,10 +87,11 @@ let processText = (text, sender)  => {
                     sendMessage({text:
                         `Hey ${response.first_name} !
                     "Kolapasi" welcomes you 🙏 🙏
-                     Want to order food ? 🍲
-                     Please hit - Start Ordering`
+                         Want to order food ? 🍲
+                         Please hit - Start Ordering`
                     }, sender);
                    // addPersistentMenu();
+                   console.log('First Incoming title card name**' + match1[1]); 
                    salesforce.findTitleCard(match1[1]).then(Accounts => {    
                         //sendMessage(formatter.formatTitleCard(Accounts), sender)
                     }); 
