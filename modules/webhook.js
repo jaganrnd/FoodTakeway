@@ -125,9 +125,9 @@ let handlePost = (req, res) => {
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
                      salesforce.findOpenBranches(payload[1]).then(Accounts => {
-                                   console.log('waiting for formatting');                                
-                     });                                           
-                     
+                            console.log('waiting for formatting');     
+                            sendMessage(formatter.formatQuickReplies(Accounts), sender);  
+                     });                                                                
                  } 
         }
     }    
