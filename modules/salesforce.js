@@ -66,9 +66,28 @@ let findOpenBranches = parentaccountid => {
 };
 
 
+let findMainMenus = subaccountid => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo query');
+        let q = "SELECT Id,Product__r.name,Product__r.PICURL__c,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND Available__c = TRUE ";
+        //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('PASSU' + resp.records.length);
+                let MainMenus = resp.records;
+                resolve(MainMenus);
+            }
+        });
+    });
+};
+
+
 login();
 
 exports.org = org;
 exports.findTitleCard = findTitleCard;
 exports.findOpenBranches = findOpenBranches;
-
+exports.findMainMenus = findMainMenus;
