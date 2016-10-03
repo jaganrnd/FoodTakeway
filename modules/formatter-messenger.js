@@ -71,7 +71,34 @@ let formatOpenBranches= Accounts => {
     };
 };
 
+let formatMainMenus = MainMenus => {
+    let elements = [];
+    MainMenus.forEach(Menu__c  =>
+        elements.push({
+            title: Product__r.get("Name"),
+            subtitle: Product__r.get("Description"),
+            "image_url": Product__r.get("Picture_URL__c"),
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"Hit Me",
+                    "payload": "Sub_Menu,"
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
+exports.formatMainMenus = formatMainMenus;
