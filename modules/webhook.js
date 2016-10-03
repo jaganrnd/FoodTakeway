@@ -93,7 +93,7 @@ let processText = (text, sender)  => {
                    // addPersistentMenu();
                    console.log('First Incoming title card name**' + match1);  
                    console.log('First Incoming title card name**' + match1[0]); 
-                   salesforce.findTitleCard(match1[1]).then(Accounts => {    
+                   salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         //sendMessage(formatter.formatTitleCard(Accounts), sender)
                     }); 
         });    
