@@ -74,24 +74,7 @@ let addPersistentMenu = ()=> {
                      
                      
                      
-let processText = (text, sender)  => {
-    let match;
-    match = text.match(/help/i);    
-    if (match) {            
-            sendMessage({text:
-                    `You can ask me things like:
-            Search account Acme
-            Search Acme in accounts
-            Search contact Smith
-            What are my top 3 opportunities?
-            Search opportunity dell
-                `}, sender);
-        return;
-    }
-   
-      
-    
-    
+let processText = (text, sender)  => {                 
    let match8;
     match8 = text.match(/hi/i);
     if (match8) {
@@ -103,8 +86,7 @@ let processText = (text, sender)  => {
              Please hit - who are you`
             }, sender);
             addPersistentMenu();
-         //new
-                   sendMessage({attachment:{
+            sendMessage({attachment:{
                             "type": "template",
                             "payload": {
                                 "template_type": "generic",
@@ -127,61 +109,8 @@ let processText = (text, sender)  => {
             }, sender);  
     });    
         return;
-    }       
-    
-    let match10;
-    match10 = text.match(/location - (.*)/i);    
-    if (match10) {
-        console.log('Inside match10');
-        salesforce.findShops(match10[1]).then(Products => {    
-            sendMessage(formatter.formatShops(Products), sender)
-        });
-        return;
-    }    
-        
-        
-    //HACKATHON
-    
-    
-    let match0;
-    match0 = text.match(/hii/i);
-    if (match0) {
-        
-        getUserInfo(sender).then(response => {
-          sendMessage({text:`Hey ${response.first_name} !!!! 🙏 🙏
-        Welcome to the world of 
-        Rayban 👓 👓 👓 👓
-        Am Rayban bot <(")
-        Need my assistant to 
-        choose model. 👷 ?? 
-        Type yes 👍`}, sender);
-        });
-        
-        
-        return;
-        
-    }
-    
-    let match1;
-    match1 = text.match(/YESUUUU/i);
-    if (match1) {
-        sendMessage({text:
-        `How Can I Help You :
-        
-            Search sunglasses 🔍🔍
-            
-            Show new Model ⚡ ⚡
-            
-            Share your location to 
-            know near by Stores ↹
-            
-            Gift your loved ones 🎁 💕 
-                `}, sender);
-        return;
-    }
-    
-   
- 
+    }                  
+       
 };
 
 let handleGet = (req, res) => {
@@ -200,19 +129,7 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
-        }else if (event.message && event.message.attachments) {
-                console.log('Inside Location Loop ', event.message.attachments[0].type);
-                if(event.message.attachments[0].type == 'location'){
-                    console.log('GETHU DA................');
-                    var lat = event.message.attachments[0].payload.coordinates.lat;
-                    var lng = event.message.attachments[0].payload.coordinates.long;
-                    sendMessage({text: `Thanks For Sharing Your Location`}, sender);
-                    sendMessage({text: ` Latitude "${lat}" `}, sender);
-                    sendMessage({text: ` Longitude "${lng}" `}, sender);
-                    //getAddress(lat,lng);
-                }
-        } 
-        else if (event.postback) {
+        }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
                            sendMessage({
@@ -244,97 +161,7 @@ let handlePost = (req, res) => {
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);            
-                }else if(payload[0] === "Order_Now") {
-                            sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
-                            console.log('payload 1 ' , payload[1]);
-                            console.log('payload 2 ', payload[2]);
-                            
-                            //NOW COMMENTED
-                            getUserInfo(sender).then(response => {
-                                salesforce.createCase(payload[1],response.first_name).then(() => {
-                                   sendMessage({
-                                            text: 
-                                            `${response.first_name} processed your order successfully.👍 '
-                                                Please find the attached order 🚗`
-                                            }, sender);
-                                });
-                            });  
-                            //NOW COMMENTED
-                            
-                }else if (payload[0] === "Am_Hungry") {
-                    console.log('payload[2]**' + payload[2]);
-                    
-                    if(payload[2] === "Hungry?Lets go!!."){
-                        sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
-                    }
-                    
-                    
-                    
-                }else if (payload[0] === "Show_Menu") {
-                    console.log(payload[0]);  
-                    console.log(payload[1]); // Return Id of the product choosen
-                    
-                    salesforce.findMenu(payload[1]).then(Products => {
-                                   sendMessage({text: `Listing down menus for you 🍝`}, sender);
-                                   sendMessage(formatter.formatMenu(Products), sender)
-                    }); 
-                } else if (payload[0] === "Create_Invoice") {
-                    getUserInfo(sender).then(response => {
-                        console.log('MENU ID**' + payload[1]);
-                        console.log('MENU Name**' + payload[2]);
-                        console.log('Shop Id**' + payload[3]);
-                        /*salesforce.findProductId(payload[1]).then(ShopId => {
-                                       console.log('Choosen ShopId**' + ShopId);
-                                       salesforce.createInvoice(ShopId).then(() => {
-                                           sendMessage({text: `Hey ${response.first_name} Noted !! Do you wish to order other items?`}, sender);
-                                       });   
-                        });*/ 
-                        salesforce.createInvoice(payload[3],response.first_name,payload[2]).then(() => {
-                           sendMessage({text: `Hey ${response.first_name} noted !!`}, sender);
-                                   sendMessage({attachment:{
-                                        "type": "template",
-                                        "payload": {
-                                            "template_type":"button",
-                                            "text":"Would you like to order some more items from this shop?",
-                                            "buttons":[
-                                              {
-                                                "type":"postback",
-                                                "title":"Yes",
-                                                "payload":"Order_More," + payload[3]
-                                              },
-                                              {
-                                                "type":"postback",
-                                                "title":"No- It`s enough.",
-                                                "payload":"No_Enf,"
-                                              }
-                                            ]
-                                        }
-                                    }
-                            }, sender);
-                        });
-                });
-            }else if (payload[0] === "Order_More") {
-                    
-                    console.log('More products**' + payload[1]);
-                   
-                    salesforce.findMenu(payload[1]).then(Products => {
-                                   sendMessage({text: `Ok showing menu items from the shop choosen before !!`}, sender);
-                                   sendMessage(formatter.formatMenu(Products), sender)
-                    });
-                    
-            }    
-            else if (payload[0] === "No_Enf") {
-                    sendMessage({text: `Cool !! Send your mobile number 📞 for door delivery`}, sender);
-                    sendMessage({attachment:{
-                            "type": "image",
-                            "payload": {
-                                //https://mir-s3-cdn-cf.behance.net/project_modules/disp/10772526268695.563539bc1a55a.gif
-                                "url":"http://www.savegenie.mu/img/web-images/delivery-van-ani.gif"
-                                
-                            }
-                        }
-                    }, sender);
-            }    
+                }
         }
     }    
     res.sendStatus(200);
