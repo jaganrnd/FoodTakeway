@@ -122,10 +122,11 @@ let handlePost = (req, res) => {
             processText(event.message.text, sender);
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
-                 if (payload[0] === "Show_Branches"){                        
-                     /*salesforce.findOpenBranches(kolapasi).then(Accounts => {
+                 if (payload[0] === "Show_Branches"){     
+                     console.log('payload[1]' + payload[1]);
+                     salesforce.findOpenBranches(payload[1]).then(Accounts => {
                                    console.log('waiting for formatting');                                
-                     });*/                                           
+                     });                                           
                      
                  } 
         }
