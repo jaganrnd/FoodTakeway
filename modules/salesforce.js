@@ -27,10 +27,27 @@ let login = () => {
     });
 };
 
+let findOpenBranches = kolapasi => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo query');
+        console.log(name);
+        let q = "SELECT Id, Name,parent.name,IsOpen__c FROM Account WHERE parent.name LIKE '%" + kolapasi + "%' AND IsOpen__c = TRUE ";
+        //select id,name,parent.name from account where parent.name = 'kolapasi'        
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                let Accounts = resp.records;
+                resolve(Accounts);
+            }
+        });
+    });
+};
 
 
 login();
 
 exports.org = org;
-
+exports.findOpenBranches = findOpenBranches;
 
