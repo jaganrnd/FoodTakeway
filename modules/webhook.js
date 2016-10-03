@@ -124,27 +124,10 @@ let processText = (text, sender)  => {
                                  ]
                             }
                         }
-            }, sender);
-
-         
-         
-         //new
-         
-         
-         
+            }, sender);  
     });    
         return;
-    }
-    
-    let match9;
-    match9 = text.match(/who are (.*)/i);    
-    if (match9) {
-        console.log('Inside match9');
-        salesforce.findTitleCard(match9[1]).then(Opportunities => {    
-            sendMessage(formatter.formatTitleCard(Opportunities), sender)
-        });
-        return;
-    }    
+    }       
     
     let match10;
     match10 = text.match(/location - (.*)/i);    
@@ -261,37 +244,7 @@ let handlePost = (req, res) => {
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);            
-                }else if (payload[0] === "Show_Broch"){
-                           sendMessage({
-                                        "text":"Pick 1 model:",
-                                        "quick_replies":[
-                                            {
-                                                "content_type":"text",
-                                                "title":"Biryani",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"Dry Items",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"Gravies",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"Dinner Only",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"KolapasiSpecialCombo",
-                                                "payload":"close_won"
-                                            }]   
-                                }, sender);            
-                } else if(payload[0] === "Order_Now") {
+                }else if(payload[0] === "Order_Now") {
                             sendMessage({text: `Processing your order .Please wait....... 🕗`}, sender);
                             console.log('payload 1 ' , payload[1]);
                             console.log('payload 2 ', payload[2]);
