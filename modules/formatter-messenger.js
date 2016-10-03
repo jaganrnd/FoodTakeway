@@ -31,17 +31,16 @@ let formatTitleCard = Accounts => {
 
 let formatQuickReplies = Accounts => {    
   let elements = [];
-    Accounts.forEach(account =>
+    Accounts.forEach(Account =>
         elements.push({
              "content_type":"text",
-             "title":account.get("Name"),
-             "payload":"close_won"
+             "title":Account.get("Name"),
+             "payload":"Show_Branches"
          })
     );
     return {
-        "text": {
-            "quick_replies": elements
-         }
+        "text": "Please choose your location:",
+         "quick_replies": elements
     };  
 };
 
