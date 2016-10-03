@@ -148,7 +148,15 @@ let handlePost = (req, res) => {
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
-                     
+                            let match1;
+                            match1 = text.match(/Start (.*)/i);    
+                            if (match1) {
+                                console.log('Inside match1' + match1[1]);
+                                salesforce.findTitleCard(match1[1]).then(Accounts => {    
+                                    //sendMessage(formatter.formatTitleCard(Accounts), sender)
+                                });
+                                return;
+                            }  
                      /*salesforce.findOpenBranches(kolapasi).then(Accounts => {
                                    console.log('waiting for formatting');                                
                      });*/                                           
