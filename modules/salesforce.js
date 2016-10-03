@@ -27,6 +27,25 @@ let login = () => {
     });
 };
 
+let findTitleCard = name => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo query');
+        console.log(name);
+        let q = "SELECT Id,Name,Picture_URL__c,Title_Cards__c,Description FROM Account WHERE Title_Cards__c LIKE '%" + name + "%';
+        console.log('after query');
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('uuuhhh**' + resp.records.length);
+                let Accounts = resp.records;
+                resolve(Accounts);
+            }
+        });
+    });
+};
+
 let findOpenBranches = kolapasi => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
