@@ -133,7 +133,6 @@ let formatMenu = Products => {
 
 
 exports.formatWayfarerModels = formatWayfarerModels;
-exports.formatTitleCard = formatTitleCard;
 exports.formatShops = formatShops;
 exports.formatMenu = formatMenu;
 
