@@ -30,30 +30,19 @@ let formatTitleCard = Accounts => {
 
 
 let formatQuickReplies = Accounts => {    
-        return {
-            "text":"Pick 1 model:",
-            "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"Square",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Rectangular",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Wayfarer",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Aviator",
-                    "payload":"close_won"
-                }]   
-        };    
+  let elements = [];
+    Accounts.forEach(account =>
+        elements.push({
+             "content_type":"text",
+             "title":account.get("Name"),
+             "payload":"close_won"
+         })
+    );
+    return {
+        "text": {
+            "quick_replies": elements
+         }
+    };  
 };
 
 
