@@ -166,7 +166,11 @@ let handlePost = (req, res) => {
                                                 "payload":"close_won"
                                             }]   
                                 }, sender);            
-                }
+                }else if (payload[0] === "kolapasi adyar") {
+                    console.log('Incoming payload**' + payload[0]);
+                }else if (payload[0] === "kolapasi ashoknagar") {
+                    console.log('Incoming payload**' + payload[0]);
+                }  
         }
     }    
     res.sendStatus(200);
