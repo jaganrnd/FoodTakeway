@@ -44,6 +44,34 @@ let formatQuickReplies = Accounts => {
     };  
 };
 
+let formatOpenBranches= Accounts => {
+    let elements = [];
+    Accounts.forEach(Account =>
+        elements.push({
+            title: Account.get("Name"),
+            subtitle: Account.get("Description"),
+            "image_url": Account.get("Picture_URL__c"),
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"Hit Me",
+                    "payload": "Main_Menu," + Account.getId() + "," + Account.get("Name")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
+exports.formatOpenBranches = formatOpenBranches;
