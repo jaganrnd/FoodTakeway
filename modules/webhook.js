@@ -124,11 +124,12 @@ let handlePost = (req, res) => {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
-                     salesforce.findOpenBranches(payload[1]).then(Accounts => {
-                            console.log('waiting for formatting');     
+                     salesforce.findOpenBranches(payload[1]).then(Accounts => {    
                             sendMessage(formatter.formatQuickReplies(Accounts), sender);  
                      });                                                                
-                 } 
+                 }else if (payload[0] === "Show_MainMenu"){     
+                     console.log('Selected branch will show their available menus' + payload[1]);                                                              
+                 }  
         }
     }    
     res.sendStatus(200);
