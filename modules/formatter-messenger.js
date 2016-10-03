@@ -35,7 +35,11 @@ let formatQuickReplies = Accounts => {
         elements.push({
              "content_type":"text",
              "title":Account.get("Name"),
+        
+             console.log('Account.getId()**' + Account.getId());
+        
              "payload":"Show_MainMenu," + Account.getId()
+        
          })
     );
     return {
