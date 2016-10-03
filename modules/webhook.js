@@ -137,40 +137,10 @@ let handlePost = (req, res) => {
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
-                           sendMessage({
-                                        "text":"Please pick any 1 store location which is nearer to your delivery address:",
-                                        "quick_replies":[
-                                            {
-                                                "content_type":"text",
-                                                "title":"Adyar",
-                                                "payload":"kolapasi adyar"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"AshokNagar",
-                                                "payload":"kolapasi ashoknagar"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"Choolaimedu",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"Mogappair",
-                                                "payload":"close_won"
-                                            },
-                                            {
-                                                "content_type":"text",
-                                                "title":"OMR(Till2AM)",
-                                                "payload":"close_won"
-                                            }]   
-                                }, sender);            
-                }else if (payload[0] === "kolapasi adyar") {
-                    console.log('Incoming payload**' + payload[0]);
-                }else if (payload[0] === "kolapasi ashoknagar") {
-                    console.log('Incoming payload**' + payload[0]);
-                }  
+                     salesforce.findOpenBranches(kolapasi).then(Accounts => {
+                                   console.log('waiting for formatting');                                
+                     });                                           
+                 } 
         }
     }    
     res.sendStatus(200);
