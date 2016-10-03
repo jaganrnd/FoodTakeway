@@ -127,7 +127,7 @@ let handlePost = (req, res) => {
                      salesforce.findOpenBranches(payload[1]).then(Accounts => {    
                             sendMessage(formatter.formatQuickReplies(Accounts), sender);  
                      });                                                                
-                 }else if (payload[0] === "Show_MainMenu"){     
+                 }else if (payload[0] === "Main_Menu"){     
                      console.log('Selected branch will show their available menus' + payload[1]);                                                              
                  }  
         }
