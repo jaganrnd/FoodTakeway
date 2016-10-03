@@ -28,4 +28,34 @@ let formatTitleCard = Accounts => {
     };
 };
 
+
+let formatQuickReplies = Accounts => {    
+        return {
+            "text":"Pick 1 model:",
+            "quick_replies":[
+                {
+                    "content_type":"text",
+                    "title":"Square",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Rectangular",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Wayfarer",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Aviator",
+                    "payload":"close_won"
+                }]   
+        };    
+};
+
+
 exports.formatTitleCard = formatTitleCard;
+exports.formatQuickReplies = formatQuickReplies;
