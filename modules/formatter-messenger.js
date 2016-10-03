@@ -1,33 +1,5 @@
 "use strict";
 
-let formatQuickReplies = Opportunities => {    
-        return {
-            "text":"Pick 1 model:",
-            "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"Square",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Rectangular",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Wayfarer",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Aviator",
-                    "payload":"close_won"
-                }]   
-        };    
-};
-
-
 let formatWayfarerModels = Opportunities => {
     let elements = [];
     Opportunities.forEach(opportunity =>
@@ -159,7 +131,7 @@ let formatMenu = Products => {
 };
 
 
-exports.formatQuickReplies = formatQuickReplies;
+
 exports.formatWayfarerModels = formatWayfarerModels;
 exports.formatTitleCard = formatTitleCard;
 exports.formatShops = formatShops;
