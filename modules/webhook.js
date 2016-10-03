@@ -90,8 +90,8 @@ let processText = (text, sender)  => {
                      Want to order food ? 🍲
                      Please hit - Start Ordering`
                     }, sender);
-                    addPersistentMenu();
-                    sendMessage({attachment:{
+                   // addPersistentMenu();
+                   /* sendMessage({attachment:{
                                     "type": "template",
                                     "payload": {
                                         "template_type": "generic",
@@ -111,13 +111,21 @@ let processText = (text, sender)  => {
                                          ]
                                     }
                                 }
-                    }, sender);  
+                    }, sender);  */
         });    
         return;
     }       
     
-       
-//here
+    let match1;
+    match1 = text.match(/Hi/i);    
+    if (match1) {
+            console.log('Inside match1' + match1[1]);
+            salesforce.findTitleCard(match1[1]).then(Accounts => {    
+                //sendMessage(formatter.formatTitleCard(Accounts), sender)
+            });
+        return;
+    }  
+                     
        
 };
 
@@ -139,18 +147,7 @@ let handlePost = (req, res) => {
             processText(event.message.text, sender);
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
-                 if (payload[0] === "Show_Branches"){
-                        
-                     let match1;
-                        match1 = text.match(/Start Ordering/i);    
-                        if (match1) {
-                            console.log('Inside match1' + match1[1]);
-                            salesforce.findTitleCard(match1[1]).then(Accounts => {    
-                                //sendMessage(formatter.formatTitleCard(Accounts), sender)
-                            });
-                            return;
-                        }  
-                     
+                 if (payload[0] === "Show_Branches"){                        
                      /*salesforce.findOpenBranches(kolapasi).then(Accounts => {
                                    console.log('waiting for formatting');                                
                      });*/                                           
