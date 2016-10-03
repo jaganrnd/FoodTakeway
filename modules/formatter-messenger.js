@@ -35,7 +35,7 @@ let formatQuickReplies = Accounts => {
         elements.push({
              "content_type":"text",
              "title":Account.get("Name"),
-             "payload":"Main_Menu,"         
+             "payload":"Show_Branches,"         
          })
     );
     return {
