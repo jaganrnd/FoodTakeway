@@ -69,5 +69,6 @@ let findOpenBranches = kolapasi => {
 login();
 
 exports.org = org;
+exports.findTitleCard = findTitleCard;
 exports.findOpenBranches = findOpenBranches;
 
