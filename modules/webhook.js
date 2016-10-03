@@ -104,7 +104,7 @@ let processText = (text, sender)  => {
                                               {
                                                 "type":"postback",
                                                 "title":"Start Ordering",
-                                                "payload":"Show_Branches"
+                                                "payload":"Show_Branches" , + kolapasi
                                               }
                                             ]                                             
                                         }
@@ -137,9 +137,13 @@ let handlePost = (req, res) => {
         }else if (event.postback) {
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){
-                     salesforce.findOpenBranches(kolapasi).then(Accounts => {
+                     
+                     console.log('payload[1]**' + payload[1]);
+                     
+                     /*salesforce.findOpenBranches(kolapasi).then(Accounts => {
                                    console.log('waiting for formatting');                                
-                     });                                           
+                     });*/                                           
+                     
                  } 
         }
     }    
