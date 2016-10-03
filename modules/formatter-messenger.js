@@ -75,9 +75,9 @@ let formatMainMenus = MainMenus => {
     let elements = [];
     MainMenus.forEach(Menu__c  =>
         elements.push({
-            title: Product__r.get("Name"),
-            subtitle: Product__r.get("Description"),
-            "image_url": Product__r.get("Picture_URL__c"),
+            title: Menu__c.get("Product__r.name"),
+            subtitle: Menu__c.get("product__r.description"),
+            "image_url": Menu__c.get("Product__r.PICURL__c"),
             "buttons": [
                 {
                     "type":"postback",
