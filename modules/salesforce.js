@@ -27,25 +27,6 @@ let login = () => {
     });
 };
 
-let findTitleCard = name => {
-    return new Promise((resolve, reject) => {
-        console.log('bfo query');
-        console.log(name);
-        let q = "SELECT Id, Name,Picture_URL__c,Type,Description,Amount FROM Opportunity WHERE type LIKE '%" + name + "%' ORDER BY amount LIMIT 5";
-        console.log('after query');
-        org.query({query: q}, (err, resp) => {
-            if (err) {
-                console.log('ERROR');
-                reject("An error as occurred");
-            } else if (resp.records && resp.records.length>0) {
-                let Opportunities = resp.records;
-                resolve(Opportunities);
-            }
-        });
-    });
-};
-
-
 let findShops = name => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
@@ -152,7 +133,6 @@ let createCase = (name,customerName)  => {
 login();
 
 exports.org = org;
-exports.findTitleCard = findTitleCard;
 exports.findShops = findShops;
 exports.findMenu = findMenu;
 exports.createCase = createCase;
