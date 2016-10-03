@@ -104,7 +104,7 @@ let processText = (text, sender)  => {
                                               {
                                                 "type":"postback",
                                                 "title":"Start Ordering",
-                                                "payload":"Show_Branches" , + kolapasi
+                                                "payload":"Show_Branches,"  + kolapasi
                                               }
                                             ]                                             
                                         }
