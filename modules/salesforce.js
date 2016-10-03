@@ -51,7 +51,7 @@ let findOpenBranches = parentaccountid => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
         console.log(name);
-        let q = "SELECT Id, Name,parent.name,IsOpen__c FROM Account WHERE parentid = '" + parentaccountid + "';
+        let q = "SELECT Id, Name,parent.name,IsOpen__c FROM Account WHERE parentid = '" + parentaccountid + "'";
         //select id,name,parent.name from account where parent.name = 'kolapasi'        
         org.query({query: q}, (err, resp) => {
             if (err) {
