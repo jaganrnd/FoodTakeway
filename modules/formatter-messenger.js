@@ -72,30 +72,7 @@ let formatOpenBranches= Accounts => {
 };
 
 let formatMainMenus = MainMenus => {
-    let elements = [];
-    MainMenus.forEach(Menu__c  =>
-        elements.push({
-            title: Menu__c.get("Name"),
-            subtitle: Menu__c.get("Name"),
-            "image_url": "https://images3.alphacoders.com/670/thumb-1920-670514.jpg",
-            "buttons": [
-                {
-                    "type":"postback",
-                    "title":"View Menu",
-                    "payload": "Sub_Menu,"
-                    
-                }]
-        })
-    );
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
+
 };
 
 exports.formatTitleCard = formatTitleCard;
