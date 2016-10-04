@@ -81,7 +81,7 @@ let formatMainMenus = MainMenus => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"Hit Me",
+                    "title":"View Menu,
                     "payload": "Sub_Menu,"
                     
                 }]
