@@ -66,19 +66,24 @@ let findOpenBranches = parentaccountid => {
 };
 
 
-let findMainMenus = subaccountid => {
+let findSubMenus = (subaccountid,MainProductId) => {
     return new Promise((resolve, reject) => {
         console.log('bfo querymainmenus');
-        let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family = 'Parent' ";
-        //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
+        let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family != 'Parent' AND Product__r.Main_Product__c= '" + MainProductId + "' AND Available__c = True ";
+        
+        //SELECT Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c 
+        //WHERE Account__c = '0012800000tbvvV' AND  Product__r.Family != 'Parent' 
+        //AND Product__r.Main_Product__c= '01t28000002yqou' AND Available__c = True
+        
+        
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
-                console.log('Main Menus count' + resp.records.length);
-                let MainMenus = resp.records;
-                resolve(MainMenus);
+                console.log('Sub Menus count' + resp.records.length);
+                let SubMenus = resp.records;
+                resolve(SubMenus);
             }
         });
     });
