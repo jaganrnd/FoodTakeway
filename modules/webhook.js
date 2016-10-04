@@ -102,7 +102,7 @@ let handlePost = (req, res) => {
                           sendMessage(formatter.formatMainMenus(MainMenus), sender);  
                      });    
                  }else if (payload[0] === "Sub_Menu"){     
-                     console.log('Stopit da baby**');                                                              
+                     console.log('payload [1]**' + payload[1]);                                                              
                  } 
         }
     }    
