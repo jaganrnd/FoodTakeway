@@ -106,7 +106,7 @@ let formatMainMenus= MainMenus => {
         elements.push({
             "title": Menu__c.get("Product__r").Name,
             "subtitle": Menu__c.get("Product__r").Name,
-            "image_url": "https://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
+            "image_url": Menu__c.get("Product__r").PICURL__c,
             "buttons": [
                 {
                     "type":"postback",
