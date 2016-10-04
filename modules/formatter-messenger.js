@@ -71,7 +71,7 @@ let formatOpenBranches= Accounts => {
     };
 };
 
-let formatMainMenus= MainMenus => {
+/*let formatMainMenus= MainMenus => {
   let elements = [];
     MainMenus.forEach(Menu__c =>
         elements.push({
@@ -96,7 +96,40 @@ let formatMainMenus= MainMenus => {
             }
         }
     };
+};*/
+
+
+
+let formatMainMenus= MainMenus => {
+  let elements = [];
+    MainMenus.forEach(Menu__c =>
+        elements.push({
+            "title": Menu__c.get("Product__r").name,
+            "subtitle": Menu__c.get("Product__r").description,
+            "image_url": "https://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"View Me",
+                    "payload": "Sub_Menu,"
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
 };
+
+
+
+
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
