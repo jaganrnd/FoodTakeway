@@ -103,7 +103,7 @@ let handlePost = (req, res) => {
                      });    
                  }else if (payload[0] === "Sub_Menu"){     
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
-                     console.log('Origin parent product - payload [2]**' + payload[1]); 
+                     console.log('Origin parent product - payload [2]**' + payload[2]); 
                  } 
         }
     }    
