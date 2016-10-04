@@ -71,11 +71,11 @@ let formatOpenBranches= Accounts => {
     };
 };
 
-let formatMainMenus = MainMenus => {
+let formatMainMenus= MainMenus => {
   let elements = [];
-    MainMenus.forEach(Account =>
+    MainMenus.forEach(Menu__c =>
         elements.push({
-            "title": Menu.get("Name"),
+            "title": Menu__c.get("Name"),
             //"subtitle": Menu.get("Name"),
             "image_url": "https://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
             "buttons": [
