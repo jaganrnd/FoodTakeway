@@ -97,7 +97,8 @@ let handlePost = (req, res) => {
                  }*/
                  else if (payload[0] === "Main_Menu"){     
                      console.log('Selected branch will show their available menus' + payload[1]);          
-                      salesforce.findMainMenus(payload[1]).then(MainMenus => {    
+                      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
+                          console.log('Going inside main menus');
                           sendMessage(formatter.formatMainMenus(MainMenus), sender);  
                      });    
                  }else if (payload[0] === "Sub_Menu"){     
