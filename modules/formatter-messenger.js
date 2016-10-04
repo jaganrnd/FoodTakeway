@@ -72,7 +72,30 @@ let formatOpenBranches= Accounts => {
 };
 
 let formatMainMenus = MainMenus => {
-
+  let elements = [];
+    MainMenus.forEach(Account =>
+        elements.push({
+            title: Menu.get("Name"),
+            subtitle: Menu.get("Name"),
+            "image_url": "http://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"View Me",
+                    "payload": "Sub_Menu,"
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
 };
 
 exports.formatTitleCard = formatTitleCard;
