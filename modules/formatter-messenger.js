@@ -104,8 +104,8 @@ let formatMainMenus= MainMenus => {
   let elements = [];
     MainMenus.forEach(Menu__c =>
         elements.push({
-            "title": Menu__c.get("Product2").name,
-            "subtitle": Menu__c.get("Product2").description,
+            "title": Menu__c.get("Product__r").Name,
+            "subtitle": Menu__c.get("Product__r").Name,
             "image_url": "https://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
             "buttons": [
                 {
