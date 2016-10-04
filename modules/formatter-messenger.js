@@ -127,7 +127,32 @@ let formatMainMenus= MainMenus => {
     };
 };
 
-
+let formatSubMenus= SubMenus => {
+  let elements = [];
+    SubMenus.forEach(Menu__c =>
+        elements.push({
+            "title": Menu__c.get("Product__r").Name,
+            "subtitle": Menu__c.get("Product__r").Description,
+            "image_url": Menu__c.get("Product__r").PICURL__c,
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"View Me",
+                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
 
 
 
@@ -135,3 +160,4 @@ exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
 exports.formatMainMenus = formatMainMenus;
+exports.formatSubMenus = formatSubMenus;
