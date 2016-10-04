@@ -102,8 +102,15 @@ let handlePost = (req, res) => {
                           sendMessage(formatter.formatMainMenus(MainMenus), sender);  
                      });    
                  }else if (payload[0] === "Sub_Menu"){     
+                     
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
+                     
+                     salesforce.findSubMenus(payload[1]).then(SubMenus => {   
+                          console.log('Going inside sub menus');
+                          //sendMessage(formatter.formatMainMenus(MainMenus), sender);  
+                     });    
+                     
                  } 
         }
     }    
