@@ -76,8 +76,8 @@ let formatMainMenus = MainMenus => {
     MainMenus.forEach(Menu__c  =>
         elements.push({
             title: Menu__c.get("Name"),
-            subtitle: "Hello boss",
-            //"image_url": Menu__c.get("Product__r.PICURL__c"),
+            subtitle: Menu__c.get("Name"),
+            "image_url": "https://images3.alphacoders.com/670/thumb-1920-670514.jpg",
             "buttons": [
                 {
                     "type":"postback",
