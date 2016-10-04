@@ -65,6 +65,23 @@ let findOpenBranches = parentaccountid => {
     });
 };
 
+let findMainMenus = subaccountid => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo querymainmenus');
+        let q = "SELECT Id,name,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family = 'Parent' ";
+        //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('Main Menus count' + resp.records.length);
+                let MainMenus = resp.records;
+                resolve(MainMenus);
+            }
+        });
+    });
+};
 
 let findSubMenus = (subaccountid,MainProductId) => {
     return new Promise((resolve, reject) => {
