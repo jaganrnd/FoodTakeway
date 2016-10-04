@@ -76,7 +76,7 @@ let formatMainMenus = MainMenus => {
     MainMenus.forEach(Account =>
         elements.push({
             "title": Menu.get("Name"),
-            "subtitle": Menu.get("Name"),
+            //"subtitle": Menu.get("Name"),
             "image_url": "https://farm8.staticflickr.com/7060/13265139384_9f686fb476_o.jpg",
             "buttons": [
                 {
