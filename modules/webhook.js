@@ -109,7 +109,7 @@ let handlePost = (req, res) => {
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside sub menus');
                           //sendMessage(formatter.formatMainMenus(MainMenus), sender);  
-                     });*/   
+                     });   
                      
                  } 
         }
