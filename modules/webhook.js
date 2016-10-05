@@ -117,14 +117,14 @@ let handlePost = (req, res) => {
                      
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
-                     sendMessage(formatter.formatQuantity(10), sender);  // Hitendar
+                     //sendMessage(formatter.formatQuantity(10), sender);  // Hitendar
 		     //sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
-		     /*
-                     salesforce.findSubMenus(payload[1], payload[2]).then(() => {   
+		     
+                     salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(), sender);  // Hitendar
+                          sendMessage(formatter.formatQuantity(SubMenus), sender);  // Hitendar
                      }); 
-		     */
+		     
                  } 
                  //Hitendar
         }
