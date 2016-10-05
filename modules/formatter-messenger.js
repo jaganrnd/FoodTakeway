@@ -159,7 +159,7 @@ let formatQuantity= SelectedMenu => {
     for (var i = 0, len = 10; i < len; i++) {
 		elements.push({
 			"content_type":"text",
-			"title":"Square",
+			"title":i,
 			"payload":"Show_Branches,"
 		});
 	}
