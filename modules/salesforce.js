@@ -134,3 +134,4 @@ exports.findTitleCard = findTitleCard;
 exports.findOpenBranches = findOpenBranches;
 exports.findMainMenus = findMainMenus;
 exports.findSubMenus = findSubMenus;
+exports.getSelectedMenu = getSelectedMenu;
