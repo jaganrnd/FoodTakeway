@@ -154,9 +154,24 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= () => {
+let formatQuantity= Quantity => {
 	
-	text: `Please enter your location in this format location - pammal`
+	console.log('Going inside formatQuantity');
+    return {
+        "text":"Pick 1 model:",
+	"quick_replies":[
+                {
+                    "content_type":"text",
+                    "title":Quantity,
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Rectangular",
+                    "payload":"close_won"
+                }]
+		
+    };
 	
 };
 /* Hitendar */
