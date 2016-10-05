@@ -155,16 +155,16 @@ let formatSubMenus= SubMenus => {
 };
 /* Hitendar */
 let formatQuantity= SelectedMenu => {
-	let elements = [];
-    SelectedMenu.forEach(Menu__c =>          
-        elements.push({
-             "content_type":"text",
-             "title":Menu__c.get("Name"),
-             "payload":"Show_Branches,"         
-         })
-    );
+    let elements = [];
+    for (var i = 0, len = 10; i < len; i++) {
+		elements.push({
+			"content_type":"text",
+			"title":Menu__c.get("Name"),
+			"payload":"Show_Branches,"
+		})
+	}
     return {
-        "text": "Please choose your location:",
+        "text": "Please select quantity",
          "quick_replies": elements
     };  
 	
