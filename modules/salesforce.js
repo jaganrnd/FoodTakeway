@@ -86,7 +86,7 @@ let findMainMenus = subaccountid => {
 let findSubMenus = (subaccountid,MainProductId) => {
     return new Promise((resolve, reject) => {
         console.log('bfo querymainmenus');
-        let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family != 'Parent' AND Product__r.Main_Product__c= '" + MainProductId + "' AND Available__c = True ";
+        let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family != 'Parent' AND Product__r.Main_Product__c= '" + MainProductId + "' AND Available__c = True ";
         
         //SELECT Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c 
         //WHERE Account__c = '0012800000tbvvV' AND  Product__r.Family != 'Parent' 
