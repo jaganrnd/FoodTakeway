@@ -159,9 +159,9 @@ let formatQuantity= SelectedMenu => {
     for (var i = 0, len = 10; i < len; i++) {
 		elements.push({
 			"content_type":"text",
-			"title":Menu__c.get("Name"),
+			"title":"Square",
 			"payload":"Show_Branches,"
-		})
+		});
 	}
     return {
         "text": "Please select quantity",
