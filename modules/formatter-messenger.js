@@ -157,7 +157,7 @@ let formatSubMenus= SubMenus => {
 let formatQuantity= SelectedMenu => {
     let elements = [];
     console.log(SelectedMenu[0]);
-    for (var i = 1; i < SelectedMenu[0].get("Quantity__c"); i++) {
+    for (var i = 1; i <= 5; i++) {
 		elements.push({
 			"content_type":"text",
 			"title":i,
