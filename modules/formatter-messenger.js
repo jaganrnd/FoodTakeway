@@ -154,7 +154,7 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= Quantity => {
+let formatQuantity= SubMenus => {
   let elements = [];
     for (var i = 0, len = 10; i < len; i++) {
 		elements.push({
