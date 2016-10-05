@@ -154,24 +154,19 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= Quantity => {
-	
-	console.log('Going inside formatQuantity');
+let formatQuantity= SubMenus => {
+	let elements = [];
+    SubMenus.forEach(Menu__c =>          
+        elements.push({
+             "content_type":"text",
+             "title":Menu__c.get("Name"),
+             "payload":"Show_Branches,"         
+         })
+    );
     return {
-        "text":"Pick 1 model:",
-	"quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":Quantity,
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Rectangular",
-                    "payload":"close_won"
-                }]
-		
-    };
+        "text": "Please choose your location:",
+         "quick_replies": elements
+    };  
 	
 };
 /* Hitendar */
