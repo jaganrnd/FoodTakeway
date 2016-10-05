@@ -107,20 +107,20 @@ let handlePost = (req, res) => {
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
-                          console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(Quantity), sender);  // Hitendar
+                          console.log('Going inside Sub menus');
+                          sendMessage(formatter.formatSubMenus(SubMenus), sender);  // Hitendar
                      });   
                      
                  } 
                 //Hitendar
-				 else if (payload[0] === "close_won"){     
+	 	else if (payload[0] === "Quantity"){     
                      
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside sub menus');
-                          sendMessage(formatter.formatSubMenus(SubMenus), sender);  
+                          sendMessage(formatter.formatQuantity(SubMenus), sender);  
                      });   
                      
                  } 
