@@ -88,7 +88,7 @@ let findSubMenus = (subaccountid,MainProductId) => {
         console.log('bfo querymainmenus');
         let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family != 'Parent' AND Product__r.Main_Product__c= '" + MainProductId + "' AND Available__c = True ";
         
-        //SELECT Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c 
+        //SELECT Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM Menu__c 
         //WHERE Account__c = '0012800000tbvvV' AND  Product__r.Family != 'Parent' 
         //AND Product__r.Main_Product__c= '01t28000002yqou' AND Available__c = True
         
@@ -106,6 +106,26 @@ let findSubMenus = (subaccountid,MainProductId) => {
     });
 };
 
+let getSelectedMenu = (selectedMenuId) => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo querymainmenus');
+        let q = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM Menu__c WHERE id = '" + selectedMenuId + "' AND Available__c = True ";
+        
+        //SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM //Menu__c WHERE id = '" + selectedMenuId + "' AND Available__c = True 
+        
+        
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('Sub Menus count' + resp.records.length);
+                let SelectedMenu = resp.records;
+                resolve(SelectedMenu);
+            }
+        });
+    });
+};
 
 login();
 
