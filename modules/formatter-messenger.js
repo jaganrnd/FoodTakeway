@@ -138,7 +138,7 @@ let formatSubMenus= SubMenus => {
                 {
                     "type":"postback",
                     "title":"View Me",
-                    "payload": "Quantity,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__r").Main_Product__c
+                    "payload": "Quantity,"  +  Menu__c.get("Id") 
                     
                 }]
         })
@@ -154,9 +154,9 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= SubMenus => {
+let formatQuantity= SelectedMenu => {
 	let elements = [];
-    SubMenus.forEach(Menu__c =>          
+    SelectedMenu.forEach(Menu__c =>          
         elements.push({
              "content_type":"text",
              "title":Menu__c.get("Name"),
