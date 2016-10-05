@@ -118,7 +118,7 @@ let handlePost = (req, res) => {
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      console.log('Going inside quantity');
-		     sendMessage(formatter.formatQuantity(), sender);
+		     sendMessage(formatter.formatQuantity('Quantity'), sender);
                      
                  } 
                  //Hitendar
