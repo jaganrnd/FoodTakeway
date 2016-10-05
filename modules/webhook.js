@@ -49,10 +49,10 @@ let processText = (text, sender)  => {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
                         `Hey ${response.first_name} !
-                        "Kolapasi" welcomes you 🙏 
+                        "Kolapasi" welcomes you ?? 
                        Happy to see you.
-                       Want to order food ? 🍲 🍲 Please hit - First Menu
-                       To know about other options swipe..👉`
+                       Want to order food ? ?? ?? Please hit - First Menu
+                       To know about other options swipe..??`
                     }, sender);
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         console.log('bfo formating');
@@ -107,11 +107,24 @@ let handlePost = (req, res) => {
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
+                          console.log('Going inside quantity');
+                          sendMessage(formatter.formatQuantity(Quantity), sender);  // Hitendar
+                     });   
+                     
+                 } 
+                //Hitendar
+				 else if (payload[0] === "close_won"){     
+                     
+                     console.log('Origin Branch - payload [1]**' + payload[1]);    
+                     console.log('Origin parent product - payload [2]**' + payload[2]); 
+                     
+                     salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside sub menus');
                           sendMessage(formatter.formatSubMenus(SubMenus), sender);  
                      });   
                      
                  } 
+                 //Hitendar
         }
     }    
     res.sendStatus(200);
