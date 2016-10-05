@@ -153,8 +153,22 @@ let formatSubMenus= SubMenus => {
         }
     };
 };
-
-
+/* Hitendar */
+let formatQuantity= Quantity => {
+  let elements = [];
+    for (var i = 0, len = 10; i < len; i++) {
+		elements.push({
+            "content_type":"text",
+			"title":"Square",
+			"payload":"close_won"
+        })
+	}
+    return {
+        "text":"Pick 1 model:",
+		"quick_replies":elements
+    };
+};
+/* Hitendar */
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
