@@ -165,6 +165,7 @@ let formatQuantity= SubMenus => {
         })
 	}
 	*/
+	console.log('Going inside formatQuantity');
     return {
         "text":"Pick 1 model:",
 	"quick_replies":[
