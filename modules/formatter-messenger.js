@@ -154,33 +154,10 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= SubMenus => {
-	/*
-  let elements = [];
-    for (var i = 0, len = 10; i < len; i++) {
-		elements.push({
-		"content_type":"text",
-		"title":"Square",
-		"payload":"close_won"
-        })
+let formatQuantity= () => {
+	
+	text: `Please enter your location in this format location - pammal`
 	}
-	*/
-	console.log('Going inside formatQuantity');
-    return {
-        "text":"Pick 1 model:",
-	"quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"Square",
-                    "payload":"close_won"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Rectangular",
-                    "payload":"close_won"
-                }]
-		
-    };
 };
 /* Hitendar */
 
