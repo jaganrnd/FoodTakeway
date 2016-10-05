@@ -138,7 +138,7 @@ let formatSubMenus= SubMenus => {
                 {
                     "type":"postback",
                     "title":"View Me",
-                    "payload": "Quantity,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__r.Main_Product__c")
+                    "payload": "Quantity,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__r").Main_Product__c
                     
                 }]
         })
