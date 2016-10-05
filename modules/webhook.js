@@ -119,9 +119,9 @@ let handlePost = (req, res) => {
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      
 		     
-                     salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
+                     salesforce.findSubMenus(payload[1], payload[2]).then(() => {   
                           console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(SubMenus), sender);  // Hitendar
+                          sendMessage(formatter.formatQuantity(), sender);  // Hitendar
                      }); 
                  } 
                  //Hitendar
