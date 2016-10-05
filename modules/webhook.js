@@ -116,13 +116,13 @@ let handlePost = (req, res) => {
 	 	else if (payload[0] === "Quantity"){     
                      
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
-                     console.log('Origin parent product - payload [2]**' + payload[2]); 
+                     //console.log('Origin parent product - payload [2]**' + payload[2]); 
                      //sendMessage(formatter.formatQuantity(10), sender);  // Hitendar
 		     //sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
 		     
-                     salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
+                     salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(SubMenus), sender);  // Hitendar
+                          sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar
                      }); 
 		     
                  } 
