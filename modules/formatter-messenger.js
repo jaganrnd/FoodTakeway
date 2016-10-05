@@ -176,3 +176,4 @@ exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
 exports.formatMainMenus = formatMainMenus;
 exports.formatSubMenus = formatSubMenus;
+exports.formatQuantity = formatQuantity;
