@@ -157,7 +157,7 @@ let formatSubMenus= SubMenus => {
 let formatQuantity= () => {
 	
 	text: `Please enter your location in this format location - pammal`
-	}
+	
 };
 /* Hitendar */
 
