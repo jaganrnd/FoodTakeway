@@ -100,7 +100,7 @@ let handlePost = (req, res) => {
 		      //Hitendar
 		      getUserInfo(sender).then(response => {         
                     
-                   salesforce.createOpportunity(response.first_name,response.last_name).then(Opportunity => {    
+                   salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
                         console.log('created opportunitity'+Opportunity);
                         //sendMessage(formatter.formatTitleCard(Accounts), sender)
                     }); 
