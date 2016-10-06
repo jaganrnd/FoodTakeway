@@ -157,11 +157,11 @@ let formatSubMenus= SubMenus => {
 let formatQuantity= SelectedMenu => {
     let elements = [];
     console.log(SelectedMenu[0]);
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
 			"title":i,
-			"payload":"Show_Branches,"
+			"payload":"SaveOrder," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")
 		});
 	}
     return {
