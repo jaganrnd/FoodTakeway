@@ -74,6 +74,9 @@ let createOpportunity = (firstName, lastName, userId) => {
 		
 		let opp = nforce.createSObject('Opportunity');
         opp.set('name', firstName + lastName);
+	opp.set('StageName','Order Initiated');
+	opp.set('CloseDate',Date.now());
+	
         
         org.insert({sobject: con}, err => {
             if (err) {
