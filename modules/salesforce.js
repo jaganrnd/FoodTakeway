@@ -65,6 +65,24 @@ let findOpenBranches = parentaccountid => {
     });
 };
 
+let createOpportunity = (firstName, lastName) => {
+    return new Promise((resolve, reject) => {
+        let con = nforce.createSObject('Contact');
+        con.set('firstName', firstName);
+        con.set('lastName', lastName);
+        //con.set('origin', 'Facebook Bot');
+        
+        org.insert({sobject: con}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(con);
+            }
+        });
+    });
+};
+
 let findMainMenus = subaccountid => {
     return new Promise((resolve, reject) => {
         console.log('bfo querymainmenus');
@@ -132,6 +150,7 @@ login();
 exports.org = org;
 exports.findTitleCard = findTitleCard;
 exports.findOpenBranches = findOpenBranches;
+exports.createOpportunity = createOpportunity;
 exports.findMainMenus = findMainMenus;
 exports.findSubMenus = findSubMenus;
 exports.getSelectedMenu = getSelectedMenu;
