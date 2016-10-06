@@ -96,7 +96,16 @@ let handlePost = (req, res) => {
                      console.log('Selected branch will show their available menus' + payload[1]);                                                              
                  }*/
                  else if (payload[0] === "Main_Menu"){     
-                     console.log('Selected branch will show their available menus' + payload[1]);          
+                     console.log('Selected branch will show their available menus' + payload[1]);  
+		      //Hitendar
+		      getUserInfo(sender).then(response => {         
+                    
+                   salesforce.createOpportunity(response.first_name,response.last_name).then(Opportunity => {    
+                        console.log('created opportunitity'+Opportunity);
+                        //sendMessage(formatter.formatTitleCard(Accounts), sender)
+                    }); 
+				});
+		      //Hitendar
                       salesforce.findMainMenus(payload[1]).then(MainMenus => {   
                           console.log('Going inside main menus');
                           sendMessage(formatter.formatMainMenus(MainMenus), sender);  
