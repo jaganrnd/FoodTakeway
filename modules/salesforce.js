@@ -65,19 +65,30 @@ let findOpenBranches = parentaccountid => {
     });
 };
 
-let createOpportunity = (firstName, lastName) => {
+let createOpportunity = (firstName, lastName, userId) => {
     return new Promise((resolve, reject) => {
         let con = nforce.createSObject('Contact');
         con.set('firstName', firstName);
         con.set('lastName', lastName);
-        //con.set('origin', 'Facebook Bot');
+        con.set('FacebookId__c', userId);
+		
+		let opp = nforce.createSObject('Opportunity');
+        opp.set('name', firstName + lastName);
         
         org.insert({sobject: con}, err => {
             if (err) {
                 console.error(err);
-                reject("An error occurred while creating a case");
+                reject("An error occurred while creating a Contact");
             } else {
-                resolve(con);
+				console.log('Contact Created '+con.get("Id"));
+				opp.set('Contact__c', con.get("Id"));
+				org.insert({sobject: opp}, err => {
+					if (err) {
+						console.error(err);
+						reject("An error occurred while creating a Contact");
+					}
+				});
+				resolve(opp);
             }
         });
     });
