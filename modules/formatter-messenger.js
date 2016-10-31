@@ -54,7 +54,7 @@ let formatOpenBranches= Accounts => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"Hit Me",
+                    "title":"DELIVERY MENU",
                     "payload": "Main_Menu," + Account.getId() + "," + Account.get("Name")
                     
                 }]
