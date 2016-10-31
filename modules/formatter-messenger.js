@@ -137,7 +137,7 @@ let formatSubMenus= SubMenus => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"ADD TO CART" + Menu__c.get("Price__c"),
+                    "title":"ADD TO CART - ₹" + Menu__c.get("Price__c"),
                     "payload": "Quantity,"  +  Menu__c.get("Id") 
                     
                 }]
