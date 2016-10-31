@@ -138,6 +138,7 @@ let handlePost = (req, res) => {
                  //Hitendar
 		
 		else if (payload[0] === "Save_Order"){
+			console.log('QR Payload [1]**' + payload[1]);
 			console.log('Going to save order**');			
 		}	
         }
