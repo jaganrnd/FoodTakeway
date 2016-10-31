@@ -110,7 +110,7 @@ let formatMainMenus= MainMenus => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"Show Items",
+                    "title":"SHOW ITEMS",
                     "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c")
                     
                 }]
@@ -137,7 +137,7 @@ let formatSubMenus= SubMenus => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"View Me",
+                    "title":"ADD TO CART($6.36)",
                     "payload": "Quantity,"  +  Menu__c.get("Id") 
                     
                 }]
