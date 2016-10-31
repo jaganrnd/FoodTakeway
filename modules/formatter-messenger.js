@@ -110,7 +110,7 @@ let formatMainMenus= MainMenus => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"View Me",
+                    "title":"Show Items",
                     "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c")
                     
                 }]
