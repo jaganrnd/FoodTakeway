@@ -50,7 +50,7 @@ let processText = (text, sender)  => {
                     sendMessage({text:
                         `Hey ${response.first_name} !
                         "Kolapasi" welcomes you ?? 
-                       Happy to see you.
+                       Happy to see you :) :)
                        Want to order food ? ?? ?? Please hit - First Menu
                        To know about other options swipe..??`
                     }, sender);
@@ -136,6 +136,10 @@ let handlePost = (req, res) => {
 		     
                  } 
                  //Hitendar
+		
+		else if (payload[0] === "SaveOrder"){
+			console.log('Going to save order**');			
+		}	
         }
     }    
     res.sendStatus(200);
