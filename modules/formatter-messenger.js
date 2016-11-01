@@ -156,7 +156,7 @@ let formatSubMenus= SubMenus => {
 /* Hitendar */
 let formatQuantity= SelectedMenu => {
     let elements = [];
-    console.log('Selected Menu**' + SelectedMenu[0]);
+    console.log('Selected Menu**' + SelectedMenu[0].get("Quantity__c"));
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
@@ -173,9 +173,47 @@ let formatQuantity= SelectedMenu => {
 };
 /* Hitendar */
 
+/*Jagan for testing quick replies*/
+
+let formatQuickReplies = SelectedMenu => {    
+        return {
+            "text":"Pick 1 model:",
+            "quick_replies":[
+                {
+                    "content_type":"text",
+                    "title":"Square",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Rectangular",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Wayfarer",
+                    "payload":"close_won"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Aviator",
+                    "payload":"close_won"
+                }]   
+        };    
+};
+
+/*Jagan for testing quick replies*/
+
+
+
+
+
+
+
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
 exports.formatMainMenus = formatMainMenus;
 exports.formatSubMenus = formatSubMenus;
 exports.formatQuantity = formatQuantity;
+exports.formatQuickReplies = formatQuickReplies;
