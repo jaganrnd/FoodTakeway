@@ -132,7 +132,7 @@ let handlePost = (req, res) => {
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
                           //sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar
-			  sendMessage(formatter.formatQuickReplies(SelectedMenu), sender); //Jagan   
+			  sendMessage(formatter.formatQuickReplies1(SelectedMenu), sender); //Jagan   
                      }); 
 		     
                  } 
