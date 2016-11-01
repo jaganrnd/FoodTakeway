@@ -131,13 +131,12 @@ let handlePost = (req, res) => {
 		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
-                          //sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar
-			  sendMessage(formatter.formatQuickReplies1(SelectedMenu), sender); //Jagan   
+                          sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar			  
                      }); 
 		     
                  } 
                  //Hitendar
-		
+		console.log('Req**' + req);
 		else if (payload[0] === "SaveOrder"){
 			sendMessage({text: "OK, adding dude "}, sender);		
 		}	
