@@ -86,12 +86,13 @@ let handlePost = (req, res) => {
 	    
 	    console.log('Inside Quick reply**' + JSON.stringify(event.message.text));
 		
+	    var SelectedQuantity = JSON.stringify(event.message.text);
+            console.log('Selected Quantity**' + SelectedQuantity);	
+		
         }else if (event.postback) {
 		
 		console.log("Postback received:****** " + JSON.stringify(event.postback));
-		
-		var SelectedQuantity = JSON.stringify(event.postback);
-		console.log('Selected Quantity**' + SelectedQuantity);
+				
 		
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
