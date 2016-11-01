@@ -157,6 +157,10 @@ let formatSubMenus= SubMenus => {
 let formatQuantity= SelectedMenu => {
     let elements = [];
     console.log('Selected Menu**' + SelectedMenu[0].get("Quantity__c"));
+	
+    var shouldSend = JSON.stringify( SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c") );
+    console.log('Should Send**' +  shouldSend);
+		
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
