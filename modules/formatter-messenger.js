@@ -174,7 +174,7 @@ let formatQuantity= SelectedMenu => {
 /* Hitendar */
 
 /*Jagan for testing quick replies*/
-let formatQuickReplies = SelectedMenu => {    
+let formatQuickReplies1 = SelectedMenu => {    
         return {
             "text":"Pick 1 model:",
             "quick_replies":[
@@ -208,4 +208,4 @@ exports.formatOpenBranches = formatOpenBranches;
 exports.formatMainMenus = formatMainMenus;
 exports.formatSubMenus = formatSubMenus;
 exports.formatQuantity = formatQuantity;
-exports.formatQuickReplies = formatQuickReplies;
+exports.formatQuickReplies1 = formatQuickReplies1;
