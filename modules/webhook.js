@@ -90,6 +90,9 @@ let handlePost = (req, res) => {
 		
 		console.log("Postback received:****** " + JSON.stringify(event.postback));
 		
+		var SelectedQuantity = JSON.stringify(event.postback);
+		console.log('Selected Quantity**' + SelectedQuantity);
+		
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
