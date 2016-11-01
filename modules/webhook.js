@@ -84,7 +84,9 @@ let handlePost = (req, res) => {
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
         }else if (event.postback) {
-		console.log("Postback received:****** " + JSON.stringify(event.postback)
+		
+		console.log("Postback received:****** " + JSON.stringify(event.postback));
+		
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
