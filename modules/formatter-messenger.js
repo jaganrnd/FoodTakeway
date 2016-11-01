@@ -181,22 +181,22 @@ let formatQuickReplies = SelectedMenu => {
                 {
                     "content_type":"text",
                     "title":"Square",
-                    "payload":"close_won"
+                    "payload":"SaveOrder"
                 },
                 {
                     "content_type":"text",
                     "title":"Rectangular",
-                    "payload":"close_won"
+                    "payload":"SaveOrder"
                 },
                 {
                     "content_type":"text",
                     "title":"Wayfarer",
-                    "payload":"close_won"
+                    "payload":"SaveOrder"
                 },
                 {
                     "content_type":"text",
                     "title":"Aviator",
-                    "payload":"close_won"
+                    "payload":"SaveOrder"
                 }]   
         };    
 };
