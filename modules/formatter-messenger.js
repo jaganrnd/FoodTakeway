@@ -161,12 +161,12 @@ let formatQuantity= SelectedMenu => {
 		elements.push({
 			"content_type":"text",
 			"title":i,
-			//"payload":"Save_Order," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")
-			"payload": "SaveOrder,"
+			"payload":"Save_Order," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")		
 		});
 	}
     return {
-        "text": "Please select quantity",
+        //"text": "Please select quantity",
+	"text": "How many items of" SelectedMenu[0].get("Price__c") "do you need?",    
          "quick_replies": elements
     };  
 	
