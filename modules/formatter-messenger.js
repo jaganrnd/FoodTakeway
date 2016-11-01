@@ -160,7 +160,11 @@ let formatQuantity= SelectedMenu => {
 	
     var shouldSend = JSON.stringify( SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c") );
     console.log('Should Send**' +  shouldSend);
-		
+    
+   var obj = JSON.parse(shouldSend);
+   console.log('OBj key pa** + obj.key);	
+	
+	
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
