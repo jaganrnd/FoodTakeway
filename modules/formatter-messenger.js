@@ -156,7 +156,7 @@ let formatSubMenus= SubMenus => {
 /* Hitendar */
 let formatQuantity= SelectedMenu => {
     let elements = [];
-    console.log(SelectedMenu[0]);
+    console.log('Selected Menu**' + SelectedMenu[0]);
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
