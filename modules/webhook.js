@@ -84,7 +84,7 @@ let handlePost = (req, res) => {
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
 	    
-	    console.log('Inside Quick reply**');
+	    console.log('Inside Quick reply**' + JSON.stringify(event.message.text));
 		
         }else if (event.postback) {
 		
