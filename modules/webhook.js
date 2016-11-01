@@ -83,6 +83,9 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
+	    
+	    console.log('Inside Quick reply**');
+		
         }else if (event.postback) {
 		
 		console.log("Postback received:****** " + JSON.stringify(event.postback));
