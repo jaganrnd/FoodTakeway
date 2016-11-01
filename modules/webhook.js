@@ -136,8 +136,7 @@ let handlePost = (req, res) => {
 		     
                  } 
                  //Hitendar
-		console.log('Req**' + req);
-		else if (payload[0] === "SaveOrder"){
+		else if (payload[0] === "Save_Order"){
 			sendMessage({text: "OK, adding dude "}, sender);		
 		}	
         }
