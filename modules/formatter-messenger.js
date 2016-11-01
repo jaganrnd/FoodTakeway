@@ -158,7 +158,7 @@ let formatQuantity= SelectedMenu => {
     let elements = [];
     console.log('Selected Menu**' + SelectedMenu[0].get("Quantity__c"));
     
-    var obj = {'SentValues':'SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")'};
+    var obj = {'SentValues':SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")};
     var shouldSend = JSON.stringify(obj);
     console.log('Should Send**' +  shouldSend);
     
