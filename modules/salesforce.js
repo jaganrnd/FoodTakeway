@@ -72,7 +72,7 @@ let createOpportunity = (firstName, lastName, userId) => {
         con.set('lastName', lastName);
         con.set('FacebookId__c', userId);
 		
-		let opp = nforce.createSObject('Opportunity');
+	let opp = nforce.createSObject('Opportunity');
         opp.set('name', firstName + lastName);
 	opp.set('StageName','Order Initiated');
 	opp.set('CloseDate',Date.now());
