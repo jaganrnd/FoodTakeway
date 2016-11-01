@@ -90,9 +90,7 @@ let handlePost = (req, res) => {
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
-	    
-	    console.log('Res**' + res);
-	    console.log('Req**' + req);	
+
 		
 		
         }else if (event.postback) {
