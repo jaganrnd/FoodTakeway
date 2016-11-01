@@ -166,7 +166,7 @@ let formatQuantity= SelectedMenu => {
 	}
     return {
         //"text": "Please select quantity",
-	"text": "How many items of" + SelectedMenu[0].get("Product__r").Name + "do you need?",    
+	"text": "How many items of" + ' ' + SelectedMenu[0].get("Product__r").Name + ' ' + "do you need?",    
          "quick_replies": elements
     };  
 	
