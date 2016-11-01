@@ -157,12 +157,13 @@ let formatSubMenus= SubMenus => {
 let formatQuantity= SelectedMenu => {
     let elements = [];
     console.log('Selected Menu**' + SelectedMenu[0].get("Quantity__c"));
-	
-    var shouldSend = JSON.stringify('SentValues': 'SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")' );
+    
+    var obj = {'SentValues':'SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")'};
+    var shouldSend = JSON.stringify(obj);
     console.log('Should Send**' +  shouldSend);
     
-   var obj = JSON.parse(shouldSend);
-   console.log('OBj key pa** + obj.SentValues);	
+   //var obj = JSON.parse(shouldSend);
+   //console.log('OBj key pa** + obj.SentValues);	
 	
 	
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
