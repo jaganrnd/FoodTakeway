@@ -174,7 +174,6 @@ let formatQuantity= SelectedMenu => {
 /* Hitendar */
 
 /*Jagan for testing quick replies*/
-
 let formatQuickReplies = SelectedMenu => {    
         return {
             "text":"Pick 1 model:",
@@ -201,14 +200,7 @@ let formatQuickReplies = SelectedMenu => {
                 }]   
         };    
 };
-
 /*Jagan for testing quick replies*/
-
-
-
-
-
-
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
