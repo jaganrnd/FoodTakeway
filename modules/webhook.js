@@ -139,8 +139,7 @@ let handlePost = (req, res) => {
                  //Hitendar
 		
 		else if (payload[0] == "SaveOrder"){
-			console.log('QuickReply Payload [1]**' + payload[1]);
-			console.log('Going to save order**');			
+			sendMessage({text: "OK, adding dude "}, sender);		
 		}	
         }
     }    
