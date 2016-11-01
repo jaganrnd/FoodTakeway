@@ -173,34 +173,6 @@ let formatQuantity= SelectedMenu => {
 };
 /* Hitendar */
 
-/*Jagan for testing quick replies*/
-let formatQuickReplies1 = SelectedMenu => {    
-        return {
-            "text":"Pick 1 model:",
-            "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"Square",
-                    "payload":"SaveOrder"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Rectangular",
-                    "payload":"SaveOrder"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Wayfarer",
-                    "payload":"SaveOrder"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Aviator",
-                    "payload":"SaveOrder"
-                }]   
-        };    
-};
-/*Jagan for testing quick replies*/
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
@@ -208,4 +180,4 @@ exports.formatOpenBranches = formatOpenBranches;
 exports.formatMainMenus = formatMainMenus;
 exports.formatSubMenus = formatSubMenus;
 exports.formatQuantity = formatQuantity;
-exports.formatQuickReplies1 = formatQuickReplies1;
+
