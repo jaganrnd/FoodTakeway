@@ -162,8 +162,8 @@ let formatQuantity= SelectedMenu => {
     var shouldSend = JSON.stringify(obj);
     console.log('Should Send**' +  shouldSend);
     
-   var obj = JSON.parse(shouldSend);
-   console.log('OBj key pa** + obj.SentValues);	
+   var ans = JSON.parse(shouldSend);
+   console.log('OBj key pa**' + ans.SentValues);	
 	
 	
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
