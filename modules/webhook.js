@@ -84,14 +84,17 @@ let handlePost = (req, res) => {
         }else if (event.message && event.message.text) {
             processText(event.message.text, sender);
 	    
-	    console.log('Inside Quick reply**' + JSON.stringify(event.message.text));
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
-            console.log('Selected Quantity**' + SelectedQuantity);	
+            console.log('Selected Quantity**' + SelectedQuantity);
+	    
+	    console.log('Res**' + res);
+	    console.log('Req**' + req);	
+		
 		
         }else if (event.postback) {
 		
-		console.log("Postback received:****** " + JSON.stringify(event.postback));
+		console.log("Postback received only for postback and not for quick replies:****** " + JSON.stringify(event.postback));
 				
 		
                 let payload = event.postback.payload.split(",");
