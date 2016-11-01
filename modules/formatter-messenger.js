@@ -163,6 +163,7 @@ let formatQuantity= SelectedMenu => {
     console.log('Should Send**' +  shouldSend);
     
    var ans = JSON.parse(shouldSend);
+   console.log('after parsing da**' + ans);	
    console.log('OBj key pa**' + ans.SentValues);	
 	
 	
