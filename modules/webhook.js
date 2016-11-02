@@ -75,12 +75,15 @@ let handleGet = (req, res) => {
 };
 
 let handlePost = (req, res) => {
-    let events = req.body.entry[0].messaging;
+    
+		console.log('req**' + req.body);
 	
+    let events = req.body.entry[0].messaging;
+   	
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
         
-	console.log('Events full**' + event.message);
+
 	    
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
