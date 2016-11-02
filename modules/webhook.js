@@ -76,7 +76,8 @@ let handleGet = (req, res) => {
 
 let handlePost = (req, res) => {
     
-		console.log('req**' + req.body);
+   var op = JSON.parse(req.body);	
+    console.log('req**' + req.body);
 	
     let events = req.body.entry[0].messaging;
    	
