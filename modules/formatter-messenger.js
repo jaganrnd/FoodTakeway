@@ -167,7 +167,7 @@ let formatQuantity= SelectedMenu => {
    console.log('Immediate After Parsing**' + jsonContent);	
    console.log('Parsed Values**' + jsonContent.SentValues);	
 	
-   console.log('Incoming Product**' + jsonContent.SelectedMenu[0].get("Product__c"));		
+   console.log('Incoming Product**' + jsonContent[0]);		
 	
 	
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
