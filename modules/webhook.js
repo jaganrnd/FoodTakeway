@@ -84,10 +84,7 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
 		
-            processText(event.message.text, sender);
-	    
-	    //var jsonContent1  = JSON.parse(event.message.text);
-	    //console.log('js content 1**' + jsonContent1);	
+            processText(event.message.text, sender);	    	
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
