@@ -91,8 +91,7 @@ let handlePost = (req, res) => {
 	   	   		    					
         }else if (event.postback) {
 		
-		console.log("Postback received only for postback and not for quick replies:****** " + JSON.stringify(event.postback));
-				
+		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));				
 		
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
