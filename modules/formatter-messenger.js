@@ -156,18 +156,17 @@ let formatSubMenus= SubMenus => {
 /* Hitendar */
 let formatQuantity= SelectedMenu => {
     let elements = [];
-    console.log('Selected Menu**' + SelectedMenu[0].get("Quantity__c"));
     
-    var obj = { 'SentValues': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
+    //Stringify the data that you want to pass as a payload	
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
     var shouldSend = JSON.stringify(obj);
-    console.log('Should Send**' +  shouldSend);
+    console.log( 'After Stringify**' +  shouldSend );
     
-   var jsonContent  = JSON.parse(shouldSend);
-   
-   console.log('Immediate After Parsing**' + jsonContent);	
-   console.log('Parsed Values**' + jsonContent.SentValues);	
-	
-   console.log('Incoming Product**' + jsonContent[0]);		
+   //And then parse JSON string when you recieve the payload.
+   var jsonContent  = JSON.parse(shouldSend);   
+   console.log( 'Immediate After Parsing**' + jsonContent );	
+   console.log( 'After Parsed Values**' + jsonContent.PrevMenuSelection );		
+   console.log( 'Incoming Product**' + jsonContent[0].SelectedMenu[0].get("Product__c") );		
 	
 	
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
