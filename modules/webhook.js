@@ -79,7 +79,9 @@ let handlePost = (req, res) => {
 	
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
-        console.log('Events full**' + events[i]);	    
+        
+	console.log('Events full**' + event.message.payload);
+	    
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
