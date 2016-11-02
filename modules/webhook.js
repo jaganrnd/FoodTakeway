@@ -92,6 +92,7 @@ let handlePost = (req, res) => {
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
 	   
+           console.log('event -- message*' + event.message);		
            //And then parse JSON string when you recieve the payload.
 	   var jsonContent  = JSON.parse(event.message);   
 	   console.log( 'Immediate After Parsing**' + jsonContent );	
