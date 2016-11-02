@@ -77,8 +77,9 @@ let handleGet = (req, res) => {
 let handlePost = (req, res) => {
     let events = req.body.entry[0].messaging;
 	
-    //system.debug('Enna events**' + events);
-		 
+    system.debug('Req**' + req.body.entry[0].messaging);
+    system.debug('Resp**' + res.body.entry[0].messaging);
+	
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
         let sender = event.sender.id;
