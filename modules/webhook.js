@@ -88,18 +88,12 @@ let handlePost = (req, res) => {
 		
             processText(event.message.text, sender);
 	    
+	    var jsonContent1  = JSON.parse(event.message.text);
+	    console.log('js content 1**' + jsonContent1);	
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
-	   
-           console.log('event -- message*' + event.message);		
-           //And then parse JSON string when you recieve the payload.
-	   var jsonContent  = JSON.parse(event.message);   
-	   console.log( 'Immediate After Parsing**' + jsonContent );	
-	   				
-    	
-		
-		
+	   	   		    					
         }else if (event.postback) {
 		
 		console.log("Postback received only for postback and not for quick replies:****** " + JSON.stringify(event.postback));
