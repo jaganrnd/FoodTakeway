@@ -85,12 +85,18 @@ let handlePost = (req, res) => {
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }else if (event.message && event.message.text) {
+		
             processText(event.message.text, sender);
 	    
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
-
+	   
+           //And then parse JSON string when you recieve the payload.
+	   var jsonContent  = JSON.parse(event.message);   
+	   console.log( 'Immediate After Parsing**' + jsonContent );	
+	   				
+    	
 		
 		
         }else if (event.postback) {
@@ -150,6 +156,7 @@ let handlePost = (req, res) => {
 		     
                  } 
                  //Hitendar
+		
 		else if (payload[0] === "Save_Order"){
 			sendMessage({text: "OK, adding dude "}, sender);		
 		}	
