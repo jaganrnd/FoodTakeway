@@ -60,11 +60,7 @@ let processText = (text, sender)  => {
                     }); 
         });    
         return;
-    }       
-    
-
-                     
-       
+    }            
 };
 
 let handleGet = (req, res) => {
@@ -79,9 +75,7 @@ let handlePost = (req, res) => {
     let events = req.body.entry[0].messaging;
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
-        
-
-	    
+ 
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
@@ -107,23 +101,17 @@ let handlePost = (req, res) => {
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
                      salesforce.findOpenBranches(payload[1]).then(Accounts => {    
-                            //sendMessage(formatter.formatQuickReplies(Accounts), sender);  
                             sendMessage(formatter.formatOpenBranches(Accounts), sender);  
                      });                                                                
                  }
-                /*else if (payload[0] === "Main_Menu"){     
-                     console.log('Selected branch will show their available menus' + payload[1]);                                                              
-                 }*/
                  else if (payload[0] === "Main_Menu"){     
                      console.log('Selected branch will show their available menus' + payload[1]);  
 		      //Hitendar
 		      getUserInfo(sender).then(response => {         
-                    
-                   salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
-                        console.log('created opportunitity'+Opportunity);
-                        //sendMessage(formatter.formatTitleCard(Accounts), sender)
-                    }); 
-				});
+			       salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
+				console.log('created opportunitity'+Opportunity);
+			       }); 
+		      });
 		      //Hitendar
                       salesforce.findMainMenus(payload[1]).then(MainMenus => {   
                           console.log('Going inside main menus');
@@ -141,13 +129,8 @@ let handlePost = (req, res) => {
                      
                  } 
                 //Hitendar
-	 	else if (payload[0] === "Quantity"){     
-                     
-                     console.log('Origin Branch - payload [1]**' + payload[1]);    
-                     //console.log('Origin parent product - payload [2]**' + payload[2]); 
-                     //sendMessage(formatter.formatQuantity(10), sender);  // Hitendar
-		     //sendMessage({text: `Please enter your location in this format location - pammal`}, sender);
-		     
+	 	else if (payload[0] === "Quantity"){                          
+                     console.log('Origin Branch - payload [1]**' + payload[1]);    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
                           sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar			  
