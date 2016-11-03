@@ -84,7 +84,7 @@ let handlePost = (req, res) => {
 			var quickpayload=event.message.quick_reply.payload;
 			console.log('Quick payload**' + quickpayload); 
 	   	 }
-	  }else if (event.message && event.message.text) {
+	  }else if (event.message && event.message.text && event.message.quick_reply) {
 		  
             processText(event.message.text, sender);	    		    
             console.log('Event message text**' + event.message);		
