@@ -87,10 +87,19 @@ let handlePost = (req, res) => {
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
-        }else if (event.message && event.message.text) {
+        }
+	if (event.message.quick_reply && event.message.quick_reply.payload){
+		
+		console.log('Coming Inside**');
+		
+		
+		var thepayload=event.message.quick_reply.payload;    	    
+		console.log('thepayload**' + thepayload);
+		
+    	}else if (event.message && event.message.text) {
 		
             processText(event.message.text, sender);	    	
-		
+	    		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
 	   	   		    					
