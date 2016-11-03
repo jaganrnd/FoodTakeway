@@ -89,7 +89,7 @@ let handlePost = (req, res) => {
 			
             processText(event.message.text, sender);	    	
 	    
-            console.log('Event message text**' + event.message.text);
+            console.log('Event message text**' + event.message);
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
