@@ -88,12 +88,12 @@ let handlePost = (req, res) => {
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
         }
-	if (event.message.quick_reply && event.message.quick_reply.payload){
+	if (event.message.quick_replies && event.message.quick_replies.payload){
 		
 		console.log('Coming Inside**');
 		
 		
-		var thepayload=event.message.quick_reply.payload;    	    
+		var thepayload=event.message.quick_replies.payload;    	    
 		console.log('thepayload**' + thepayload);
 		
     	}else if (event.message && event.message.text) {
