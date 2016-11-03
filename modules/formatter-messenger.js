@@ -174,7 +174,7 @@ let formatQuantity= SelectedMenu => {
 			"content_type":"text",
 			"title":i,
 			//"payload":"Save_Order," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")		
-			"payload":"shouldSend," 		
+			"payload":shouldSend 		
 		});
 	}
     return {
