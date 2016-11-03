@@ -176,6 +176,7 @@ let formatQuantity= SelectedMenu => {
 			//"payload":"Save_Order," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")		
 			"payload":shouldSend 		
 		});
+	    	console.log('jus verification**' + shouldSend);
 	}
     return {
         //"text": "Please select quantity",
