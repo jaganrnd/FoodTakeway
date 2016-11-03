@@ -85,18 +85,17 @@ let handlePost = (req, res) => {
 			console.log('Quick payload**' + quickpayload); 
 	   	 }
 	  }else if (event.message && event.message.text) {
-			
-            processText(event.message.text, sender);	    	
-	    
-            console.log('Event message text**' + event.message);
-		
+		  
+            processText(event.message.text, sender);	    		    
+            console.log('Event message text**' + event.message);		
 	    var jsonObj = {'key':event.message};
-	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));
-	    
-	    //console.log('Event message payload**' + JSON.parse(event.message.quick_reply.payload) );	
-		
+	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));	    
+	    //console.log('Event message payload**' + JSON.parse(event.message.quick_reply.payload) );			
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
+	    
+            var quickpayload=event.message.quick_reply.payload;
+	    console.log('Quick payload**' + quickpayload);   		  		  
 	   	   		    					
         }else if (event.postback) {
 		
