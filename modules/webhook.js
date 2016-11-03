@@ -91,7 +91,7 @@ let handlePost = (req, res) => {
 	    
             console.log('Event message text**' + event.message);
 		
-	    var jsonObj = {'key':'event.message'};
+	    var jsonObj = {'key':event.message};
 	    console.log(JSON.stringify(jsonObj));			
 		
 	    var SelectedQuantity = JSON.stringify(event.message.text);
