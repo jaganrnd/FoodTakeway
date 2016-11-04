@@ -98,8 +98,8 @@ let handlePost = (req, res) => {
             	console.log('Selected Quantity Stringify**' + SelectedQuantity);
 	    }
 		
-            var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
-            console.log('Selected Quantity Parse**' + SelectedQuantity1);            		
+            //var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
+            //console.log('Selected Quantity Parse**' + SelectedQuantity1);            		
 	 
 	    if(event.message.quick_reply.payload){	
 		    var quickpayload=event.message.quick_reply.payload;
