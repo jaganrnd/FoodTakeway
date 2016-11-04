@@ -98,8 +98,10 @@ let handlePost = (req, res) => {
 		
             var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
             console.log('Selected Quantity Parse**' + SelectedQuantity1);            		
-	    	  		  
-	   	   		    					
+	 
+	    var quickpayload=event.message.quick_reply.payload;
+	    console.log('Quick Replies payload**' + quickpayload); 	
+			   	   		    					
         }else if (event.postback) {
 		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));				
