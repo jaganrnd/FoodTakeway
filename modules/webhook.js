@@ -96,8 +96,8 @@ let handlePost = (req, res) => {
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
 	    
-            var quickpayload=event.message.quick_reply.payload;
-	    console.log('Quick payload Inside**' + quickpayload);   		  		  
+            //var quickpayload=event.message.quick_reply.payload;
+	    //console.log('Quick payload Inside**' + quickpayload);   		  		  
 	   	   		    					
         }else if (event.postback) {
 		
