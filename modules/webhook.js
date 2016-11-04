@@ -49,10 +49,10 @@ let processText = (text, sender)  => {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
                         `Hey ${response.first_name} !
-                        "Kolapasi" welcomes you ?? 
-                       Happy to see you :) :)
-                       Want to order food ? ?? ?? Please hit - First Menu
-                       To know about other options swipe..??`
+                       "Kolapasi" welcomes you ?? 
+                      Happy to see you :) :)
+                      Want to order food ? ?? ?? Please hit - First Menu
+                      To know about other options swipe..??`
                     }, sender);
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         console.log('bfo formating');
@@ -79,25 +79,23 @@ let handlePost = (req, res) => {
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
-	}else if (event.message){
+	}
+	/*else if (event.message){
  		 if (event.message.quick_reply){
 			var quickpayload=event.message.quick_reply.payload;
 			console.log('Quick Replies payload**' + quickpayload); 
 	   	 }
-	}else if (event.message && event.message.text) {
+	}*/
+	else if (event.message && event.message.text) {
 		  
             processText(event.message.text, sender);	    		    
 		
 	    var jsonObj = {'key':event.message};
 	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));	    
 
-	    //console.log('Event message payload**' + JSON.parse(event.message.quick_reply.payload) );			
-	    
 	    var SelectedQuantity = JSON.stringify(event.message.text);
             console.log('Selected Quantity**' + SelectedQuantity);
-	    
-            //var quickpayload=event.message.quick_reply.payload;
-	    //console.log('Quick payload Inside**' + quickpayload);   		  		  
+	    	  		  
 	   	   		    					
         }else if (event.postback) {
 		
