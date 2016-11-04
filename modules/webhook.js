@@ -144,10 +144,6 @@ let handlePost = (req, res) => {
 		     
                  } 
                  //Hitendar
-		
-		else if (payload[0] === "Save_Order"){
-			sendMessage({text: "OK, adding dude "}, sender);		
-		}	
         }
     }    
     res.sendStatus(200);
