@@ -67,11 +67,14 @@ let findOpenBranches = parentaccountid => {
 
 let createOpportunity = (firstName, lastName, userId) => {
     return new Promise((resolve, reject) => {
+	    
+	//Create Contact    
         let con = nforce.createSObject('Contact');
         con.set('firstName', firstName);
         con.set('lastName', lastName);
         con.set('FacebookId__c', userId);
-		
+	
+	//Create Opportunity    
 	let opp = nforce.createSObject('Opportunity');
         opp.set('name', firstName + lastName);
 	opp.set('StageName','Order Initiated');
@@ -88,7 +91,7 @@ let createOpportunity = (firstName, lastName, userId) => {
 				org.insert({sobject: opp}, err => {
 					if (err) {
 						console.error(err);
-						reject("An error occurred while creating a Contact");
+						reject("An error occurred while creating a Opportunity");
 					}
 				});
 				resolve(opp);
