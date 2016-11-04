@@ -101,10 +101,12 @@ let handlePost = (req, res) => {
             var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
             console.log('Selected Quantity Parse**' + SelectedQuantity1);            		
 	 
-	    var quickpayload=event.message.quick_reply.payload;
-	    console.log('Quick Replies payload**' + quickpayload); 	
+	    if(event.message.quick_reply.payload){	
+		    var quickpayload=event.message.quick_reply.payload;
+		    console.log('Quick Replies payload**' + quickpayload); 	
+	    }
 		
-	    //var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
+ 	    //var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
 	    //console.log('Quick Replies payload parse**' + quickpayload1.PrevMenuSelection); 
 	
 	    sendMessage({text: `Your selection and quantity has been added !!!! 🍽 🍛 `}, sender);	
