@@ -93,8 +93,11 @@ let handlePost = (req, res) => {
 	    var jsonObj = {'key':event.message};
 	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));	    
 
-	    var SelectedQuantity = JSON.stringify(event.message.text);
-            console.log('Selected Quantity**' + SelectedQuantity);
+	    var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
+            console.log('Selected Quantity Stringify**' + SelectedQuantity);
+		
+            var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
+            console.log('Selected Quantity Parse**' + SelectedQuantity1);            		
 	    	  		  
 	   	   		    					
         }else if (event.postback) {
