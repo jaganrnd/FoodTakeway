@@ -103,7 +103,9 @@ let handlePost = (req, res) => {
 	    console.log('Quick Replies payload**' + quickpayload); 	
 		
 	    var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
-	    console.log('Quick Replies payload parse**' + quickpayload1.PrevMenuSelection); 	
+	    console.log('Quick Replies payload parse**' + quickpayload1.PrevMenuSelection); 
+	
+	    sendMessage({text: `Your selection and quantity has been added.`}, sender);	
 			   	   		    					
         }else if (event.postback) {
 		
