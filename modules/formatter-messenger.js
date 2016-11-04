@@ -176,11 +176,11 @@ let formatQuantity= SelectedMenu => {
 			//"payload":"Save_Order," + SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Quantity__c") + "," + SelectedMenu[0].get("Price__c")		
 			"payload":shouldSend 		
 		});
-	    	console.log('jus verification**' + shouldSend);
+	    	console.log('jus verification count loopthrough**' + shouldSend);
 	}
     return {
-        //"text": "Please select quantity",
-	"text": "How many items of" + '<--' + SelectedMenu[0].get("Product__r").Name + '-->' + "do you need?",    
+
+	"text": "How many items of" + '<-->' + SelectedMenu[0].get("Product__r").Name + '<-->' + "do you need?",    
          "quick_replies": elements
     };  
 	
