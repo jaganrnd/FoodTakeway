@@ -92,26 +92,26 @@ let handlePost = (req, res) => {
         }
 	
 	// Quick Reply - Quantity - Start
-	else if (event.message && event.message.text && event.message.quick_reply.payload) {
+	else if (event.message.text && event.message.quick_reply.payload) {
 		  
             processText(event.message.text, sender);	    		    
 		
 	    var jsonObj = {'key':event.message};
 	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));	    
 		
-	    if(event.message.text){	
+	   // if(event.message.text){	
 	    	var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
             	console.log('Selected Quantity Stringify**' + SelectedQuantity);
 		//var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
 		//console.log('Selected Quantity Parse**' + SelectedQuantity1);            			 
-	    }
+	   // }
 		
-	    if(event.message.quick_reply.payload){	
+	    // if(event.message.quick_reply.payload){	
 		var quickpayload=event.message.quick_reply.payload;
 		console.log('Quick Replies payload**' + quickpayload); 
 		//var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
 		//console.log('Quick Replies payload parse**' + quickpayload1.PrevMenuSelection); 
-	    }
+	    // }
 
 	    sendMessage({text: `Your menu selection and quantity has been added !!!! 🍽 🍛 `}, sender);	
 			   	   		    					
