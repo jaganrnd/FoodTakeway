@@ -158,7 +158,11 @@ let formatQuantity= SelectedMenu => {
     let elements = [];
     
     //Stringify the data that you want to pass as a payload	
-    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
+   
+    //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
+    
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") }; { 'Price':  SelectedMenu[0].get("Price__c") };
+	
     var shouldSend = JSON.stringify(obj);
     console.log( 'After Stringify**' +  shouldSend );
     
