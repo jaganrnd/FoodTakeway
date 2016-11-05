@@ -90,7 +90,7 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
             
-	    if(event.message.text != '1' || event.message.text != '2' || event.message.text != '3' || event.message.text != '4' || event.message.text != '5'){	
+	    if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
 		console.log('Inside normal user text flow and NOT quick replies**');    	
 	    	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
 	    }
