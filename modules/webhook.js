@@ -107,8 +107,11 @@ let handlePost = (req, res) => {
 		//console.log('Quick Replies payload parse**' + quickpayload1);     
 		console.log('Quick Replies payload key parse**' + quickpayload1.PrevMenuSelection); 	   
 		    
-		var stringu = JSON.stringify(quickpayload1.PrevMenuSelection);    
-		console.log('Quick Reply Payload Split**' + stringu); 
+		var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
+		console.log('Quick Reply Payload ProductId**' + prevProduct); 
+		    
+	       	var Price = JSON.stringify(quickpayload1.Price);    
+		console.log('Quick Reply Payload ProductId**' + Price); 	    
 		    
 	    }
 		
