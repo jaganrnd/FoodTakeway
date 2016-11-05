@@ -91,7 +91,7 @@ let handlePost = (req, res) => {
             processText(event.message.text, sender);
         }
 	    
-	else if (event.message && event.message.text && event.message.quick_reply.payload) {
+	/*else if (event.message && event.message.text && event.message.quick_reply.payload) {
 		  
             processText(event.message.text, sender);	    		    
 		
@@ -114,7 +114,8 @@ let handlePost = (req, res) => {
 
 	    sendMessage({text: `Your menu selection and quantity has been added !!!! 🍽 🍛 `}, sender);	
 			   	   		    					
-        }else if (event.postback) {
+        }*/
+	else if (event.postback) {
 		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));				
 		
