@@ -99,7 +99,10 @@ let handlePost = (req, res) => {
 	    var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
             console.log('Selected Quantity Stringify**' + SelectedQuantity);	
 		
-	    if(event.message.quick_reply){	
+	    if(event.message.quick_reply){
+		    
+		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);
+		    
 		var quickpayload=event.message.quick_reply.payload;
 		console.log('Quick Replies payload**' + quickpayload);
 		
