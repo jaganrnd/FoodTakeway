@@ -92,7 +92,7 @@ let handlePost = (req, res) => {
         }
 	
 	// Quick Reply - Quantity - Start
-	else if ( event.message && (event.message.text || event.message.quick_reply.payload) ) {
+	else if ( event.message && (event.message.text && event.message.quick_reply.payload) ) {
 		  
             processText(event.message.text, sender);	    		    
 		
