@@ -96,8 +96,8 @@ let handlePost = (req, res) => {
 	    }
 	    //processText(event.message.quick_reply, sender);
 	    
-	    var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
-            console.log('Selected Quantity Stringify**' + SelectedQuantity);	
+	    //var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
+            //console.log('Selected Quantity Stringify**' + SelectedQuantity);	
 		
 	    if(event.message.quick_reply){
 		    
@@ -114,7 +114,9 @@ let handlePost = (req, res) => {
 		console.log('Quick Reply Payload ProductId**' + prevProduct); 
 		    
 	       	var Price = JSON.stringify(quickpayload1.Price);    
-		console.log('Quick Reply Payload Pirce**' + Price); 	    
+		console.log('Quick Reply Payload Pirce**' + Price); 
+		
+		sendMessage({text: `Your menu selection and quantity has been added !!!! 🍽 🍛 `}, sender);	    
 		    
 	    }
 		
