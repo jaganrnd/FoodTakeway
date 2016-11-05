@@ -90,8 +90,10 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
             
-	    //processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
-	    
+	    if(event.message.text != '4'){	
+		console.log('Inside my quick replies manipulation**');    	
+	    	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
+	    }
 	    //processText(event.message.quick_reply, sender);
 		
 	    if(event.message.quick_reply){	
