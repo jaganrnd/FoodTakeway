@@ -100,6 +100,9 @@ let createOpportunity = (firstName, lastName, userId) => {
     });
 };
 
+
+
+
 let findMainMenus = subaccountid => {
     return new Promise((resolve, reject) => {
         console.log('bfo querymainmenus');
@@ -162,6 +165,53 @@ let getSelectedMenu = (selectedMenuId) => {
     });
 };
 
+
+
+let createOpportunityProduct = (ProductId, Price, Quantity) => {
+
+    console.log('prod id*' + ProductId);
+    console.log('Price*' + Price);
+    console.log('Quantity*' + Quantity);	
+	
+    /*return new Promise((resolve, reject) => {
+	    
+	//Create Contact    
+        let con = nforce.createSObject('Contact');
+        con.set('firstName', firstName);
+        con.set('lastName', lastName);
+        con.set('FacebookId__c', userId);
+	
+	//Create Opportunity    
+	let opp = nforce.createSObject('Opportunity');
+        opp.set('name', firstName + lastName);
+	opp.set('StageName','Order Initiated');
+	opp.set('CloseDate',Date.now());
+	
+        
+        org.insert({sobject: con}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a Contact");
+            } else {
+				console.log('Contact Created '+con.get("Id"));
+				opp.set('Contact__c', con.get("Id"));
+				org.insert({sobject: opp}, err => {
+					if (err) {
+						console.error(err);
+						reject("An error occurred while creating a Opportunity");
+					}
+				});
+				resolve(opp);
+            }
+        });
+    });*/
+	
+};
+
+
+
+
+
 login();
 
 exports.org = org;
@@ -171,3 +221,5 @@ exports.createOpportunity = createOpportunity;
 exports.findMainMenus = findMainMenus;
 exports.findSubMenus = findSubMenus;
 exports.getSelectedMenu = getSelectedMenu;
+exports.createOpportunityProduct = createOpportunityProduct;
+
