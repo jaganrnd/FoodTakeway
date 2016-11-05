@@ -90,11 +90,14 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
             
-	    if(event.message.text != '4'){	
-		console.log('Inside my quick replies manipulation**');    	
+	    if(event.message.text != '1' || event.message.text != '2' || event.message.text != '3' || event.message.text != '4' || event.message.text != '5'){	
+		console.log('Inside normal user text flow and NOT quick replies**');    	
 	    	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
 	    }
 	    //processText(event.message.quick_reply, sender);
+	    
+	    var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
+            console.log('Selected Quantity Stringify**' + SelectedQuantity);	
 		
 	    if(event.message.quick_reply){	
 		var quickpayload=event.message.quick_reply.payload;
