@@ -89,9 +89,10 @@ let handlePost = (req, res) => {
 	    
 	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
-            processText(event.message.text, sender);
+            
+	    //processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
 	    
-	    processText(event.message.quick_reply, sender);
+	    //processText(event.message.quick_reply, sender);
 		
 	    if(event.message.quick_reply){	
 		var quickpayload=event.message.quick_reply.payload;
