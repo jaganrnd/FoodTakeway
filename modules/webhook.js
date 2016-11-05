@@ -111,7 +111,7 @@ let handlePost = (req, res) => {
 		console.log('Quick Reply Payload ProductId**' + prevProduct); 
 		    
 	       	var Price = JSON.stringify(quickpayload1.Price);    
-		console.log('Quick Reply Payload ProductId**' + Price); 	    
+		console.log('Quick Reply Payload Pirce**' + Price); 	    
 		    
 	    }
 		
