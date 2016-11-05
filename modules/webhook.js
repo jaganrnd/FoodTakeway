@@ -90,6 +90,14 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
             processText(event.message.text, sender);
+	    
+	    processText(event.message.quick_reply, sender);
+		
+	    if(event.message.quick_reply){	
+		var quickpayload=event.message.quick_reply.payload;
+		console.log('Quick Replies payload**' + quickpayload); 
+	    }
+		
         }
 	
 	// Quick Reply - Quantity - Start
