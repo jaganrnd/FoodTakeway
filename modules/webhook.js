@@ -80,6 +80,7 @@ let handlePost = (req, res) => {
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
 	}
+	    
 	/*else if (event.message){
  		 if (event.message.quick_reply){
 			var quickpayload=event.message.quick_reply.payload;
@@ -88,16 +89,17 @@ let handlePost = (req, res) => {
 	}*/
 	    
 	else if (event.message && event.message.text) {
+		processText(event.message.text, sender);
+	}    
+	else if (event.message && event.message.text) {
 	    console.log('Previous Flow**');	
             
-	    if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
+	    //Have to check this insometime............ Start....	
+	    /*if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
 		console.log('Inside normal user text flow and NOT quick replies**');    	
 	    	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
-	    }
-	    //processText(event.message.quick_reply, sender);
-	    
-	    //var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
-            //console.log('Selected Quantity Stringify**' + SelectedQuantity);	
+	    }*/
+	    //Have to check this insometime............ End....
 		
 	    if(event.message.quick_reply){
 		
@@ -116,9 +118,7 @@ let handlePost = (req, res) => {
 		    
 	       	var Price = JSON.stringify(quickpayload1.Price);    
 		console.log('Quick Reply Payload Pirce**' + Price); 
-		
-		//sendMessage({text: `Your menu selection and quantity has been added !!!! 🍽 🍛 `}, sender);
-		
+				
 		 salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
 				console.log('created opportunitityproduct');
 	         });     
