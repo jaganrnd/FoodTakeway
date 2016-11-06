@@ -48,8 +48,8 @@ let processText = (text, sender)  => {
     if (match1) {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
-                        `Hey ${response.first_name} !
-                       "Kolapasi" welcomes you ?? 
+                      `Hey ${response.first_name} !
+                      "Kolapasi" welcomes you _/\_
                       Happy to see you :) :)
                      Want to order food ? ?? ?? Please hit - First Menu
                       To know about other options swipe..??`
