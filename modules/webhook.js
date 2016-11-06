@@ -84,7 +84,7 @@ let handlePost = (req, res) => {
 		
 		console.log('Event.Message.Text**' + event.message.text);
 		
-		//processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
+		processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		
 		if (event.message.quick_reply){
 			
@@ -103,9 +103,10 @@ let handlePost = (req, res) => {
 			var Price = JSON.stringify(quickpayload1.Price);    
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
+			sendMessage({text: `Your menu and quanitiy selection has been added to the cart `}, sender);
 		}	
 		
-		sendMessage({text: `Your menu and quanitiy selection has been added !!`}, sender);
+		
 		
 	}else if(event.message && (event.message.text && event.message.quick_reply) ){		
 		
