@@ -80,12 +80,13 @@ let handlePost = (req, res) => {
 	}	    
 	else if (event.message && event.message.text) {
 		
-		console.log('NOrmal FLow**');
-		
+
 		console.log('Event.Message.Text**' + event.message.text);
 		
-		processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
-		
+		if(event.message.text == 'Hi'){
+			console.log('Normal Flow**);	
+			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
+		}
 		if (event.message.quick_reply){
 			
 			var SelectedQuantity = JSON.stringify(event.message.text);    
