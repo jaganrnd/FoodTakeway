@@ -139,7 +139,8 @@ let handlePost = (req, res) => {
 		
 		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
 			console.log('created opportunitityproduct');
-	         });     		    		
+	         });     	
+			
         }else if (event.postback) {		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
