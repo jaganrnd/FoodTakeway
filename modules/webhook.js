@@ -83,18 +83,26 @@ let handlePost = (req, res) => {
 		console.log('NOrmal FLow**');
 		processText(event.message.text, sender);
 		
-	}else if( (event.message && event.message.text && event.message.quick_reply) ){		
+	}else if(event.message && event.message.text && event.message.quick_reply){		
+		
 		console.log('Quick Reply Flow**');		    
-		var SelectedQuantity = JSON.stringify(event.message.text);    
-		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);		    
-		var quickpayload=event.message.quick_reply.payload;
-		console.log('Quick Replies payload**' + quickpayload);		
+		
+		/*var SelectedQuantity = JSON.stringify(event.message.text);    
+		console.log('Selected QUANTITY Stringify Inside**' + SelectedQuantity);*/
+		
+	     	
+		var quickpayload0=event.message.quick_reply.payload;
+		console.log('Quick Replies payload**' + quickpayload0);		
+		
 		var quickpayload1 =JSON.parse(event.message.quick_reply.payload);    
-		console.log('Quick Replies payload key parse**' + quickpayload1.PrevMenuSelection); 	   		    
+		console.log('Quick Replies payload KEY PARSING**' + quickpayload1.PrevMenuSelection); 	   		    
+		
 		var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
-		console.log('Quick Reply Payload ProductId**' + prevProduct); 		    
-	       	var Price = JSON.stringify(quickpayload1.Price);    
-		console.log('Quick Reply Payload Pirce**' + Price); 				
+		console.log('Quick Reply Payload PRODUCTID**' + prevProduct); 		    
+	       	
+		var Price = JSON.stringify(quickpayload1.Price);    
+		console.log('Quick Reply Payload PRICE**' + Price); 
+		
 		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
 			console.log('created opportunitityproduct');
 	         });     		    		
