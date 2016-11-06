@@ -83,6 +83,9 @@ let handlePost = (req, res) => {
 		console.log('NOrmal FLow**');
 		processText(event.message.text, sender);
 		
+		var quickpayload0=event.message.quick_reply.payload;
+		console.log('Quick Replies payload**' + quickpayload0);	
+		
 	}else if(event.message && (event.message.text && event.message.quick_reply) ){		
 		
 		console.log('Quick Reply Flow**');		    
