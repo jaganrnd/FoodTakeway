@@ -85,14 +85,17 @@ let handlePost = (req, res) => {
 		
 		if (event.message.quick_reply){
 			
-			var quickpayload1=event.message.quick_reply.payload;
-			console.log('Quick Replies payload**' + quickpayload1);	
-			
-		        var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
-			console.log('Quick Reply Payload PRODUCTID**' + prevProduct); 	
-			
+			var quickpayload0=event.message.quick_reply.payload;
+			console.log('Quick Replies payload**' + quickpayload0);		
+
+			var quickpayload1 =JSON.parse(event.message.quick_reply.payload);    
+			console.log('Quick Replies payload KEY PARSING**' + quickpayload1.PrevMenuSelection); 	   		    
+
+			var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
+			console.log('Quick Reply Payload PRODUCTID**' + prevProduct); 		    
+
 			var Price = JSON.stringify(quickpayload1.Price);    
-			console.log('Quick Reply Payload PRICE**' + Price);
+			console.log('Quick Reply Payload PRICE**' + Price); 
 			
 		}	
 		
