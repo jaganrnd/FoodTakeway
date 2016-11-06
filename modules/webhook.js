@@ -104,7 +104,13 @@ let handlePost = (req, res) => {
 			var Price = JSON.stringify(quickpayload1.Price);    
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
-			sendMessage({text: `Your menu and quanitiy selection has been added to the cart `}, sender);
+			sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
+			
+			
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
+				console.log('created opportunitityproduct');
+			 })
+			
 		}	
 		
 		
