@@ -81,6 +81,9 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 		
 		console.log('NOrmal FLow**');
+		
+		console.log('Event.Message.Text**' + event.message.text);
+		
 		processText(event.message.text, sender);
 		
 		if (event.message.quick_reply){
@@ -102,7 +105,7 @@ let handlePost = (req, res) => {
 			
 		}	
 		
-		sendMessage({text: `Hey ${response.first_name} ! your menu and quanitiy selection has been added !!`}, sender);
+		sendMessage({text: `Your menu and quanitiy selection has been added !!`}, sender);
 		
 	}else if(event.message && (event.message.text && event.message.quick_reply) ){		
 		
