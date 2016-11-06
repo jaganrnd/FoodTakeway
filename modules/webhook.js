@@ -70,17 +70,14 @@ let handleGet = (req, res) => {
     res.send('Error, wrong validation token');
 };
 
-let handlePost = (req, res) => {
-   	
+let handlePost = (req, res) => {   	
     let events = req.body.entry[0].messaging;
     for (let i = 0; i < events.length; i++) {
-        let event = events[i];
- 
+        let event = events[i]; 
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
 	}	    
-
 	else if (event.message && event.message.text) {
 		processText(event.message.text, sender);
 	}else if(event.message.quick_reply){		
@@ -97,9 +94,7 @@ let handlePost = (req, res) => {
 		console.log('Quick Reply Payload Pirce**' + Price); 				
 		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
 			console.log('created opportunitityproduct');
-	         });     		    
-	 }
-		
+	         });     		    		
         }else if (event.postback) {		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
