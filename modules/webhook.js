@@ -79,86 +79,29 @@ let handlePost = (req, res) => {
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
-	}
-	    
-	/*else if (event.message){
- 		 if (event.message.quick_reply){
-			var quickpayload=event.message.quick_reply.payload;
-			console.log('Quick Replies payload**' + quickpayload); 
-	   	 }
-	}*/
-	// else if (event.message && event.message.text) {
-   	// console.log('Previous Flow**');	
-            
-	//Have to check this insometime............ Start....	
-	/*if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
-	console.log('Inside normal user text flow and NOT quick replies**');    	
-	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
-	}*/
-	//Have to check this insometime............ End....
+	}	    
 
 	else if (event.message && event.message.text) {
 		processText(event.message.text, sender);
-	}else if(event.message.quick_reply){
-		
-		console.log('Quick Reply Flow**');
-		    
+	}else if(event.message.quick_reply){		
+		console.log('Quick Reply Flow**');		    
 		var SelectedQuantity = JSON.stringify(event.message.text);    
-		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);
-		    
+		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);		    
 		var quickpayload=event.message.quick_reply.payload;
-		console.log('Quick Replies payload**' + quickpayload);
-		
-		var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
-		//console.log('Quick Replies payload parse**' + quickpayload1);     
-		console.log('Quick Replies payload key parse**' + quickpayload1.PrevMenuSelection); 	   
-		    
+		console.log('Quick Replies payload**' + quickpayload);		
+		var quickpayload1 =JSON.parse(event.message.quick_reply.payload);    
+		console.log('Quick Replies payload key parse**' + quickpayload1.PrevMenuSelection); 	   		    
 		var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
-		console.log('Quick Reply Payload ProductId**' + prevProduct); 
-		    
+		console.log('Quick Reply Payload ProductId**' + prevProduct); 		    
 	       	var Price = JSON.stringify(quickpayload1.Price);    
-		console.log('Quick Reply Payload Pirce**' + Price); 
-				
-		 salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
-				console.log('created opportunitityproduct');
-	         });     
-		    
-	    }
+		console.log('Quick Reply Payload Pirce**' + Price); 				
+		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
+			console.log('created opportunitityproduct');
+	         });     		    
+	 }
 		
-        }
-	
-	 /*
-	// Quick Reply - Quantity - Start
-	else if (event.message && event.message.quick_reply) {
-		  
-            processText(event.message.text, sender);	    		    
-		
-	    var jsonObj = {'key':event.message};
-	    console.log('Stringify event.message**' + JSON.stringify(jsonObj));	    
-		
-	   // if(event.message.text){	
-	    	var SelectedQuantity = JSON.stringify(event.message.text);  //Incoming Quantity - Stringify		
-            	console.log('Selected Quantity Stringify**' + SelectedQuantity);
-		//var SelectedQuantity1 = JSON.parse(event.message.text);  //Incoming Quantity - Parse
-		//console.log('Selected Quantity Parse**' + SelectedQuantity1);            			 
-	   // }
-		
-	    // if(event.message.quick_reply.payload){	
-		var quickpayload=event.message.quick_reply.payload;
-		console.log('Quick Replies payload**' + quickpayload); 
-		//var quickpayload1 =JSON.parse(event.message.quick_reply.payload);
-		//console.log('Quick Replies payload parse**' + quickpayload1.PrevMenuSelection); 
-	    // }
-
-	    sendMessage({text: `Your menu selection and quantity has been added !!!! 🍽 🍛 `}, sender);	
-			   	   		    					
-        }
-	// Quick Reply - Quantity - End */
-	    
-	else if (event.postback) {
-		
-		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));				
-		
+        }else if (event.postback) {		
+		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
                      console.log('payload[1]' + payload[1]);
