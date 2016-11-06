@@ -84,8 +84,16 @@ let handlePost = (req, res) => {
 		processText(event.message.text, sender);
 		
 		if (event.message.quick_reply){
-			var quickpayload0=event.message.quick_reply.payload;
-			console.log('Quick Replies payload**' + quickpayload0);	
+			
+			var quickpayload1=event.message.quick_reply.payload;
+			console.log('Quick Replies payload**' + quickpayload1);	
+			
+		        var prevProduct = JSON.stringify(quickpayload1.PrevMenuSelection);    
+			console.log('Quick Reply Payload PRODUCTID**' + prevProduct); 	
+			
+			var Price = JSON.stringify(quickpayload1.Price);    
+			console.log('Quick Reply Payload PRICE**' + Price);
+			
 		}	
 		
 	}else if(event.message && (event.message.text && event.message.quick_reply) ){		
