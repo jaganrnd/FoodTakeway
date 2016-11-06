@@ -102,6 +102,8 @@ let handlePost = (req, res) => {
 			
 		}	
 		
+		sendMessage({text: `Hey ${response.first_name} ! your menu and quanitiy selection has been added !!`}, sender);
+		
 	}else if(event.message && (event.message.text && event.message.quick_reply) ){		
 		
 		console.log('Quick Reply Flow**');		    
