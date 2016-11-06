@@ -84,7 +84,7 @@ let handlePost = (req, res) => {
 		console.log('Event.Message.Text**' + event.message.text);
 		
 		if(event.message.text == 'Hi'){
-			console.log('Normal Flow**);	
+			console.log('Normal Flow**');	
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
 		if (event.message.quick_reply){
