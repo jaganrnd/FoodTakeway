@@ -105,10 +105,11 @@ let handlePost = (req, res) => {
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
 		
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId => {    
+			/*salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId => {    
 				console.log('created opportunitityproduct');
-			 });
+			 });*/
 			
 		        if(event.message.text != 'hi'){
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
