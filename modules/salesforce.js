@@ -173,38 +173,23 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
     console.log('Price*' + Price);
     console.log('Quantity*' + Quantity);	
 	
-    /*return new Promise((resolve, reject) => {
-	    
-	//Create Contact    
-        let con = nforce.createSObject('Contact');
-        con.set('firstName', firstName);
-        con.set('lastName', lastName);
-        con.set('FacebookId__c', userId);
+    return new Promise((resolve, reject) => {
+	    	
+	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id=' " + ProductId + " ' AND PriceBook2.isStandard=true LIMIT 1";    
+
+	       org.query({query: q}, (err, resp) => {
+		    if (err) {
+			console.log('ERROR');
+			reject("An error as occurred");
+		    } else if (resp.records && resp.records.length>0) {
+			console.log('PriceBook Id Count' + resp.records.length);
+			let PriceBookId = resp.records;
+			resolve(PriceBookId);
+		    }
+		});
+
+    });
 	
-	//Create Opportunity    
-	let opp = nforce.createSObject('Opportunity');
-        opp.set('name', firstName + lastName);
-	opp.set('StageName','Order Initiated');
-	opp.set('CloseDate',Date.now());
-	
-        
-        org.insert({sobject: con}, err => {
-            if (err) {
-                console.error(err);
-                reject("An error occurred while creating a Contact");
-            } else {
-				console.log('Contact Created '+con.get("Id"));
-				opp.set('Contact__c', con.get("Id"));
-				org.insert({sobject: opp}, err => {
-					if (err) {
-						console.error(err);
-						reject("An error occurred while creating a Opportunity");
-					}
-				});
-				resolve(opp);
-            }
-        });
-    });*/
 	
 };
 
