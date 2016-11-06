@@ -79,8 +79,11 @@ let handlePost = (req, res) => {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
 	}	    
 	else if (event.message && event.message.text) {
+		
+		console.log('NOrmal FLow**');
 		processText(event.message.text, sender);
-	}else if(event.message.quick_reply){		
+		
+	}else if((event.message &&event.message.quick_reply){		
 		console.log('Quick Reply Flow**');		    
 		var SelectedQuantity = JSON.stringify(event.message.text);    
 		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);		    
