@@ -91,8 +91,8 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.text) {
 		processText(event.message.text, sender);
 	}    
-	else if (event.message && event.message.text) {
-	    console.log('Previous Flow**');	
+	// else if (event.message && event.message.text) {
+	   // console.log('Previous Flow**');	
             
 	    //Have to check this insometime............ Start....	
 	    /*if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
@@ -101,8 +101,10 @@ let handlePost = (req, res) => {
 	    }*/
 	    //Have to check this insometime............ End....
 		
-	    if(event.message.quick_reply){
+	   else if(event.message.quick_reply){
 		
+		console.log('Quick Reply Flow**');
+		    
 		var SelectedQuantity = JSON.stringify(event.message.text);    
 		console.log('Selected Quantity Stringify Inside**' + SelectedQuantity);
 		    
