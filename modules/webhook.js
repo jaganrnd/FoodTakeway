@@ -84,7 +84,7 @@ let handlePost = (req, res) => {
 		
 		console.log('Event.Message.Text**' + event.message.text);
 		
-		processText(event.message.text, sender);
+		//processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		
 		if (event.message.quick_reply){
 			
@@ -111,10 +111,9 @@ let handlePost = (req, res) => {
 		
 		console.log('Quick Reply Flow**');		    
 		
-		/*var SelectedQuantity = JSON.stringify(event.message.text);    
-		console.log('Selected QUANTITY Stringify Inside**' + SelectedQuantity);*/
-		
-	     	
+		var SelectedQuantity = JSON.stringify(event.message.text);    
+		console.log('Selected QUANTITY Stringify Inside**' + SelectedQuantity);
+			     	
 		var quickpayload0=event.message.quick_reply.payload;
 		console.log('Quick Replies payload**' + quickpayload0);		
 		
