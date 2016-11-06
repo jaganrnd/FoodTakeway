@@ -87,21 +87,19 @@ let handlePost = (req, res) => {
 			console.log('Quick Replies payload**' + quickpayload); 
 	   	 }
 	}*/
-	    
+	// else if (event.message && event.message.text) {
+   	// console.log('Previous Flow**');	
+            
+	//Have to check this insometime............ Start....	
+	/*if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
+	console.log('Inside normal user text flow and NOT quick replies**');    	
+	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
+	}*/
+	//Have to check this insometime............ End....
+
 	else if (event.message && event.message.text) {
 		processText(event.message.text, sender);
-	}    
-	// else if (event.message && event.message.text) {
-	   // console.log('Previous Flow**');	
-            
-	    //Have to check this insometime............ Start....	
-	    /*if(event.message.text == '1' || event.message.text == '2' || event.message.text == '3' || event.message.text == '4' || event.message.text == '5'){	
-		console.log('Inside normal user text flow and NOT quick replies**');    	
-	    	processText(event.message.text, sender);   //Need to uncomment i guess.Compare and do...
-	    }*/
-	    //Have to check this insometime............ End....
-		
-	   else if(event.message.quick_reply){
+	}else if(event.message.quick_reply){
 		
 		console.log('Quick Reply Flow**');
 		    
