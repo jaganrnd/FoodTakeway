@@ -137,7 +137,7 @@ let handlePost = (req, res) => {
 		var Price = JSON.stringify(quickpayload1.Price);    
 		console.log('Quick Reply Payload PRICE**' + Price); 
 		
-		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(() => {    
+		salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId => {    
 			console.log('created opportunitityproduct');
 	         });     	
 			
