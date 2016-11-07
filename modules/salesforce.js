@@ -176,7 +176,8 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
     return new Promise((resolve, reject) => {
 	    	
 	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id= '" + ProductId + " ' AND PriceBook2.isStandard= true ";    
-
+	       console.log('Query**' + q);
+	    
 	       org.query({query: q}, (err, resp) => {
 		    if (err) {
 			console.log('ERROR');
