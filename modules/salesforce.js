@@ -187,10 +187,20 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			reject("An error as occurred");
 		    } else if (resp.records && resp.records.length>0) {
 			console.log('PriceBookEntry Id Count' + resp.records.length);
-			let PriceBookEntryId = resp.records;
+			let PriceBookEntryId = resp.records[0].id;	
+			console.log('price book entry id*' +    PriceBookEntryId); 
 			resolve(PriceBookEntryId);
 		    }
 		});
+	    
+                /*	    
+	        //Create OpportunityLineItem    
+		let Oppli = nforce.createSObject('OpportunityLineItem');
+		Oppli.set('OpportunityId', '0062800000EjlE2');
+		Oppli.set('PricebookEntryId', lastName);	    
+		Oppli.set('quantity ', 'Quantity');
+	        Oppli.set('unitprice ', 'Price');*/
+	    
 
     });
 	
