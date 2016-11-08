@@ -33,7 +33,7 @@ let findTitleCard = name => {
         console.log('bfo query');
         console.log('Incoming title card name**' + name);
         let q = "SELECT Id,Name,Picture_URL__c,Title_Cards__c,Description FROM Account WHERE Title_Cards__c LIKE '%" + name + "%' LIMIT 5";
-        console.log('after query');
+        console.log('title card query' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -51,7 +51,8 @@ let findOpenBranches = parentaccountid => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
         let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE ";
-        //select id,name,parent.name from account where parent.name = 'kolapasi'        
+        //select id,name,parent.name from account where parent.name = 'kolapasi'   
+	console.log('open branch query' + q);        
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -108,7 +109,8 @@ let findMainMenus = subaccountid => {
         console.log('bfo querymainmenus');
         let q = "SELECT Account__c,Product__c,Id,name,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c FROM Menu__c WHERE Account__c = '" + subaccountid + "' AND  Product__r.Family = 'Parent' AND Available__c = TRUE ";
         //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
-        org.query({query: q}, (err, resp) => {
+       console.log('main menu card query' + q); 
+       org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
                 reject("An error as occurred");
@@ -130,7 +132,8 @@ let findSubMenus = (subaccountid,MainProductId) => {
         //WHERE Account__c = '0012800000tbvvV' AND  Product__r.Family != 'Parent' 
         //AND Product__r.Main_Product__c= '01t28000002yqou' AND Available__c = True
         
-        
+        console.log('sub menu query' + q);
+	    
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -151,7 +154,7 @@ let getSelectedMenu = (selectedMenuId) => {
         
         //SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c FROM //Menu__c WHERE id = '" + selectedMenuId + "' AND Available__c = True 
         
-        
+        console.log('selected menu query' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
                 console.log('ERROR');
@@ -176,7 +179,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
     return new Promise((resolve, reject) => {
 	    	
 	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id= '" + ProductId + "' AND PriceBook2.isStandard= true ";    
-	       console.log('Query**' + q);
+	       console.log('Opportunity Product Query**' + q);
 	    
 	       org.query({query: q}, (err, resp) => {
 		    if (err) {
