@@ -188,10 +188,9 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 		    } else if (resp.records && resp.records.length>0) {
 			
 			console.log('PriceBookEntry Id Count' + resp.records.length);
-			
-			console.log('PBENID'+ q.("Id"));
+
 			    
-			let PriceBookEntryId = resp.records;
+			let PriceBookEntryId = resp.records[0];
 			console.log('price book entry id*' +    PriceBookEntryId); 
 			    
 			resolve(PriceBookEntryId);
