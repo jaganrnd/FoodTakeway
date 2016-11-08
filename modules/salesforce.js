@@ -179,16 +179,16 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
     return new Promise((resolve, reject) => {
 	    	
 	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE PriceBook2.isStandard= true LIMIT 1";    
-	       console.log('Opportunity Product Query**' + q);
+	       console.log('PriceBookEntryId Query**' + q);
 	    
 	       org.query({query: q}, (err, resp) => {
 		    if (err) {
 			console.log('ERROR');
 			reject("An error as occurred");
 		    } else if (resp.records && resp.records.length>0) {
-			console.log('PriceBook Id Count' + resp.records.length);
-			let PriceBookId = resp.records;
-			resolve(PriceBookId);
+			console.log('PriceBookEntry Id Count' + resp.records.length);
+			let PriceBookEntryId = resp.records;
+			resolve(PriceBookEntryId);
 		    }
 		});
 
