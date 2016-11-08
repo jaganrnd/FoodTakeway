@@ -189,7 +189,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			
 			console.log('PriceBookEntry Id Count' + resp.records.length);
 			
-			console.log('PBENID'+ q.get("Id"));
+			console.log('PBENID'+ q.("Id"));
 			    
 			let PriceBookEntryId = resp.records;
 			console.log('price book entry id*' +    PriceBookEntryId); 
