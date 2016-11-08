@@ -107,7 +107,7 @@ let handlePost = (req, res) => {
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId); => { 
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId => { 
 				console.log('PriceBookId paaaah' + PriceBookId);
 				console.log('created opportunitityproduct');
 			 });
