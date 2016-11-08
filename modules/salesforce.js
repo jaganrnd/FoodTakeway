@@ -188,11 +188,14 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 		    } else if (resp.records && resp.records.length>0) {
 			
 			console.log('PriceBookEntry Id Count' + resp.records.length);
-			    			    
-			var PriceBookEntryId = JSON.parse(resp.records);
+			
+			console.log('PBENID'+ q.get("Id"));
+			    
+			let PriceBookEntryId = resp.records;
 			console.log('price book entry id*' +    PriceBookEntryId); 
 			    
 			resolve(PriceBookEntryId);
+			    
 		    }
 		});
 	    
