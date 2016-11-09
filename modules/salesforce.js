@@ -195,7 +195,9 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			    
 			console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
 			    
-			console.log('price book entry id separate value*' +   resp.records[0].product2id);    
+			console.log('price book entry id separate value*' +   resp.records[0].get("id");    
+			
+			console.log('price book entry id separate value*' +   resp.records[0].id);	    
 			    
 			resolve(PriceBookEntryId);			    
 		    }
