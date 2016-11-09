@@ -187,7 +187,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			reject("An error as occurred");
 		    } else if (resp.records && resp.records.length>0) {			
 			console.log('PriceBookEntry Id Count' + resp.records.length);  
-			let PriceBookEntryId = resp.records;
+			let PriceBookEntryId = JSON.stringify(resp.records);
 			console.log('price book entry id*' +    PriceBookEntryId ); 			    
 			resolve(PriceBookEntryId);			    
 		    }
