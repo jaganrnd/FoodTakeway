@@ -186,9 +186,17 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			console.log('ERROR');
 			reject("An error as occurred");
 		    } else if (resp.records && resp.records.length>0) {			
+			    
 			console.log('PriceBookEntry Id Count' + resp.records.length);  
+			    
 			let PriceBookEntryId = JSON.stringify(resp.records);
-			console.log('price book entry id*' +    PriceBookEntryId ); 			    
+			    
+			console.log('price book entry id stringify*' +    PriceBookEntryId );
+			    
+			console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
+			    
+			console.log('price book entry id separate value*' +   resp.records[0].product2id);    
+			    
 			resolve(PriceBookEntryId);			    
 		    }
 		});	    
