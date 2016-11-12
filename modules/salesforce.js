@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; //hello
 
 let nforce = require('nforce'),
 
