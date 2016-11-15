@@ -125,7 +125,7 @@ let handlePost = (req, res) => {
 							    "elements": [
 								{
 								    "title": "Classic T-Shirt Collection",
-								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view",
+								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view?usp=sharing",
 								    "subtitle": "See all our colors",
 								    "buttons": [
 									{
@@ -137,7 +137,7 @@ let handlePost = (req, res) => {
 								},
 								{
 								    "title": "Classic White T-Shirt",
-								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view",
+								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view?usp=sharing",
 								    "subtitle": "100% Cotton, 200% Comfortable",
 								    "buttons": [
 									{
