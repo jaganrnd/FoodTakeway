@@ -129,41 +129,41 @@ let handlePost = (req, res) => {
 								    "subtitle": "See all our colors",
 								    "default_action": {
 									"type": "web_url",
-									"url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+									"url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg",
 									"messenger_extensions": true,
 									"webview_height_ratio": "tall",
-									"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+									"fallback_url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg/"
 								    },
 								    "buttons": [
 									{
 									    "title": "View",
 									    "type": "web_url",
-									    "url": "https://peterssendreceiveapp.ngrok.io/collection",
+									    "url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg",
 									    "messenger_extensions": true,
 									    "webview_height_ratio": "tall",
-									    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+									    "fallback_url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg/"                        
 									}
 								    ]
 								},
 								{
 								    "title": "Classic White T-Shirt",
-								    "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
+								    "image_url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg",
 								    "subtitle": "100% Cotton, 200% Comfortable",
 								    "default_action": {
 									"type": "web_url",
-									"url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
+									"url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg",
 									"messenger_extensions": true,
 									"webview_height_ratio": "tall",
-									"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+									"fallback_url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg/"
 								    },
 								    "buttons": [
 									{
 									    "title": "Shop Now",
 									    "type": "web_url",
-									    "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
+									    "url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg",
 									    "messenger_extensions": true,
 									    "webview_height_ratio": "tall",
-									    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+									    "fallback_url": "http://events.webindia123.com/events/asp/aspupload/Uploads%5C8906%5C7996_Egg-Biryani-recipe.jpg/"                        
 									}
 								    ]                
 								}
