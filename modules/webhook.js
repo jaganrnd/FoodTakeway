@@ -125,7 +125,7 @@ let handlePost = (req, res) => {
 							    "elements": [
 								{
 								    "title": "Classic T-Shirt Collection",
-								    "image_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
+								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view",
 								    "subtitle": "See all our colors",
 								    "buttons": [
 									{
@@ -137,7 +137,7 @@ let handlePost = (req, res) => {
 								},
 								{
 								    "title": "Classic White T-Shirt",
-								    "image_url": "https://drive.google.com/open?id=0B1xCaFoqRKpBNThXN25QMmh3bDg",
+								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view",
 								    "subtitle": "100% Cotton, 200% Comfortable",
 								    "buttons": [
 									{
