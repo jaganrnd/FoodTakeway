@@ -137,7 +137,7 @@ let handlePost = (req, res) => {
 								},
 								{
 								    "title": "Classic White T-Shirt",
-								    "image_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
+								    "image_url": "https://drive.google.com/open?id=0B1xCaFoqRKpBNThXN25QMmh3bDg",
 								    "subtitle": "100% Cotton, 200% Comfortable",
 								    "buttons": [
 									{
