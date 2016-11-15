@@ -127,21 +127,11 @@ let handlePost = (req, res) => {
 								    "title": "Classic T-Shirt Collection",
 								    "image_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
 								    "subtitle": "See all our colors",
-								    "default_action": {
-									"type": "web_url",
-									"url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
-									"messenger_extensions": true,
-									"webview_height_ratio": "tall",
-									"fallback_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000/"
-								    },
 								    "buttons": [
 									{
-									    "title": "View",
-									    "type": "web_url",
-									    "url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
-									    "messenger_extensions": true,
-									    "webview_height_ratio": "tall",
-									    "fallback_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000/"                        
+									    "type":"postback",
+									    "title":"Start Chatting",
+									    "payload":"USER_DEFINED_PAYLOAD"
 									}
 								    ]
 								},
@@ -149,21 +139,11 @@ let handlePost = (req, res) => {
 								    "title": "Classic White T-Shirt",
 								    "image_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
 								    "subtitle": "100% Cotton, 200% Comfortable",
-								    "default_action": {
-									"type": "web_url",
-									"url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
-									"messenger_extensions": true,
-									"webview_height_ratio": "tall",
-									"fallback_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000/"
-								    },
 								    "buttons": [
 									{
-									    "title": "Shop Now",
-									    "type": "web_url",
-									    "url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000",
-									    "messenger_extensions": true,
-									    "webview_height_ratio": "tall",
-									    "fallback_url": "https://c.ap2.content.force.com/servlet/servlet.ImageServer?id=01528000002R1sU&oid=00D28000001qUtJ&lastMod=1479218779000/"                        
+									    "type":"postback",
+									    "title":"Start Chatting",
+									    "payload":"USER_DEFINED_PAYLOAD"
 									}
 								    ]                
 								}
