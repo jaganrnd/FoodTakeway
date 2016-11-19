@@ -141,40 +141,7 @@ let handlePost = (req, res) => {
                                         }
                                     }
                                 }, sender);
-				
-			       sendMessage({text:{
-                                        
-				       "text":"Pick 1 model",
-					"quick_replies":[
-						
-						{
-						    "content_type":"text",
-						    "title":"Square",
-						    "payload":"close_won"
-						},
-						{
-						    "content_type":"text",
-						    "title":"Rectangular",
-						    "payload":"close_won"
-						},
-						{
-						    "content_type":"text",
-						    "title":"Wayfarer",
-						    "payload":"close_won"
-						},
-						{
-						    "content_type":"text",
-						    "title":"Aviator",
-						    "payload":"close_won"
-						}]   
-   
-                                    }
-                                }, sender);
-				
-				
-				
-				
-				
+					
 				
 			 });
 			
