@@ -130,7 +130,7 @@ let handlePost = (req, res) => {
 					      {
                                                 "type":"postback",
                                                 "title":"No- It`s enough.",
-                                                "payload":"No_Enf,"
+                                                "payload":"👍 No_Enf,"
                                               },	    
                                               {
                                                 "type":"postback",
@@ -142,9 +142,9 @@ let handlePost = (req, res) => {
                                     }
                                 }, sender);
 				
-			       sendMessage({"Pick 0 model:":{
+			       sendMessage({text:{
                                         
-				       "text":"Pick 1 model:",
+				       "text":"Pick 1 model",
 					"quick_replies":[
 						
 						{
