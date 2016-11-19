@@ -100,7 +100,7 @@ let formatOpenBranches= Accounts => {
 
 
 
-let formatMainMenus= MainMenus => {
+let formatMainMenus= (MainMenus,opportunityId) => {
   let elements = [];
     MainMenus.forEach(Menu__c =>
         elements.push({
@@ -111,7 +111,7 @@ let formatMainMenus= MainMenus => {
                 {
                     "type":"postback",
                     "title":"SHOW ITEMS",
-                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c")
+                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c") + "," + opportunityId
                     
                 }]
         })
