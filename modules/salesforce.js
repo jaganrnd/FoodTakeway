@@ -95,7 +95,7 @@ let createOpportunity = (firstName, lastName, userId) => {
 						reject("An error occurred while creating a Opportunity");
 					}
 				});
-				resolve(opp);
+				resolve(opp.get("Id"));
             }
         });
     });
