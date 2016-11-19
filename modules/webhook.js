@@ -116,7 +116,26 @@ let handlePost = (req, res) => {
 			
 		        if(event.message.text != 'hi'){
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
-				
+				sendMessage({attachment:{
+                                        "type": "template",
+                                        "payload": {
+                                            "template_type":"button",
+                                            "text":"Would you like to order some more items from this shop?",
+                                            "buttons":[
+                                              {
+                                                "type":"postback",
+                                                "title":"Yes",
+                                                "payload":"Order_More," + payload[3]
+                                              },
+                                              {
+                                                "type":"postback",
+                                                "title":"No- It`s enough.",
+                                                "payload":"No_Enf,"
+                                              }
+                                            ]
+                                        }
+                                    }
+                            }, sender);
 				/*
 				//Newly Added For List Template...				
 				 sendMessage({attachment:{					 
