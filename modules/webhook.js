@@ -200,24 +200,25 @@ let handlePost = (req, res) => {
                  }
                  else if (payload[0] === "Main_Menu"){     
                      console.log('Selected branch will show their available menus' + payload[1]);  
-		     var opportunityId;
+		     var newOpp;
 		      //Hitendar
 		      getUserInfo(sender).then(response => {         
-			       salesforce.createOpportunity(response.first_name,response.last_name,sender).then(OppId => {    
-			       opportunityId = OppId;
-			       console.log('created opportunitity '+OppId);
+			       salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
+			       newOpp = Opportunity;
+			       console.log('created opportunitity '+newOpp);
 			       }); 
 		      });
 		      //Hitendar
                       salesforce.findMainMenus(payload[1]).then(MainMenus => {   
                           console.log('Going inside main menus');
-                          sendMessage(formatter.formatMainMenus(MainMenus,opportunityId), sender);  
+                          sendMessage(formatter.formatMainMenus(MainMenus,newOpp), sender);  
                      });    
                  }else if (payload[0] === "Sub_Menu"){     
                      
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
-                     console.log('Opportunity ID - Payload[3]'+payload[3]);
+                     console.log('Opportunity - Payload[3]'+payload[3]);
+		     console.log('Opportunity ID - Payload[3]'+payload[3].get("Id"););
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
