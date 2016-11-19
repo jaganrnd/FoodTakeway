@@ -172,11 +172,12 @@ let getSelectedMenu = (selectedMenuId) => {
 
 
 
-let createOpportunityProduct = (ProductId, Price, Quantity) => {
+let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
 
     console.log('prod id*' + ProductId);
     console.log('Price*' + Price);
-    console.log('Quantity*' + Quantity);	
+    console.log('Quantity*' + Quantity);
+    console.log('OpportunityId*' + OpportunityId);	
 	
     return new Promise((resolve, reject) => {
 	    	
@@ -200,7 +201,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
 			//Create OpportunityLineItem    
 			let Oppli = nforce.createSObject('OpportunityLineItem');
-			Oppli.set('OpportunityId', '0062800000EjlE2');
+			Oppli.set('OpportunityId', OpportunityId);
 			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 			Oppli.set('Quantity', Quantity);
 			Oppli.set('UnitPrice', Price);
