@@ -200,8 +200,8 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			let Oppli = nforce.createSObject('OpportunityLineItem');
 			Oppli.set('OpportunityId', '0062800000EjlE2');
 			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
-			Oppli.set('quantity ', Quantity);
-			Oppli.set('unitprice ', Price);
+			Oppli.set('Quantity', Quantity);
+			Oppli.set('UnitPrice', Price);
 			org.insert({sobject: Oppli}, err => {
 			    if (err) {
 				console.error(err);
