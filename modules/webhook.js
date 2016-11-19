@@ -218,7 +218,7 @@ let handlePost = (req, res) => {
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
                      console.log('Opportunity - Payload[3]'+payload[3]);
-		     console.log('Opportunity ID - Payload[3]'+payload[3].get("Id"););
+		     console.log('Opportunity ID - Payload[3]'+payload[3].get("Id"));
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
