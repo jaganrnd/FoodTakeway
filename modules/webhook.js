@@ -129,8 +129,8 @@ let handlePost = (req, res) => {
                                               },
 					      {
                                                 "type":"postback",
-                                                "title":"No- It`s enough.",
-                                                "payload":"👍 No_Enf,"
+                                                "title":"👍 No- It`s enough.",
+                                                "payload":"No_Enf,"
                                               },	    
                                               {
                                                 "type":"postback",
