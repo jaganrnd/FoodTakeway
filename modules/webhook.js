@@ -222,16 +222,17 @@ let handlePost = (req, res) => {
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
-                          sendMessage(formatter.formatSubMenus(SubMenus), sender);  // Hitendar
+                          sendMessage(formatter.formatSubMenus(SubMenus,payload[3]), sender);  // Hitendar
                      });   
                      
                  } 
                 //Hitendar
 	 	else if (payload[0] === "Quantity"){                          
                      console.log('Origin Branch - payload [1]**' + payload[1]);    		     
+		     console.log('Origin Branch - payload [2]**' + payload[2]);    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(SelectedMenu), sender);  // Hitendar			  
+                          sendMessage(formatter.formatQuantity(SelectedMenu,payload[2]), sender);  // Hitendar			  
                      }); 
 		     
                  } 
