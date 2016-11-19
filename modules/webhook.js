@@ -115,6 +115,7 @@ let handlePost = (req, res) => {
 				
 				
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
+				
 				sendMessage({attachment:{
                                         "type": "template",
                                         "payload": {
@@ -126,15 +127,54 @@ let handlePost = (req, res) => {
                                                 "title":"Yes",
                                                 "payload":"Order_More,"
                                               },
-                                              {
+					      {
                                                 "type":"postback",
                                                 "title":"No- It`s enough.",
+                                                "payload":"No_Enf,"
+                                              },	    
+                                              {
+                                                "type":"postback",
+                                                "title":"Show Cart.",
                                                 "payload":"No_Enf,"
                                               }
                                             ]
                                         }
                                     }
                                 }, sender);
+				
+			       sendMessage({attachment:{
+                                        
+				       "text":"Pick 1 model:",
+					"quick_replies":[
+						
+						{
+						    "content_type":"text",
+						    "title":"Square",
+						    "payload":"close_won"
+						},
+						{
+						    "content_type":"text",
+						    "title":"Rectangular",
+						    "payload":"close_won"
+						},
+						{
+						    "content_type":"text",
+						    "title":"Wayfarer",
+						    "payload":"close_won"
+						},
+						{
+						    "content_type":"text",
+						    "title":"Aviator",
+						    "payload":"close_won"
+						}]   
+   
+                                    }
+                                }, sender);
+				
+				
+				
+				
+				
 				
 			 });
 			
