@@ -124,7 +124,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"Yes",
-                                                "payload":"Order_More," + payload[3]
+                                                "payload":"Order_More,"
                                               },
                                               {
                                                 "type":"postback",
