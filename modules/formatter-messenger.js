@@ -100,7 +100,7 @@ let formatOpenBranches= Accounts => {
 
 
 
-let formatMainMenus= (MainMenus,opportunityId) => {
+let formatMainMenus= (MainMenus,opportunity) => {
   let elements = [];
     MainMenus.forEach(Menu__c =>
         elements.push({
@@ -111,7 +111,7 @@ let formatMainMenus= (MainMenus,opportunityId) => {
                 {
                     "type":"postback",
                     "title":"SHOW ITEMS",
-                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c") + "," + opportunityId
+                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c") + "," + opportunity
                     
                 }]
         })
@@ -127,7 +127,7 @@ let formatMainMenus= (MainMenus,opportunityId) => {
     };
 };
 
-let formatSubMenus= SubMenus => {
+let formatSubMenus= (SubMenus,Opporunity) => {
   let elements = [];
     SubMenus.forEach(Menu__c =>
         elements.push({
@@ -138,7 +138,7 @@ let formatSubMenus= SubMenus => {
                 {
                     "type":"postback",
                     "title":"ADD TO CART - ₹" + Menu__c.get("Price__c"),
-                    "payload": "Quantity,"  +  Menu__c.get("Id") 
+                    "payload": "Quantity,"  +  Menu__c.get("Id") + "," + Opporunity
                     
                 }]
         })
@@ -154,14 +154,14 @@ let formatSubMenus= SubMenus => {
     };
 };
 /* Hitendar */
-let formatQuantity= SelectedMenu => {
+let formatQuantity= (SelectedMenu,Opportunity) => {
     let elements = [];
     
     //Stringify the data that you want to pass as a payload	
    
     //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
     
-    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c") };
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId':Opportunity.get("Id"); };
 	
     var shouldSend = JSON.stringify(obj);
     console.log( 'After Stringify**' +  shouldSend );
