@@ -208,7 +208,8 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 				reject("An error occurred while creating a Contact");
 			    } else {
 				console.log('opportunity line item Created '+Oppli.get("Id"));
-				});
+			    }
+			});
 			resolve(Oppli);			    
 		    }
 		});	    
