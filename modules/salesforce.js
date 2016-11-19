@@ -87,19 +87,16 @@ let createOpportunity = (firstName, lastName, userId) => {
                 console.error(err);
                 reject("An error occurred while creating a Contact");
             } else {
-		    		var OppId;
-				console.log('Contact Created '+con.get("Id"));
+		    		console.log('Contact Created '+con.get("Id"));
 				opp.set('Contact__c', con.get("Id"));
 				org.insert({sobject: opp}, err => {
 					if (err) {
 						console.error(err);
 						reject("An error occurred while creating a Opportunity");
 					}
-					OppId = opp.get("Id");
 					console.error('Opportunity Created***'+opp);
-					console.error('Opportunity Created***'+OppId);
 				});
-				resolve(OppId);
+				resolve(opp);
             }
         });
     });
