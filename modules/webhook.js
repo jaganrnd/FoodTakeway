@@ -230,7 +230,7 @@ let handlePost = (req, res) => {
 	 	else if (payload[0] === "Quantity"){                          
                      console.log('Origin Branch - payload [1]**' + payload[1]);    		     
 		     console.log('Origin Branch - payload [2]**' + payload[2]);    		     
-		     console.log('Origin Branch - payload [2]**' + payload[2].Id));    		     
+		     console.log('Origin Branch - payload [2]**' + payload[2].Id);    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
                           sendMessage(formatter.formatQuantity(SelectedMenu,payload[2]), sender);  // Hitendar			  
