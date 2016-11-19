@@ -94,9 +94,9 @@ let createOpportunity = (firstName, lastName, userId) => {
 						console.error(err);
 						reject("An error occurred while creating a Opportunity");
 					}
-					console.error('Opportunity Created***'+opp);
+					console.error('Opportunity Created***'+opp.get("Id"));
 				});
-				resolve(opp);
+				resolve(opp.get("Id"));
             }
         });
     });
