@@ -124,7 +124,7 @@ let handlePost = (req, res) => {
                                             "buttons":[
                                               {
                                                 "type":"postback",
-                                                "title":"Yes",
+                                                "title":"👆 Yes",
                                                 "payload":"Order_More,"
                                               },
 					      {
@@ -134,7 +134,7 @@ let handlePost = (req, res) => {
                                               },	    
                                               {
                                                 "type":"postback",
-                                                "title":"Show Cart.",
+                                                "title":"🎁 Show Cart.",
                                                 "payload":"No_Enf,"
                                               }
                                             ]
