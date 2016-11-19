@@ -142,7 +142,7 @@ let handlePost = (req, res) => {
                                     }
                                 }, sender);
 				
-			       sendMessage({attachment:{
+			       sendMessage({text:{
                                         
 				       "text":"Pick 1 model:",
 					"quick_replies":[
