@@ -195,14 +195,21 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			    
 			console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
 			
-			console.log('price book entry id separate value*' +   resp.records[0].id);	    
+			console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
 			//Create OpportunityLineItem    
 			let Oppli = nforce.createSObject('OpportunityLineItem');
 			Oppli.set('OpportunityId', '0062800000EjlE2');
-			Oppli.set('PricebookEntryId', resp.records[0].Id);	    
+			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 			Oppli.set('quantity ', Quantity);
 			Oppli.set('unitprice ', Price);
-			resolve(PriceBookEntryId);			    
+			org.insert({sobject: Oppli}, err => {
+			    if (err) {
+				console.error(err);
+				reject("An error occurred while creating a Contact");
+			    } else {
+				console.log('opportunity line item Created '+Oppli.get("Id"));
+				});
+			resolve(Oppli);			    
 		    }
 		});	    
                 /*	    
