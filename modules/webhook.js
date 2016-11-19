@@ -104,10 +104,12 @@ let handlePost = (req, res) => {
 			var Price = quickpayload1.Price;
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
+			var opportunityId = quickpayload1.OpportunityId;
+			console.log('Quick Reply Payload OppId**' + opportunityId); 
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity).then(PriceBookId => { 
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId).then(PriceBookId => { 
 				console.log('PriceBookId paaaah' + PriceBookId);
 				console.log('created opportunitityproduct');
 			 });
