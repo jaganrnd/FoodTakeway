@@ -178,7 +178,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 	
     return new Promise((resolve, reject) => {
 	    	
-	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE PriceBook2.isStandard= true LIMIT 1";    
+	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id = '" + ProductId + "' AND  PriceBook2.isStandard= true LIMIT 1";    
 	       console.log('PriceBookEntryId Query**' + q);
 	    
 	       org.query({query: q}, (err, resp) => {
@@ -196,7 +196,12 @@ let createOpportunityProduct = (ProductId, Price, Quantity) => {
 			console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
 			
 			console.log('price book entry id separate value*' +   resp.records[0].id);	    
-			    
+			//Create OpportunityLineItem    
+			let Oppli = nforce.createSObject('OpportunityLineItem');
+			Oppli.set('OpportunityId', '0062800000EjlE2');
+			Oppli.set('PricebookEntryId', resp.records[0].Id);	    
+			Oppli.set('quantity ', Quantity);
+			Oppli.set('unitprice ', Price);
 			resolve(PriceBookEntryId);			    
 		    }
 		});	    
