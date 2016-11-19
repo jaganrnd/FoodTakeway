@@ -115,9 +115,8 @@ let handlePost = (req, res) => {
 		        if(event.message.text != 'hi'){
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
 				
-				
-				//Newly Added For List Template...
-				
+				/*
+				//Newly Added For List Template...				
 				 sendMessage({attachment:{					 
 						    "type": "template",
 						    "payload":  {
@@ -158,10 +157,8 @@ let handlePost = (req, res) => {
 							}
 					 
 						}
-				  }, sender);
-				
-				
-				//Newly Added For List Template...
+				  }, sender);							
+				//Newly Added For List Template...*/
 				
 			}
 			
