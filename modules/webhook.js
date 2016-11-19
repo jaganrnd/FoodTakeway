@@ -204,7 +204,7 @@ let handlePost = (req, res) => {
 		      //Hitendar
 		      getUserInfo(sender).then(response => {         
 			       salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
-			       opportunityId = Opportunity.get("Id");
+			       opportunityId = Opportunity;
 			       console.log('created opportunitity'+opportunityId);
 			       }); 
 		      });
