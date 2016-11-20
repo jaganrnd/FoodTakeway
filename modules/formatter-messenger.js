@@ -258,7 +258,7 @@ let formatOrder = (SelectedItems) => {
                     "subtotal":1500,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":opportunitylineitem.get("TotalAmount__c"),
+                    "total_cost":opportunitylineitem.get("Opportunity").TotalAmount__c,
                  }
             }
         }
