@@ -225,6 +225,10 @@ let formatShowCart = (SelectedItems) => {
 let formatOrder = (SelectedItems) => {
     let elements = [];
     SelectedItems.forEach(opportunitylineitem   =>
+        
+	var name = opportunitylineitem.get("Opportunity").name;
+	var amount = opportunitylineitem.get("Opportunity").TotalAmount__c;
+	
         elements.push({
             "title":opportunitylineitem.get("product2").Name,
             "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("unitprice"),
@@ -239,7 +243,7 @@ let formatOrder = (SelectedItems) => {
             "type": "template",
             "payload": {
                 "template_type": "receipt",
-                "recipient_name":opportunitylineitem.get("Opportunity").Name,
+                "recipient_name": name,
                 "order_number":"12345678902",
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
@@ -258,7 +262,7 @@ let formatOrder = (SelectedItems) => {
                     "subtotal":1500,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":opportunitylineitem.get("Opportunity").TotalAmount__c,
+                    "total_cost": amount,
                  }
             }
         }
