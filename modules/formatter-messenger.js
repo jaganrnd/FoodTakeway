@@ -187,7 +187,7 @@ let formatShowCart = (SelectedItems) => {
     SelectedItems.forEach(opportunitylineitem  =>
         elements.push({
             "title": opportunitylineitem.get("product2").Name,
-            "subtitle": "Quantity" +  opportunitylineitem.get("quantity ") + "," + "Price" + opportunitylineitem.get("unitprice"),
+            "subtitle": "Quantity" +  opportunitylineitem.get("quantity") + "," + "Price" + opportunitylineitem.get("unitprice"),
             "image_url": opportunitylineitem.get("product2").PICURL__c,
             "buttons": [
                 {
