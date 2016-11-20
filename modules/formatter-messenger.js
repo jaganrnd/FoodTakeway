@@ -14,7 +14,12 @@ let formatTitleCard = Accounts => {
                     "title":"Hit Me",
                     "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name")
                     
-                }]
+                },
+		{
+		 "type":"element_share"        
+		}	    
+	    ]
+	    
         })
     );
     return {
