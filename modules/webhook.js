@@ -44,6 +44,7 @@ let getUserInfo = (userId) => {
             
 
 function adddomain(){
+ console.log('Going to whitelist Domain**');	
  request({
     url: 'https://graph.facebook.com/v2.6/me/thread_settings',
     qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -282,7 +283,6 @@ let handlePost = (req, res) => {
                           console.log('Before Show Cart Formatting');
 		         		
 			  adddomain(); // Whitelist domain for payumoney URL
-			  break
 			  
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
