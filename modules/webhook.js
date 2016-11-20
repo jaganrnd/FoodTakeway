@@ -284,7 +284,7 @@ let handlePost = (req, res) => {
                           console.log('Before Show Cart Formatting');
 		         		
 			  adddomain(); // Whitelist domain for payumoney URL
-			  break;
+			  break
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
