@@ -201,8 +201,7 @@ let formatShowCart = (SelectedItems) => {
                 },
 		{
                     "type":"web_url",
-		    //"url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",
-		     "url":"http://play.gamemix.com/play?id=42",	
+		    "url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",	
                     "title":"Place Order",
 		    "webview_height_ratio": "compact",	
                      //"messenger_extensions": true,                      
