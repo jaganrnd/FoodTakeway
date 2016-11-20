@@ -282,9 +282,11 @@ let handlePost = (req, res) => {
 			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   
 				
                           console.log('Before Show Cart Formatting');
-		         		
-			  adddomain(); // Whitelist domain for payumoney URL
-			  break
+		         
+			  if(payload[1] !=NULL){	
+				  adddomain(); // Whitelist domain for payumoney URL
+				  break
+			  }
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
