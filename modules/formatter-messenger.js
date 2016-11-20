@@ -226,8 +226,8 @@ let formatOrder = (SelectedItems) => {
     let elements = [];
     SelectedItems.forEach(opportunitylineitem   =>
         
-	var name = JSON.stringify(opportunitylineitem.get("Opportunity").name);
-	var amount = JSON.stringify(opportunitylineitem.get("Opportunity").TotalAmount__c);
+	let name = JSON.stringify(opportunitylineitem.get("Opportunity").name);
+	let amount = JSON.stringify(opportunitylineitem.get("Opportunity").TotalAmount__c);
 	
         elements.push({
             "title":opportunitylineitem.get("product2").Name,
