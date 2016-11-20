@@ -278,6 +278,8 @@ let handlePost = (req, res) => {
 			console.log('Show Cart**' + payload[1] );
 			
 			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   
+			  
+			  adddomain(); // Whitelist domain for payumoney URL	
 				
                           console.log('Before Show Cart Formatting');
 		         
@@ -287,7 +289,7 @@ let handlePost = (req, res) => {
 				
                           sendMessage(formatter.formatShowCart(SelectedItems), sender);  // Hitendar
 		          
-			  adddomain(); // Whitelist domain for payumoney URL	
+			  	
 				
                         });   
 			
