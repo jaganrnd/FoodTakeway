@@ -240,4 +240,4 @@ exports.findMainMenus = findMainMenus;
 exports.findSubMenus = findSubMenus;
 exports.getSelectedMenu = getSelectedMenu;
 exports.createOpportunityProduct = createOpportunityProduct;
-
+exports.findOpportunityLineItem = findOpportunityLineItem;
