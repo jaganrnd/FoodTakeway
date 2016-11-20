@@ -204,7 +204,8 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
 			Oppli.set('OpportunityId', OpportunityId);
 			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 			Oppli.set('Quantity', Quantity);
-			Oppli.set('UnitPrice', Price);
+			//Oppli.set('UnitPrice', Price);  //HITU MAMA
+			Oppli.set('UnitPrice', Quantity * Price);    			    
 			org.insert({sobject: Oppli}, err => {
 			    if (err) {
 				console.error(err);
