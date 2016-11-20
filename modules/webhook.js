@@ -111,8 +111,8 @@ let handlePost = (req, res) => {
 			
 			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId).then(PriceBookId => {
 				
-				console.log('PriceBookId paaaah' + PriceBookId);
-				console.log('OPP LI**' + Oppli);
+				//console.log('PriceBookId paaaah' + PriceBookId);
+				//console.log('OPP LI**' + Oppli);
 				
 				
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
