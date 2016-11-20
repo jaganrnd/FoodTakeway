@@ -185,18 +185,31 @@ let formatQuantity= (SelectedMenu,Opportunity) => {
 let formatShowCart = (SelectedItems) => {
   let elements = [];
     SelectedItems.forEach(opportunitylineitem  =>
+			  
         elements.push({
             "title": opportunitylineitem.get("product2").Name,
             "subtitle": "Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("unitprice"),
             "image_url": opportunitylineitem.get("product2").PICURL__c,
             "buttons": [
+		    
                 {
                     "type":"postback",
                     "title":"Change Quantity",
                     "payload": "Change_Quantity,"  +  opportunitylineitem.getId()
                     
-                }]
+                },
+		{
+                    "type":"web_url",
+		    "url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",	
+                    "title":"Place Order",
+		    "webview_height_ratio": "full",	
+                     "messenger_extensions": true,                      
+                }
+	    
+	    ]
+	    
         })
+			  
     );
     return {
         "attachment": {
