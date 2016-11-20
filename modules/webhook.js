@@ -47,7 +47,7 @@ function adddomain(){
  console.log('Going to whitelist Domain**');	
  request({
     url: 'https://graph.facebook.com/v2.6/me/thread_settings',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
+    qs: {access_token: process.env.FB_PAGE_TOKEN},
     method: 'POST',
     json:{
         setting_type : "domain_whitelisting",
