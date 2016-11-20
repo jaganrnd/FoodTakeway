@@ -12,7 +12,7 @@ let formatTitleCard = Accounts => {
                 {
                     "type":"postback",
                     "title":Account.get("Type"),
-                    "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name")                    
+                    "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name") + "," + Account.get("Type")                      
                 }	    
 	    ]
 	    
