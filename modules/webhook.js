@@ -232,6 +232,7 @@ let handlePost = (req, res) => {
                      }); 
 		     
 		    if(payload[3] == 'Play Game'){
+			    sendMessage({text: `Click the ball and start playing !!`}, sender);  
 			    sendMessage({text: `🏀`}, sender);    
 		    }		    
 			 
