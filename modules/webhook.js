@@ -274,7 +274,7 @@ let handlePost = (req, res) => {
 		else if (payload[0] === "No_Enf"){ 
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   			  		         		          							
-			  sendMessage({text: `Preparing Receipt for you !!  ❤`}, sender);				
+			  sendMessage({text: `Preparing Receipt for you ❤️`}, sender);				
                           sendMessage(formatter.formatOrder(SelectedItems), sender);  // Hitendar		          			  					
                         });   
 		}
