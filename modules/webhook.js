@@ -41,7 +41,30 @@ let getUserInfo = (userId) => {
         });    
     });      
 };    
-             
+            
+
+function adddomain(){
+ request({
+    url: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json:{
+        setting_type : "domain_whitelisting",
+        "whitelisted_domains" : ["https://payumoney.com"],
+	"domain_action_type": "add"
+    }
+
+}, function(error, response, body) {
+    console.log(response)
+    if (error) {
+        console.log('Error sending messages: ', error)
+    } else if (response.body.error) {
+        console.log('Error: ', response.body.error)
+    }
+})
+
+}
+
 let processText = (text, sender)  => {                 
    let match1;
     match1 = text.match(/hi/i);
@@ -114,6 +137,8 @@ let handlePost = (req, res) => {
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);
+				
+				adddomain(); // Whitelist domain for payumoney URL
 				
 				sendMessage({attachment:{
                                         "type": "template",
@@ -255,6 +280,7 @@ let handlePost = (req, res) => {
 			console.log('Show Cart**' + payload[1] );
 			
 			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   
+				
                           console.log('Before Show Cart Formatting');
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
