@@ -254,7 +254,7 @@ let handlePost = (req, res) => {
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
 			
-			salesforce.findSubMenus(payload[1]).then(SelectedItems  => {   
+			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   
                           console.log('Before Show Cart Formatting');
                           //sendMessage(formatter.formatSubMenus(SubMenus,payload[3]), sender);  // Hitendar
                         });   
