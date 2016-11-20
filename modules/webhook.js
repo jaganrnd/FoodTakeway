@@ -134,7 +134,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"🎁 Show Cart.",
-                                                "payload":"No_Enf,"
+                                                "payload":"Show_Cart,"
                                               }
                                             ]
                                         }
@@ -245,6 +245,16 @@ let handlePost = (req, res) => {
 		     
                  } 
                  //Hitendar
+		else if (payload[0] === "Order_More"){ 
+			console.log('Order More**');
+		}	
+		else if (payload[0] === "No_Enf"){ 
+			console.log('No Enough**');
+		}
+		else if (payload[0] === "Show_Cart"){ 
+			console.log('Show Cart**');
+		}
+		
         }
     }    
     res.sendStatus(200);
