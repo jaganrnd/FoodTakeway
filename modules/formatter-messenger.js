@@ -203,7 +203,7 @@ let formatShowCart = (SelectedItems) => {
 		    "url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",	
                     "title":"Place Order",
 		    "webview_height_ratio": "full",	
-                     "messenger_extensions": true,                      
+                     //"messenger_extensions": true,                      
                 }
 	    
 	    ]
