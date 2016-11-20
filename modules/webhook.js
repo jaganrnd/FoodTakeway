@@ -136,9 +136,7 @@ let handlePost = (req, res) => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
-				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);
-				
-				adddomain(); // Whitelist domain for payumoney URL
+				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);								
 				
 				sendMessage({attachment:{
                                         "type": "template",
@@ -282,10 +280,13 @@ let handlePost = (req, res) => {
 			salesforce.findOpportunityLineItem(payload[1]).then(SelectedItems  => {   
 				
                           console.log('Before Show Cart Formatting');
+		         		
+			  adddomain(); // Whitelist domain for payumoney URL
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
                           sendMessage(formatter.formatShowCart(SelectedItems), sender);  // Hitendar
+				
                         });   
 			
 		}
