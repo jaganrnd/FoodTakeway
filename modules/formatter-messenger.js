@@ -225,10 +225,6 @@ let formatShowCart = (SelectedItems) => {
 let formatOrder = (SelectedItems) => {
     let elements = [];
     SelectedItems.forEach(opportunitylineitem   =>
-        
-	let name = JSON.stringify(opportunitylineitem.get("Opportunity").name);
-	let amount = JSON.stringify(opportunitylineitem.get("Opportunity").TotalAmount__c);
-	
         elements.push({
             "title":opportunitylineitem.get("product2").Name,
             "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("unitprice"),
@@ -243,7 +239,7 @@ let formatOrder = (SelectedItems) => {
             "type": "template",
             "payload": {
                 "template_type": "receipt",
-                "recipient_name": name,
+                "recipient_name": "HITU",
                 "order_number":"12345678902",
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
@@ -262,7 +258,7 @@ let formatOrder = (SelectedItems) => {
                     "subtotal":1500,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost": amount,
+                    "total_cost": 1250.00,
                  }
             }
         }
