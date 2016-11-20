@@ -130,7 +130,7 @@ let handlePost = (req, res) => {
                                               },
 					      {
                                                 "type":"postback",
-                                                "title":"👍 No- It`s enough (Place Order)",
+                                                "title":"👍 No- (Place Order)",
                                                 "payload":"No_Enf,"
                                               },	    
                                               {
