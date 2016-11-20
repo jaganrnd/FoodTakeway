@@ -134,7 +134,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"🎁 Show Cart.",
-                                                "payload":"Show_Cart,"
+                                                "payload":"Show_Cart," + opportunityId
                                               }
                                             ]
                                         }
@@ -252,7 +252,7 @@ let handlePost = (req, res) => {
 			console.log('No Enough**');
 		}
 		else if (payload[0] === "Show_Cart"){ 
-			console.log('Show Cart**');
+			console.log('Show Cart**' + payload[1] );
 		}
 		
         }
