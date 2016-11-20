@@ -230,6 +230,10 @@ let handlePost = (req, res) => {
                      salesforce.findOpenBranches(payload[1]).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts), sender);  
                      }); 
+		     
+		    if(payload[3] == 'Play Game'){
+			    sendMessage({text: `🏀`}, sender);    
+		    }		    
 			 
                  }
                  else if (payload[0] === "Main_Menu"){     
