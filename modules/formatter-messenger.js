@@ -155,24 +155,17 @@ let formatSubMenus= (SubMenus,Opporunity) => {
 };
 /* Hitendar */
 let formatQuantity= (SelectedMenu,Opportunity) => {
-    let elements = [];
-    
-    //Stringify the data that you want to pass as a payload	
-   
-    //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };
-    
-    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity };
-	
+    let elements = [];    
+    //Stringify the data that you want to pass as a payload	   
+    //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };    
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity };	
     var shouldSend = JSON.stringify(obj);
-    console.log( 'After Stringify**' +  shouldSend );
-    
+    console.log( 'After Stringify**' +  shouldSend );    
   /* //And then parse JSON string when you recieve the payload.
    var jsonContent  = JSON.parse(shouldSend);   
    console.log( 'Immediate After Parsing**' + jsonContent );	
    console.log( 'After Parsed Values**' + jsonContent.PrevMenuSelection );		
-   console.log( 'Incoming Product**' + jsonContent[0]);	*/	
-	
-	
+   console.log( 'Incoming Product**' + jsonContent[0]);	*/			
     for (var i = 1; i <= SelectedMenu[0].get("Quantity__c"); i++) {
 		elements.push({
 			"content_type":"text",
@@ -183,11 +176,9 @@ let formatQuantity= (SelectedMenu,Opportunity) => {
 	    	console.log('jus verification count loopthrough**' + shouldSend);
 	}
     return {
-
 	"text": "How many items of" + '<-->' + SelectedMenu[0].get("Product__r").Name + '<-->' + "do you need?",    
          "quick_replies": elements
-    };  
-	
+    };  	
 };
 /* Hitendar */
 
