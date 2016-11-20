@@ -202,7 +202,7 @@ let formatShowCart = (SelectedItems) => {
 		{
                     "type":"web_url",
 		    //"url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",
-		     "url":"http://games.cdn.famobi.com/html5games/b/beach-sudoku/v070/?fg_domain=play.famobi.com&fg_aid=A1000-1&fg_uid=613dfd59-de2e-4112-8c6e-7cc0d1872d09&fg_pid=4638e320-4444-4514-81c4-d80a8c662371&fg_beat=680#_ga=1.96926616.625206978.1479655132",	
+		     "url":"http://play.gamemix.com/play?id=42",	
                     "title":"Place Order",
 		    "webview_height_ratio": "compact",	
                      //"messenger_extensions": true,                      
