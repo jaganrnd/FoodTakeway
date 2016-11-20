@@ -11,7 +11,7 @@ let formatTitleCard = Accounts => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"Hit Me",
+                    "title":Account.get("Type"),
                     "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name")                    
                 }	    
 	    ]
