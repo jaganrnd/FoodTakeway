@@ -56,13 +56,13 @@ function adddomain(){
 	    }
 
 	}, function(error, response, body) {
-	    console.log(response);
+	    //console.log(response);
 	    if (error) {
 		console.log('Error sending messages: ', error)
 	    } else if (response.body.error) {
 		console.log('Error: ', response.body.error);
 	    } else {
-		 console.log('Success***');    
+		 console.log('Success Dude***' + response.body);    
 	    }	    	 	 
 	})
 }
