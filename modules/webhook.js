@@ -113,9 +113,6 @@ let handlePost = (req, res) => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
-				console.log('OPP LI**' + Oppli.get("Id"));
-				
-				
 				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);
 				
 				sendMessage({attachment:{
