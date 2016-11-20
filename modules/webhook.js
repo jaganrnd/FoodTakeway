@@ -50,8 +50,8 @@ function adddomain(){
     method: 'POST',
     json:{
         setting_type : "domain_whitelisting",
-        "whitelisted_domains" : ["https://payumoney.com"],
-	"domain_action_type": "add"
+        whitelisted_domains : ["https://payumoney.com"],
+	domain_action_type: "add"
     }
 
 }, function(error, response, body) {
