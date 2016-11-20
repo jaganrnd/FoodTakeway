@@ -223,10 +223,14 @@ let handlePost = (req, res) => {
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
+			 
                      console.log('payload[1]' + payload[1]);
+		     console.log('payload[3]' + payload[3]);
+			 
                      salesforce.findOpenBranches(payload[1]).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts), sender);  
-                     });                                                                
+                     }); 
+			 
                  }
                  else if (payload[0] === "Main_Menu"){     
                      console.log('Selected branch will show their available menus' + payload[1]);  
