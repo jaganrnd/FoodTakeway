@@ -188,7 +188,7 @@ let formatShowCart = (SelectedItems) => {
         elements.push({
             "title": opportunitylineitem.get("product2").Name,
             "subtitle": "Quantity" +  opportunitylineitem.get("quantity ") + "," + "Price" + opportunitylineitem.get("unitprice"),
-            "image_url": opportunitylineitem.get("Product__r").PICURL__c,
+            "image_url": opportunitylineitem.get("product2").PICURL__c,
             "buttons": [
                 {
                     "type":"postback",
