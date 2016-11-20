@@ -285,7 +285,7 @@ let handlePost = (req, res) => {
 		         
 			  if(payload[1] !=NULL){	
 				  adddomain(); // Whitelist domain for payumoney URL
-				  break
+				  break;
 			  }
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
