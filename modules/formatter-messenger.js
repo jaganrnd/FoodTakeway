@@ -182,6 +182,32 @@ let formatQuantity= (SelectedMenu,Opportunity) => {
 };
 /* Hitendar */
 
+let formatShowCart = (SelectedItems) => {
+  let elements = [];
+    SelectedItems.forEach(opportunitylineitem  =>
+        elements.push({
+            "title": opportunitylineitem.get("product2").Name,
+            "subtitle": "Quantity" +  opportunitylineitem.get("quantity "),"Price" + opportunitylineitem.get("unitprice"),
+            "image_url": opportunitylineitem.get("Product__r").PICURL__c,
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"Change Quantity"
+                    "payload": "Change_Quantity,"  +  opportunitylineitem.get("Id")
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
