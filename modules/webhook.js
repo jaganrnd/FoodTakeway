@@ -115,7 +115,7 @@ let handlePost = (req, res) => {
 				//console.log('OPP LI**' + Oppli);
 				
 				
-				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
+				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);
 				
 				sendMessage({attachment:{
                                         "type": "template",
@@ -130,7 +130,7 @@ let handlePost = (req, res) => {
                                               },
 					      {
                                                 "type":"postback",
-                                                "title":"👍 No- It`s enough.",
+                                                "title":"👍 No- It`s enough (Place Order)",
                                                 "payload":"No_Enf,"
                                               },	    
                                               {
