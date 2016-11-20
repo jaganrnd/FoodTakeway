@@ -242,7 +242,7 @@ let findOpportunityLineItem = (OpptyId) => {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
 		    
-                console.log('Sub Menus count' + resp.records.length);
+                console.log('Show Cart count' + resp.records.length);
                 
 		let SelectedItems = resp.records;
                 resolve(SelectedItems);
