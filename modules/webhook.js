@@ -167,51 +167,7 @@ let handlePost = (req, res) => {
                                     }
                             }, sender);
 			}/*
-				//Newly Added For List Template...				
-				 sendMessage({attachment:{					 
-						    "type": "template",
-						    "payload":  {
-							    "template_type": "list",
-							    "elements": [
-								{
-								    "title": "Classic T-Shirt Collection",
-								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view?usp=sharing",
-								    "subtitle": "See all our colors",
-								    "buttons": [
-									{
-									    "type":"postback",
-									    "title":"Start Chatting",
-									    "payload":"USER_DEFINED_PAYLOAD"
-									}
-								    ]
-								},
-								{
-								    "title": "Classic White T-Shirt",
-								    "image_url": "https://drive.google.com/file/d/0B1xCaFoqRKpBNThXN25QMmh3bDg/view?usp=sharing",
-								    "subtitle": "100% Cotton, 200% Comfortable",
-								    "buttons": [
-									{
-									    "type":"postback",
-									    "title":"Start Chatting",
-									    "payload":"USER_DEFINED_PAYLOAD"
-									}
-								    ]                
-								}
-							    ],
-							     "buttons": [
-								{
-								    "title": "View More",
-								    "type": "postback",
-								    "payload": "payload"                        
-								}
-							    ]  
-							}
-					 
-						}
-				  }, sender);							
-				//Newly Added For List Template...*/
-				
-			
+											
 			
 		}	
 		
