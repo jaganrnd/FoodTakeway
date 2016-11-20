@@ -231,7 +231,7 @@ let findOpportunityLineItem = (OpptyId) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,unitprice ,quantity from opportunitylineitem where opportunityid = '" + OpptyId + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + OpptyId + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
