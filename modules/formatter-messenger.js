@@ -239,7 +239,7 @@ let formatOrder = (SelectedItems) => {
             "type": "template",
             "payload": {
                 "template_type": "receipt",
-                "recipient_name":"JAGU",
+                "recipient_name":opportunitylineitem.get("Opportunity").Name,
                 "order_number":"12345678902",
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
@@ -258,7 +258,7 @@ let formatOrder = (SelectedItems) => {
                     "subtotal":1500,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost":1511
+                    "total_cost":opportunitylineitem.get("TotalAmount__c"),
                  }
             }
         }
