@@ -192,7 +192,7 @@ let formatShowCart = (SelectedItems) => {
             "buttons": [
                 {
                     "type":"postback",
-                    "title":"Change Quantity"
+                    "title":"Change Quantity",
                     "payload": "Change_Quantity,"  +  opportunitylineitem.getId()
                     
                 }]
