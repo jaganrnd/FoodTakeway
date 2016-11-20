@@ -121,7 +121,7 @@ let handlePost = (req, res) => {
                                         "type": "template",
                                         "payload": {
                                             "template_type":"button",
-                                            "text":"Would you like to order some more items from this shop?",
+                                            "text":"Would you like to order some more food items?",
                                             "buttons":[
                                               {
                                                 "type":"postback",
