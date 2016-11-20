@@ -222,6 +222,49 @@ let formatShowCart = (SelectedItems) => {
     };
 };
 
+let formatOrder = (SelectedItems) => {
+    let elements = [];
+    SelectedItems.forEach(opportunitylineitem   =>
+        elements.push({
+            "title":opportunitylineitem.get("product2").Name,
+            "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("unitprice"),
+            "quantity": opportunitylineitem.get("quantity"),
+            "price": opportunitylineitem.get("unitprice"),
+            "currency":"INR",
+            "image_url": opportunitylineitem.get("product2").PICURL__c,
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "receipt",
+                "recipient_name":"JAGU",
+                "order_number":"12345678902",
+                "currency":"INR",
+                "payment_method":"Visa 2345",        
+                "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+                "timestamp":"1428444852", 
+                "elements": elements,
+                "address":{
+                    "street_1":"1 Hacker Way",
+                    "street_2":"",
+                    "city":"Menlo Park",
+                    "postal_code":"94025",
+                    "state":"CA",
+                    "country":"US"
+                },
+                "summary":{
+                    "subtotal":1500,
+                    "shipping_cost":4.95,
+                    "total_tax":6.19,
+                    "total_cost":1511
+                 }
+            }
+        }
+    };
+};
+
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
@@ -229,3 +272,4 @@ exports.formatMainMenus = formatMainMenus;
 exports.formatSubMenus = formatSubMenus;
 exports.formatQuantity = formatQuantity;
 exports.formatShowCart = formatShowCart;
+exports.formatOrder = formatOrder;
