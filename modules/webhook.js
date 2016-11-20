@@ -166,7 +166,7 @@ let handlePost = (req, res) => {
                                         }
                                     }
                             }, sender);
-			}/*
+			}*/
 											
 			
 		}	
