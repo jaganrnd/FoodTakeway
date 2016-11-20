@@ -62,7 +62,7 @@ function adddomain(){
 	    } else if (response.body.error) {
 		console.log('Error: ', response.body.error);
 	    } else {
-		 console.log('Success Dude***' + response.body);    
+		 console.log('Success Dude***' + response);    
 	    }	    	 	 
 	})
 }
