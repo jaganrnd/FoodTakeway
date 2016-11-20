@@ -193,7 +193,7 @@ let formatShowCart = (SelectedItems) => {
                 {
                     "type":"postback",
                     "title":"Change Quantity"
-                    "payload": "Change_Quantity,"  +  opportunitylineitem.get("Id")
+                    "payload": "Change_Quantity,"  +  opportunitylineitem.getId()
                     
                 }]
         })
