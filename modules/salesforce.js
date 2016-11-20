@@ -226,6 +226,34 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
     });		
 };
 
+let findOpportunityLineItem = (OpptyId) => {
+	
+    return new Promise((resolve, reject) => {
+
+        let q = "SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '" + OpptyId + "'";                 
+        //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
+        
+        console.log('Find Opportunity Line Item**' + q);
+	    
+        org.query({query: q}, (err, resp) => {
+		
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+		    
+                console.log('Sub Menus count' + resp.records.length);
+                
+		let SelectedItems = resp.records;
+                resolve(SelectedItems);
+		    
+            }
+		
+        });
+	    
+    });
+	
+};
 
 
 
