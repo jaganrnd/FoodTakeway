@@ -55,11 +55,11 @@ function adddomain(){
     }
 
 }, function(error, response, body) {
-    console.log(response)
+    console.log(response);
     if (error) {
         console.log('Error sending messages: ', error)
     } else if (response.body.error) {
-        console.log('Error: ', response.body.error)
+        console.log('Error: ', response.body.error);
     }
 })
 
@@ -282,7 +282,8 @@ let handlePost = (req, res) => {
                           console.log('Before Show Cart Formatting');
 		         		
 			  adddomain(); // Whitelist domain for payumoney URL
-				
+			  break
+			  
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
                           sendMessage(formatter.formatShowCart(SelectedItems), sender);  // Hitendar
