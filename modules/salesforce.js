@@ -313,7 +313,7 @@ let getSelectedMenuFromOli = (Oli, accountId) => {
                 console.log('ERROR');
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
-		let q2 = "SELECT id from Menu__c where Account__c = '" + accountId + "' and product__c = '" + resp.records[0].get("product2Id") + "'";  
+		let q2 = "SELECT Account__c,Id,name,Product__c,Product__r.name,Product__r.PICURL__c,product__r.description,Available__c,Product__r.Main_Product__c, Quantity__c, Price__c from Menu__c where Account__c = '" + accountId + "' and product__c = '" + resp.records[0].get("product2Id") + "'";  
                 console.log('Menu Query***' + q2);
                 org.query({query: q}, (err, resp) => {
 			if (err) {
