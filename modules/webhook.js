@@ -68,7 +68,7 @@ function adddomain(){
 let processText = (text, sender)  => {                 
    let match1;
     match1 = text.match(/hi/i);
-    if (true) {
+    if (match1) {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
                       `Hey ${response.first_name} !
@@ -143,7 +143,7 @@ let handlePost = (req, res) => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
-				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. ?? `}, sender);								
+				sendMessage({text: `Your menu and quanitiy selection has been added to the cart .. 📝 `}, sender);								
 				
 				sendMessage({attachment:{
                                         "type": "template",
@@ -153,17 +153,17 @@ let handlePost = (req, res) => {
                                             "buttons":[
                                               {
                                                 "type":"postback",
-                                                "title":"?? Yes",
+                                                "title":"👆 Yes",
                                                 "payload":"Main_Menu," + accountId + "," + opportunityId
                                               },
 					      {
                                                 "type":"postback",
-                                                "title":"?? No- (Place Order)",
+                                                "title":"👍 No- (Place Order)",
                                                 "payload":"No_Enf," + opportunityId
                                               },	    
                                               {
                                                 "type":"postback",
-                                                "title":"?? Show Cart.",
+                                                "title":"🎁 Show Cart.",
                                                 "payload":"Show_Cart," + opportunityId +  "," + accountId
                                               }
                                             ]
@@ -173,6 +173,30 @@ let handlePost = (req, res) => {
 					
 				
 			 });
+			
+		        /*if(event.message.text != 'hi'){
+				sendMessage({text: `Your menu and quanitiy selection has been added to the cart !!`}, sender);
+				sendMessage({attachment:{
+                                        "type": "template",
+                                        "payload": {
+                                            "template_type":"button",
+                                            "text":"Would you like to order some more items from this shop?",
+                                            "buttons":[
+                                              {
+                                                "type":"postback",
+                                                "title":"Yes",
+                                                "payload":"Order_More," + payload[3]
+                                              },
+                                              {
+                                                "type":"postback",
+                                                "title":"No- It`s enough.",
+                                                "payload":"No_Enf,"
+                                              }
+                                            ]
+                                        }
+                                    }
+                            }, sender);
+			}*/
 											
 			
 		}	
@@ -216,7 +240,7 @@ let handlePost = (req, res) => {
 		     
 		    if(payload[3] == 'Play Game'){
 			    sendMessage({text: `Click the ball and start playing !!`}, sender);  
-			    sendMessage({text: `??`}, sender);    
+			    sendMessage({text: `🏀`}, sender);    
 		    }		    
 			 
                  }
@@ -292,7 +316,7 @@ let handlePost = (req, res) => {
 		         
 		          			
 				
-			  sendMessage({text: `Here is your cart  ??`}, sender);
+			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
                           sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
 		          
@@ -306,7 +330,7 @@ let handlePost = (req, res) => {
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
 			  sendMessage({text: `Preparing Receipt for you `}, sender);				  
                           sendMessage(formatter.formatOrder(SelectedItems), sender);  // Hitendar		          			  					
-			  sendMessage({text: `??`}, sender);			
+			  sendMessage({text: `❤️`}, sender);			
                         });   
 		}
 		else if (payload[0] === "Show_Cart"){ 
@@ -320,7 +344,7 @@ let handlePost = (req, res) => {
 		         
 		          			
 				
-			  sendMessage({text: `Here is your cart  ??`}, sender);
+			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
                           sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
 		          
