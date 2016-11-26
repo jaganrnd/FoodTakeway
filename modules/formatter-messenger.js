@@ -205,6 +205,7 @@ let formatShowCart = (SelectedItems, accountId) => {
                     "payload": "Remove,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + accountId
                    
                 },
+		/*
 		{
                     "type":"postback",
                     "title":"Add More Items",
@@ -217,6 +218,12 @@ let formatShowCart = (SelectedItems, accountId) => {
                     "title":"Place Order",
 		    "webview_height_ratio": "compact",	
                      //"messenger_extensions": true,                      
+                }
+		*/
+		 {
+		    "type":"postback",
+                    "title":"Place Order",	
+		    "payload":"No_Enf," + opportunitylineitem.get("opportunityid")
                 }
 	    
 	    ]
