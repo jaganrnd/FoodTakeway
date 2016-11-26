@@ -244,7 +244,7 @@ let handlePost = (req, res) => {
 		      getUserInfo(sender).then(response => {         
 			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1]).then(Opportunity => {    
 			       newOpp = Opportunity;
-			       console.log('created opportunitity '+newOpp);
+			       console.log('created opportunitity '+newOpp.get("Id"));
 			       //Hitendar
 				      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
@@ -269,7 +269,7 @@ let handlePost = (req, res) => {
 	 	else if (payload[0] === "Quantity"){                          
                      console.log('Origin Branch - payload [1]**' + payload[1]);    		     
 		     console.log('Origin Branch - payload [2]**' + payload[2]);    		     
-		     console.dir('Origin Branch - payload [2]**' + payload[2]);    		     
+		     console.dir('Origin Branch - payload [2]**' + payload[2].get("Id"));    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
                           sendMessage(formatter.formatQuantity(SelectedMenu,payload[2]), sender);  // Hitendar			  
