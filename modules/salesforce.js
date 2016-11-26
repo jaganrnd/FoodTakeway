@@ -349,6 +349,7 @@ let removeOLI = (OliId) => {
                 reject("An error as occurred");
             } else {
 		console.log('Line item deleted');  
+		resolve(OLI);
             }
 		
         });
