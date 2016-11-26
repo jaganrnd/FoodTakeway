@@ -132,10 +132,13 @@ let handlePost = (req, res) => {
 			
 			var accountId = quickpayload1.AccountId;
 			console.log('Quick Reply Payload AccId**' + accountId); 
+			
+			var OLIId = quickpayload1.OLIId;
+			console.log('Quick Reply Payload OLIId**' + OLIId); 
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId).then(PriceBookId => {
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId,OLIId).then(PriceBookId => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
@@ -292,7 +295,14 @@ let handlePost = (req, res) => {
                  //Hitendar
 		else if (payload[0] === "Order_More"){ 
 			console.log('Order More**');
-		}	
+		}
+		else if (payload[0] === "Change_Quantity"){ 
+			console.log('Change Quantity**');
+			salesforce.getSelectedMenuFromOli(payload[1],payload[3]).then(SelectedMenu => {   
+                          console.log('Going inside quantity');
+                          sendMessage(formatter.formatQuantity(SelectedMenu,payload[2],payload[3],payload[1]), sender);  // Hitendar			  
+                     }); 
+		}
 		else if (payload[0] === "No_Enf"){ 
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
