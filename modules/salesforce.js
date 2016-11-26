@@ -193,12 +193,12 @@ let getSelectedMenu = (selectedMenuId) => {
 
 
 
-let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
+let createOpportunityProduct = (ProductId, Price, Quantity, Opportunity) => {
 
     console.log('prod id*' + ProductId);
     console.log('Price*' + Price);
     console.log('Quantity*' + Quantity);
-    console.log('OpportunityId*' + OpportunityId);	
+    console.log('OpportunityId*' + Opportunity);	
 	
     return new Promise((resolve, reject) => {
 	    	
@@ -222,7 +222,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
 			console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
 			//Create OpportunityLineItem    
 			let Oppli = nforce.createSObject('OpportunityLineItem');
-			Oppli.set('OpportunityId', OpportunityId);
+			Oppli.set('OpportunityId', Opportunity.get("Id"));
 			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 			Oppli.set('Quantity', Quantity);
 			//Oppli.set('UnitPrice', Price);  //HITU MAMA
@@ -248,11 +248,11 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
     });		
 };
 
-let findOpportunityLineItem = (OpptyId) => {
+let findOpportunityLineItem = (Oppty) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + OpptyId + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty.get("Id") + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
