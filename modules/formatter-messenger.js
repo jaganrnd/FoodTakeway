@@ -199,6 +199,12 @@ let formatShowCart = (SelectedItems, accountId) => {
                     "payload": "Change_Quantity,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + accountId
                    
                 },
+	        {
+                    "type":"postback",
+                    "title":"Remove",
+                    "payload": "Remove,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + accountId
+                   
+                },
 		{
                     "type":"web_url",
 		    "url":"https://www.payumoney.com/pay/#/merchant/367CEAEDF82D367BD2D99C2A064FC7A7?param=Kolapasi",	
