@@ -335,6 +335,27 @@ let getSelectedMenuFromOli = (Oli, accountId) => {
 	
 };
 
+let removeOLI = (OliId) => {
+	
+    return new Promise((resolve, reject) => {
+
+        let OLI = nforce.createSObject('OpportunityLineItem');
+		OLI.set('Id', OliId);
+	
+        org.delete({sobject: OLI}, err => {
+		
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else {
+		console.log('Line item deleted');  
+            }
+		
+        });
+	    
+    });
+	
+};
 
 
 login();
@@ -349,3 +370,4 @@ exports.getSelectedMenu = getSelectedMenu;
 exports.createOpportunityProduct = createOpportunityProduct;
 exports.findOpportunityLineItem = findOpportunityLineItem;
 exports.getSelectedMenuFromOli = getSelectedMenuFromOli;
+exports.removeOLI = removeOLI;
