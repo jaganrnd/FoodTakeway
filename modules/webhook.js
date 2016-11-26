@@ -129,6 +129,9 @@ let handlePost = (req, res) => {
 			
 			var opportunityId = quickpayload1.OpportunityId;
 			console.log('Quick Reply Payload OppId**' + opportunityId); 
+			
+			var accountId = quickpayload1.AccountId;
+			console.log('Quick Reply Payload AccId**' + accountId); 
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
@@ -147,7 +150,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"👆 Yes",
-                                                "payload":"Order_More,"
+                                                "payload":"Main_Menu," + accountId + "," + opportunityId
                                               },
 					      {
                                                 "type":"postback",
@@ -241,16 +244,26 @@ let handlePost = (req, res) => {
                      console.log('Selected branch will show their available menus' + payload[1]);  
 		     var newOpp;
 		      //Hitendar
-		      getUserInfo(sender).then(response => {         
+		      getUserInfo(sender).then(response => {    
+			  console.log('Existin opp ****'+payload[2]);
+			  if(payload[2] == null || payload[2] == ''){
 			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1]).then(Opportunity => {    
 			       newOpp = Opportunity;
 			       console.log('created opportunitity '+newOpp);
 			       //Hitendar
 				      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
-					  sendMessage(formatter.formatMainMenus(MainMenus,newOpp), sender);  
+					  sendMessage(formatter.formatMainMenus(MainMenus,newOpp,payload[1]), sender);  
 				     }); 
 			       }); 
+			  }
+			  else{
+				  console.log('Existing opportunitity '+payload[2]);
+				  salesforce.findMainMenus(payload[1]).then(MainMenus => {   
+					  console.log('Going inside main menus');
+					  sendMessage(formatter.formatMainMenus(MainMenus,payload[2],payload[1]), sender);  
+				     });
+			  }
 		      });
 		         
                  }else if (payload[0] === "Sub_Menu"){     
@@ -261,7 +274,7 @@ let handlePost = (req, res) => {
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
-                          sendMessage(formatter.formatSubMenus(SubMenus,payload[3]), sender);  // Hitendar
+                          sendMessage(formatter.formatSubMenus(SubMenus,payload[3],payload[4]), sender);  // Hitendar
                      });   
                      
                  } 
@@ -272,7 +285,7 @@ let handlePost = (req, res) => {
 		     console.dir('Origin Branch - payload [2]**' + payload[2]);    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
-                          sendMessage(formatter.formatQuantity(SelectedMenu,payload[2]), sender);  // Hitendar			  
+                          sendMessage(formatter.formatQuantity(SelectedMenu,payload[2],payload[3]), sender);  // Hitendar			  
                      }); 
 		     
                  } 
