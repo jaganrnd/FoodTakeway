@@ -198,7 +198,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
     console.log('prod id*' + ProductId);
     console.log('Price*' + Price);
     console.log('Quantity*' + Quantity);
-    console.log('OpportunityId*' + Opportunity);	
+    console.log('OpportunityId*' + OpportunityId);	
 	
     return new Promise((resolve, reject) => {
 	    	
