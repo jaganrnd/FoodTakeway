@@ -113,7 +113,7 @@ let createOpportunity = (firstName, lastName, userId, accountId) => {
 			reject("An error occurred while creating a Opportunity");
 		}
 		console.error('Opportunity Created***'+opp.get("Id"));
-		resolve(opp);
+		resolve(opp.get("Id"));
 	});
         });
 	
@@ -193,7 +193,7 @@ let getSelectedMenu = (selectedMenuId) => {
 
 
 
-let createOpportunityProduct = (ProductId, Price, Quantity, Opportunity) => {
+let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
 
     console.log('prod id*' + ProductId);
     console.log('Price*' + Price);
@@ -222,7 +222,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity, Opportunity) => {
 			console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
 			//Create OpportunityLineItem    
 			let Oppli = nforce.createSObject('OpportunityLineItem');
-			Oppli.set('OpportunityId', Opportunity.get("Id"));
+			Oppli.set('OpportunityId', OpportunityId);
 			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 			Oppli.set('Quantity', Quantity);
 			//Oppli.set('UnitPrice', Price);  //HITU MAMA
@@ -252,7 +252,7 @@ let findOpportunityLineItem = (Oppty) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty.get("Id") + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
