@@ -307,7 +307,21 @@ let handlePost = (req, res) => {
 			console.log('Remove Cart**');
 			salesforce.removeOLI(payload[1]).then(SelectedMenu => {   
                           console.log('OLI Removed*');
-                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar			  
+                          salesforce.findOpportunityLineItem(payload[2]).then(SelectedItems  => {   
+			  
+			  adddomain(); // Whitelist domain for payumoney URL	
+				
+                          console.log('Before Show Cart Formatting');
+		         
+		          			
+				
+			  sendMessage({text: `Here is your cart  🍜`}, sender);
+				
+                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+		          
+			  	
+				
+                        });   			  
                      }); 
 		}
 		else if (payload[0] === "No_Enf"){ 
