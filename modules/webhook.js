@@ -127,12 +127,12 @@ let handlePost = (req, res) => {
 			var Price = quickpayload1.Price;
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
-			var opportunity = quickpayload1.OpportunityId;
-			console.log('Quick Reply Payload OppId**' + opportunity); 
+			var opportunityId = quickpayload1.OpportunityId;
+			console.log('Quick Reply Payload OppId**' + opportunityId); 
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunity).then(PriceBookId => {
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId).then(PriceBookId => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
@@ -152,12 +152,12 @@ let handlePost = (req, res) => {
 					      {
                                                 "type":"postback",
                                                 "title":"👍 No- (Place Order)",
-                                                "payload":"No_Enf," + opportunity
+                                                "payload":"No_Enf," + opportunityId
                                               },	    
                                               {
                                                 "type":"postback",
                                                 "title":"🎁 Show Cart.",
-                                                "payload":"Show_Cart," + opportunity
+                                                "payload":"Show_Cart," + opportunityId
                                               }
                                             ]
                                         }
@@ -244,7 +244,7 @@ let handlePost = (req, res) => {
 		      getUserInfo(sender).then(response => {         
 			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1]).then(Opportunity => {    
 			       newOpp = Opportunity;
-			       console.log('created opportunitity '+newOpp.get("Id"));
+			       console.log('created opportunitity '+newOpp);
 			       //Hitendar
 				      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
@@ -257,7 +257,7 @@ let handlePost = (req, res) => {
                      
                      console.log('Origin Branch - payload [1]**' + payload[1]);    
                      console.log('Origin parent product - payload [2]**' + payload[2]); 
-                     console.log('Opportunity - Payload[3]'+payload[3].get("Id"));
+                     console.log('Opportunity - Payload[3]'+payload[3]);
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
@@ -269,7 +269,7 @@ let handlePost = (req, res) => {
 	 	else if (payload[0] === "Quantity"){                          
                      console.log('Origin Branch - payload [1]**' + payload[1]);    		     
 		     console.log('Origin Branch - payload [2]**' + payload[2]);    		     
-		     console.dir('Origin Branch - payload [2]**' + payload[2].get("Id"));    		     
+		     console.dir('Origin Branch - payload [2]**' + payload[2]);    		     
                      salesforce.getSelectedMenu(payload[1]).then(SelectedMenu => {   
                           console.log('Going inside quantity');
                           sendMessage(formatter.formatQuantity(SelectedMenu,payload[2]), sender);  // Hitendar			  
