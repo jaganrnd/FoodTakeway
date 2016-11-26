@@ -193,7 +193,7 @@ let getSelectedMenu = (selectedMenuId) => {
 
 
 
-let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
+let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId, OLIId) => {
 
     console.log('prod id*' + ProductId);
     console.log('Price*' + Price);
@@ -201,50 +201,58 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
     console.log('OpportunityId*' + OpportunityId);	
 	
     return new Promise((resolve, reject) => {
-	    	
-	       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id = '" + ProductId + "' AND  PriceBook2.isStandard= true LIMIT 1";    
-	       console.log('PriceBookEntryId Query**' + q);
-	    
-	       org.query({query: q}, (err, resp) => {
-		    if (err) {
-			console.log('ERROR');
-			reject("An error as occurred");
-		    } else if (resp.records && resp.records.length>0) {			
-			    
-			console.log('PriceBookEntry Id Count' + resp.records.length);  
-			    
-			let PriceBookEntryId = JSON.stringify(resp.records);
-			    
-			console.log('price book entry id stringify*' +    PriceBookEntryId );
-			    
-			console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
-			
-			console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
-			//Create OpportunityLineItem    
-			let Oppli = nforce.createSObject('OpportunityLineItem');
-			Oppli.set('OpportunityId', OpportunityId);
-			Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
-			Oppli.set('Quantity', Quantity);
-			//Oppli.set('UnitPrice', Price);  //HITU MAMA
-			Oppli.set('UnitPrice', Quantity * Price);    			    
-			org.insert({sobject: Oppli}, err => {
+	       if(OLIId == null || OLIId == ''){
+		       let q = "SELECT Id,PriceBook2.isStandard, Product2Id, Product2.Id, Product2.Name FROM PriceBookEntry WHERE Product2Id = '" + ProductId + "' AND  PriceBook2.isStandard= true LIMIT 1";    
+		       console.log('PriceBookEntryId Query**' + q);
+
+		       org.query({query: q}, (err, resp) => {
 			    if (err) {
-				console.error(err);
-				reject("An error occurred while creating a Contact");
-			    } else {
-				console.log('opportunity line item Created '+Oppli.get("Id"));
+				console.log('ERROR');
+				reject("An error as occurred");
+			    } else if (resp.records && resp.records.length>0) {			
+
+				console.log('PriceBookEntry Id Count' + resp.records.length);  
+
+				let PriceBookEntryId = JSON.stringify(resp.records);
+
+				console.log('price book entry id stringify*' +    PriceBookEntryId );
+
+				console.log('price book entry id stringify*' +    resolve(PriceBookEntryId) );    
+
+				console.log('price book entry id separate value*' +   resp.records[0].get("Id"));	    
+				//Create OpportunityLineItem    
+				let Oppli = nforce.createSObject('OpportunityLineItem');
+				Oppli.set('OpportunityId', OpportunityId);
+				Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
+				Oppli.set('Quantity', Quantity);
+				//Oppli.set('UnitPrice', Price);  //HITU MAMA
+				Oppli.set('UnitPrice', Quantity * Price);    			    
+				org.insert({sobject: Oppli}, err => {
+				    if (err) {
+					console.error(err);
+					reject("An error occurred while creating a Contact");
+				    } else {
+					console.log('opportunity line item Created '+Oppli.get("Id"));
+				    }
+				});
+				resolve(Oppli);			    
 			    }
 			});
-			resolve(Oppli);			    
+	       }
+	    else{
+	    	let Oppli = nforce.createSObject('OpportunityLineItem');
+		Oppli.set('Id', OLIId);
+		Oppli.set('Quantity', Quantity);
+		org.update({sobject: Oppli}, err => {
+		    if (err) {
+			console.error(err);
+			reject("An error occurred while creating a Contact");
+		    } else {
+			console.log('opportunity line item updated '+Oppli.get("Id"));
 		    }
-		});	    
-                /*	    
-	        //Create OpportunityLineItem    
-		let Oppli = nforce.createSObject('OpportunityLineItem');
-		Oppli.set('OpportunityId', '0062800000EjlE2');
-		Oppli.set('PricebookEntryId', lastName);	    
-		Oppli.set('quantity ', 'Quantity');
-	        Oppli.set('unitprice ', 'Price');*/	    
+		});
+		resolve(Oppli);			    
+	    }
     });		
 };
 
@@ -252,7 +260,7 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.AccountId,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
@@ -290,6 +298,41 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	
 };
 
+let getSelectedMenuFromOli = (Oli, accountId) => {
+	
+    return new Promise((resolve, reject) => {
+
+        let q = "SELECT Id,product2Id from opportunitylineitem where opportunityid = '" + Oli + "'";                 
+        //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
+        
+        console.log('Find Opportunity Line Item**' + q);
+	
+        org.query({query: q}, (err, resp) => {
+		
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+		let q2 = "SELECT id from Menu__c where Account__c = '" + accountId + "' and product__c = '" + resp.records[0].product2Id + "'";  
+                console.log('Menu Query***' + q2);
+                org.query({query: q}, (err, resp) => {
+			if (err) {
+				console.log('ERROR');
+				reject("An error as occurred");
+			    }
+			else if (resp.records && resp.records.length>0) {
+				let SelectedItems = resp.records;
+				resolve(SelectedItems);
+			}
+		});
+		    
+            }
+		
+        });
+	    
+    });
+	
+};
 
 
 
