@@ -82,9 +82,7 @@ let createOpportunity = (firstName, lastName, userId) => {
 		contactId = resp.records[0].get("Id");
 		console.log('Contact ID***' + contactId);
             }
-        });
-	console.log('Contact ID****' + contactId);
-	if(contactId == null || contactId == ''){ 
+	       if(contactId == null || contactId == ''){ 
 		//Create Contact    
 		let con = nforce.createSObject('Contact');
 		con.set('firstName', firstName);
@@ -116,6 +114,8 @@ let createOpportunity = (firstName, lastName, userId) => {
 		console.error('Opportunity Created***'+opp.get("Id"));
 		resolve(opp.get("Id"));
 	});
+        });
+	
 				
             
         
@@ -140,6 +140,7 @@ let findMainMenus = subaccountid => {
                 let MainMenus = resp.records;
                 resolve(MainMenus);
             }
+	       
         });
     });
 };
