@@ -331,10 +331,8 @@ let handlePost = (req, res) => {
 		}
 		
         }
-	else{
-			console.log('Normal Flow**');	
-			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
-		}
+	console.log('Normal Flow**');	
+	processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
     }    
     res.sendStatus(200);
 };
