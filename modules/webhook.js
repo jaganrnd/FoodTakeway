@@ -303,6 +303,13 @@ let handlePost = (req, res) => {
                           sendMessage(formatter.formatQuantity(SelectedMenu,payload[2],payload[3],payload[1]), sender);  // Hitendar			  
                      }); 
 		}
+		else if (payload[0] == "Remove"){
+			console.log('Remove Cart**');
+			salesforce.removeOLI(payload[1]).then(SelectedMenu => {   
+                          console.log('OLI Removed*');
+                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar			  
+                     }); 
+		}
 		else if (payload[0] === "No_Enf"){ 
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
