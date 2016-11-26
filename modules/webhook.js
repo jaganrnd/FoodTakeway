@@ -127,12 +127,12 @@ let handlePost = (req, res) => {
 			var Price = quickpayload1.Price;
 			console.log('Quick Reply Payload PRICE**' + Price); 
 			
-			var opportunityId = quickpayload1.OpportunityId;
+			var opportunity = quickpayload1.OpportunityId;
 			console.log('Quick Reply Payload OppId**' + opportunityId); 
 		
 			//salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity);
 			
-			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunityId).then(PriceBookId => {
+			salesforce.createOpportunityProduct(prevProduct,Price,SelectedQuantity,opportunity).then(PriceBookId => {
 				
 				//console.log('PriceBookId paaaah' + PriceBookId);
 				
@@ -152,12 +152,12 @@ let handlePost = (req, res) => {
 					      {
                                                 "type":"postback",
                                                 "title":"👍 No- (Place Order)",
-                                                "payload":"No_Enf," + opportunityId
+                                                "payload":"No_Enf," + opportunity
                                               },	    
                                               {
                                                 "type":"postback",
                                                 "title":"🎁 Show Cart.",
-                                                "payload":"Show_Cart," + opportunityId
+                                                "payload":"Show_Cart," + opportunity
                                               }
                                             ]
                                         }
@@ -242,7 +242,7 @@ let handlePost = (req, res) => {
 		     var newOpp;
 		      //Hitendar
 		      getUserInfo(sender).then(response => {         
-			       salesforce.createOpportunity(response.first_name,response.last_name,sender).then(Opportunity => {    
+			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1]).then(Opportunity => {    
 			       newOpp = Opportunity;
 			       console.log('created opportunitity '+newOpp);
 			       //Hitendar
