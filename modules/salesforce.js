@@ -302,7 +302,7 @@ let getSelectedMenuFromOli = (Oli, accountId) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2Id from opportunitylineitem where opportunityid = '" + Oli + "'";                 
+        let q = "SELECT Id,product2Id from opportunitylineitem where id = '" + Oli + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
