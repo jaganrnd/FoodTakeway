@@ -163,7 +163,7 @@ let handlePost = (req, res) => {
                                               {
                                                 "type":"postback",
                                                 "title":"🎁 Show Cart.",
-                                                "payload":"Show_Cart," + opportunityId
+                                                "payload":"Show_Cart," + opportunityId +  "," + accountId
                                               }
                                             ]
                                         }
@@ -324,7 +324,7 @@ let handlePost = (req, res) => {
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
 				
-                          sendMessage(formatter.formatShowCart(SelectedItems), sender);  // Hitendar
+                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
 		          
 			  	
 				
