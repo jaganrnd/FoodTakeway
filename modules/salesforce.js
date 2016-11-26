@@ -83,6 +83,7 @@ let createOpportunity = (firstName, lastName, userId) => {
 		console.log('Contact ID***' + contactId);
             }
         });
+	console.log('Contact ID****' + contactId);
 	if(contactId == null || contactId == ''){ 
 		//Create Contact    
 		let con = nforce.createSObject('Contact');
