@@ -248,7 +248,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId) => {
     });		
 };
 
-let findOpportunityLineItem = (Oppty) => {
+let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	
     return new Promise((resolve, reject) => {
 
@@ -256,7 +256,20 @@ let findOpportunityLineItem = (Oppty) => {
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
-	    
+	if(orderCompleted){
+		let opp = nforce.createSObject('Opportunity');
+		opp.set('Id', Oppty);
+		opp.set('StageName', 'Order Completer');
+		org.update({sobject: opp}, err => {
+		    if (err) {
+			console.error(err);
+			reject("An error occurred while creating a Contact");
+		    } else {
+			console.log('opportunity updated'+Opp.get("Id"));
+		    }
+		});
+	}
+	
         org.query({query: q}, (err, resp) => {
 		
             if (err) {
