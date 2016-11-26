@@ -68,38 +68,56 @@ let findOpenBranches = parentaccountid => {
 
 let createOpportunity = (firstName, lastName, userId) => {
     return new Promise((resolve, reject) => {
-	    
-	//Create Contact    
-        let con = nforce.createSObject('Contact');
-        con.set('firstName', firstName);
-        con.set('lastName', lastName);
-        con.set('FacebookId__c', userId);
+	//Query if the contact already exists
+	var contactId;
+	let q = "SELECT Id FROM Contact WHERE FacebookId__c = '" + userId + "' ";
+        //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
+       console.log('Contact Query***' + q); 
+       org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('Contact count' + resp.records.length);
+		contactId = resp.records[0].get("Id");
+		console.log('Contact ID***' + contactId);
+            }
+        });
+	if(contactId == null || contactId == ''){ 
+		//Create Contact    
+		let con = nforce.createSObject('Contact');
+		con.set('firstName', firstName);
+		con.set('lastName', lastName);
+		con.set('FacebookId__c', userId);
+		org.insert({sobject: con}, err => {
+		    if (err) {
+			console.error(err);
+			reject("An error occurred while creating a Contact");
+		    } 
+		    else{
+			console.log('Contact Created '+con.get("Id"));
+		    	contactId = con.get("Id");
+		    }
+		});
+	}
 	
 	//Create Opportunity    
 	let opp = nforce.createSObject('Opportunity');
         opp.set('name', firstName + lastName);
 	opp.set('StageName','Order Initiated');
 	opp.set('CloseDate',Date.now());
-	
-        
-        org.insert({sobject: con}, err => {
-            if (err) {
-                console.error(err);
-                reject("An error occurred while creating a Contact");
-            } else {
-		    		console.log('Contact Created '+con.get("Id"));
-				opp.set('Contact__c', con.get("Id"));
-				org.insert({sobject: opp}, err => {
-					if (err) {
-						console.error(err);
-						reject("An error occurred while creating a Opportunity");
-					}
-					console.error('Opportunity Created***'+opp.get("Id"));
-					resolve(opp.get("Id"));
-				});
+	opp.set('Contact__c', contactId);
+	org.insert({sobject: opp}, err => {
+		if (err) {
+			console.error(err);
+			reject("An error occurred while creating a Opportunity");
+		}
+		console.error('Opportunity Created***'+opp.get("Id"));
+		resolve(opp.get("Id"));
+	});
 				
-            }
-        });
+            
+        
     });
 };
 
