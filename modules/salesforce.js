@@ -66,7 +66,7 @@ let findOpenBranches = parentaccountid => {
     });
 };
 
-let createOpportunity = (firstName, lastName, userId) => {
+let createOpportunity = (firstName, lastName, userId, accountId) => {
     return new Promise((resolve, reject) => {
 	//Query if the contact already exists
 	var contactId;
@@ -106,13 +106,14 @@ let createOpportunity = (firstName, lastName, userId) => {
 	opp.set('StageName','Order Initiated');
 	opp.set('CloseDate',Date.now());
 	opp.set('Contact__c', contactId);
+	opp.set('AccountId',accountId);
 	org.insert({sobject: opp}, err => {
 		if (err) {
 			console.error(err);
 			reject("An error occurred while creating a Opportunity");
 		}
 		console.error('Opportunity Created***'+opp.get("Id"));
-		resolve(opp.get("Id"));
+		resolve(opp);
 	});
         });
 	
