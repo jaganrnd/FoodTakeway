@@ -183,7 +183,7 @@ let formatQuantity= (SelectedMenu,Opportunity, Account, oli) => {
 };
 /* Hitendar */
 
-let formatShowCart = (SelectedItems) => {
+let formatShowCart = (SelectedItems, accountId) => {
   let elements = [];
     SelectedItems.forEach(opportunitylineitem  =>
 			  
@@ -196,7 +196,7 @@ let formatShowCart = (SelectedItems) => {
                 {
                     "type":"postback",
                     "title":"Change Quantity",
-                    "payload": "Change_Quantity,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + opportunitylineitem.get("Opportunity").get("AccountId")
+                    "payload": "Change_Quantity,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + accountId
                    
                 },
 		{
