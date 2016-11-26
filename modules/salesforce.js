@@ -259,7 +259,7 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	if(orderCompleted){
 		let opp = nforce.createSObject('Opportunity');
 		opp.set('Id', Oppty);
-		opp.set('StageName', 'Order Completer');
+		opp.set('StageName', 'Order Completed');
 		org.update({sobject: opp}, err => {
 		    if (err) {
 			console.error(err);
