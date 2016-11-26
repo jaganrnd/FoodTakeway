@@ -155,11 +155,11 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
     };
 };
 /* Hitendar */
-let formatQuantity= (SelectedMenu,Opportunity, Account) => {
+let formatQuantity= (SelectedMenu,Opportunity, Account, oli) => {
     let elements = [];    
     //Stringify the data that you want to pass as a payload	   
     //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };    
-    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity, 'AccountId' : Account };	
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity, 'AccountId' : Account, 'OLIId' : oli };	
     var shouldSend = JSON.stringify(obj);
     console.log( 'After Stringify**' +  shouldSend );    
   /* //And then parse JSON string when you recieve the payload.
@@ -196,8 +196,8 @@ let formatShowCart = (SelectedItems) => {
                 {
                     "type":"postback",
                     "title":"Change Quantity",
-                    "payload": "Change_Quantity,"  +  opportunitylineitem.getId()
-                    
+                    "payload": "Change_Quantity,"  +  opportunitylineitem.getId() + "," + opportunitylineitem.get("opportunityid") + "," + opportunitylineitem.get("Opportunity.AccountId")
+                   
                 },
 		{
                     "type":"web_url",
