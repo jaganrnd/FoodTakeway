@@ -56,7 +56,7 @@ let formatOpenBranches= Accounts => {
                 {
                     "type":"postback",
                     "title":"DELIVERY MENU",
-                    "payload": "Main_Menu," + Account.getId() + "," + Account.get("Name")
+                    "payload": "Main_Menu," + Account.getId()
                     
                 }]
         })
@@ -101,7 +101,7 @@ let formatOpenBranches= Accounts => {
 
 
 
-let formatMainMenus= (MainMenus,opportunity) => {
+let formatMainMenus= (MainMenus,opportunity,account) => {
   let elements = [];
     MainMenus.forEach(Menu__c =>
         elements.push({
@@ -112,7 +112,7 @@ let formatMainMenus= (MainMenus,opportunity) => {
                 {
                     "type":"postback",
                     "title":"SHOW ITEMS",
-                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c") + "," + opportunity
+                    "payload": "Sub_Menu,"  +  Menu__c.get("Account__c") + "," + Menu__c.get("Product__c") + "," + opportunity + "," + account
                     
                 }]
         })
@@ -128,7 +128,7 @@ let formatMainMenus= (MainMenus,opportunity) => {
     };
 };
 
-let formatSubMenus= (SubMenus,Opporunity) => {
+let formatSubMenus= (SubMenus,Opporunity,Account) => {
   let elements = [];
     SubMenus.forEach(Menu__c =>
         elements.push({
@@ -139,7 +139,7 @@ let formatSubMenus= (SubMenus,Opporunity) => {
                 {
                     "type":"postback",
                     "title":"ADD TO CART - ₹" + Menu__c.get("Price__c"),
-                    "payload": "Quantity,"  +  Menu__c.get("Id") + "," + Opporunity
+                    "payload": "Quantity,"  +  Menu__c.get("Id") + "," + Opporunity + "," + Account
                     
                 }]
         })
@@ -155,11 +155,11 @@ let formatSubMenus= (SubMenus,Opporunity) => {
     };
 };
 /* Hitendar */
-let formatQuantity= (SelectedMenu,Opportunity) => {
+let formatQuantity= (SelectedMenu,Opportunity, Account) => {
     let elements = [];    
     //Stringify the data that you want to pass as a payload	   
     //var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") + "," + SelectedMenu[0].get("Price__c") };    
-    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity };	
+    var obj = { 'PrevMenuSelection': SelectedMenu[0].get("Product__c") ,  'Price':  SelectedMenu[0].get("Price__c"), 'OpportunityId' : Opportunity, 'AccountId' : Account };	
     var shouldSend = JSON.stringify(obj);
     console.log( 'After Stringify**' +  shouldSend );    
   /* //And then parse JSON string when you recieve the payload.
