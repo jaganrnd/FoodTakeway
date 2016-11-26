@@ -321,6 +321,7 @@ let getSelectedMenuFromOli = (Oli, accountId) => {
 				reject("An error as occurred");
 			    }
 			else if (resp.records && resp.records.length>0) {
+				console.log('Selected Items***'+resp.records[0].get("Id"));
 				let SelectedItems = resp.records;
 				resolve(SelectedItems);
 			}
