@@ -67,7 +67,7 @@ function adddomain(){
 
 let processText = (text, sender)  => {                 
    let match1;
-    //match1 = text.match(/hi/i);
+    match1 = text.match(/hi/i);
     if (true) {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
@@ -105,12 +105,12 @@ let handlePost = (req, res) => {
 		
 
 		console.log('Event.Message.Text**' + event.message.text);
-		/*
-		if(event.message.text == 'hi'){
+		
+		if(event.message.text == 'hi' || event.message.text == 'Hi'){
 			console.log('Normal Flow**');	
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
-		*/
+		
 		if (event.message.quick_reply){
 			
 			var SelectedQuantity = event.message.text;  
@@ -331,8 +331,6 @@ let handlePost = (req, res) => {
 		}
 		
         }
-	console.log('Normal Flow**');	
-	processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
     }    
     res.sendStatus(200);
 };
