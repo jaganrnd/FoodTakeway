@@ -244,19 +244,15 @@ let formatShowCart = (SelectedItems, accountId) => {
 
 let formatOrder = (SelectedItems) => {
     let elements = [];
-    var totalAmount = 0;
     SelectedItems.forEach(opportunitylineitem   =>
-        totalAmount += opportunitylineitem.get("TotalPrice");
-	elements.push({
+        elements.push({
             "title":opportunitylineitem.get("product2").Name,
             "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("TotalPrice"),
             "quantity": opportunitylineitem.get("quantity"),
             "price": opportunitylineitem.get("TotalPrice"),
             "currency":"INR",
             "image_url": opportunitylineitem.get("product2").PICURL__c,
-	    totalAmount += opportunitylineitem.get("TotalPrice")
-        })
-	
+	})
     );
     return {
         "attachment": {
@@ -279,10 +275,10 @@ let formatOrder = (SelectedItems) => {
                     "country":"US"
                 },
                 "summary":{
-                    "subtotal":totalAmount,
+                    "subtotal":SelectedItems[0].get("Opportunity").Amount,
                     "shipping_cost":4.95,
                     "total_tax":6.19,
-                    "total_cost": totalAmount + 6.19 + 4.95,
+                    "total_cost": SelectedItems[0].get("Opportunity").Amount + 6.19 + 4.95,
                  }
             }
         }
