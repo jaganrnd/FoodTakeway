@@ -339,7 +339,8 @@ let handlePost = (req, res) => {
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
 			  sendMessage({text: `Preparing Receipt for you `}, sender);				  
                           sendMessage(formatter.formatOrder(SelectedItems), sender);  // Hitendar		          			  					
-			  sendMessage({text: `❤️`}, sender);			
+			  sendMessage({text: `❤️`}, sender);	
+			  setTimeout(sendMessage({text: `Please enter your phone number without code `}, sender), 3000);
                         });   
 		}
 		else if (payload[0] === "Show_Cart"){ 
