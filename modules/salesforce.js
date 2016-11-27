@@ -291,6 +291,9 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
                 resolve(SelectedItems);
 		    
             }
+	    else{
+	    	resolve(null);
+	    }
 		
         });
 	    
