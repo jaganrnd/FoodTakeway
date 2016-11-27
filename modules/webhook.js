@@ -325,7 +325,7 @@ let handlePost = (req, res) => {
 			  else{	
 				  sendMessage({text: `Here is your cart  🍜`}, sender);
 
-				  sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+				  sendMessage(formatter.formatShowCart(SelectedItems, payload[3]), sender);  // Hitendar
 			  }
 		          
 			  	
