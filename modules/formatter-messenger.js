@@ -259,12 +259,12 @@ let formatOrder = (SelectedItems) => {
             "type": "template",
             "payload": {
                 "template_type": "receipt",
-                "recipient_name": "HITU",
-                "order_number":"12345678902",
+                "recipient_name": SelectedItems[0].get("Opportunity").Name,
+                "order_number":SelectedItems[0].get("Opportunity").Order_Number__c,
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":"1428444852", 
+                "timestamp":new Date(), 
                 "elements": elements,
                 "address":{
                     "street_1":"1 Hacker Way",
