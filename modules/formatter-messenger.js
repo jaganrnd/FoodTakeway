@@ -286,6 +286,32 @@ let formatOrder = (SelectedItems) => {
     };
 };
 
+let confirmPhone= (phoneNumber) => {
+  let elements = [];
+        elements.push({
+            "title": "Please confirm your contact number or enter new one",
+            "subtitle": phoneNumber,
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"Confirm",
+                    "payload": "Number_Confirmed"
+                    
+                }]
+        })
+    
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
@@ -294,3 +320,4 @@ exports.formatSubMenus = formatSubMenus;
 exports.formatQuantity = formatQuantity;
 exports.formatShowCart = formatShowCart;
 exports.formatOrder = formatOrder;
+exports.confirmPhone = confirmPhone;
