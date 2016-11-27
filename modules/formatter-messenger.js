@@ -254,6 +254,7 @@ let formatOrder = (SelectedItems) => {
             "image_url": opportunitylineitem.get("product2").PICURL__c,
 	})
     );
+	console.log('Current Time Stand in Seconds***'+Date.now() / 1000);
     return {
         "attachment": {
             "type": "template",
@@ -264,7 +265,7 @@ let formatOrder = (SelectedItems) => {
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":new Date().getTime(), 
+                "timestamp":Date.now() / 1000, 
                 "elements": elements,
                 "address":{
                     "street_1":"1 Hacker Way",
