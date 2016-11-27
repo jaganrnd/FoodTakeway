@@ -308,12 +308,19 @@ let handlePost = (req, res) => {
 			console.log('Remove Cart**');
 			salesforce.removeOLI(payload[1]).then(SelectedMenu => {   
                           console.log('OLI Removed*');
+			  sendMessage({text: `Selected item has been removed from your cart`}, sender);
                           salesforce.findOpportunityLineItem(payload[2]).then(SelectedItems  => {   
 			  
 			  adddomain(); // Whitelist domain for payumoney URL	
 				
                           console.log('Before Show Cart Formatting');
-		         
+		          if(SelectedItems == null){
+			  	sendMessage({text: `There is no item in your cart now. Please select from menu`}, sender);
+				salesforce.findMainMenus(payload[3]).then(MainMenus => {   
+					  console.log('Going inside main menus');
+					  sendMessage(formatter.formatMainMenus(MainMenus,payload[2],payload[3]), sender);  
+				     });
+			  }
 		          			
 				
 			  sendMessage({text: `Here is your cart  🍜`}, sender);
