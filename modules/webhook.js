@@ -322,10 +322,11 @@ let handlePost = (req, res) => {
 				     });
 			  }
 		          			
-				
-			  sendMessage({text: `Here is your cart  🍜`}, sender);
-				
-                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+			  else{	
+				  sendMessage({text: `Here is your cart  🍜`}, sender);
+
+				  sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+			  }
 		          
 			  	
 				
@@ -350,10 +351,19 @@ let handlePost = (req, res) => {
                           console.log('Before Show Cart Formatting');
 		         
 		          			
-				
-			  sendMessage({text: `Here is your cart  🍜`}, sender);
-				
-                          sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+			if(SelectedItems == null){
+			  	sendMessage({text: `There is no item in your cart now. Please select from menu`}, sender);
+				salesforce.findMainMenus(payload[3]).then(MainMenus => {   
+					  console.log('Going inside main menus');
+					  sendMessage(formatter.formatMainMenus(MainMenus,payload[2],payload[3]), sender);  
+				     });
+			  }
+		          			
+			  else{	
+				  sendMessage({text: `Here is your cart  🍜`}, sender);
+
+				  sendMessage(formatter.formatShowCart(SelectedItems, payload[2]), sender);  // Hitendar
+			  }
 		          
 			  	
 				
