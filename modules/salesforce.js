@@ -225,8 +225,8 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId, OLIId
 				Oppli.set('OpportunityId', OpportunityId);
 				Oppli.set('PricebookEntryId', resp.records[0].get("Id"));	    
 				Oppli.set('Quantity', Quantity);
-				//Oppli.set('UnitPrice', Price);  //HITU MAMA
-				Oppli.set('UnitPrice', Quantity * Price);    			    
+				Oppli.set('UnitPrice', Price);  //HITU MAMA
+				//Oppli.set('UnitPrice', Quantity * Price);    			    
 				org.insert({sobject: Oppli}, err => {
 				    if (err) {
 					console.error(err);
@@ -260,7 +260,7 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.AccountId,Opportunity.TotalAmount__c,unitprice ,quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.AccountId,Opportunity.TotalAmount__c,unitprice, TotalPrice, quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
