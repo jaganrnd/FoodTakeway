@@ -357,8 +357,8 @@ let handlePost = (req, res) => {
 					  	sendMessage(formatter.confirmPhone(phoneNumber), sender);
 					  }
 				  });
-			  )};
-                        )};   
+			  });
+                        });   
 		}
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
