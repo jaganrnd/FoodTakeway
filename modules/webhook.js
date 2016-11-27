@@ -358,7 +358,7 @@ let handlePost = (req, res) => {
 					  }
 				  });
 			  )};
-                        });   
+                        )};   
 		}
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
