@@ -370,7 +370,7 @@ let updatePhone = (phone, userId) => {
 	con.set('MobilePhone',phone);
 	
         org.update({sobject: con}, err => {
-		
+	    console.log('Contact to be updated***'+con.get("FacebookId__c"));
             if (err) {
                 console.log('ERROR');
                 reject("An error as occurred"+err);
