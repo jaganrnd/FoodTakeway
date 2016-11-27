@@ -361,6 +361,29 @@ let removeOLI = (OliId) => {
 	
 };
 
+let updatePhone = (phone, userId) => {
+	
+    return new Promise((resolve, reject) => {
+
+        let con = nforce.createSObject('Contact');
+	con.set('FacebookId__c', userId);
+	con.set('MobilePhone',phone);
+	
+        org.update({sobject: con}, err => {
+		
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else {
+		console.log('Contact Updated');  
+		resolve(con);
+            }
+		
+        });
+	    
+    });
+	
+};
 
 login();
 
