@@ -365,21 +365,35 @@ let updatePhone = (phone, userId) => {
 	
     return new Promise((resolve, reject) => {
 	console.log('UserId***'+userId);
-        let con = nforce.createSObject('Contact');
-	con.set('FacebookId__c', userId);
-	con.set('MobilePhone',phone);
+	let q = "SELECT Id from contact where FacebookId__c = '" + userId + "'";                 
+        
+        console.log('Find Opportunity Line Item**' + q);
 	
-        org.update({sobject: con}, err => {
-	    console.log('Contact to be updated***'+con.get("FacebookId__c"));
+        org.query({query: q}, (err, resp) => {
+		
             if (err) {
                 console.log('ERROR');
-                reject("An error as occurred"+err);
-            } else {
-		console.log('Contact Updated');  
-		resolve(con);
+                reject("An error as occurred");
             }
-		
-        });
+		else if (resp.records && resp.records.length>0) {
+			let con = nforce.createSObject('Contact');
+			con.set('Id', resp.records[0].get("Id"));
+			con.set('MobilePhone',phone);
+
+			org.update({sobject: con}, err => {
+			    console.log('Contact to be updated***'+con.get("FacebookId__c"));
+			    if (err) {
+				console.log('ERROR');
+				reject("An error as occurred"+err);
+			    } else {
+				console.log('Contact Updated');  
+				resolve(con);
+			    }
+
+			});
+		}
+	});
+        
 	    
     });
 	
