@@ -105,12 +105,13 @@ let handlePost = (req, res) => {
 		
 
 		console.log('Event.Message.Text**' + event.message.text);
+		console.log('Event.Message.Text length**' + event.message.text.length);
 		
 		if(event.message.text == 'hi' || event.message.text == 'Hi'){
 			console.log('Normal Flow**');	
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
-		if(event.message.text.length  = 10){
+		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			salesforce.updatePhone(event.message.text,sender);
 			sendMessage({text: `Thank you for using this service. Have a good day`}, sender);
