@@ -265,7 +265,7 @@ let formatOrder = (SelectedItems) => {
                 "currency":"INR",
                 "payment_method":"Visa 2345",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":Math.floor(Date.now() / 1000) - 19800 , 
+                "timestamp":Math.floor(Date.now() / 1000) + 48600, 
                 "elements": elements,
                 "address":{
                     "street_1":"1 Hacker Way",
