@@ -352,9 +352,11 @@ let handlePost = (req, res) => {
 		         
 		          			
 			if(SelectedItems == null){
-			  	sendMessage({text: `There is no item in your cart now. Please select from menu`}, sender);
+			  	
+				console.log('account Id***'+payload[3]);
 				salesforce.findMainMenus(payload[3]).then(MainMenus => {   
 					  console.log('Going inside main menus');
+					  sendMessage({text: `There is no item in your cart now. Please select from menu`}, sender);
 					  sendMessage(formatter.formatMainMenus(MainMenus,payload[2],payload[3]), sender);  
 				     });
 			  }
