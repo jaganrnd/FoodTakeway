@@ -373,7 +373,7 @@ let updatePhone = (phone, userId) => {
 		
             if (err) {
                 console.log('ERROR');
-                reject("An error as occurred");
+                reject("An error as occurred"+err);
             } else {
 		console.log('Contact Updated');  
 		resolve(con);
