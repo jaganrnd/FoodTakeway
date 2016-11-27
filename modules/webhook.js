@@ -5,6 +5,7 @@ let request = require('request'),
     formatter = require('./formatter-messenger');
 
 let sendMessage = (message, recipient) => {
+    return new Promise((resolve, reject) => {           
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: process.env.FB_PAGE_TOKEN},
@@ -19,6 +20,8 @@ let sendMessage = (message, recipient) => {
         } else if (response.body.error) {
             console.log('Error: ', response.body.error);
         }
+	resolve(true);
+    });
     });
 };
 
@@ -340,9 +343,10 @@ let handlePost = (req, res) => {
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
 			  sendMessage({text: `Preparing Receipt for you `}, sender);				  
-                          sendMessage(formatter.formatOrder(SelectedItems), sender);  // Hitendar		          			  					
-			  sendMessage({text: `❤️`}, sender);	
-			  setTimeout(sendMessage({text: `Please enter your phone number without code `}, sender), 3000);
+                          sendMessage(formatter.formatOrder(SelectedItems), sender).then(orderSent => {   // Hitendar		          			  					
+				  sendMessage({text: `❤️`}, sender);	
+				  sendMessage({text: `Please enter your phone number without code `}, sender);
+				  });
                         });   
 		}
 		else if (payload[0] === "Show_Cart"){ 
