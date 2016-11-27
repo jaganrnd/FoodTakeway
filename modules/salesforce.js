@@ -397,7 +397,31 @@ let updatePhone = (phone, userId) => {
 	    
     });
 	
+	
 };
+
+let getPhoneNumber = (userId) => {
+	
+    return new Promise((resolve, reject) => {
+	console.log('UserId***'+userId);
+	let q = "SELECT Id, mobilePhone from contact where FacebookId__c = '" + userId + "'";                 
+        
+        console.log('Find contact**' + q);
+	
+        org.query({query: q}, (err, resp) => {
+		
+		if (err) {
+		console.log('ERROR');
+		reject("An error as occurred");
+		}
+		else if (resp.records && resp.records.length>0) {
+			console.log('Phone Number***'+resp.records[0].get("mobilePhone"));
+			resolve(resp.records[0].get("mobilePhone"));
+		}
+        });
+    });
+};
+
 
 login();
 
@@ -413,3 +437,4 @@ exports.findOpportunityLineItem = findOpportunityLineItem;
 exports.getSelectedMenuFromOli = getSelectedMenuFromOli;
 exports.removeOLI = removeOLI;
 exports.updatePhone = updatePhone;
+exports.getPhoneNumber = getPhoneNumber;
