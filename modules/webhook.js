@@ -117,7 +117,7 @@ let handlePost = (req, res) => {
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			salesforce.updatePhone(event.message.text,sender);
-			sendMessage({text: `Thank you for using this service. Have a good day`}, sender);
+			sendMessage({text: `Thank you for ordering. We will get back to you shortly`}, sender);
 		}
 		
 		if (event.message.quick_reply){
@@ -349,9 +349,20 @@ let handlePost = (req, res) => {
 			  sendMessage({text: `Preparing Receipt for you `}, sender);				  
                           sendMessage(formatter.formatOrder(SelectedItems), sender).then(orderSent => {   // Hitendar		          			  					
 				  sendMessage({text: `❤️`}, sender);	
-				  sendMessage({text: `Please enter your phone number without code `}, sender);
+				  salesforce.getPhoneNumber(sender).then(phoneNumber =>{
+					  if(phoneNumber == null || phoneNumber == ''){
+					  	sendMessage({text: `Please enter your phone number without code `}, sender);
+					  }
+					  else{
+					  	sendMessage(formatter.confirmPhone(phoneNumber), sender);
+					  }
 				  });
+			  )};
                         });   
+		}
+		else if (payload[0] === "Number_Confirmed"){ 
+			console.log('Number confirmed');
+			sendMessage({text: `Thank you for ordering. We will get back to you shortly`}, sender);
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
