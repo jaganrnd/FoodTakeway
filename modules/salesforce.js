@@ -364,7 +364,7 @@ let removeOLI = (OliId) => {
 let updatePhone = (phone, userId) => {
 	
     return new Promise((resolve, reject) => {
-
+	console.log('UserId***'+userId);
         let con = nforce.createSObject('Contact');
 	con.set('FacebookId__c', userId);
 	con.set('MobilePhone',phone);
