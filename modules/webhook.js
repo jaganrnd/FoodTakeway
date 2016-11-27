@@ -110,6 +110,11 @@ let handlePost = (req, res) => {
 			console.log('Normal Flow**');	
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
+		if(event.message.text.length  = 10){
+			console.log('Phone Number entered***');	
+			salesforce.updatePhone(event.message.text,sender);
+			sendMessage({text: `Thank you for using this service. Have a good day`}, sender);
+		}
 		
 		if (event.message.quick_reply){
 			
