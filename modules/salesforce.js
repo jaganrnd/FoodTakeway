@@ -398,3 +398,4 @@ exports.createOpportunityProduct = createOpportunityProduct;
 exports.findOpportunityLineItem = findOpportunityLineItem;
 exports.getSelectedMenuFromOli = getSelectedMenuFromOli;
 exports.removeOLI = removeOLI;
+exports.updatePhone = updatePhone;
