@@ -273,7 +273,7 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 			console.error(err);
 			reject("An error occurred while creating a Contact");
 		    } else {
-			console.log('opportunity updated'+Opp.get("Id"));
+			//console.log('opportunity updated'+Opp.get("Id"));
 		    }
 		});
 	}
