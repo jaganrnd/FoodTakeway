@@ -50,6 +50,7 @@ let getAddress = (lat, lng) => {
             console.log('Yappa Inside Callout pa', lat);
             console.log('Yappa Inside Callout pa', lng);
             console.log('Inside Callout');
+  	    console.log('URL***'+'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
             request({
                 //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
                 url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
