@@ -52,8 +52,8 @@ let getAddress = (lat, lng) => {
             console.log('Inside Callout');
             request({
                 //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
-                url:'https://maps.googleapis.com/maps/api/geocode/json',
-                qs: {latlng:{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
+                url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
+                //qs: {latlng:{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
                 //sendMessage({text: ` Latitude "${lat}" `}, sender);
                 method: 'GET',
             }, (error, response, request) => {
