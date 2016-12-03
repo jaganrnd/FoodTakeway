@@ -46,6 +46,27 @@ let getUserInfo = (userId) => {
 };    
             
 
+let getAddress = (lat, lng) => {
+            console.log('Yappa Inside Callout pa', lat);
+            console.log('Yappa Inside Callout pa', lng);
+            console.log('Inside Callout');
+            request({
+                //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
+                url:'https://maps.googleapis.com/maps/api/geocode/json',
+                qs: {latlng:{{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
+                //sendMessage({text: ` Latitude "${lat}" `}, sender);
+                method: 'GET',
+            }, (error, response, request) => {
+                if (error) {
+                    console.log('Error sending message: ', error);
+                }else if (response) {
+                    console.log('Responseuu*** ', response.body);
+                }else if (response.body.error) {
+                    console.log('Error: ', response.body.error);
+                }
+            });
+};
+
 function adddomain(){
 	 console.log('Going to whitelist Domain**');	
 	 request({
@@ -235,7 +256,23 @@ let handlePost = (req, res) => {
 			console.log('created opportunitityproduct');
 	         });     	
 			
-        }else if (event.postback) {		
+        }
+	//Newly addded
+	else if (event.message && event.message.attachments) {
+                console.log('Inside Location Loop ', event.message.attachments[0].type);
+                if(event.message.attachments[0].type == 'location'){
+                    console.log('GETHU DA................');
+                    var lat = event.message.attachments[0].payload.coordinates.lat;
+                    var lng = event.message.attachments[0].payload.coordinates.long;
+                    sendMessage({text: `Thanks For Sharing Your Location`}, sender);
+                    sendMessage({text: ` Latitude "${lat}" `}, sender);
+                    sendMessage({text: ` Longitude "${lng}" `}, sender);
+                    getAddress(lat,lng);
+                }
+        }    
+	    
+	//Newly added
+	else if (event.postback) {		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
                  if (payload[0] === "Show_Branches"){     
