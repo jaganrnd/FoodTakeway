@@ -141,11 +141,12 @@ let handlePost = (req, res) => {
 			salesforce.updatePhone(event.message.text,sender);
 			sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
+			console.log('location Display');
 			sendMessage({
 					"text": "Please choose your location:",
 					 "quick_replies":[
 						{
-							"content_type":"location",
+							"content_type":"location"
 						}
 					] 
 				    },  sender);
