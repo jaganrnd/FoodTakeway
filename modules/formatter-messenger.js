@@ -182,6 +182,16 @@ let formatQuantity= (SelectedMenu,Opportunity, Account, oli) => {
          "quick_replies": elements
     };  	
 };
+
+let formatShareLocation = () =>{
+	return {
+		"quick_replies":[
+		      {
+			"content_type":"location",
+		      }
+		    ]
+	};
+};
 /* Hitendar */
 
 let formatShowCart = (SelectedItems, accountId) => {
