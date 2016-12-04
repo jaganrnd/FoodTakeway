@@ -332,3 +332,4 @@ exports.formatQuantity = formatQuantity;
 exports.formatShowCart = formatShowCart;
 exports.formatOrder = formatOrder;
 exports.confirmPhone = confirmPhone;
+exports.formatShareLocation = formatShareLocation;
