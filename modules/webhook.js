@@ -142,21 +142,15 @@ let handlePost = (req, res) => {
 			sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
-			sendMessage({attachment:{
-                                        "type": "template",
-                                        "payload": {
-                                            "template_type":"button",
-                                            "text": "Please choose your location for delivery. Make sure that your location is ON",
-                                            "buttons":[
-                                              {
-                                                "content_type":"location",
-						 "title":"Share Location",
-						 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
-                                              }
-                                            ]
-                                        }
-                                    }
-                                }, sender);
+			sendMessage({text: "Please share your location for delivery. Make sure your Location in ON", 
+				     quick_replies: [
+				    	 {
+					  "content_type":"location",
+					  "title":"Share Location",
+					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
+					}
+					     ]
+				    }, sender);
 		}
 		
 		if (event.message.quick_reply){
@@ -420,14 +414,14 @@ let handlePost = (req, res) => {
 		}
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
-			sendMessage({text: `Please share your location for delivery`}, sender);
+			//sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
-			sendMessage({text: "Some regular buttons and a location test", 
+			sendMessage({text: "Please share your location for delivery. Make sure your Location in ON", 
 				     quick_replies: [
 				    	 {
 					  "content_type":"location",
-					  "title":"Send Location",
+					  "title":"Share Location",
 					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
 					}
 					     ]
