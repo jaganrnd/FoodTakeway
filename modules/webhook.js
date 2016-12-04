@@ -152,6 +152,21 @@ let handlePost = (req, res) => {
 						}
 					] 
 				    },  sender);
+			sendMessage({attachment:{
+                                        "type": "template",
+                                        "payload": {
+                                            "template_type":"button",
+                                            "text": "Please choose your location:",
+                                            "buttons":[
+                                              {
+                                                "content_type":"location",
+						 "title":"Send Location",
+						 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
+                                              }
+                                            ]
+                                        }
+                                    }
+                                }, sender);
 		}
 		
 		if (event.message.quick_reply){
