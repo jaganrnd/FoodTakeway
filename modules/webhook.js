@@ -138,29 +138,19 @@ let handlePost = (req, res) => {
 		}
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
-			salesforce.updatePhone(event.message.text,sender);
+			salesforce.updatePhone(event.message.text, null, null,sender);
 			sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
-			sendMessage({
-					"text": "Please choose your location:",
-					 "quick_replies":[
-						{
-							"content_type":"location",
-							 "title":"Send Location",
-							 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
-						}
-					] 
-				    },  sender);
 			sendMessage({attachment:{
                                         "type": "template",
                                         "payload": {
                                             "template_type":"button",
-                                            "text": "Please choose your location:",
+                                            "text": "Please choose your location for delivery. Make sure that your location is ON",
                                             "buttons":[
                                               {
                                                 "content_type":"location",
-						 "title":"Send Location",
+						 "title":"Share Location",
 						 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
                                               }
                                             ]
@@ -292,10 +282,13 @@ let handlePost = (req, res) => {
                     console.log('GETHU DA................');
                     var lat = event.message.attachments[0].payload.coordinates.lat;
                     var lng = event.message.attachments[0].payload.coordinates.long;
-                    sendMessage({text: `Thanks For Sharing Your Location`}, sender);
-                    sendMessage({text: ` Latitude "${lat}" `}, sender);
+                    sendMessage({text: `Thanks For Sharing Your Location. We will contact you shortly`}, sender);
+		    salesforce.updatePhone(null, lat, lng,sender);
+                    /*sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Longitude "${lng}" `}, sender);
                     getAddress(lat,lng);
+		    */
+			
                 }
         }    
 	    
