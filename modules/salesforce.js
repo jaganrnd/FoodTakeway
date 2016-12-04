@@ -361,7 +361,7 @@ let removeOLI = (OliId) => {
 	
 };
 
-let updatePhone = (phone, userId) => {
+let updatePhone = (phone,lat,lng userId) => {
 	
     return new Promise((resolve, reject) => {
 	console.log('UserId***'+userId);
@@ -378,7 +378,15 @@ let updatePhone = (phone, userId) => {
 		else if (resp.records && resp.records.length>0) {
 			let con = nforce.createSObject('Contact');
 			con.set('Id', resp.records[0].get("Id"));
-			con.set('MobilePhone',phone);
+			if(phone != null){
+				con.set('MobilePhone',phone);
+			}
+			if(lat != null){
+				con.set('Location__Latitude__s',lat);
+			}
+			if(lng != null){
+				con.set('Location__Longitude__s',lng);
+			}
 
 			org.update({sobject: con}, err => {
 			    console.log('Contact to be updated***'+con.get("FacebookId__c"));
