@@ -420,7 +420,24 @@ let handlePost = (req, res) => {
 		}
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
-			sendMessage({text: `Thank you for ordering. We will get back to you shortly`}, sender);
+			sendMessage({text: `Please share your location for delivery`}, sender);
+			//sendMessage(formatter.formatShareLocation(), sender);  
+			console.log('location Display');
+			sendMessage({attachment:{
+                                        "type": "template",
+                                        "payload": {
+                                            "template_type":"button",
+                                            "text": "Please choose your location for delivery. Make sure that your location is ON",
+                                            "buttons":[
+                                              {
+                                                "content_type":"location",
+						 "title":"Share Location",
+						 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
+                                              }
+                                            ]
+                                        }
+                                    }
+                                }, sender);
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
