@@ -134,8 +134,8 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
         elements.push({
             "title": Menu__c.get("Product__r").Name,
             "subtitle": Menu__c.get("Product__r").Description,
-            //"image_url": Menu__c.get("Product__r").PICURL__c,
-	    "image_url": Menu__c.get("Product__r").EmbedImage__c,
+            "image_url": Menu__c.get("Product__r").PICURL__c,
+	    //"image_url": Menu__c.get("Product__r").EmbedImage__c,
             "buttons": [
                 {
                     "type":"postback",
