@@ -146,7 +146,9 @@ let handlePost = (req, res) => {
 					"text": "Please choose your location:",
 					 "quick_replies":[
 						{
-							"content_type":"location"
+							"content_type":"location",
+							 "title":"Send Location",
+							 "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
 						}
 					] 
 				    },  sender);
