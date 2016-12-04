@@ -139,7 +139,8 @@ let handlePost = (req, res) => {
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			salesforce.updatePhone(event.message.text,sender);
-			sendMessage({text: `Thank you for ordering. We will get back to you shortly`}, sender);
+			sendMessage({text: `Please share your location for delivery`}, sender);
+			sendMessage(formatter.formatShareLocation(), sender);  
 		}
 		
 		if (event.message.quick_reply){
