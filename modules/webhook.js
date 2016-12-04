@@ -139,7 +139,7 @@ let handlePost = (req, res) => {
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			salesforce.updatePhone(event.message.text, null, null,sender);
-			sendMessage({text: `Please share your location for delivery`}, sender);
+			//sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
 			sendMessage({text: "Please share your location for delivery. Make sure your Location in ON", 
