@@ -76,7 +76,10 @@ function adddomain(){
 	    method: 'POST',
 	    json:{
 		setting_type : "domain_whitelisting",
-		whitelisted_domains : ["https://payumoney.com"],
+		whitelisted_domains : ["https://payumoney.com",
+				       "https://peterssendreceiveapp.ngrok.io/shop_collection",
+				       "https://peterssendreceiveapp.ngrok.io/collection",
+				       "https://peterssendreceiveapp.ngrok.io/shop?item=102"],
 		domain_action_type: "add"
 	    }
 
@@ -137,6 +140,7 @@ let handlePost = (req, res) => {
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
 		else if(event.message.text == 'bye' || event.message.text == 'Bye'){
+			adddomain();
 			sendMessage({
 					"attachment": {
 						"type": "template",
