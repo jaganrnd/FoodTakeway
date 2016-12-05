@@ -155,6 +155,35 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
         }
     };
 };
+/*
+let formatSubMenus= (SubMenus,Opporunity,Account) => {
+  let elements = [];
+    SubMenus.forEach(Menu__c =>
+        elements.push({
+            "title": Menu__c.get("Product__r").Name,
+            "subtitle": Menu__c.get("Product__r").Description,
+            "image_url": Menu__c.get("Product__r").PICURL__c,
+	    //"image_url": Menu__c.get("Product__r").EmbedImage__c,
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"ADD TO CART - ₹" + Menu__c.get("Price__c"),
+                    "payload": "Quantity,"  +  Menu__c.get("Id") + "," + Opporunity + "," + Account
+                    
+                }]
+        })
+    );
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "list",
+                "elements": elements
+            }
+        }
+    };
+};
+*/
 /* Hitendar */
 let formatQuantity= (SelectedMenu,Opportunity, Account, oli) => {
     let elements = [];    
