@@ -136,6 +136,47 @@ let handlePost = (req, res) => {
 			console.log('Normal Flow**');	
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
+		else if(event.message.text == 'bye' || event.message.text == 'Bye'){
+			sendMessage({
+					"attachment": {
+						"type": "template",
+						"payload": {
+						    "template_type": "list",
+						    "elements": [
+							{
+							    "title": "Classic T-Shirt Collection",
+							    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+							    "subtitle": "See all our colors",
+							    "default_action": {
+								"type": "web_url",
+								"url": "https://peterssendreceiveapp.ngrok.io/shop_collection",
+								"messenger_extensions": true,
+								"webview_height_ratio": "tall",
+								"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+							    },
+							    "buttons": [
+								{
+								    "title": "View",
+								    "type": "web_url",
+								    "url": "https://peterssendreceiveapp.ngrok.io/collection",
+								    "messenger_extensions": true,
+								    "webview_height_ratio": "tall",
+								    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
+								}
+							    ]
+							}
+						    ],
+						     "buttons": [
+							{
+							    "title": "View More",
+							    "type": "postback",
+							    "payload": "payload"                        
+							}
+						    ]  
+						}
+					    }
+			},sender);
+		}
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			salesforce.updatePhone(event.message.text, null, null,sender);
