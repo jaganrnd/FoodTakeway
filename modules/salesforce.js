@@ -382,10 +382,10 @@ let updatePhone = (phone,lat,lng, userId) => {
 				con.set('MobilePhone',phone);
 			}
 			if(lat != null){
-				con.set('Location__Latitude__s',lat);
+				con.set('mailinglatitude',lat);
 			}
 			if(lng != null){
-				con.set('Location__Longitude__s',lng);
+				con.set('mailinglongitude',lng);
 			}
 
 			org.update({sobject: con}, err => {
