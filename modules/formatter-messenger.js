@@ -3,19 +3,7 @@
 
 let formatTitleCard = Accounts => {
     let elements = [];
-    elements.push({
-            title: Account.get("Name"),
-            subtitle: Account.get("Description"),
-            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-            "buttons": [
-                {
-                    "type":"postback",
-                    "title":Account.get("Type"),
-                    "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name") + "," + Account.get("Type")                      
-                }	    
-	    ]
-	    
-})
+    
     Accounts.forEach(Account =>
         elements.push({
             title: Account.get("Name"),
@@ -171,6 +159,19 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
 */
 let formatSubMenus= (SubMenus,Opporunity,Account) => {
   let elements = [];
+	elements.push({
+            "title": "Biriyani",
+            "subtitle": "Biriyani",
+            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+	    //"image_url": Menu__c.get("Product__r").EmbedImage__c,
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":"View",
+                    "payload": "Quantity"
+                    
+                }]
+        })
     SubMenus.forEach(Menu__c =>
         elements.push({
             "title": Menu__c.get("Product__r").Name,
