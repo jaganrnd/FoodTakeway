@@ -172,7 +172,9 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
                     
                 }]
         })
+	var i=0;
     SubMenus.forEach(Menu__c =>
+	if(i<3){
         elements.push({
             "title": Menu__c.get("Product__r").Name,
             "subtitle": Menu__c.get("Product__r").Description,
@@ -186,6 +188,8 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
                     
                 }]
         })
+    }
+	i++;
     );
     return {
         "attachment": {
