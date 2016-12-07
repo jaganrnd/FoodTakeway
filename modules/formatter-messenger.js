@@ -3,6 +3,19 @@
 
 let formatTitleCard = Accounts => {
     let elements = [];
+    elements.push({
+            title: Account.get("Name"),
+            subtitle: Account.get("Description"),
+            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":Account.get("Type"),
+                    "payload": "Show_Branches," + Account.getId() + "," + Account.get("Name") + "," + Account.get("Type")                      
+                }	    
+	    ]
+	    
+})
     Accounts.forEach(Account =>
         elements.push({
             title: Account.get("Name"),
