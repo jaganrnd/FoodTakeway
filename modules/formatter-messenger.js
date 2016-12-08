@@ -159,19 +159,7 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
 */
 let formatSubMenus= (SubMenus,Opporunity,Account) => {
   let elements = [];
-	elements.push({
-            "title": "Biriyani",
-            "subtitle": "Biriyani",
-            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-	    //"image_url": Menu__c.get("Product__r").EmbedImage__c,
-            "buttons": [
-                {
-                    "type":"postback",
-                    "title":"View",
-                    "payload": "Quantity"
-                    
-                }]
-        })
+	
 	var i=0;
     SubMenus.forEach(Menu__c =>{
 	if(i<3){
@@ -196,7 +184,15 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
             "type": "template",
             "payload": {
                 "template_type": "list",
-                "elements": elements
+		"top_element_style": "compact",
+                "elements": elements,
+		     "buttons": [
+			{
+			    "title": "View More",
+			    "type": "postback",
+			    "payload": "payload"                        
+			}
+		    ]  
             }
         }
     };
