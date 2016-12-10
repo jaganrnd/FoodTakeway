@@ -65,8 +65,14 @@ let getAddress = (lat, lng, parentAccountId,sender) => {
 			console.log('Responseuu123*** ', JSON.parse(response.body).results);
 		    var subLocality = JSON.parse(response.body).results[0].address_components[2].long_name;
 		    console.log('sub locality***'+subLocality);
-		    salesforce.findOpenBranches('0012800000tbvur',subLocality).then(Accounts => {    
-                            sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
+		    salesforce.findOpenBranches('0012800000tbvur',subLocality).then(Accounts => {
+			    if(Accounts.length > 0){
+				sendMessage({text: `Below are the nearest branches available. Please proceed with one of them`}, sender);
+                            	sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
+			    }
+			    else{
+			    	sendMessage({text: `Sorry. There is no branch available near by. Try again later`}, sender);
+			    }
                      }); 
                 }else if (response.body.error) {
                     console.log('Error: ', response.body.error);
