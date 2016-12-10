@@ -46,11 +46,11 @@ let getUserInfo = (userId) => {
 };    
             
 
-let getAddress = (lat, lng) => {
+let getAddress = (lat, lng, parentAccountId) => {
             console.log('Yappa Inside Callout pa', lat);
             console.log('Yappa Inside Callout pa', lng);
             console.log('Inside Callout');
-  	    console.log('URL***'+'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
+  	    console.log('URL***'+'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&location_type=GEOMETRIC_CENTER&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
             request({
                 //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
                 url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
@@ -62,6 +62,10 @@ let getAddress = (lat, lng) => {
                     console.log('Error sending message: ', error);
                 }else if (response) {
                     console.log('Responseuu*** ', response.body);
+		    var subLocality = results[0].address_components[2].long_name;
+		    salesforce.findOpenBranches(parentAccountId,subLocality).then(Accounts => {    
+                            sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
+                     }); 
                 }else if (response.body.error) {
                     console.log('Error: ', response.body.error);
                 }
@@ -338,13 +342,15 @@ let handlePost = (req, res) => {
         }
 	//Newly addded
 	else if (event.message && event.message.attachments) {
+		let payload = event.postback.payload.split(",");
                 console.log('Inside Location Loop ', event.message.attachments[0].type);
                 if(event.message.attachments[0].type == 'location'){
                     console.log('GETHU DA................');
                     var lat = event.message.attachments[0].payload.coordinates.lat;
                     var lng = event.message.attachments[0].payload.coordinates.long;
-                    sendMessage({text: `Thanks For Sharing Your Location. We will contact you shortly`}, sender);
-		    salesforce.updatePhone(null, lat, lng,sender);
+                    //sendMessage({text: `Thanks For Sharing Your Location. We will contact you shortly`}, sender);
+		    getAddress(lat,lng,payload[1]);
+		    //salesforce.updatePhone(null, lat, lng,sender);
                     /*sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Longitude "${lng}" `}, sender);
                     getAddress(lat,lng);
@@ -362,9 +368,15 @@ let handlePost = (req, res) => {
                      console.log('payload[1]' + payload[1]);
 		     console.log('payload[3]' + payload[3]);
 			 
-                     salesforce.findOpenBranches(payload[1]).then(Accounts => {    
-                            sendMessage(formatter.formatOpenBranches(Accounts), sender);  
-                     }); 
+                     sendMessage({text: "Please share your location to help you with nearest branches. Make sure your Location in ON", 
+				     quick_replies: [
+				    	 {
+					  "content_type":"location",
+					  "title":"Share Location",
+					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION,"+payload[1]
+					}
+					     ]
+				    }, sender);
 		     
 		    if(payload[3] == 'Play Game'){
 			    sendMessage({text: `Click the ball and start playing !!`}, sender);  
@@ -379,7 +391,7 @@ let handlePost = (req, res) => {
 		      getUserInfo(sender).then(response => {    
 			  console.log('Existin opp ****'+payload[2]);
 			  if(payload[2] == null || payload[2] == ''){
-			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1]).then(Opportunity => {    
+			       salesforce.createOpportunity(response.first_name,response.last_name,sender,payload[1],payload[3],payload[4]).then(Opportunity => {    
 			       newOpp = Opportunity;
 			       console.log('created opportunitity '+newOpp);
 			       //Hitendar
