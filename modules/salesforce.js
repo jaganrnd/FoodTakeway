@@ -50,6 +50,7 @@ let findTitleCard = name => {
 let findOpenBranches = (parentaccountid,subLocality) => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
+	console.log('sublocality****'+subLocality);
         let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description,Supported_Locality__c FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE";
         //select id,name,parent.name from account where parent.name = 'kolapasi'   
 	console.log('open branch query' + q);        
@@ -61,7 +62,8 @@ let findOpenBranches = (parentaccountid,subLocality) => {
                 console.log('Open Branches Count' + resp.records.length);
 		var Accounts = [];
 		for(var i = 0; i < resp.records.length; i++){
-			if(resp.records[i].get("Supported_Locality__c").includes(subLocality)){
+			console.log('resp.records[i].get("Supported_Locality__c")***'+resp.records[i].get("Supported_Locality__c"));
+			if(resp.records[i].get("Supported_Locality__c") != null && resp.records[i].get("Supported_Locality__c").includes(subLocality)){
 				Accounts.push(resp.records[i]);
 			}
 		}
