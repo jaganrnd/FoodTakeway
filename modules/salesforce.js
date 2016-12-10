@@ -47,10 +47,10 @@ let findTitleCard = name => {
     });
 };
 
-let findOpenBranches = parentaccountid => {
+let findOpenBranches = (parentaccountid,subLocality) => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
-        let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE ";
+        let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description,Supported_Locality__c FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE";
         //select id,name,parent.name from account where parent.name = 'kolapasi'   
 	console.log('open branch query' + q);        
         org.query({query: q}, (err, resp) => {
@@ -59,14 +59,19 @@ let findOpenBranches = parentaccountid => {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
                 console.log('Open Branches Count' + resp.records.length);
-                let Accounts = resp.records;
+		let Accounts;
+		for(int i = 0; i < resp.records.length; i++){
+			if(resp.records[i].get("Supported_Locality__c").includes(subLocality)){
+				Accounts.push(resp.records[i]);
+			}
+		}
                 resolve(Accounts);
             }
         });
     });
 };
 
-let createOpportunity = (firstName, lastName, userId, accountId) => {
+let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
     return new Promise((resolve, reject) => {
 	//Query if the contact already exists
 	var contactId;
@@ -82,7 +87,7 @@ let createOpportunity = (firstName, lastName, userId, accountId) => {
 		contactId = resp.records[0].get("Id");
 		console.log('Contact ID***' + contactId);
             }
-	       if(contactId == null || contactId == ''){ 
+	    if(contactId == null || contactId == ''){ 
 		//Create Contact    
 		let con = nforce.createSObject('Contact');
 		con.set('firstName', firstName);
@@ -99,6 +104,9 @@ let createOpportunity = (firstName, lastName, userId, accountId) => {
 		    }
 		});
 	}
+	       else{
+	       		updatePhone(null,lat,lng,userId);
+	       }
 	
 	//Create Opportunity    
 	let opp = nforce.createSObject('Opportunity');
