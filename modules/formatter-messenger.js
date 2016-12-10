@@ -46,7 +46,7 @@ let formatQuickReplies = Accounts => {
     };  
 };
 
-let formatOpenBranches= Accounts => {
+let formatOpenBranches= (Accounts,lat,lng) => {
     let elements = [];
     Accounts.forEach(Account =>
         elements.push({
@@ -57,7 +57,7 @@ let formatOpenBranches= Accounts => {
                 {
                     "type":"postback",
                     "title":"DELIVERY MENU",
-                    "payload": "Main_Menu," + Account.getId()
+                    "payload": "Main_Menu," + Account.getId() + "," + "" + "," + lat + "," +lng
                     
                 }]
         })
