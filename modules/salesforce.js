@@ -59,7 +59,7 @@ let findOpenBranches = (parentaccountid,subLocality) => {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
                 console.log('Open Branches Count' + resp.records.length);
-		let Accounts;
+		var Accounts = [];
 		for(var i = 0; i < resp.records.length; i++){
 			if(resp.records[i].get("Supported_Locality__c").includes(subLocality)){
 				Accounts.push(resp.records[i]);
