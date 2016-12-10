@@ -63,7 +63,7 @@ let getAddress = (lat, lng, parentAccountId) => {
                 }else if (response) {
                     console.log('Responseuu*** ', JSON.parse(response.body));
 			console.log('Responseuu123*** ', JSON.parse(response.body).results);
-		    var subLocality = response.body.results[0].address_components[2].long_name;
+		    var subLocality = JSON.parse(response.body).results[0].address_components[2].long_name;
 		    salesforce.findOpenBranches(parentAccountId,subLocality).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
                      }); 
