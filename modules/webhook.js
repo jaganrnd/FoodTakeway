@@ -53,7 +53,7 @@ let getAddress = (lat, lng, parentAccountId) => {
   	    console.log('URL***'+'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&location_type=GEOMETRIC_CENTER&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4');
             request({
                 //https://maps.googleapis.com/maps/api/geocode/json?latlng=12.977165,80.138902&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4
-                url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
+                url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng+'&location_type=GEOMETRIC_CENTER&key=AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4',
                 //qs: {latlng:{lat,lng}, key: 'AIzaSyCOKmcmLPD3KqyfaiMTr3GIcXTPYJVKNa4'},
                 //sendMessage({text: ` Latitude "${lat}" `}, sender);
                 method: 'GET',
@@ -61,7 +61,7 @@ let getAddress = (lat, lng, parentAccountId) => {
                 if (error) {
                     console.log('Error sending message: ', error);
                 }else if (response) {
-                    console.log('Responseuu*** ', response.body.results);
+                    console.log('Responseuu*** ', response.body[0]);
 		    var subLocality = response.body.results[0].address_components[2].long_name;
 		    salesforce.findOpenBranches(parentAccountId,subLocality).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
