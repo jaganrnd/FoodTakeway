@@ -372,13 +372,13 @@ let handlePost = (req, res) => {
                      console.log('payload[1]' + payload[1]);
 		     console.log('payload[3]' + payload[3]);
 		     var obj = { 'parentAccountId': payload[1]};
-	 	     var payload = JSON.stringify(obj);
+	 	     var payloadParameters = JSON.stringify(obj);
                      sendMessage({text: "Please share your location to help you with nearest branches. Make sure your Location in ON", 
 				     quick_replies: [
 				    	 {
 					  "content_type":"location",
 					  "title":"Share Location",
-					  "payload": payload
+					  "payload": payloadParameters
 					}
 					     ]
 				    }, sender);
