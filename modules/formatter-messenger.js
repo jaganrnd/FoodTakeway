@@ -128,7 +128,7 @@ let formatMainMenus= (MainMenus,opportunity,account) => {
         }
     };
 };
-/*
+
 let formatSubMenus= (SubMenus,Opporunity,Account) => {
   let elements = [];
     SubMenus.forEach(Menu__c =>
@@ -156,7 +156,7 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
         }
     };
 };
-*/
+/*
 let formatSubMenus= (SubMenus,Opporunity,Account) => {
   let elements = [];
 	
@@ -197,7 +197,7 @@ let formatSubMenus= (SubMenus,Opporunity,Account) => {
         }
     };
 };
-
+*/
 /* Hitendar */
 let formatQuantity= (SelectedMenu,Opportunity, Account, oli) => {
     let elements = [];    
