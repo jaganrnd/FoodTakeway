@@ -64,6 +64,7 @@ let getAddress = (lat, lng, parentAccountId) => {
                     console.log('Responseuu*** ', JSON.parse(response.body));
 			console.log('Responseuu123*** ', JSON.parse(response.body).results);
 		    var subLocality = JSON.parse(response.body).results[0].address_components[2].long_name;
+		    console.log('sub locality***'+subLocality);
 		    salesforce.findOpenBranches(parentAccountId,subLocality).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
                      }); 
@@ -344,6 +345,8 @@ let handlePost = (req, res) => {
 	//Newly addded
 	else if (event.message && event.message.attachments) {
 		var parentAccountId;
+		console.log('location payload***'+event.message.quick_reply);
+		console.log('location payload1123***'+event.message.quick_reply.payload);
 		if(event.message.quick_reply){
 			parentAccountId = JSON.parse(event.message.quick_reply.payload).parentAccountId;
 		}
@@ -374,6 +377,7 @@ let handlePost = (req, res) => {
 		     console.log('payload[3]' + payload[3]);
 		     var obj = { 'parentAccountId': payload[1]};
 	 	     var payloadParameters = JSON.stringify(obj);
+		     console.log('payload parameters'+payloadParameters);
                      sendMessage({text: "Please share your location to help you with nearest branches. Make sure your Location in ON", 
 				     quick_replies: [
 				    	 {
