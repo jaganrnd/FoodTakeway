@@ -65,7 +65,7 @@ let getAddress = (lat, lng, parentAccountId) => {
 			console.log('Responseuu123*** ', JSON.parse(response.body).results);
 		    var subLocality = JSON.parse(response.body).results[0].address_components[2].long_name;
 		    console.log('sub locality***'+subLocality);
-		    salesforce.findOpenBranches(parentAccountId,subLocality).then(Accounts => {    
+		    salesforce.findOpenBranches('0012800000tbvur',subLocality).then(Accounts => {    
                             sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
                      }); 
                 }else if (response.body.error) {
