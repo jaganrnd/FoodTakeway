@@ -347,10 +347,12 @@ let handlePost = (req, res) => {
 		var parentAccountId;
 		console.log('location payload***'+event.message.quick_reply);
 		console.log('location payload1123***'+event.message.quick_reply.payload);
+		
 		if(event.message.quick_reply){
 			parentAccountId = JSON.parse(event.message.quick_reply.payload).parentAccountId;
 		}
                 console.log('Inside Location Loop ', event.message.attachments[0].type);
+		console.log('Inside Location Loop payload', event.message.attachments[0].payload);
                 if(event.message.attachments[0].type == 'location'){
                     console.log('GETHU DA................');
                     var lat = event.message.attachments[0].payload.coordinates.lat;
