@@ -346,7 +346,6 @@ let handlePost = (req, res) => {
 	else if (event.message && event.message.attachments) {
 		var parentAccountId;
 		console.log('location payload***'+event.message.quick_reply);
-		console.log('location payload1123***'+event.message.quick_reply.payload);
 		
 		if(event.message.quick_reply){
 			parentAccountId = JSON.parse(event.message.quick_reply.payload).parentAccountId;
