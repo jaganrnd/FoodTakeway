@@ -342,14 +342,17 @@ let handlePost = (req, res) => {
         }
 	//Newly addded
 	else if (event.message && event.message.attachments) {
-		let payload = event.postback.payload.split(",");
+		var parentAccountId;
+		if(event.message.quick_reply){
+			parentAccountId = JSON.parse(event.message.quick_reply.payload).parentAccountId;
+		}
                 console.log('Inside Location Loop ', event.message.attachments[0].type);
                 if(event.message.attachments[0].type == 'location'){
                     console.log('GETHU DA................');
                     var lat = event.message.attachments[0].payload.coordinates.lat;
                     var lng = event.message.attachments[0].payload.coordinates.long;
                     //sendMessage({text: `Thanks For Sharing Your Location. We will contact you shortly`}, sender);
-		    getAddress(lat,lng,payload[1]);
+		    getAddress(lat,lng,parentAccountId);
 		    //salesforce.updatePhone(null, lat, lng,sender);
                     /*sendMessage({text: ` Latitude "${lat}" `}, sender);
                     sendMessage({text: ` Longitude "${lng}" `}, sender);
@@ -363,17 +366,19 @@ let handlePost = (req, res) => {
 	else if (event.postback) {		
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
+		
                  if (payload[0] === "Show_Branches"){     
 			 
                      console.log('payload[1]' + payload[1]);
 		     console.log('payload[3]' + payload[3]);
-			 
+		     var obj = { 'parentAccountId': payload[1]};
+	 	     var payload = JSON.stringify(obj);
                      sendMessage({text: "Please share your location to help you with nearest branches. Make sure your Location in ON", 
 				     quick_replies: [
 				    	 {
 					  "content_type":"location",
 					  "title":"Share Location",
-					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION,"+payload[1]
+					  "payload": payload
 					}
 					     ]
 				    }, sender);
