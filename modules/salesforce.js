@@ -60,7 +60,7 @@ let findOpenBranches = (parentaccountid,subLocality) => {
             } else if (resp.records && resp.records.length>0) {
                 console.log('Open Branches Count' + resp.records.length);
 		let Accounts;
-		for(int i = 0; i < resp.records.length; i++){
+		for(i = 0; i < resp.records.length; i++){
 			if(resp.records[i].get("Supported_Locality__c").includes(subLocality)){
 				Accounts.push(resp.records[i]);
 			}
