@@ -217,19 +217,13 @@ let handlePost = (req, res) => {
 		}
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
-			salesforce.updatePhone(event.message.text, null, null,sender);
+			if(!isNaN(event.message.text)){
+				salesforce.updatePhone(event.message.text, null, null,sender);
+			}
 			//sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
-			sendMessage({text: "Please share your location for delivery. Make sure your Location in ON", 
-				     quick_replies: [
-				    	 {
-					  "content_type":"location",
-					  "title":"Share Location",
-					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
-					}
-					     ]
-				    }, sender);
+			sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
 		
 		if (event.message.quick_reply){
@@ -513,15 +507,7 @@ let handlePost = (req, res) => {
 			//sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
-			sendMessage({text: "Please share your location for delivery. Make sure your Location in ON", 
-				     quick_replies: [
-				    	 {
-					  "content_type":"location",
-					  "title":"Share Location",
-					  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_LOCATION"
-					}
-					     ]
-				    }, sender);
+			sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
