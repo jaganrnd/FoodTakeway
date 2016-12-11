@@ -67,11 +67,11 @@ let getAddress = (lat, lng, parentAccountId,sender) => {
 		    console.log('sub locality***'+subLocality);
 		    salesforce.findOpenBranches('0012800000tbvur',subLocality).then(Accounts => {
 			    if(Accounts.length > 0){
-				sendMessage({text: `Below are the nearest branches available. Please proceed with one of them`}, sender);
+				sendMessage({text: `Below is the nearest branche available. Please proceed if you need to order food`}, sender);
                             	sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
 			    }
 			    else{
-			    	sendMessage({text: `Sorry. There is no branch available near by. Try again later`}, sender);
+			    	sendMessage({text: `Sorry. There is no branch available near by :(`}, sender);
 			    }
                      }); 
                 }else if (response.body.error) {
