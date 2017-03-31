@@ -8,7 +8,8 @@ let formatTitleCard = Accounts => {
         elements.push({
             title: Account.get("Name"),
             subtitle: Account.get("Description"),
-            "image_url": Account.get("Picture_URL__c"),
+            //"image_url": Account.get("Picture_URL__c"),
+	    "image_url": Account.get("Inside_Image__c"),
             "buttons": [
                 {
                     "type":"postback",
