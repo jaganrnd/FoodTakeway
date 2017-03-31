@@ -32,7 +32,7 @@ let findTitleCard = name => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
         console.log('Incoming title card name**' + name);
-        let q = "SELECT Id,Name,Type,Picture_URL__c,Title_Cards__c,Description FROM Account WHERE Title_Cards__c LIKE '%" + name + "%' LIMIT 5";
+        let q = "SELECT Id,Name,Type,Picture_URL__c,Inside_Image__c,Title_Cards__c,Description FROM Account WHERE Title_Cards__c LIKE '%" + name + "%' LIMIT 5";
         console.log('title card query' + q);
         org.query({query: q}, (err, resp) => {
             if (err) {
