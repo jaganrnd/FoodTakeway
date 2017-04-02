@@ -1,8 +1,11 @@
 "use strict"; //hello
 
+var PAYMENT_BASE_URL = 'https://test.payumoney.com';
+
 let request = require('request'),
     salesforce = require('./salesforce'),
-    formatter = require('./formatter-messenger');
+    formatter = require('./formatter-messenger'),
+    payumoney = require('./payumoney');
 
 let sendMessage = (message, recipient) => {
     return new Promise((resolve, reject) => {           
@@ -508,6 +511,7 @@ let handlePost = (req, res) => {
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
 			sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
+			payumoney.paymentFields();
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
