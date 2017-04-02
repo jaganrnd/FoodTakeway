@@ -348,7 +348,7 @@ let confirmPhone= (phoneNumber) => {
             "buttons": [
                 {
 		    	"type":"web_url",
-			"url":"https://test.payumoney.com",
+			"url":"https://test.payu.in/_payment",
 			"title":"View Item",
 			"webview_height_ratio": "compact"
                     
