@@ -153,6 +153,7 @@ let handlePost = (req, res) => {
 		
 		if(event.message.text == 'hi' || event.message.text == 'Hi'){
 			console.log('Normal Flow**');	
+			adddomain();  // WHITELISTING DOMAINS
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
 		else if(event.message.text == 'bye' || event.message.text == 'Bye'){
