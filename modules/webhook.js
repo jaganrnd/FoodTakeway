@@ -507,6 +507,9 @@ let handlePost = (req, res) => {
 			  });
                         });   
 		}
+		else if (payload[0] === "Make_Payment"){ 
+			console.log('Inside checkout flow**');
+		}	
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
 			//sendMessage({text: `Please share your location for delivery`}, sender);
