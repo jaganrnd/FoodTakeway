@@ -94,7 +94,8 @@ function adddomain(){
 		whitelisted_domains : ["https://payumoney.com",
 				       "https://peterssendreceiveapp.ngrok.io/shop_collection",
 				       "https://peterssendreceiveapp.ngrok.io/collection",
-				       "https://peterssendreceiveapp.ngrok.io/shop?item=102"],
+				       "https://peterssendreceiveapp.ngrok.io/shop?item=102",
+				       "https://test.payu.in/_payment"],
 		domain_action_type: "add"
 	    }
 
