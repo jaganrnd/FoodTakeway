@@ -54,7 +54,7 @@ let proceedcheckout = () => {
         request({
             url: 'https://test.payu.in/_payment',
 	    qs: {key:'MTeytuI5',txnid:'12234445',amount:'100',productinfo:'test123',surl:'test1.com',
-		 hash:'386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202',
+		 hash:'2B85669157844FBB525803D64D7A0A674C5AB889624D0517DD13EA46EDED2F67C5FA22D06A08A7C341E0EBD8D9B67527FACF18351B8B4A91FEA3495CF8F38CC1',
 		 firstname:'hk',
 		 email:'hitendarsingh1@gmail.com',
 		 phone:'8888888888',
