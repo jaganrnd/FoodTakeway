@@ -53,9 +53,9 @@ let proceedcheckout = () => {
   return new Promise((resolve, reject) => {           
         request({
             url: 'https://test.payu.in/_payment',
-	    qs: {Key:'MTeytuI5',
-		 Txnid:'12234445',
-		 Amount:'100',
+	    qs: {key:'MTeytuI5',
+		 txnid:'12234445',
+		 amount:'100',
 		 productinfo:'chickenBriyani',
 		 surl:'https://www.kolapasi.com',
 		 hash:'92cf1632389896e58f226cc166005bcdb35f6cb966e4ebc85f2b7ba20d1958076eeb4bbe6462d01b3043e352146e64cd31fbabccb9f7d2d904da83ba663290d4',		 
