@@ -511,9 +511,9 @@ let handlePost = (req, res) => {
 			//sendMessage(formatter.formatShareLocation(), sender);  
 			console.log('location Display');
 			sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
-			payumoney.paymentFields.then(fields =>{
+			/*payumoney.paymentFields.then(fields =>{
 				console.log('fields***'+fields);
-			});
+			});*/
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
