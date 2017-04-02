@@ -54,15 +54,15 @@ let proceedcheckout = () => {
         request({
             url: 'https://test.payu.in/_payment',
 	    qs: {Key:'MTeytuI5',
-		 Txnid:'9999',
-		 amount:'250',
+		 Txnid:'12234445',
+		 amount:'100',
 		 productinfo:'chickenBriyani',
 		 firstname:'jagan',
 		 email:'hitendarsingh1@gmail.com',
 		 phone:'9884723932',
 		 surl:'https://www.kolapasi.com',
 		 furl:'https://www.bot4u.in',
-		 hash:'d6397b3a2bc8b25285497caf8b6909b242d4658fe7c82f8b3d660a31acc49e717fedef8afe758c4603dbf245cce64dabb97cd1da962f7775ba8d962fca2fec14',		 
+		 hash:'386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202',		 
                  service_provider:'payu_paisa'},			
             method: 'POST',
         }, (error, response) => {
