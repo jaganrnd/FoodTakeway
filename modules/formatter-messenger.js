@@ -349,8 +349,8 @@ let confirmPhone= (phoneNumber) => {
                 {
 		    	"type":"web_url",
 			"url":"https://test.payu.in/_payment",
-			"title":"View Item",
-			"webview_height_ratio": "compact"
+			"title":"Proceed to Pay",
+			"webview_height_ratio": "full"
                     
                 }]
         })
