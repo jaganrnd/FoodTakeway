@@ -48,6 +48,28 @@ let getUserInfo = (userId) => {
     });      
 };    
             
+//CHECK0UT
+let proceedcheckout = (userId) => {  
+  return new Promise((resolve, reject) => {           
+        request({
+            url: `https://graph.facebook.com/v2.6/${userId}`,
+            qs: {fields:"first_name,last_name,profile_pic", access_token: process.env.FB_PAGE_TOKEN},
+            method: 'GET',
+        }, (error, response) => {
+            if (error) {
+                console.log('Error sending message: ', error);
+                reject(error);
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error);
+            } else {
+                console.log(response.body);
+                resolve(JSON.parse(response.body));
+            }    
+        });    
+    });      
+};  
+//CHECK0UT
+
 
 let getAddress = (lat, lng, parentAccountId,sender) => {
             console.log('Yappa Inside Callout pa', lat);
@@ -507,6 +529,7 @@ let handlePost = (req, res) => {
 			  });
                         });   
 		}
+		//CHECKOUT 
 		else if (payload[0] === "Make_Payment"){ 
 			console.log('Inside checkout flow**');
 		}	
