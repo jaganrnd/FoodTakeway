@@ -348,7 +348,8 @@ let confirmPhone= (phoneNumber) => {
             "buttons": [
                 {
 		    	"type":"web_url",
-			"url":"https://test.payu.in/_payment?key=MTeytuI5&txnid=12234445&amount=100&productinfo=test123&surl=test1.com&hash=386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202&firstname=hk&email=h@gmail.com&phone=8888888888&furl=test1.com&service_provider=payu_paisa",
+			//"url":"https://test.payu.in/_payment?key=MTeytuI5&txnid=12234445&amount=100&productinfo=test123&surl=test1.com&hash=386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202&firstname=hk&email=h@gmail.com&phone=8888888888&furl=test1.com&service_provider=payu_paisa",
+			"url":"https://test.payu.in/_payment
 			"title":"Proceed to Pay",
 			"webview_height_ratio": "full"
                     
