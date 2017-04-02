@@ -66,10 +66,10 @@ let proceedcheckout = () => {
                 console.log('Error sending message: ', error);
                 reject(error);
             } else if (response.body.error) {
-                console.log('Error: ', response.body.error);
+                console.log('ERROR PAYMENT : ', response.body.error);
             } else {
-                console.log("Payment callout successfull");
-                console.log(response.body);
+                console.log("INNER PAYMENT");
+                console.log('PAYMENT RESPONSE BODY**' + response.body);
                 resolve(JSON.parse(response.body));
             }    
         });    
