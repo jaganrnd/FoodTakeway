@@ -347,9 +347,10 @@ let confirmPhone= (phoneNumber) => {
             "subtitle": phoneNumber,
             "buttons": [
                 {
-                    "type":"postback",
-                    "title":"Confirm",
-                    "payload": "Number_Confirmed"
+		    	"type":"web_url",
+			"url":"https://test.payumoney.com",
+			"title":"View Item",
+			"webview_height_ratio": "compact"
                     
                 }]
         })
