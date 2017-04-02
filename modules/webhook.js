@@ -49,12 +49,18 @@ let getUserInfo = (userId) => {
 };    
             
 //CHECK0UT
-let proceedcheckout = (userId) => {  
+let proceedcheckout = () => {  
   return new Promise((resolve, reject) => {           
         request({
-            url: `https://graph.facebook.com/v2.6/${userId}`,
-            qs: {fields:"first_name,last_name,profile_pic", access_token: process.env.FB_PAGE_TOKEN},
-            method: 'GET',
+            url: 'https://test.payu.in/_payment',
+	    qs: {key="MTeytuI5",txnid="12234445",amount="100",productinfo="test123",surl="test1.com",
+		 hash="386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202",
+		 firstname="hk",
+		 email="hitendarsingh1@gmail.com",
+		 phone="8888888888",
+                 furl="test1.com",
+                 service_provider="payu_paisa"},			
+            method: 'POST',
         }, (error, response) => {
             if (error) {
                 console.log('Error sending message: ', error);
@@ -62,12 +68,13 @@ let proceedcheckout = (userId) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
+                console.log("Payment callout successfull");
                 console.log(response.body);
                 resolve(JSON.parse(response.body));
             }    
         });    
     });      
-};  
+};
 //CHECK0UT
 
 
@@ -532,6 +539,7 @@ let handlePost = (req, res) => {
 		//CHECKOUT 
 		else if (payload[0] === "Make_Payment"){ 
 			console.log('Inside checkout flow**');
+			proceedcheckout();
 		}	
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
