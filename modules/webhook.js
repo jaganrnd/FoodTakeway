@@ -64,16 +64,15 @@ let proceedcheckout = () => {
 		 phone:'8888888888',		 
 		 furl:'test1.com',		 
                  service_provider:'payu_paisa'},			
-            method: 'POST',
-        }, (error, response,request) => {
+            method: 'GET',
+        }, (error, response) => {
             if (error) {
                 console.log('Error sending message: ', error);
                 reject(error);
             } else if (response.body.error) {
                 console.log('ERROR PAYMENT : ', response.body.error);
             } else {
-                console.log("INNER PAYMENT");
-                console.log('PAYMENT REQUEST BODY**' + request.body);
+                console.log("INNER PAYMENT");               
 		console.log('PAYMENT RESPONSE BODY**' + response.body);
                 resolve(JSON.parse(response.body));
             }    
