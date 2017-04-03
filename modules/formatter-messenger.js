@@ -353,7 +353,7 @@ let confirmPhone= (phoneNumber) => {
 			//"url":"https://test.payu.in/_payment",
 			"url" :"https://kolapasi-developer-edition.ap2.force.com",		
 			"title":"Proceed to Pay",
-			"webview_height_ratio": "medium"
+			"webview_height_ratio": "TALL"
 			
 			//"type":"postback",
 			//"title":"Proceed to CheckOut",
