@@ -546,7 +546,7 @@ let handlePost = (req, res) => {
 		//CHECKOUT 
 		else if (payload[0] === "Make_Payment"){ 
 			console.log('Inside checkout flow**');
-			proceedcheckout();			
+			//proceedcheckout();			
 		}	
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
