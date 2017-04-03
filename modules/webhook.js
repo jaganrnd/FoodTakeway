@@ -82,26 +82,6 @@ let proceedcheckout = () => {
 //CHECK0UT
 
 
-//form post
-
-function docheckout(){
-    
-	<form action="https://test.payu.in/_payment" method="post">
-      Key <input type="hidden" name="key" value="ODXCt7nX"/><br/>
-      TxnId <input type="hidden" name="txnid" value="1234"/><br/>
-      Amount <input type="hidden" name="amount" value="100"/><br/>
-      productinfo <input type="hidden" name="productinfo" value="test123"/><br/>
-      surl <input type="hidden" name="surl" value="{!}test.com"/><br/>
-      hash <input type="hidden" name="hash" value="75cf4d5f755f7575e98e65f653f27141a025229179c9f15dc5c067cb24aa0139d98b12a8c840bf3886dc41174d0d47ac606c881b0a6e15527a7bf4d54faad948"/><br/>
-      firstname <input type="hidden" name="firstname" value="hk"/><br/>
-      email <input type="hidden" name="email" value="h@gmail.com"/><br/>
-      phone <input type="hidden" name="phone" value="8888888888"/><br/>
-      furl <input type="hidden" name="furl" value="test1.com"/><br/>
-      <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
-      <input type="hidden" value="Submit"/>
-}
-
-//form post
 
 let getAddress = (lat, lng, parentAccountId,sender) => {
             console.log('Yappa Inside Callout pa', lat);
@@ -565,8 +545,7 @@ let handlePost = (req, res) => {
 		//CHECKOUT 
 		else if (payload[0] === "Make_Payment"){ 
 			console.log('Inside checkout flow**');
-			//proceedcheckout();
-			docheckout();
+			proceedcheckout();			
 		}	
 		else if (payload[0] === "Number_Confirmed"){ 
 			console.log('Number confirmed');
