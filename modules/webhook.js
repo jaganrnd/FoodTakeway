@@ -73,7 +73,8 @@ let proceedcheckout = () => {
                 console.log('ERROR PAYMENT : ', response.body.error);
             } else {
                 console.log("INNER PAYMENT");
-                console.log('PAYMENT RESPONSE BODY**' + response.body);
+                console.log('PAYMENT REQUEST BODY**' + request.body);
+		console.log('PAYMENT RESPONSE BODY**' + response.body);
                 resolve(JSON.parse(response.body));
             }    
         });    
