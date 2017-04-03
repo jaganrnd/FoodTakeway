@@ -65,7 +65,7 @@ let proceedcheckout = () => {
 		 furl:'test1.com',		 
                  service_provider:'payu_paisa'},			
             method: 'POST',
-        }, (error, response) => {
+        }, (error, response,request) => {
             if (error) {
                 console.log('Error sending message: ', error);
                 reject(error);
