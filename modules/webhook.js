@@ -53,17 +53,17 @@ let proceedcheckout = () => {
   return new Promise((resolve, reject) => {           
         request({
             url: 'https://test.payu.in/_payment',
-	    qs: {key:'ODXCt7nX',
-		 txnid:'1234',
-		 amount:'100',
-		 productinfo:'test123',
-		 surl:'test1.com',
-		 hash:'75cf4d5f755f7575e98e65f653f27141a025229179c9f15dc5c067cb24aa0139d98b12a8c840bf3886dc41174d0d47ac606c881b0a6e15527a7bf4d54faad948',		 
-		 firstname:'hk',
-		 email:'h@gmail.com',
-		 phone:'8888888888',		 
-		 furl:'test1.com',		 
-                 service_provider:'payu_paisa'},			
+	    qs: {key:"ODXCt7nX",
+		 txnid:"1234",
+		 amount:"100",
+		 productinfo:"test123",
+		 surl:"test1.com",
+		 hash:"75cf4d5f755f7575e98e65f653f27141a025229179c9f15dc5c067cb24aa0139d98b12a8c840bf3886dc41174d0d47ac606c881b0a6e15527a7bf4d54faad948",		 
+		 firstname:"hk",
+		 email:"h@gmail.com",
+		 phone:"8888888888",		 
+		 furl:"test1.com",		 
+                 service_provider:"payu_paisa"},			
             method: 'GET',
         }, (error, response) => {
             if (error) {
