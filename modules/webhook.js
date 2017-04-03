@@ -64,7 +64,7 @@ let proceedcheckout = () => {
 		 phone:'8888888888',		 
 		 furl:'test1.com',		 
                  service_provider:'payu_paisa'},			
-            method: 'POST',
+            method: 'GET',
         }, (error, response) => {
             if (error) {
                 console.log('Error sending message: ', error);
