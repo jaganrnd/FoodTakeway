@@ -52,9 +52,8 @@ let getUserInfo = (userId) => {
 let proceedcheckout = () => {  
   return new Promise((resolve, reject) => {           
         request({
-            //url: 'https://test.payu.in/_payment',
-            url: 'https://www.google.com',		
-	   /* qs: {key:"ODXCt7nX",
+           url: 'https://test.payu.in/_payment',		
+	   qs: {key:"ODXCt7nX",
 		 txnid:"1234",
 		 amount:"100",
 		 productinfo:"test123",
@@ -64,7 +63,7 @@ let proceedcheckout = () => {
 		 email:"h@gmail.com",
 		 phone:"8888888888",		 
 		 furl:"test1.com",		 
-                 service_provider:"payu_paisa"},*/			
+                 service_provider:"payu_paisa"},			
             method: 'GET'
         }, (error, response) => {
             if (error) {
