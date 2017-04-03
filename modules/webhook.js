@@ -73,8 +73,9 @@ let proceedcheckout = () => {
                 console.log('ERROR PAYMENT : ', response.body.error);
             } else {
                 console.log("INNER PAYMENT");               
+		console.log('PAYMENT RESPONSE HEADER**' + response.header);    
 		console.log('PAYMENT RESPONSE BODY**' + response.body);
-                resolve(JSON.parse(response.body));
+                //resolve(JSON.parse(response.body));
             }    
         });    
     });      
