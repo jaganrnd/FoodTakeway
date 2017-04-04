@@ -538,7 +538,7 @@ let handlePost = (req, res) => {
 					  	sendMessage({text: `Please enter your phone number without code `}, sender);
 					  }
 					  else{
-					  	sendMessage(formatter.confirmPhone(phoneNumber), sender);
+					  	sendMessage(formatter.confirmPhone(phoneNumber,payload[1]), sender); //Included OpptyId(April4)
 					  }
 				  });
 			  });
