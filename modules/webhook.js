@@ -267,8 +267,8 @@ let handlePost = (req, res) => {
 			});
 			//sendMessage({text: `Please share your location for delivery`}, sender);
 			//sendMessage(formatter.formatShareLocation(), sender);  
-			console.log('location Display');
-			sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
+			//console.log('location Display');
+			//sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
 		
 		if (event.message.quick_reply){
