@@ -441,7 +441,26 @@ let getPhoneNumber = (userId) => {
         });
     });
 };
-
+let getRecentOpportunityFromContactId = (userId) => {
+	return new Promise((resolve, reject) => {
+	console.log('UserId***'+userId);
+	let q = "SELECT Id from opportunity where contact__r.FacebookId__c = '" + userId + "' order by createddate desc limit 1";                 
+        
+        console.log('Find contact**' + q);
+	
+        org.query({query: q}, (err, resp) => {
+		
+		if (err) {
+		console.log('ERROR');
+		reject("An error as occurred");
+		}
+		else if (resp.records && resp.records.length>0) {
+			console.log('Phone Number***'+resp.records[0].get("mobilePhone"));
+			resolve(resp.records[0].get("Id"));
+		}
+        });
+    });
+};
 
 login();
 
@@ -458,3 +477,4 @@ exports.getSelectedMenuFromOli = getSelectedMenuFromOli;
 exports.removeOLI = removeOLI;
 exports.updatePhone = updatePhone;
 exports.getPhoneNumber = getPhoneNumber;
+exports.getRecentOpportunityFromContactId = getRecentOpportunityFromContactId;
