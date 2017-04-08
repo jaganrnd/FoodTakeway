@@ -375,7 +375,41 @@ let confirmPhone= (phoneNumber,OpptyId) => {
         }
     };
 };
-
+let proceedToPay = (OpptyId) => {
+  let elements = [];
+	console.log('webURL**'+'https://kolapasi-developer-edition.ap2.force.com?id='+OpptyId);
+        elements.push({
+            "title": "Thanks for sharing your phone number",
+            "subtitle": "",
+            "buttons": [
+                {
+			//Commented since link is not redirecting via mobile browser
+		    	 "type":"web_url",			
+			//"url":"https://test.payu.in/_payment?key=MTeytuI5&txnid=12234445&amount=100&productinfo=test123&surl=test1.com&hash=386007ebcfb8eee2fc32d9ab41930aa7f1dfe7c93d82a5156f9a2e80bede590293af84b5f7b7cf989869a9d6e2109e5e3c75e4662f5c0d4f758b91284bba0202&firstname=hk&email=h@gmail.com&phone=8888888888&furl=test1.com&service_provider=payu_paisa",
+			//"url":"https://test.payu.in/_payment",
+			
+			//"url" :"https://kolapasi-developer-edition.ap2.force.com?id=0062800000Ji6cu",
+			"url" :"https://kolapasi-developer-edition.ap2.force.com?id="+OpptyId,
+			"title":"Proceed to Pay",
+			"webview_height_ratio": "FULL"
+			
+			//"type":"postback",
+			//"title":"Proceed to CheckOut",
+			//"payload":"Make_Payment,"
+                    
+                }]
+        })
+    
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
 
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
@@ -387,3 +421,4 @@ exports.formatShowCart = formatShowCart;
 exports.formatOrder = formatOrder;
 exports.confirmPhone = confirmPhone;
 exports.formatShareLocation = formatShareLocation;
+exports.proceedToPay = proceedToPay;
