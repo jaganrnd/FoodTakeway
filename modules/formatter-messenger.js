@@ -344,7 +344,7 @@ let confirmPhone= (phoneNumber,OpptyId) => {
   let elements = [];
 	console.log('webURL**'+'https://kolapasi-developer-edition.ap2.force.com?id='+OpptyId);
         elements.push({
-            "title": "Please confirm your contact number or enter new one",
+            "title": "Please proceed to pay if below is your contact number or enter new one",
             "subtitle": phoneNumber,
             "buttons": [
                 {
