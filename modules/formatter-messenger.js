@@ -356,7 +356,7 @@ let confirmPhone= (phoneNumber,OpptyId) => {
 			//"url" :"https://kolapasi-developer-edition.ap2.force.com?id=0062800000Ji6cu",
 			"url" :"https://kolapasi-developer-edition.ap2.force.com?id="+OpptyId,
 			"title":"Proceed to Pay",
-			"webview_height_ratio": "FULL"
+			"webview_height_ratio": "FULL",
 			"webview_share_button": "hide" //newly added on sunday april 8th
 			
 			//"type":"postback",
