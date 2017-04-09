@@ -273,18 +273,27 @@ let formatShowCart = (SelectedItems, accountId) => {
 		    "webview_height_ratio": "compact",	
                      //"messenger_extensions": true,                      
                 }
-		*/
+		
 		 {
 		    "type":"postback",
                     "title":"Place Order",	
 		    "payload":"No_Enf," + opportunitylineitem.get("opportunityid")
                 }
-	    
+	    */
 	    ]
 	    
         })
 			  
     );
+	elements.push({
+		"buttons": [
+				{
+				    "type":"postback",
+				    "title":"Place Order",	
+				    "payload":"No_Enf," + SelectedItems[0].get("opportunityid")
+				}
+		]
+	});
     return {
         "attachment": {
             "type": "template",
