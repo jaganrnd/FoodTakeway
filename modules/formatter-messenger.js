@@ -297,7 +297,7 @@ let formatShowCart = (SelectedItems, accountId) => {
     };
 };
 
-let placeOrder = = (SelectedItems, accountId) => {
+let placeOrder = (SelectedItems, accountId) => {
 	return {
 		attachment:{
 			"type": "template",
