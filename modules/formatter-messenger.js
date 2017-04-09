@@ -285,16 +285,7 @@ let formatShowCart = (SelectedItems, accountId) => {
         })
 			  
     );
-	elements.push({
-		"title": "I am Done",
-		"buttons": [
-				{
-				    "type":"postback",
-				    "title":"Place Order",	
-				    "payload":"No_Enf," + SelectedItems[0].get("opportunityid")
-				}
-		]
-	});
+	
     return {
         "attachment": {
             "type": "template",
@@ -306,7 +297,29 @@ let formatShowCart = (SelectedItems, accountId) => {
     };
 };
 
-let placeOrder = 
+let placeOrder = = (SelectedItems, accountId) => {
+	return {
+		attachment:{
+			"type": "template",
+			"payload": {
+			    "template_type":"button",
+			    "text":"What's next?",
+			    "buttons":[
+			      {
+				"type":"postback",
+				"title":"Order More",
+				"payload":"Main_Menu," + accountId + "," + SelectedItems[0].get("opportunityid")
+			      },
+			      {
+				"type":"postback",
+				"title":"Place Order",
+				"payload":"No_Enf," + SelectedItems[0].get("opportunityid")
+			      }
+			    ]
+			}
+		    }
+	}
+};
 
 let formatOrder = (SelectedItems) => {
     let elements = [];
