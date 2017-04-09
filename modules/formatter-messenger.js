@@ -286,6 +286,7 @@ let formatShowCart = (SelectedItems, accountId) => {
 			  
     );
 	elements.push({
+		"title": "I am Done",
 		"buttons": [
 				{
 				    "type":"postback",
