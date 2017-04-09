@@ -302,7 +302,25 @@ let formatShowCart = (SelectedItems, accountId) => {
                 "template_type": "generic",
                 "elements": elements
             }
-        }
+        },
+	"attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [
+			{
+				"title": "I am Done",
+		"buttons": [
+				{
+				    "type":"postback",
+				    "title":"Place Order",	
+				    "payload":"No_Enf," + SelectedItems[0].get("opportunityid")
+				}
+				]
+			}
+		]
+            }
+        }  
     };
 };
 
