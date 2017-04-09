@@ -448,3 +448,4 @@ exports.formatOrder = formatOrder;
 exports.confirmPhone = confirmPhone;
 exports.formatShareLocation = formatShareLocation;
 exports.proceedToPay = proceedToPay;
+exports.placeOrder = placeOrder;
