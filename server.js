@@ -7,7 +7,7 @@ app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
 
-app.get('/success', function (req, res) {
+app.get('/success/:id', function (req, res) {
   res.send('Hello World!')
 })
 
