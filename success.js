@@ -1,2 +1,1 @@
-alert();
 console.log('Success');
