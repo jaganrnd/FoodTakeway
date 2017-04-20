@@ -347,8 +347,7 @@ let formatOrder = (SelectedItems) => {
                 "timestamp":Math.floor(Date.now() / 1000) + 48600, 
                 "elements": elements,
                 "address":{
-                    //"street_1":"1 Hacker Way",
-		    "street_1":SelectedItems[0].get("Opportunity").contact__r.MailingStreet,
+                    "street_1":"1 Hacker Way",		    
                     "street_2":"",
                     "city":"Menlo Park",
                     "postal_code":"94025",
