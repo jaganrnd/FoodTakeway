@@ -272,7 +272,7 @@ let findOpportunityLineItem = (Oppty,orderCompleted) => {
 	
     return new Promise((resolve, reject) => {
 
-        let q = "SELECT contact__r.MailingStreet,contact__r.MailingCity,contact__r.MailingState,contact__r.MailingPostalcode,Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.Amount,Opportunity.Order_Number__c,Opportunity.AccountId,Opportunity.TotalAmount__c,unitprice, TotalPrice, quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
+        let q = "SELECT Id,product2.name,product2.PICURL__c,opportunityid,Opportunity.name,Opportunity.Amount,Opportunity.Order_Number__c,Opportunity.AccountId,Opportunity.TotalAmount__c,unitprice, TotalPrice, quantity from opportunitylineitem where opportunityid = '" + Oppty + "'";                 
         //SELECT Id,product2.name,opportunityid,unitprice ,quantity from opportunitylineitem where opportunityid = '0062800000FFU3l'
         
         console.log('Find Opportunity Line Item**' + q);
