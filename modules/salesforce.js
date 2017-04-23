@@ -499,3 +499,5 @@ exports.removeOLI = removeOLI;
 exports.updatePhone = updatePhone;
 exports.getPhoneNumber = getPhoneNumber;
 exports.getRecentOpportunityFromContactId = getRecentOpportunityFromContactId;
+exports.getContactDetails = getContactDetails;
+
