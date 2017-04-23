@@ -321,7 +321,7 @@ let placeOrder = (SelectedItems, accountId) => {
 	}
 };
 
-let formatOrder = (SelectedItems) => {
+let formatOrder = (SelectedItems, contactDetail) => {
     let elements = [];
     SelectedItems.forEach(opportunitylineitem   =>
         elements.push({
@@ -342,17 +342,17 @@ let formatOrder = (SelectedItems) => {
                 "recipient_name": SelectedItems[0].get("Opportunity").Name,
                 "order_number":SelectedItems[0].get("Opportunity").Order_Number__c,
                 "currency":"INR",
-                "payment_method":"Visa 2345",        
+                "payment_method":"",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                 "timestamp":Math.floor(Date.now() / 1000) + 48600, 
                 "elements": elements,
                 "address":{
-                    "street_1":"1 Hacker Way",		    
+                    "street_1":contactDetail.get("MailingStreet"),		    
                     "street_2":"",
-                    "city":"Menlo Park",
-                    "postal_code":"94025",
-                    "state":"CA",
-                    "country":"US"
+                    "city":contactDetail.get("MailingCity"),		    
+                    "postal_code":contactDetail.get("MailingPostalCode"),
+                    "state":contactDetail.get("MailingState"),
+                    "country":contactDetail.get("MailingCountry"),
                 },
                 "summary":{
                     "subtotal":SelectedItems[0].get("Opportunity").Amount,
