@@ -441,6 +441,27 @@ let getPhoneNumber = (userId) => {
         });
     });
 };
+let getContactDetails = (userId) => {
+	
+    return new Promise((resolve, reject) => {
+	console.log('UserId***'+userId);
+	let q = "SELECT Id, mobilePhone, MailingCity, MailingCity, MailingCountry, MailingPostalCode, MailingStreet from contact where FacebookId__c = '" + userId + "'";                 
+        
+        console.log('Find contact**' + q);
+	
+        org.query({query: q}, (err, resp) => {
+		
+		if (err) {
+		console.log('ERROR');
+		reject("An error as occurred");
+		}
+		else if (resp.records && resp.records.length>0) {
+			console.log('Phone Number***'+resp.records[0].get("mobilePhone"));
+			resolve(resp.records[0]);
+		}
+        });
+    });
+};
 let getRecentOpportunityFromContactId = (userId) => {
 	return new Promise((resolve, reject) => {
 	console.log('UserId***'+userId);
