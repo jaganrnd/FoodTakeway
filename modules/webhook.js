@@ -533,16 +533,16 @@ let handlePost = (req, res) => {
 		else if (payload[0] === "No_Enf"){ 
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
-			  sendMessage({text: `Preparing Receipt for you `}, sender);				  
-                          sendMessage(formatter.formatOrder(SelectedItems), sender).then(orderSent => {   // Hitendar		          			  					
-				  sendMessage({text: `❤️`}, sender);	
-				  salesforce.getPhoneNumber(sender).then(phoneNumber =>{
-					  if(phoneNumber == null || phoneNumber == ''){
+			  sendMessage({text: `Preparing Receipt for you `}, sender);	
+			  salesforce.getPhoneNumber(sender).then(contacDetail =>{
+                          sendMessage(formatter.formatOrder(SelectedItems, contacDetail), sender).then(orderSent => {   // Hitendar		          			  					
+				  sendMessage({text: `❤️`}, sender);
+					  if(contacDetail.get("mobilePhone") == null || contacDetail.get("mobilePhone") == ''){
 					  	sendMessage({text: `Please enter your phone number without code `}, sender);
 					  }
 					  else{
 						  console.log('oppId****'+payload[1]);
-					  	sendMessage(formatter.confirmPhone(phoneNumber,payload[1]), sender); //Included OpptyId(April4)
+					  	sendMessage(formatter.confirmPhone(contacDetail.get("mobilePhone"),payload[1]), sender); //Included OpptyId(April4)
 					  }
 				  });
 			  });
