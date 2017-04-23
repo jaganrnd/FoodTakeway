@@ -534,7 +534,7 @@ let handlePost = (req, res) => {
 			console.log('No Enough**');
 			salesforce.findOpportunityLineItem(payload[1], true).then(SelectedItems  => {   			  		         		          							
 			  sendMessage({text: `Preparing Receipt for you `}, sender);	
-			  salesforce.getPhoneNumber(sender).then(contacDetail =>{
+			  salesforce.getContactDetails(sender).then(contacDetail =>{
                           sendMessage(formatter.formatOrder(SelectedItems, contacDetail), sender).then(orderSent => {   // Hitendar		          			  					
 				  sendMessage({text: `❤️`}, sender);
 					  if(contacDetail.get("mobilePhone") == null || contacDetail.get("mobilePhone") == ''){
