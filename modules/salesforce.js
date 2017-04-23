@@ -445,7 +445,7 @@ let getContactDetails = (userId) => {
 	
     return new Promise((resolve, reject) => {
 	console.log('UserId***'+userId);
-	let q = "SELECT Id, mobilePhone, MailingCity, MailingCity, MailingCountry, MailingPostalCode, MailingStreet from contact where FacebookId__c = '" + userId + "'";                 
+	let q = "SELECT Id, mobilePhone, MailingCity, MailingState, MailingCountry, MailingPostalCode, MailingStreet from contact where FacebookId__c = '" + userId + "'";                 
         
         console.log('Find contact**' + q);
 	
