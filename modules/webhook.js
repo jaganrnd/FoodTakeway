@@ -147,7 +147,7 @@ function adddomain(){
 }
 
 // GET STARTED BUTTON - START
-function addGetStartedButton(){
+function addGetStartedButton(sender){
 	 console.log('Going to GetStarted Flow**');	
 	 var messageData = {
           "get_started":[
