@@ -146,6 +146,35 @@ function adddomain(){
 	})
 }
 
+// GET STARTED BUTTON - START
+function addGetStartedButton(){
+	 console.log('Going to GetStarted Flow**');	
+	 var messageData = {
+          "get_started":[
+             {
+              "payload":"Play Game"
+             }
+       	   ]
+	 }
+	 request({
+	    url: 'https://graph.facebook.com/v2.6/me/messenger_profile',
+	    qs: {access_token: process.env.FB_PAGE_TOKEN},
+	    method: 'POST',
+	    json:{
+ 		 recipient: {id:sender},
+       		 message: messageData,
+	    }
+
+	}, function(error, response, body) {
+	    console.log(response);
+	    if (error) {
+		console.log('Error sending messages: ', error)
+	    } else if (response.body.error) {
+		console.log('Error: ', response.body.error);
+	    }	    	 	 
+	})
+}
+// GET STARTED BUTTON - END
 let processText = (text, sender)  => {                 
    let match1;
     match1 = text.match(/hi/i);
