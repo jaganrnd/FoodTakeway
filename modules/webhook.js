@@ -453,6 +453,7 @@ let handlePost = (req, res) => {
 			       //Hitendar
 				      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
+					  sendMessage({text: `👉🏼👉🏼`}, sender);     
 					  sendMessage(formatter.formatMainMenus(MainMenus,newOpp,payload[1]), sender);  
 				     }); 
 			       }); 
