@@ -153,10 +153,10 @@ let processText = (text, sender)  => {
          getUserInfo(sender).then(response => {         
                     sendMessage({text:
                       `Hey ${response.first_name} !
-                      "Kolapasi" welcomes you _/\_
-                      Happy to see you :) :)
+                     "Kolapasi" welcomes you _/\_
+                     Happy to see you :) :)
                      Want to order food ? ?? ?? Please hit - First Menu
-                      To know about other options swipe..??`
+                     To know about other options swipe..??`
                     }, sender);
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         console.log('bfo formating');
@@ -188,7 +188,7 @@ let handlePost = (req, res) => {
 		console.log('Event.Message.Text**' + event.message.text);
 		console.log('Event.Message.Text length**' + event.message.text.length);
 		
-		if(event.message.text == 'hi' || event.message.text == 'Hi'){
+		if(event.message.text == 'hi' || event.message.text == 'Hi' || event.message.text == 'Hello' || event.message.text == 'hello'){
 			console.log('Normal Flow**');	
 			adddomain();  // WHITELISTING DOMAINS
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
