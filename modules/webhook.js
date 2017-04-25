@@ -453,7 +453,7 @@ let handlePost = (req, res) => {
 			       //Hitendar
 				      salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
-					  sendMessage({text: `👉🏼👉🏼`}, sender);     
+					  sendMessage({text: `Please swipe to your right 👉🏼👉🏼`}, sender);     
 					  sendMessage(formatter.formatMainMenus(MainMenus,newOpp,payload[1]), sender);  
 				     }); 
 			       }); 
@@ -462,7 +462,7 @@ let handlePost = (req, res) => {
 				  console.log('Existing opportunitity '+payload[2]);
 				  salesforce.findMainMenus(payload[1]).then(MainMenus => {   
 					  console.log('Going inside main menus');
-					  sendMessage({text: `👉🏼👉🏼`}, sender);
+					  sendMessage({text: `Please swipe to your right 👉🏼👉🏼`}, sender);
 					  sendMessage(formatter.formatMainMenus(MainMenus,payload[2],payload[1]), sender);  
 				     });
 			  }
@@ -476,7 +476,7 @@ let handlePost = (req, res) => {
 			 
                      salesforce.findSubMenus(payload[1], payload[2]).then(SubMenus => {   
                           console.log('Going inside Sub menus');
-			  sendMessage({text: `👉🏼👉🏼`}, sender);   
+			  sendMessage({text: `Please swipe to your right 👉🏼👉🏼`}, sender);   
                           sendMessage(formatter.formatSubMenus(SubMenus,payload[3],payload[4]), sender);  // Hitendar
                      });   
                      
