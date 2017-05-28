@@ -90,7 +90,8 @@ let findOpenBranchesLatLong = (parentaccountid,lat,long) => {
 			console.log('resp.records[i].get("location__latitude__s")***'+resp.records[i].get("location__longitude__s"));
 			if(resp.records[i].get("location__latitude__s") != null && resp.records[i].get("location__longitude__s") != null){
 				var dist = distance (lat,long,resp.records[i].get("location__latitude__s"),resp.records[i].get("location__longitude__s"),"K");
-				if(dist < 3){
+				console.log('distance***'+dist);
+				if(dist < 20){
 					Accounts.push(resp.records[i]);
 				}
 			}
