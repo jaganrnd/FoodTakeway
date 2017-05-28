@@ -72,6 +72,34 @@ let findOpenBranches = (parentaccountid,subLocality) => {
         });
     });
 };
+let findOpenBranchesLatLong = (parentaccountid,lat,long) => {
+    return new Promise((resolve, reject) => {
+        console.log('bfo query');
+	console.log('sublocality****'+subLocality);
+        let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description,location__latitude__s,location__longitude__s FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE";
+        //select id,name,parent.name from account where parent.name = 'kolapasi'   
+	console.log('open branch query' + q);        
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('Open Branches Count' + resp.records.length);
+		var Accounts = [];
+		for(var i = 0; i < resp.records.length; i++){
+			console.log('resp.records[i].get("location__latitude__s")***'+resp.records[i].get("location__longitude__s"));
+			if(resp.records[i].get("location__latitude__s") != null && resp.records[i].get("location__longitude__s") != null){
+				var dist = distance (lat,long,resp.records[i].get("location__latitude__s"),resp.records[i].get("location__longitude__s"),"K");
+				if(dist < 3){
+					Accounts.push(resp.records[i]);
+				}
+			}
+		}
+                resolve(Accounts);
+            }
+        });
+    });
+};
 
 let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
     return new Promise((resolve, reject) => {
@@ -482,12 +510,25 @@ let getRecentOpportunityFromContactId = (userId) => {
         });
     });
 };
-
+function distance(lat1, lon1, lat2, lon2, unit) {
+	var radlat1 = Math.PI * lat1/180
+	var radlat2 = Math.PI * lat2/180
+	var theta = lon1-lon2
+	var radtheta = Math.PI * theta/180
+	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	dist = Math.acos(dist)
+	dist = dist * 180/Math.PI
+	dist = dist * 60 * 1.1515
+	if (unit=="K") { dist = dist * 1.609344 }
+	if (unit=="N") { dist = dist * 0.8684 }
+	return dist
+}
 login();
 
 exports.org = org;
 exports.findTitleCard = findTitleCard;
 exports.findOpenBranches = findOpenBranches;
+exports.findOpenBranchesLatLong = findOpenBranchesLatLong;
 exports.createOpportunity = createOpportunity;
 exports.findMainMenus = findMainMenus;
 exports.findSubMenus = findSubMenus;
