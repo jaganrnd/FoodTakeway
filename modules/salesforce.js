@@ -75,7 +75,7 @@ let findOpenBranches = (parentaccountid,subLocality) => {
 let findOpenBranchesLatLong = (parentaccountid,lat,long) => {
     return new Promise((resolve, reject) => {
         console.log('bfo query');
-	console.log('sublocality****'+subLocality);
+	console.log('sublocality****'+lat+long);
         let q = "SELECT Id, Name,Picture_URL__c,parentid,parent.name,IsOpen__c,Description,location__latitude__s,location__longitude__s FROM Account WHERE parentid = '" + parentaccountid + "' AND IsOpen__c = TRUE";
         //select id,name,parent.name from account where parent.name = 'kolapasi'   
 	console.log('open branch query' + q);        
