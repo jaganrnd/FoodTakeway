@@ -12,7 +12,9 @@ app.get('/success/Oppid', function (req, res) {
 })
 
 app.get('/', function(req, res){
-  res.send('YOU CAN');
+  //res.send('YOU CAN');
+  alert(req.query.id);  
+  res.send('id: ' + req.query.id);   
 });
 
 
