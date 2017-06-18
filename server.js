@@ -11,6 +11,11 @@ app.get('/success/Oppid', function (req, res) {
   res.send('Hello World!')
 })
 
+app.get('/', function(req, res){
+  res.send('YOU CAN');
+});
+
+
 app.get('/webhook', webhook.handleGet);
 app.post('/webhook', webhook.handlePost);
 
