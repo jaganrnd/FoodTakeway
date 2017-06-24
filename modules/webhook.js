@@ -473,10 +473,7 @@ let handlePost = (req, res) => {
 		else if(payload[3] == 'Feedback/Enquiry'){
 			    sendMessage({text: `Please feel free to Feedback/Enquiry.We are happy to hear from you :) :)`}, sender);  
 			    //sendMessage({text: `🏀`}, sender);    
-			    //if(event.message.text = 'Feedback/Enquiry'){
-			    	var userQuery = event.message.text;
-			    	console.log('userQuery**' + userQuery);
-			    //}	    
+			    console.log('payload[4]*' + payload[4]);	    
 		}		
 		//NEWLY ADDED ON 25 - JULY - 2017
 		
