@@ -468,6 +468,14 @@ let handlePost = (req, res) => {
 		     
 		     
                  }
+		
+		//NEWLY ADDED ON 25 - JULY - 2017		
+		else if(payload[3] == 'Feedback/Enquiry'){
+			    sendMessage({text: `Please feel free to type !!`}, sender);  
+			    //sendMessage({text: `🏀`}, sender);    
+		}		
+		//NEWLY ADDED ON 25 - JULY - 2017
+		
 		else if(payload[3] == 'Play Game'){
 			    sendMessage({text: `Click the ball and start playing !!`}, sender);  
 			    sendMessage({text: `🏀`}, sender);    
