@@ -469,7 +469,7 @@ let handlePost = (req, res) => {
 		     
                  }
 		
-		/*
+		
 		//NEWLY ADDED ON 25 - JULY - 2017		
 		else if(payload[3] == 'Feedback/Enquiry'){
 			    sendMessage({text: `Please feel free to Feedback/Enquiry.We are happy to hear from you :) :)`}, sender);  
@@ -477,7 +477,7 @@ let handlePost = (req, res) => {
 			    console.log('Incoming feedback**' + event.message.text);   
 		}		
 		//NEWLY ADDED ON 25 - JULY - 2017
-		*/
+		
 		
 		else if(payload[3] == 'Play Game'){
 			    sendMessage({text: `Click the ball and start playing !!`}, sender);  
