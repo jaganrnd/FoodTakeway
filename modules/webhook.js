@@ -304,7 +304,7 @@ let handlePost = (req, res) => {
 			//console.log('location Display');
 			//sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
-		else {
+		else if(!event.message.quick_reply && !event.message.attachments && !event.postback) {
 			getUserInfo(sender).then(response => {    
 				salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
 				sendMessage(formatter.formatFeedBack(), sender);  
