@@ -291,7 +291,7 @@ let handlePost = (req, res) => {
 			},sender);
 		}
 		*/
-		else if(event.message.text.length  == 10){
+		else if(event.message.text.length  == 10 && !isNaN(event.message.text)){
 			console.log('Phone Number entered***');	
 			if(!isNaN(event.message.text)){
 				salesforce.updatePhone(event.message.text, null, null,sender);
