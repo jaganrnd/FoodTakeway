@@ -511,6 +511,63 @@ let getRecentOpportunityFromContactId = (userId) => {
         });
     });
 };
+
+let createFeedback = (firstName, lastName, userId, feedback) => {
+    return new Promise((resolve, reject) => {
+	//Query if the contact already exists
+	var contactId;
+	let q = "SELECT Id FROM Contact WHERE FacebookId__c = '" + userId + "' ";
+        console.log('Contact Query***' + q); 
+       org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.log('ERROR');
+                reject("An error as occurred");
+            } else if (resp.records && resp.records.length>0) {
+                console.log('Contact count' + resp.records.length);
+		contactId = resp.records[0].get("Id");
+		console.log('Contact ID***' + contactId);
+            }
+	    if(contactId == null || contactId == ''){ 
+		//Create Contact    
+		let con = nforce.createSObject('Contact');
+		con.set('firstName', firstName);
+		con.set('lastName', lastName);
+		con.set('FacebookId__c', userId);
+		con.set('mailinglatitude',lat);
+		con.set('mailinglongitude',lng);
+		org.insert({sobject: con}, err => {
+		    if (err) {
+			console.error(err);
+			reject("An error occurred while creating a Contact");
+		    } 
+		    else{
+			console.log('Contact Created '+con.get("Id"));
+		    	contactId = con.get("Id");
+		    }
+		});
+	}
+	
+	//Create Opportunity    
+	let feedBackRecord = nforce.createSObject('Feedback__c');
+        feedBackRecord.set('Feedback__c', feedback);
+	feedBackRecord.set('Contact__c', contactId);
+	org.insert({sobject: feedBackRecord}, err => {
+		if (err) {
+			console.error(err);
+			reject("An error occurred while creating a feedback");
+		}
+		console.error('feedback Created***'+feedBackRecord.get("Id"));
+		resolve(feedBackRecord.get("Id"));
+	});
+        });
+	
+				
+            
+        
+    });
+};
+
+
 function distance(lat1, lon1, lat2, lon2, unit) {
 	var radlat1 = Math.PI * lat1/180
 	var radlat2 = Math.PI * lat2/180
@@ -542,4 +599,4 @@ exports.updatePhone = updatePhone;
 exports.getPhoneNumber = getPhoneNumber;
 exports.getRecentOpportunityFromContactId = getRecentOpportunityFromContactId;
 exports.getContactDetails = getContactDetails;
-
+exports.createFeedback = createFeedback;
