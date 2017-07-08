@@ -437,6 +437,33 @@ let proceedToPay = (OpptyId) => {
     };
 };
 
+let formatFeedBack = () => {
+    let elements = [];
+        elements.push({
+            title: '',
+            subtitle: 'Your Feedback is Noted. Continue chatting with bot.',
+            "image_url": '',
+            "buttons": [
+                {
+                    "type":"postback",
+                    "title":'Get Started',
+                    "payload": "Get_Started"
+                }	    
+	    ]
+	    
+        })
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+
 exports.formatTitleCard = formatTitleCard;
 exports.formatQuickReplies = formatQuickReplies;
 exports.formatOpenBranches = formatOpenBranches;
@@ -449,3 +476,5 @@ exports.confirmPhone = confirmPhone;
 exports.formatShareLocation = formatShareLocation;
 exports.proceedToPay = proceedToPay;
 exports.placeOrder = placeOrder;
+exports.formatFeedBack = formatFeedBack;
+
