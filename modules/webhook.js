@@ -225,6 +225,7 @@ let handlePost = (req, res) => {
 			adddomain();  // WHITELISTING DOMAINS
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
 		}
+		/*
 		else if(event.message.text == 'bye' || event.message.text == 'Bye'){
 			adddomain();
 			sendMessage({
@@ -289,6 +290,7 @@ let handlePost = (req, res) => {
 					    }
 			},sender);
 		}
+		*/
 		else if(event.message.text.length  == 10){
 			console.log('Phone Number entered***');	
 			if(!isNaN(event.message.text)){
@@ -302,7 +304,10 @@ let handlePost = (req, res) => {
 			//console.log('location Display');
 			//sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
-		
+		else {
+			salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
+			sendMessage(formatter.formatFeedBack(), sender);  
+		}
 		if (event.message.quick_reply){
 			
 			var SelectedQuantity = event.message.text;  
@@ -608,6 +613,9 @@ let handlePost = (req, res) => {
 			/*payumoney.paymentFields.then(fields =>{
 				console.log('fields***'+fields);
 			});*/
+		}
+		else if(payload[0] === "Get_Started"){ 
+			processText('Hi', sender);
 		}
 		else if (payload[0] === "Show_Cart"){ 
 			console.log('Show Cart**' + payload[1] );
