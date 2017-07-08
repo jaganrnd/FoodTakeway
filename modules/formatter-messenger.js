@@ -440,7 +440,7 @@ let proceedToPay = (OpptyId) => {
 let formatFeedBack = () => {
     let elements = [];
         elements.push({
-            title: '',
+            title: 'Thank You',
             subtitle: 'Your Feedback is Noted. Continue chatting with bot.',
             "image_url": '',
             "buttons": [
