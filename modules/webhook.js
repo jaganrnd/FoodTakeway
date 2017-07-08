@@ -474,7 +474,7 @@ let handlePost = (req, res) => {
 		else if(payload[3] == 'Feedback/Enquiry'){
 			    sendMessage({text: `Please feel free to Feedback/Enquiry.We are happy to hear from you :) :)`}, sender);  
 			    //sendMessage({text: `🏀`}, sender);    
-			    console.log('Incoming feedback**' + event.message.text);   
+			    console.log('Incoming feedback**');   
 		}		
 		//NEWLY ADDED ON 25 - JULY - 2017
 		
