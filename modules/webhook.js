@@ -312,11 +312,18 @@ let handlePost = (req, res) => {
 			if( event.message.text.startsWith("Feedback-") ){
 				console.log('Feeback If Condition Works****');
 				sendMessage({text: `Good Flow**`}, sender);
+				getUserInfo(sender).then(response => {    
+					salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
+					sendMessage(formatter.formatFeedBack(), sender);  
+				});
 			}		
+			
+			/*
+			//Time Being Comment this code and include Feedback- logic.
 			getUserInfo(sender).then(response => {    
 				salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
 				sendMessage(formatter.formatFeedBack(), sender);  
-			});
+			});*/
 		}
 		if (event.message.quick_reply){
 			
