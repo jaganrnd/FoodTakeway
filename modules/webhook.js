@@ -309,6 +309,7 @@ let handlePost = (req, res) => {
 			//var str = "Hello world, welcome to the universe.";
 			//var n = str.startsWith("Hello");
 			
+			//Feedback- Logic
 			if( event.message.text.startsWith("Feedback-") ){
 				console.log('Feeback If Condition Works****');
 				sendMessage({text: `Good Flow**`}, sender);
@@ -316,8 +317,12 @@ let handlePost = (req, res) => {
 					salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
 					sendMessage(formatter.formatFeedBack(), sender);  
 				});
-			}		
+			}
 			
+			//If user type something - Logic
+			else{
+				sendMessage({text: `Sorry am not able to get you !!`}, sender);
+			}	
 			/*
 			//Time Being Comment this code and include Feedback- logic.
 			getUserInfo(sender).then(response => {    
