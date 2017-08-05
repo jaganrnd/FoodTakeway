@@ -310,6 +310,7 @@ let handlePost = (req, res) => {
 			//var n = str.startsWith("Hello");
 			
 			if( event.message.text.startsWith("Feedback-") ){
+				console.log('Feeback If Condition Works****'):
 				sendMessage({text: `Good Flow**`}, sender);
 			}		
 			getUserInfo(sender).then(response => {    
