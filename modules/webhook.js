@@ -305,7 +305,11 @@ let handlePost = (req, res) => {
 			//sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
 		else if(!event.message.quick_reply && !event.message.attachments && !event.postback) {
-			if( event.message.textstartsWith("Feedback-") ){
+			
+			//var str = "Hello world, welcome to the universe.";
+			//var n = str.startsWith("Hello");
+			
+			if( event.message.text.startsWith("Feedback-") ){
 				sendMessage({text: `Good Flow**`}, sender);
 			}		
 			getUserInfo(sender).then(response => {    
