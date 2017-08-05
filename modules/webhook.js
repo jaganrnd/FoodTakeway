@@ -305,6 +305,9 @@ let handlePost = (req, res) => {
 			//sendMessage({text: "Thanks for sharing your number. We will contact you shortly"}, sender);
 		}
 		else if(!event.message.quick_reply && !event.message.attachments && !event.postback) {
+			if( event.message.textstartsWith("Feedback-") ){
+				sendMessage({text: `Good Flow**`}, sender);
+			}		
 			getUserInfo(sender).then(response => {    
 				salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
 				sendMessage(formatter.formatFeedBack(), sender);  
