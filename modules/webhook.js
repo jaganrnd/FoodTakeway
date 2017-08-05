@@ -108,7 +108,7 @@ let getAddress = (lat, lng, parentAccountId,sender) => {
 		    */
 		    salesforce.findOpenBranchesLatLong('0012800000tbvur',lat,lng).then(Accounts => {
 			    if(Accounts.length > 0){
-				sendMessage({text: `Below is the nearest branche available. Please proceed if you need to order food`}, sender);
+				sendMessage({text: `Below is the nearest branch available. Please proceed to place an order`}, sender);
                             	sendMessage(formatter.formatOpenBranches(Accounts,lat,lng), sender);  
 			    }
 			    else{
@@ -476,8 +476,7 @@ let handlePost = (req, res) => {
 		console.log("Postback received only for type postback and not for quick replies:****** " + JSON.stringify(event.postback));						
                 let payload = event.postback.payload.split(",");
 		
-                 if (payload[0] === "Show_Branches" && payload[3] == 'Order Food'){     
-			 
+                 if (payload[0] === "Show_Branches" && payload[3] == 'Order Food'){     			 
                      console.log('payload[1]' + payload[1]);
 		     console.log('payload[3]' + payload[3]);
 		     var obj = { 'parentAccountId': payload[1]};
@@ -492,8 +491,7 @@ let handlePost = (req, res) => {
 					}
 					     ]
 				    }, sender);
-		     sendMessage({text: `🏂`}, sender); 
-		     
+		     //sendMessage({text: `🏂`}, sender); 		     
                  }
 		
 		
