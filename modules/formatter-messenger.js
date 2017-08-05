@@ -441,12 +441,12 @@ let formatFeedBack = () => {
     let elements = [];
         elements.push({
             title: 'Thank You',
-            subtitle: 'Your Feedback is Noted. Continue chatting with bot.',
+            subtitle: 'Your Feedback is Noted. Click on "Continue Chatting" to continue chatting with me.',
             "image_url": '',
             "buttons": [
                 {
                     "type":"postback",
-                    "title":'Get Started',
+                    "title":'Continue Chatting',
                     "payload": "Get_Started"
                 }	    
 	    ]
