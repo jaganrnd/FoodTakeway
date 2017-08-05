@@ -312,7 +312,7 @@ let handlePost = (req, res) => {
 			//Feedback- Logic
 			if( event.message.text.startsWith("Feedback-") || event.message.text.startsWith("feedback-")){
 				console.log('Feeback If Condition Works****');
-				sendMessage({text: `Good Flow**`}, sender);
+				//sendMessage({text: `Good Flow**`}, sender);
 				getUserInfo(sender).then(response => {    
 					salesforce.createFeedback (response.first_name,response.last_name,sender,event.message.text);
 					sendMessage(formatter.formatFeedBack(), sender);  
@@ -499,7 +499,7 @@ let handlePost = (req, res) => {
 		
 		//NEWLY ADDED ON 25 - JULY - 2017		
 		else if(payload[3] == 'Feedback/Enquiry'){
-			    sendMessage({text: `Please feel free to Feedback/Enquiry.We are happy to hear from you :) :). Go ahead and type your feedback`}, sender);  
+			    sendMessage({text: `Please feel free to Feedback/Enquiry.We are happy to hear from you :) :). Go ahead and type your feedback int the format - Feedback-`}, sender);  
 			    //sendMessage({text: `🏀`}, sender);    
 			    console.log('Incoming feedback**');   
 		}		
