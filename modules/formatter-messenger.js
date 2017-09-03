@@ -342,7 +342,7 @@ let formatOrder = (SelectedItems, contactDetail) => {
                 "recipient_name": SelectedItems[0].get("Opportunity").Name,
                 "order_number":SelectedItems[0].get("Opportunity").Order_Number__c,
                 "currency":"INR",
-                "payment_method":"-",        
+                "payment_method":"Online Payment",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
                 "timestamp":Math.floor(Date.now() / 1000) + 48600, 
                 "elements": elements,
@@ -356,9 +356,9 @@ let formatOrder = (SelectedItems, contactDetail) => {
                 },
                 "summary":{
                     "subtotal":SelectedItems[0].get("Opportunity").Amount,
-                    "shipping_cost":4.95,
-                    "total_tax":6.19,
-                    "total_cost": SelectedItems[0].get("Opportunity").Amount + 6.19 + 4.95,
+                    "shipping_cost":0.00,
+                    "total_tax":SelectedItems[0].get("Opportunity").Tax__c,
+                    "total_cost": SelectedItems[0].get("Opportunity").Exact_Amount__c,
                  }
             }
         }
