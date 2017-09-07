@@ -326,8 +326,9 @@ let formatOrder = (SelectedItems, contactDetail) => {
     SelectedItems.forEach(opportunitylineitem   =>
         elements.push({
             "title":opportunitylineitem.get("product2").Name,
-            "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("TotalPrice"),
-            "quantity": opportunitylineitem.get("quantity"),
+            //"subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("TotalPrice"),
+            "subtitle":"Quantity:" +  opportunitylineitem.get("quantity") + "," + "Price:" + opportunitylineitem.get("ListPrice"),
+	    //"quantity": opportunitylineitem.get("quantity"),
             "price": opportunitylineitem.get("TotalPrice"),
             "currency":"INR",
             "image_url": opportunitylineitem.get("product2").PICURL__c,
