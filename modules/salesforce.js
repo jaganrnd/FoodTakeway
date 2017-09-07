@@ -284,6 +284,7 @@ let createOpportunityProduct = (ProductId, Price, Quantity, OpportunityId, OLIId
 	    	let Oppli = nforce.createSObject('OpportunityLineItem');
 		Oppli.set('Id', OLIId);
 		Oppli.set('Quantity', Quantity);
+		Oppli.set('UnitPrice',Price);    
 		org.update({sobject: Oppli}, err => {
 		    if (err) {
 			console.error(err);
