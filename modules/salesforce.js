@@ -151,6 +151,7 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 	opp.set('CloseDate',Date.now());
 	opp.set('Contact__c',contactId);
 	opp.set('AccountId',accountId);
+	console.log('opp.Contact__c' + opp.Contact__c);       
 	org.insert({sobject: opp}, err => {
 		if (err) {
 			console.error(err);
