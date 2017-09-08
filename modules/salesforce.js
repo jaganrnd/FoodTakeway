@@ -142,7 +142,8 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 	       	       console.log('Update phone number flow**');	
 		       updatePhone(null,lat,lng,userId);
 	       }
-	
+	console.log('Before creating opportunity dude' + contactId);
+	       
 	//Create Opportunity    
 	let opp = nforce.createSObject('Opportunity');
         opp.set('name', firstName + lastName);
