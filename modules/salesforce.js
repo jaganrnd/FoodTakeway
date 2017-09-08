@@ -102,11 +102,10 @@ let findOpenBranchesLatLong = (parentaccountid,lat,long) => {
     });
 };
 
-let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
-	var contactId;	
+let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {	
     return new Promise((resolve, reject) => {
 	//Query if the contact already exists
-	//var contactId; //Ippo thaan dude comment pannen
+	var contactId; 
 	let q = "SELECT Id FROM Contact WHERE FacebookId__c = '" + userId + "' ";
         //SELECT Id,Product__r.name,Product__r.PICURL__c FROM Menu__c where Account__c = '0012800000tbvuw' AND Product__r.Family = 'Parent'       
        console.log('Contact Query***' + q); 
