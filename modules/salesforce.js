@@ -134,6 +134,7 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 		    else{
 			console.log('Contact Created '+con.get("Id"));
 		    	contactId = con.get("Id");
+			console.log('After assigning' + contactId);    
 		    }
 		});
 	}
