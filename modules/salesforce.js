@@ -138,7 +138,8 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 		});
 	}
 	       else{
-	       		updatePhone(null,lat,lng,userId);
+	       	       console.log('Update phone number flow**');	
+		       updatePhone(null,lat,lng,userId);
 	       }
 	
 	//Create Opportunity    
