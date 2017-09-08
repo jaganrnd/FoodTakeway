@@ -610,6 +610,7 @@ let handlePost = (req, res) => {
 				  sendMessage({text: `❤️`}, sender);
 					  if(contacDetail.get("mobilePhone") == null || contacDetail.get("mobilePhone") == ''){
 					  	sendMessage({text: `Please enter your phone number without code `}, sender);
+						sendMessage(formatter.confirmPhone(contacDetail.get("mobilePhone"),payload[1]), sender); //JUST IPPO THAAN POTATHU  
 					  }
 					  else{
 						  console.log('oppId****'+payload[1]);
