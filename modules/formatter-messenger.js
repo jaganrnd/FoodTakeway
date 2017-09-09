@@ -345,7 +345,7 @@ let formatOrder = (SelectedItems, contactDetail) => {
                 "currency":"INR",
                 "payment_method":"Online Payment",        
                 "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-                "timestamp":Math.floor(Date.now() / 1000) + 48600, 
+                "timestamp":Math.floor(Date.now() / 1000) + 45000, 
                 "elements": elements,
                 "address":{
                     "street_1":contactDetail.get("MailingStreet"),		    
