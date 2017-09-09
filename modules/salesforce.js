@@ -101,7 +101,6 @@ let findOpenBranchesLatLong = (parentaccountid,lat,long) => {
         });
     });
 };
-
 let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {	
     return new Promise((resolve, reject) => {
 	//Query if the contact already exists
@@ -115,8 +114,24 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
                 reject("An error as occurred");
             } else if (resp.records && resp.records.length>0) {
                 console.log('Contact count' + resp.records.length);
-		contactId = resp.records[0].get("Id");
-		console.log('Contact ID***' + contactId);
+			contactId = resp.records[0].get("Id");
+			console.log('Contact ID***' + contactId);
+			//Create Opportunity    
+				let opp = nforce.createSObject('Opportunity');
+					opp.set('name', firstName + lastName);
+				opp.set('StageName','Order Initiated');
+				opp.set('CloseDate',Date.now());
+				opp.set('Contact__c',contactId);
+				opp.set('AccountId',accountId);
+				console.log('opp.Contact__c' + opp.Contact__c);       
+				org.insert({sobject: opp}, err => {
+					if (err) {
+						console.error(err);
+						reject("An error occurred while creating a Opportunity");
+					}
+					console.error('Opportunity Created***'+opp.get("Id"));
+					resolve(opp.get("Id"));
+				});
             }
 	    if(contactId == null || contactId == ''){ 
 		//Create Contact    
@@ -134,7 +149,23 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 		    else{
 			console.log('Contact Created '+con.get("Id"));
 		    	contactId = con.get("Id");
-			console.log('After assigning' + contactId);    
+			console.log('After assigning' + contactId);  
+			//Create Opportunity    
+			let opp = nforce.createSObject('Opportunity');
+				opp.set('name', firstName + lastName);
+			opp.set('StageName','Order Initiated');
+			opp.set('CloseDate',Date.now());
+			opp.set('Contact__c',contactId);
+			opp.set('AccountId',accountId);
+			console.log('opp.Contact__c' + opp.Contact__c);       
+			org.insert({sobject: opp}, err => {
+				if (err) {
+					console.error(err);
+					reject("An error occurred while creating a Opportunity");
+				}
+				console.error('Opportunity Created***'+opp.get("Id"));
+				resolve(opp.get("Id"));
+			});
 		    }
 		});
 	}
@@ -144,22 +175,7 @@ let createOpportunity = (firstName, lastName, userId, accountId, lat, lng) => {
 	       }
 	console.log('Before creating opportunity dude' + contactId);
 	       
-	//Create Opportunity    
-	let opp = nforce.createSObject('Opportunity');
-        opp.set('name', firstName + lastName);
-	opp.set('StageName','Order Initiated');
-	opp.set('CloseDate',Date.now());
-	opp.set('Contact__c',contactId);
-	opp.set('AccountId',accountId);
-	console.log('opp.Contact__c' + opp.Contact__c);       
-	org.insert({sobject: opp}, err => {
-		if (err) {
-			console.error(err);
-			reject("An error occurred while creating a Opportunity");
-		}
-		console.error('Opportunity Created***'+opp.get("Id"));
-		resolve(opp.get("Id"));
-	});
+	
         });
 	
 				
