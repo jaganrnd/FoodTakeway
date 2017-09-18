@@ -186,7 +186,7 @@ let processText = (text, sender)  => {
                     sendMessage({text:
                       `Hey ${response.first_name} !
                      Kolapasi 🍜 welcomes you 😍                
-                     👉 Please swipe to your right to see the options i have... 
+                     👉 Please swipe to your right to see the options i have'
                     }, sender);
                    salesforce.findTitleCard(match1[0]).then(Accounts => {    
                         console.log('bfo formating');
