@@ -319,7 +319,7 @@ let handlePost = (req, res) => {
 			
 			//If user type something - Logic
 			else{
-				sendMessage({text: `Sorry am not able to get you !!`}, sender);
+				sendMessage({text: `Sorry am not able to get you !! This is an automated message...  Kindly send Hi to know the options`}, sender);
 			}	
 			/*
 			//Time Being Comment this code and include Feedback- logic.
