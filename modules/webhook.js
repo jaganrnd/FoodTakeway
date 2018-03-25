@@ -134,7 +134,7 @@ function adddomain(){
 				       "https://peterssendreceiveapp.ngrok.io/shop_collection",
 				       "https://peterssendreceiveapp.ngrok.io/collection",
 				       "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-				       "https://kolapasi-developer-edition.ap2.force.com",
+				       "https://kolapasi-developer-edition.ap7.force.com",
 				       "https://test.payu.in/_payment"],
 		domain_action_type: "add"
 	    }
