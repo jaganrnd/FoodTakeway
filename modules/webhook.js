@@ -217,11 +217,19 @@ let handlePost = (req, res) => {
 
 		console.log('Event.Message.Text**' + event.message.text);
 		console.log('Event.Message.Text length**' + event.message.text.length);
+                
+		// DO NOT TEST WITH ME
+		var mess = event.message.text.toLowerCase();
+               // DO NOT TEST WITH ME
 		
-		if(event.message.text == 'hi' || event.message.text == 'Hi' || event.message.text == 'Hello' || event.message.text == 'hello'){
+		
+		if(event.message.text == 'hi' || event.message.text == 'Hi' || event.message.text == 'Hello' || event.message.text == 'hello' || event.message.text == 'hey' || event.message.text == 'Hey'){
 			console.log('Normal Flow**');	
 			adddomain();  // WHITELISTING DOMAINS
 			processText(event.message.text, sender); // WHY KILLING SAMBU MAVAN
+		}
+		else if( mess.includes("test")){
+			sendMessage({text: `This app is not available for testing. PLease type Hi to know the options`}, sender);
 		}
 		/*
 		else if(event.message.text == 'bye' || event.message.text == 'Bye'){
@@ -319,7 +327,10 @@ let handlePost = (req, res) => {
 			
 			//If user type something - Logic
 			else{
-				sendMessage({text: `Sorry am not able to get you !! This is an automated message...  Kindly send Hi to know the options`}, sender);
+				sendMessage({text: `Sorry am not able to get you !! This is an automated message...  
+				Kindly follow the previous message as instructed 
+				[or]
+				send Hi to know the options`}, sender);
 			}	
 			/*
 			//Time Being Comment this code and include Feedback- logic.
