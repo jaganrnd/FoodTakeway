@@ -554,8 +554,8 @@ let createFeedback = (firstName, lastName, userId, feedback) => {
 		con.set('firstName', firstName);
 		con.set('lastName', lastName);
 		con.set('FacebookId__c', userId);
-		con.set('mailinglatitude',lat);
-		con.set('mailinglongitude',lng);
+		//con.set('mailinglatitude',lat);
+		//con.set('mailinglongitude',lng);
 		org.insert({sobject: con}, err => {
 		    if (err) {
 			console.error(err);
