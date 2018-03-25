@@ -380,7 +380,7 @@ let confirmPhone= (phoneNumber,OpptyId) => {
 			//"url":"https://test.payu.in/_payment",
 			
 			//"url" :"https://kolapasi-developer-edition.ap2.force.com?id=0062800000Ji6cu",
-			"url" :"https://kolapasi-developer-edition.ap2.force.com?id="+OpptyId,
+			"url" :"https://kolapasi-developer-edition.ap7.force.com?id="+OpptyId,
 			"title":"Proceed to Pay",
 			"webview_height_ratio": "FULL",
 			"webview_share_button": "hide" //newly added on sunday april 8th
