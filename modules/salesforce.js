@@ -567,7 +567,7 @@ let createFeedback = (firstName, lastName, userId, feedback) => {
 		    }
 		});
 	}
-	
+	console.log('contact to be mapped for feedback**' + contactId);
 	//Create Opportunity    
 	let feedBackRecord = nforce.createSObject('Feedback__c');
         feedBackRecord.set('Feedback__c', feedback);
