@@ -496,7 +496,7 @@ let handlePost = (req, res) => {
 		//NEWLY ADDED ON 25 - JULY - 2017		
 		else if(payload[3] == 'Feedback/Enquiry'){
 			    sendMessage({text: `Please feel free to provide yourFeedback/Enquiry. 
-					Go ahead and type your feedback in this format --> Feedback- 
+					Go ahead and type your feedback in this format --> Feedback-{your feedback} 
 					followed by your contact email address`}, sender);  
 			    //sendMessage({text: `🏀`}, sender);    
 			    console.log('Incoming feedback**');   
