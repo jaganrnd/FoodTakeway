@@ -547,6 +547,19 @@ let createFeedback = (firstName, lastName, userId, feedback) => {
                 console.log('Contact count' + resp.records.length);
 		contactId = resp.records[0].get("Id");
 		console.log('Contact ID***' + contactId);
+			console.log('contact to be mapped for feedback**' + contactId);
+			//Create Opportunity    
+			let feedBackRecord = nforce.createSObject('Feedback__c');
+				feedBackRecord.set('Feedback__c', feedback);
+			feedBackRecord.set('Contact__c', contactId);
+			org.insert({sobject: feedBackRecord}, err => {
+				if (err) {
+					console.error(err);
+					reject("An error occurred while creating a feedback");
+				}
+				console.error('feedback Created***'+feedBackRecord.get("Id"));
+				resolve(feedBackRecord.get("Id"));
+			});
             }
 	    if(contactId == null || contactId == ''){ 
 		//Create Contact    
@@ -564,22 +577,23 @@ let createFeedback = (firstName, lastName, userId, feedback) => {
 		    else{
 			console.log('Contact Created '+con.get("Id"));
 		    	contactId = con.get("Id");
+				console.log('contact to be mapped for feedback**' + contactId);
+				//Create Opportunity    
+				let feedBackRecord = nforce.createSObject('Feedback__c');
+					feedBackRecord.set('Feedback__c', feedback);
+				feedBackRecord.set('Contact__c', contactId);
+				org.insert({sobject: feedBackRecord}, err => {
+					if (err) {
+						console.error(err);
+						reject("An error occurred while creating a feedback");
+					}
+					console.error('feedback Created***'+feedBackRecord.get("Id"));
+					resolve(feedBackRecord.get("Id"));
+				});
 		    }
 		});
 	}
-	console.log('contact to be mapped for feedback**' + contactId);
-	//Create Opportunity    
-	let feedBackRecord = nforce.createSObject('Feedback__c');
-        feedBackRecord.set('Feedback__c', feedback);
-	feedBackRecord.set('Contact__c', contactId);
-	org.insert({sobject: feedBackRecord}, err => {
-		if (err) {
-			console.error(err);
-			reject("An error occurred while creating a feedback");
-		}
-		console.error('feedback Created***'+feedBackRecord.get("Id"));
-		resolve(feedBackRecord.get("Id"));
-	});
+	
         });
 	
 				
